@@ -31,6 +31,14 @@ most algorithms become memory-bound, we must consider retiring
   product structure
   - XFEM
   - Overlapping nonmatching grids
+- Note: *hp* adaptivity is supported by the `FEEvaluation` class.
+
+## Design and limitations of the `FEEvaluation` class
+
+The matrix-free implementation uses the class `FEEvaluation` instead of `FEValues`. Different from the `FEValues` class, information about the degrees of freedom and the mapping from physical to unit cell is precomputed and stored. The degrees of freedom are numbered MPI-local and the constraints are incorporated into the DoF list in order to provide direct array access into vectors.
+This enables e.g. fast evaluation of the shape functions at the quadrature points. On the other hand, only values, gradients, etc. that are precomputed can be accessed while the `FEValues` object enables on-the-fly computations of more general evaluations.
+The main task would therefore be to merge the different functionalities of the two classes.
+
 
 # Tensor product quadrature
 
@@ -123,3 +131,4 @@ well. For these we need truncated tensor products.
   numbering of the shape functions, which is the inversion of a
   similar process when we generate the functions. Should we reconsider
   the ordering in `DoFHandler`?
+- `FEEvaluation` currently knows the elements `FE_Q`, `FE_DGQ`, `FE_DGP` and `FE_Q_DG0`.

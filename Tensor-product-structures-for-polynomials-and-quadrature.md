@@ -50,7 +50,9 @@ where the access operator `[]` returns a `Point<dim>` created on the
 fly. Additionally, it allows direct access to the one-dimensional
 point sets. Similarly, we can consider a class `TensorProductWeights`.
 
-Note that while we are currently not making use of this (?),
+Note that while we are currently not making use of this (**this is false**: 
+there are classes to integrate singularities which are not based on tensor 
+product quadrature formulas...),
 `Quadrature` is not restricted to tensor products. Therefore,
 `TensorProductQuadrature` is not going to be an equivalent
 replacement.

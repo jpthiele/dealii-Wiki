@@ -1,6 +1,6 @@
-# General questions on deal.II
+## General questions on deal.II
 
-## Can I use/implement triangles/tetrahedra in deal.II?
+### Can I use/implement triangles/tetrahedra in deal.II?
 
 This is truly one of the most frequently asked questions. The short answer
 is: No, you can't. deal.II's basic data structures are too much tailored to
@@ -33,7 +33,7 @@ triangular or tetrahedral mesh, then you can convert this mesh into one
 that consists of quadrilaterals and hexahedra using the `tethex` program,
 see http://code.google.com/p/tethex/wiki/Tethex .
 
-## I'm stuck!
+### I'm stuck!
 
 Further down below on this page (in the debugging section) we list a number
 of strategies on how to find errors in your program. If your question is
@@ -68,7 +68,7 @@ gave us a bit more detail explaining what doesn't work: show us the code
 you implemented, show us the compiler's error message, or be specific in
 some other way in describing what the problem is!
 
-## I'm not sure the mailing list is the right place to ask ...
+### I'm not sure the mailing list is the right place to ask ...
 
 Yes, it probably is. Please direct your questions to the mailing list and
 not to individual developers. There are many reasons:
@@ -92,7 +92,7 @@ That said, if there is something you can not discuss in the open, feel free
 to contact us!
 
 
-## How fast is deal.II?
+### How fast is deal.II?
 
 The answer to this question really depends on your metric. If you had to
 write, say, a Stokes solver with a particular linear solver, a particular
@@ -117,7 +117,7 @@ make codes fast. The discussion of this issue in the introduction of
 step-22 is a good example. There are also some guidelines below on how to
 profile your code in the debugging section of this FAQ.
 
-## deal.II programs behave differently in 1d than in 2/3d
+### deal.II programs behave differently in 1d than in 2/3d
 
 In deal.II, you can write programs that look exactly the same in 2d and 3d,
 but there are cases where 1d is slightly different. That said, this is an
@@ -143,7 +143,7 @@ quadrature to them. As a consequence, the FEFaceValues class wasn't usable
 in 1d. Again, this should work these days: every quadrature formula that
 has a single quadrature point is a valid one for points as well.
 
-## I want to use deal.II for work in my company. Do I need a special license?
+### I want to use deal.II for work in my company. Do I need a special license?
 
 Before going into any more details, you **need** to carefully read the
 license deal.II is under. In particular, the explanations below are not meant
@@ -180,16 +180,16 @@ customers.
 As mentioned above, the preceding paragraphs are not a legal interpretation. For definite interpretations of the LGPL, you may want to consult lawyers familiar with the topic or search the web for more detailed interpretations.
 
 
-# Supported System Architectures
+## Supported System Architectures
 
-## Can I use deal.II on a Windows platform?
+### Can I use deal.II on a Windows platform?
 
 deal.II has been developed with a Unix-like environment in mind and it
 shows in a number of places regarding the build system and compilers
 supported. That said, there are multiple methods to get deal.II running if
 you have a Windows machine.
 
-### Run deal.II through a virtual box
+#### Run deal.II through a virtual box
 
 The simplest way to try out deal.II is to run it in a premade virtual
 machine. You can download the virtual machine for VirtualBox from
@@ -199,7 +199,7 @@ Note that your experience depends on how powerful your machine is. More
 than 4GB RAM are recommended. A native installation of Linux is preferable
 (see below).
 
-### Dual-boot your machine with Ubuntu
+#### Dual-boot your machine with Ubuntu
 
 The simplest way to install Linux as a Windows user is to dual-boot.
 Dual-boot means that you simply install a second operating system on your
@@ -220,7 +220,7 @@ installer" in the first gray box.  You will be prompted to donate to
 Ubuntu, which is entirely optional. You will also be prompted to use a
 different version of Ubuntu if you use Windows 8.
 
-### Run deal.II natively on Windows
+#### Run deal.II natively on Windows
 
 Native Windows support for deal.II is currently experimental and not
 officially supported.
@@ -229,7 +229,7 @@ In principle, it is able to compile and use deal.II within the CygWin
 environment as well as on native Windows with the MinGW or MinGW-w64
 compiler. See the separate page on [for more details.
 
-### Are any of the native Windows compilers supported by deal.II?
+#### Are any of the native Windows compilers supported by deal.II?
 
 If you are thinking of compilers like Microsoft Visual C++ or Borland C++,
 then the answer is: No, not at the moment. The basic problem is that none
@@ -237,7 +237,7 @@ of the main developers use Windows and as in any other volunteer project,
 things happen if people with the necessary expertise step forward to make
 it work.
 
-## Can I use deal.II on an Apple Macintosh?
+### Can I use deal.II on an Apple Macintosh?
 
 Yes, at least on the more modern OS X operating systems this works just
 fine. deal.II supports native compilers shipping with XCode as well as gcc
@@ -251,7 +251,7 @@ other problems, though we believe that we have a way to stably interface
 it. You may want to read through the PETSc-related entries further down,
 however.
 
-## Does deal.II support shared memory parallel computing?
+### Does deal.II support shared memory parallel computing?
 
 Yes. deal.II supports multithreading with the help of the
 [http://www.threadingbuildingblocks.org Threading Building Blocks (TBB)
@@ -259,7 +259,7 @@ library](c967ec2ff74d85bd4327f9f773a93af3]). It is enabled by default and
 can be controlled via the `DEAL_II_WITH_THREADS` configuration toggle
 passed to `cmake` (see the deal.II readme file).
 
-## Does deal.II support parallel computing with message passing?
+### Does deal.II support parallel computing with message passing?
 
 Yes, and in fact it has been shown to scale very nicely to at least 16,384
 processor cores in a paper by Bangerth, Burstedde, Heister and Kronbichler.
@@ -267,7 +267,7 @@ You should take a look at the documentation modules discussing parallel
 computing, as well as the step-40 tutorial program.
 
 
-## How does deal.II support multi-threading?
+### How does deal.II support multi-threading?
 
 deal.II will use multi-threading using several approaches:
 1. some BLAS routines might be multi-threaded (typically using OpenMP).
@@ -288,7 +288,7 @@ Also note that while our Trilinos wrappers support multi-threading, the
 PETSc wrappers do not support this at this time, so you need to run with
 one thread per process.
 
-## My deal.II installation links with the Threading Building Blocks (TBB) but doesn't appear to use multiple threads!
+### My deal.II installation links with the Threading Building Blocks (TBB) but doesn't appear to use multiple threads!
 
 This may be a quirky interaction with the [GOTO
 BLAS](http://www.tacc.utexas.edu/tacc-projects/gotoblas2/) :-( If you use
@@ -311,13 +311,13 @@ environment variables to 1, see
 http://www.tacc.utexas.edu/tacc-software/gotoblas2/faq .
 
 
-# Configuration and Compiling
+## Configuration and Compiling
 
-## Where do I start?
+### Where do I start?
 
 Have a look at the  [ReadMe instructions](http://www.dealii.org/developer/readme.html) for details on how to configure and install the library with `cmake`.
 
-## I tried to install deal.II on system X and it does not work
+### I tried to install deal.II on system X and it does not work
 
 That does occasionally (though relatively rarely) happen, in particular if
 you work on an operating system or with a compiler that the primary
@@ -334,7 +334,7 @@ If the error happens after configuring and during compiling, add lines from
 screen output showing the error to the mail.
 
 
-## How do I change the compiler?
+### How do I change the compiler?
 
 deal.II can be compiled by a number of compilers without problems (see the
 section [prerequisites](http://www.dealii.org/readme.html#prerequisites) in
@@ -345,7 +345,7 @@ in the [cmake
 documentation](http://www.dealii.org/developer/development/cmake.html).
 
 
-## I get warnings during linking when compiling the library. What's wrong?
+### I get warnings during linking when compiling the library. What's wrong?
 
 On some linux distributions with particular versions of the system
 compiler, one can get warnings like these during the linking stage of
@@ -363,7 +363,7 @@ multiple times in exactly the same form, and the linker is only warning
 that it is throwing away all but one of the copies. There doesn't seem to
 be way to avoid these warnings, but they can be safely ignored.
 
-## I can't seem to link/run with PETSc
+### I can't seem to link/run with PETSc
 
 Recent deal.II releases support PETSc 3.0 and later. This works, but there
 are a number of things that can go wrong and that result in compilation or
@@ -407,7 +407,7 @@ then the compiler can't seem to find the PETSc libraries. The solution is
 as above: specify the path to those libraries via `LD_LIBRARY_PATH`.
 
 
-### Is there a sure-fire way to compile deal.II with PETSc?
+#### Is there a sure-fire way to compile deal.II with PETSc?
 
 Short answer is "No". The slightly longer answer is, "PETSc has too many
 knobs, switches, dials, and a kitchen sink too many for its own damned
@@ -421,7 +421,7 @@ You can find instructions on how to install PETSc linked to from the
 deal.II ReadMe file, or going directly to
 http://www.dealii.org/developer/external-libs/petsc.html .
 
-### I want to use HYPRE through PETSc
+#### I want to use HYPRE through PETSc
 
 Hypre implements algebraic multigrid methods (AMG) as preconditioners, for
 example the BoomerAMG method. AMGs are among the most efficient
@@ -435,7 +435,7 @@ To use the Hypre interfaces through PETSc, you need to configure PETSc as
 discussed in http://www.dealii.org/developer/external-libs/petsc.html  ,
 and add the following switch to the command line: `--download-hypre=1`.
 
-### Is there a sure-fire way to compile dealii with SLEPc?
+#### Is there a sure-fire way to compile dealii with SLEPc?
 
 Happily, the answer to this question is a definite yes; that is, <b>if you
 have successfully compiled and linked PETSc already</b>.
@@ -455,7 +455,7 @@ since they share the same vector-matrix (and other) data structures.
 </i>
 
 
-## Trilinos detection fails with an error in the file `Sacado.hpp` or `Sacado_cmath.hpp`
+### Trilinos detection fails with an error in the file `Sacado.hpp` or `Sacado_cmath.hpp`
 
 This is a complicated one (and it should also be fixed in more recent
 Trilinos versions). In the Trilinos file `Sacado_cmath.hpp`, there is some
@@ -494,11 +494,11 @@ in
 
 to read
 ```
-#ifndef _GLIBCXX_USE_C99_MATH
+##ifndef _GLIBCXX_USE_C99_MATH
   namespace std {
     ...
   }
-#endif
+##endif
 ```
 
 What this will do is make sure that the new members of namespace `std` are
@@ -507,7 +507,7 @@ only added if the compiler has not already done so itself.
 
 
 
-## My program links with some template parameters but not with others.
+### My program links with some template parameters but not with others.
 
 deall.II has many types for whose initialization you need to provide a
 template parameter, e.g. `SparseMatrix<double>`. The implementation of
@@ -534,7 +534,7 @@ instance of e.g. `SparseMatrix<bool>`, you have to include the respective
 `.templates.h` file and you have to compile it along with the remaining
 files of your program every time.
 
-## When trying to run my program on Mac OS X, I get an error of the kind `dyld: Library not loaded: libdeal_II.g.7.0.0.dylib. Reason: image not found`
+### When trying to run my program on Mac OS X, I get an error of the kind `dyld: Library not loaded: libdeal_II.g.7.0.0.dylib. Reason: image not found`
 
 This goes hand in hand with the following message you should have gotten at
 the end of the output of `./configure`:
@@ -581,9 +581,9 @@ opening it again, and then trying to execute
   ./step-1
 (or saying "make run" in this directory) and seeing whether that works.
 
-# C++ questions
+## C++ questions
 
-## What integrated development environment (IDE) works well with deal.II?
+### What integrated development environment (IDE) works well with deal.II?
 
 The short answer is probably: whatever works best for you. deal.II uses
 standard unix-style Makefiles, which most IDEs should support. In the past,
@@ -621,7 +621,7 @@ have become '''so''' much more productive by using modern tools that the
 time invested in learning it was amortized very quickly. I found this
 experience a real eye-opener!
 
-## Is there a good introduction to C++?
+### Is there a good introduction to C++?
 
 There are of course many good books and online resources that explain C++.
 As far as websites are concerned,
@@ -631,7 +631,7 @@ library](http://cplusplus.com/reference/) as well as a [a tutorial on parts
 of the C++ language](http://cplusplus.com/tutorial) if you want to brush up
 on the correct syntax of things.
 
-## Are there features of C++ that you avoid in deal.II?
+### Are there features of C++ that you avoid in deal.II?
 
 There are few things that we avoid <i>as a matter of principle.</i> C++ is,
 by and large, a pretty well designed language in the sense that its
@@ -660,14 +660,14 @@ that deal.II is a large piece of software -- not a small research project
 long term development can no longer be driven by an individual programmer's
 preferences of style.
 
-## Why use templates for the space dimension?
+### Why use templates for the space dimension?
 
 The fundamental motivation for this is to use dimension-independent
 programming, i.e. you want to write code in such a way that it looks
 exactly the same in 2d as in 3d (or 1d, for that matter). There are of
 course many ways to do this (and libraries have done this for a long time
 before deal.II has). The three most popular ones are to use a preprocessor
-#define that sets the space dimension globally, to use a global variable
+##define that sets the space dimension globally, to use a global variable
 that does this, and to have each object have a member variable that denotes
 the space dimension it is supposed to live in (in much the same way as the
 template argument does in deal.II). Neither of these approaches is optimal
@@ -795,7 +795,7 @@ compiling template heavy code is slow: for example, we have to compile the
 once. Nevertheless, we believe that these valid objections do not outweigh
 the benefits of templates.
 
-## Doesn't it take forever to compile templates?
+### Doesn't it take forever to compile templates?
 
 Yes, in general it does. The reason is that while for non-templates it is
 enough to put the ''declaration'' of a function into the header file and
@@ -863,7 +863,7 @@ arguments, we have a file `.inst.in` that has the equivalent of a
 file is processed by the `common/scripts/expand_instantiations` program to
 produce a `.inst` file that can then be included into the `.cc` file.
 
-## Why do I need to use `typename` in all these templates?
+### Why do I need to use `typename` in all these templates?
 
 This is indeed a frequent question. To answer it, it is necessary to
 understand how a compiler deals with templates, which will take a bit of
@@ -1008,7 +1008,7 @@ other hand, if we had
 then the call is dependent and will be deferred until the compiler knows
 the type of `T`.
 
-## Why do I need to use `this->` in all these templates?
+### Why do I need to use `this->` in all these templates?
 
 This is a consequence of the same rule in the C++ standard as discussed in
 the previous question, Argument Dependent Lookup of names (ADL). Consider
@@ -1157,7 +1157,7 @@ compiler knows what the base class is (for example it knows if there are
 explicit specializations) and so it knows which base classes to look into
 in an attempt to find a function with the name `f`.
 
-## Does deal.II use features of C++2011 (formerly known as C++0x or C++1x)?
+### Does deal.II use features of C++2011 (formerly known as C++0x or C++1x)?
 
 We strive to keep deal.II compatible with the previous C++ standard, C++98,
 to make sure that deal.II can be built by all widely available compilers on
@@ -1178,7 +1178,7 @@ have in almost all instances the exact same interface as the standard
 classes, the use of a name such as `std_cxx1x::shared_ptr` transparently
 provides the necessary functionality in deal.II and user codes.
 
-## Can I convert Triangulation cell iterators to DoFHandler cell iterators?
+### Can I convert Triangulation cell iterators to DoFHandler cell iterators?
 
 Yes. You can also convert between iterators belonging to different
 DoFHandlers as long as the are based on the identical Triangulation:
@@ -1189,9 +1189,9 @@ Triangulation<2>::active_cell_iterator it = triangulation.begin_active();
 DoFHandler<2>::active_cell_iterator it2 (&triangulation, it->level(), it->index(), &dof_handler);
 ```
 
-# Questions about specific behavior of parts of deal.II
+## Questions about specific behavior of parts of deal.II
 
-## How do I create the mesh for my problem?
+### How do I create the mesh for my problem?
 
 Before answering the immediate question, one remark: When you use adaptive
 mesh refinement, you definitely want the initial mesh to be as coarse as
@@ -1234,7 +1234,7 @@ program:
    would read it using the `GridIn` class, as demonstrated, for example, in
    step-5.
 
-## How do I describe complex boundaries?
+### How do I describe complex boundaries?
 
 You need to define classes derived from the `Boundary` base class and
 attach these to particular parts of the boundary of the triangulation. The
@@ -1248,7 +1248,7 @@ the interior lie. The step-53 tutorial program explains how this is done
 for a realistic example.
 
 
-## I am using discontinuous Lagrange elements (`FE_DGQ`) but they don't seem to have vertex degrees of freedom!?
+### I am using discontinuous Lagrange elements (`FE_DGQ`) but they don't seem to have vertex degrees of freedom!?
 
 Indeed. And here's the reason: a vertex is an entity that is shared between
 different cells, i.e. it doesn't belong to one cell or another. If you have
@@ -1284,7 +1284,7 @@ with vertex 13, then I should ask you in return <i>which one</i> as the
 function is discontinuous there and will have multiple values at the
 location of the vertex.
 
-## How do I access values of discontinuous elements at vertices?
+### How do I access values of discontinuous elements at vertices?
 
 The previous question answered why DG elements aren't defined at the
 vertices of the mesh. Consequently, functions like `cell->vertex_dof_index`
@@ -1309,7 +1309,7 @@ verify that the order of quadrature points is indeed the same order as the
 vertices of a cell and, if that is not the case, translate between the two
 numbering systems.
 
-## Does deal.II support anisotropic finite element shape functions?
+### Does deal.II support anisotropic finite element shape functions?
 
 There is currently no easy-to-use support for this. It's not going to work
 for continuous elements because we assume that `fe.dofs_per_face` is the
@@ -1328,7 +1328,7 @@ That said, you can do anisotropic <i>refinement</i>, which of course also
 introduces a kind of anisotropic approximation of your finite element
 space.
 
-## The graphical output files don't make sense to me -- they seem to have too many degrees of freedom!
+### The graphical output files don't make sense to me -- they seem to have too many degrees of freedom!
 
 Let's assume you have a 2x2 mesh and a Q<sub>1</sub> element then you would
 assume that output files (e.g. in VTK format) just have 9 vertex locations
@@ -1354,7 +1354,7 @@ output 16 values. Several of these vertices will have the same location and
 if the field is indeed continuous, several of the values will also be the
 same.
 
-## In my graphical output, the solution appears discontinuous at hanging nodes
+### In my graphical output, the solution appears discontinuous at hanging nodes
 
 Let me guess -- you are using higher order elements? If that's the
 case, then the solution only looks discontinuous but isn't
@@ -1394,7 +1394,7 @@ after solving the linear system, or you do not set up these
 constraints correctly. In either case, it's a bug if this happens with
 Q1 elements.
 
-## When I run the tutorial programs, I get slightly different results
+### When I run the tutorial programs, I get slightly different results
 
 This is sometimes unavoidable. deal.II uses a number of iterative
 algorithms (e.g. in solving linear systems, but the adaptive mesh
@@ -1416,7 +1416,7 @@ you, however, is if you run the same program twice and you get slightly
 different output. This hints at non-deterministic effects that one should
 investigate.
 
-## How do I access the whole vector in a parallel MPI computation?
+### How do I access the whole vector in a parallel MPI computation?
 
 Note that this causes a bottleneck for large scale computations and you
 should try to use a parallel vector with ghost entries instead. If you
@@ -1425,7 +1425,7 @@ PETScWrappers::Vector) and assign your parallel vector to it (or use a copy
 constructor). You can find this being done in step-17 if you search for
 "localized_solution".
 
-## How to get the (mapped) position of support points of my element?
+### How to get the (mapped) position of support points of my element?
 
 Option 1: The support points on the unit cell can be accessed using
 FiniteElement::get_unit_support_point(s) and mapped to real coordinates
@@ -1444,9 +1444,9 @@ fe_values.get_quadrature_points();
 </pre>
 
 
-# Debugging deal.II applications
+## Debugging deal.II applications
 
-## I don't have a whole lot of experience programming large-scale software. Any recommendations?
+### I don't have a whole lot of experience programming large-scale software. Any recommendations?
 
 Yes. First, the questions of this FAQ already give you a number of good
 pointers for example on debugging. Also, a good resource for some of the
@@ -1460,7 +1460,7 @@ with large software. In other words, it is specifically written for people
 for an audience like the users of deal.II.
 
 
-## Are there strategies to avoid bugs in the first place?
+### Are there strategies to avoid bugs in the first place?
 
 Why yes, good you ask. There are indeed techniques that help you avoid
 writing code that has bugs. By and large, these techniques go by the name
@@ -1560,7 +1560,7 @@ wikipedia articles on
 the [design by contract
 methodology](http://en.wikipedia.org/wiki/Design_by_contract).
 
-## How can deal.II help me find bugs?
+### How can deal.II help me find bugs?
 
 In addition to using the `Assert` macro introduced above, the deal.II
 libraries come in two flavors: debug mode and optimized mode. The
@@ -1585,7 +1585,7 @@ To switch between debug and optimized mode, take a look at the top of the
 deal.II-provided Makefiles: there's a flag you can set that switches
 between the two modes.
 
-## Should I use a debugger?
+### Should I use a debugger?
 
 This question has an emphatic, unambiguous answer: Yes! You may get by for
 a while by just putting debug output into your program, compiling it, and
@@ -1615,7 +1615,7 @@ integrated into the IDE. Every decent IDE has an integrated debugger, so
 you have your choice. A list of IDEs and how they work with deal.II is
 given in the C++ section of this FAQ.
 
-## deal.II aborts my program with an error message
+### deal.II aborts my program with an error message
 
 You are likely seeing something like the following:
 ```
@@ -1629,15 +1629,15 @@ The name and call sequence of the exception was:
 Additional Information:
 Index 10 is not in [Stacktrace:
 -----------
-#0  ./step-1: dealii::Vector<double>::operator()(unsigned int)
-#1  ./step-1: foo()
-#2  ./step-1: main
+##0  ./step-1: dealii::Vector<double>::operator()(unsigned int)
+##1  ./step-1: foo()
+##2  ./step-1: main
 --------------------------------------------------------
 ```
 
 This error is generated by the following program:
 ```
-#include <lac/vector.h>
+##include <lac/vector.h>
 using namespace dealii;
 
 void foo ()
@@ -1699,7 +1699,7 @@ cases, you'll have to learn how to use a debugger such as gdb, and in
 particular how to move up and down in the call stack and to inspect local
 variables in your source code.
 
-## The program aborts saying that an exception was thrown, but I can't find out where
+### The program aborts saying that an exception was thrown, but I can't find out where
 
 deal.II creates two kinds of exceptions (in deal.II language): ones where we
 simply abort the program because you are doing something that can't be right
@@ -1755,7 +1755,7 @@ To debug such problems, two approaches have proven useful:
    of what you need to know to fix it.
 
 
-## I get an exception in `virtual dealii::Subscriptor::~Subscriptor()` that makes no sense to me!
+### I get an exception in `virtual dealii::Subscriptor::~Subscriptor()` that makes no sense to me!
 
 The full text of the error message probably looks something like this (the
 stack trace at the bottom is of course different in your code):
@@ -1772,14 +1772,14 @@ Object of class N6dealii15SparsityPatternE is still used by 5 other objects.
 
 Stacktrace:
 -----------
-#0  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::Subscriptor::~Subscriptor()
-#1  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::SparsityPattern::~SparsityPattern()
-#2  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPatternBase<dealii::SparsityPattern>::reinit(unsigned int, unsigned int)
-#3  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::reinit(unsigned int, unsigned int)
-#4  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::copy_from(dealii::BlockCompressedSimpleSparsityPattern const&)
-#5  ./step-6: NavierStokesProjectionIB<2>::setup_system()
-#6  ./step-6: NavierStokesProjectionIB<2>::run(bool, unsigned int)
-#7  ./step-6: main
+##0  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::Subscriptor::~Subscriptor()
+##1  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::SparsityPattern::~SparsityPattern()
+##2  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPatternBase<dealii::SparsityPattern>::reinit(unsigned int, unsigned int)
+##3  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::reinit(unsigned int, unsigned int)
+##4  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::copy_from(dealii::BlockCompressedSimpleSparsityPattern const&)
+##5  ./step-6: NavierStokesProjectionIB<2>::setup_system()
+##6  ./step-6: NavierStokesProjectionIB<2>::run(bool, unsigned int)
+##7  ./step-6: main
 ```
 
 What is happening is this: deal.II derives a bunch of classes from the
@@ -1847,7 +1847,7 @@ produces trouble. Consequently, it may well happen that you have to
 continue several times after seeing an exception thrown until you finally
 find the place where the offending exception happens.
 
-## I get an error that the solver doesn't converge. But which solver?
+### I get an error that the solver doesn't converge. But which solver?
 
 Solvers are often deeply nested -- take a look for example at step-20 or
 step-22, where there is an outer solver for a Schur complement matrix, but
@@ -1880,7 +1880,7 @@ you get at this location must have been because the CG solver failed, not
 the preconditioner, etc. The upshot is that you need to wrap <i>every</i>
 call to a solver with such a try-catch block.
 
-## How do I know whether my finite element solution is correct? (Or: What is the "Method of Manufactured Solutions"?)
+### How do I know whether my finite element solution is correct? (Or: What is the "Method of Manufactured Solutions"?)
 
 This is not always trivial, but there is an "industry-standard" way of
 verifying that your code works as intended, called the '''method of
@@ -1918,7 +1918,7 @@ it shows the convergence rate you expect.
 The method of manufactured solutions is shown in the step-7 tutorial
 program.
 
-## My program doesn't produce the expected output!
+### My program doesn't produce the expected output!
 
 There are of course many possible causes for this, and you need to find out
 which of these causes might be the reason. Possible places to start are:
@@ -2007,7 +2007,7 @@ are a few strategies that have often worked in finding the problem:
    this FAQ have the debugger built-in, allowing you to use it seamlessly
    in your editing environment.
 
-## The solution converges initially, but the error doesn't go down below 10<sup>-8</sup>!
+### The solution converges initially, but the error doesn't go down below 10<sup>-8</sup>!
 
 First: if the error converges to zero, then you are basically doing
 something right already. Congratulations!
@@ -2032,7 +2032,7 @@ cases what could be the reason:
    want to make sure that your solution is correct to 10<sup>-10</sup>, for
    example, you'll have to write out the solution with more than 10 digits.
 
-## My time dependent solver does not produce the correct answer!
+### My time dependent solver does not produce the correct answer!
 
 For time dependent problems, there are a number of other things you can try
 over the discussion already given in the previous answer. In particular:
@@ -2057,7 +2057,7 @@ over the discussion already given in the previous answer. In particular:
    the solution at time step zero. If it isn't, you already know better
    where to look.
 
-## My Newton method for a nonlinear problem does not converge (or converges too slowly)!
+### My Newton method for a nonlinear problem does not converge (or converges too slowly)!
 
 Newton methods are tricky to get right. In particular, they sometimes
 converge (if slowly) even though the implementation has a bug because all
@@ -2107,7 +2107,7 @@ nonlinear PDEs:
    iterations to very high accuracy. If you need significantly more than 10
    iterations, something is likely wrong.
 
-## Printing deal.II data types in debuggers is barely readable!
+### Printing deal.II data types in debuggers is barely readable!
 
 Indeed. For example, plain gdb prints this for cell iterators:
 ```
@@ -2144,7 +2144,7 @@ instructions [from this
 website](http://sourceware.org/gdb/wiki/STLSupport). The little python
 snippet can be placed as a separate python block into `.gdbinit`.
 
-## My program is slow!
+### My program is slow!
 
 This is a problem that is true for a lot of us. The question is which part
 of your program is causing it. Before going into more detail, there are,
@@ -2200,7 +2200,7 @@ Lastly, since you are probably most interested in the performance of the
 optimized version of your code (which you will probably use for long
 expensive runs), you should run valgrind on the optimized executable.
 
-## How do I debug MPI programs?
+### How do I debug MPI programs?
 
 This is clearly an awkward topic for which there are few good options:
 debugging parallel programs using MPI has always been a pain and it is
@@ -2279,7 +2279,7 @@ gdb window belongs to which MPI rank, you can type the command
 ```
 into the gdb window (this works with openmpi at least).
 
-## I have an MPI program that hangs
+### I have an MPI program that hangs
 
 Apart from programs that segfault or that run onto a failing assertion
 (both cases that are relatively easy to debug using the techniques above),
@@ -2325,7 +2325,7 @@ you'd find for example that all but one process is stopped in the call to
 `compress()`, and the one remaining process is stopped in some other MPI
 call, then you already have a good idea what may be going on.
 
-## One statement/block/function in my MPI program takes a long time
+### One statement/block/function in my MPI program takes a long time
 
 Let's say you have a block of code that you suspect takes a long time and
 you want to time it like this:
@@ -2383,9 +2383,9 @@ Another way to find some answers is to use the capabilities of the `Timer`
 class which can provide more detailed information when deal.II is
 configured to support MPI.
 
-# I have a special kind of equation!
+## I have a special kind of equation!
 
-## Where do I start?
+### Where do I start?
 
 The deal.II tutorial has a number of programs that deal with particular
 kinds of equations, such as vector-valued problems, mixed discretizations,
@@ -2396,7 +2396,7 @@ its structure, and find a way to modify it to solve your problem as well.
 Most applications written based on deal.II are not written entirely from
 scratch, but have started out as modified tutorial programs.
 
-## Can I solve my particular problem?
+### Can I solve my particular problem?
 
 The simple answer is: if it can be written as a PDE, then this is possible
 as evidenced by the many publications in widely disparate fields obtained
@@ -2455,7 +2455,7 @@ not know of directly. If someone would like to have his project added to
 this page, just contact us.
 
 
-## Why use deal.II instead of writing my application from scratch?
+### Why use deal.II instead of writing my application from scratch?
 
 You can usually get the initial version of a code for any given problem
 done relatively quickly when you write it yourself, since the learning
@@ -2476,7 +2476,7 @@ where you will be '''orders magnitude faster''' when using what others have
 already done, even if maybe your program ends up twice as slow as if you
 had written it from scratch with a particular application in mind.
 
-## Can I solve problems over complex numbers?
+### Can I solve problems over complex numbers?
 
 Yes, you can, and it has been done numerous times with deal.II. However, we
 have a standard recommendation: consider such problems as systems of
@@ -2494,7 +2494,7 @@ adequate for it.
 The step-29 tutorial program shows how this is done for a complex-valued
 Helmholtz problem.
 
-## How can I solve a problem with a system of PDEs instead of a single equation?
+### How can I solve a problem with a system of PDEs instead of a single equation?
 
 The easiest way to do this is setting up a system finite element after you
 chose your base element, e.g.,
@@ -2513,7 +2513,7 @@ programs beyond step-20 also use vector-valued elements and there is a
 whole module in the documentation on vector-valued problems that is worth
 reading.
 
-## Is it possible to use different models/equations on different parts of the domain?
+### Is it possible to use different models/equations on different parts of the domain?
 
 Yes. The step-46 tutorial program shows how to do this: It solves a problem
 in which we solve Stokes flow in one part of the domain, and elasticity in
@@ -2522,7 +2522,7 @@ techniques can be used if you want to exclude part of the domain from
 consideration, for example when considering voids in a body in which the
 governing equations do not make sense because there is no medium.
 
-## Where do I start to implement a new Finite Element Class?
+### Where do I start to implement a new Finite Element Class?
 
 If you really need an element that isn't already implemented in deal.II,
 then you'll have to understand the interplay between FEValues, the finite
@@ -2538,9 +2538,9 @@ polynomial class as a template) and add the connectivity information.
 You'll probably need more specific help at various points -- this is what
 the mailing list is there for!
 
-# General finite element questions
+## General finite element questions
 
-## How do I compute the error
+### How do I compute the error
 
 If your goal is to compute the error in the form `||`u-u<sub>h</sub>`||` in
 some kind of norm, then you should use the function
@@ -2553,7 +2553,7 @@ class that can do this is {{{KellyErrorEstimator}}}. This class is used in
 most of the tutorial programs that use adaptively refined meshes, starting
 with step-6.
 
-## How to plot the error as a pointwise function
+### How to plot the error as a pointwise function
 
 The functions mentioned in the previous question compute the error as a
 cellwise value. As a consequence, the values computed also include a factor
@@ -2600,7 +2600,7 @@ As an example, the following code shows how to do this in principle:
 ```
 
 
-## I'm trying to plot the right hand side vector but it doesn't seem to make sense!
+### I'm trying to plot the right hand side vector but it doesn't seem to make sense!
 
 In particular, what you probably see is that the plot shows values that are
 smaller by a factor of two along the boundary than in the inside, and by a
@@ -2632,7 +2632,7 @@ at the boundary happens to be half the size of the integration area for
 shape functions in the interior.
 
 
-## What does XXX mean?
+### What does XXX mean?
 
 The documentation of deal.II uses many finite element specific terms that
 may not always be entirely clear to someone not familiar with this
@@ -2642,7 +2642,7 @@ familiar with, take a look at the [deal.II glossary
 page](http://www.dealii.org/developer/doxygen/deal.II/DEALGlossary.html)
 that explains many of them.
 
-# I want to contribute to the development of deal.II!
+## I want to contribute to the development of deal.II!
 
 deal.II is Open Source -- this not only implies that you as everyone else has
 access to the source codes, it also implies a certain development model:
@@ -2694,7 +2694,7 @@ interesting to others, there most probably is a way to get it into the
 library!
 
 
-# I found a typo or a bug and fixed it on my machine. How do I get it included in deal.II?
+## I found a typo or a bug and fixed it on my machine. How do I get it included in deal.II?
 
 First: thank you for wanting to do this! This software project is kept alive
 by people like you contributing to it. We like to include any improvement,
@@ -2742,7 +2742,7 @@ please also consider to
 
 
 
-# I'm fluent in deal.II, are there jobs for me?
+## I'm fluent in deal.II, are there jobs for me?
 
 Certainly. People with numerical skills are a sought commodity, both in
 academia and in businesses. In the US, the National Labs are also hiring

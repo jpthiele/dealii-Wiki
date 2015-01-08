@@ -164,8 +164,8 @@ settings.
 Now for the smaller print: Generally, the LGPL is a fairly liberal license.
 In particular, if you *develop a code based on deal.II*, then there is no
 requirement that you also open source your own code: you can keep it closed
-source, under a proprietary license, and you need to give it to anyone
-(neither your customers nor to us).
+source, under a proprietary license, and you don't need to give it to
+anyone (neither your customers nor to us).
 
 The LGPL is only restrictive in that the *changes you make to deal.II
 itself* must also be licensed under the LGPL. There is not frequently a
@@ -177,7 +177,10 @@ is no such requirement that you upstream these changes: the only people you
 have to make these modifications to deal.II available to are your
 customers.
 
-As mentioned above, the preceding paragraphs are not a legal interpretation. For definite interpretations of the LGPL, you may want to consult lawyers familiar with the topic or search the web for more detailed interpretations.
+As mentioned above, the preceding paragraphs are not a legal
+interpretation. For definite interpretations of the LGPL, you may want to
+consult lawyers familiar with the topic or search the web for more detailed
+interpretations.
 
 
 ## Supported System Architectures
@@ -223,11 +226,8 @@ different version of Ubuntu if you use Windows 8.
 #### Run deal.II natively on Windows
 
 Native Windows support for deal.II is currently experimental and not
-officially supported.
-
-In principle, it is able to compile and use deal.II within the CygWin
-environment as well as on native Windows with the MinGW or MinGW-w64
-compiler. See the separate page on [for more details.
+officially supported. See the separate page on [[Windows]] for more
+details.
 
 #### Are any of the native Windows compilers supported by deal.II?
 

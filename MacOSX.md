@@ -4,7 +4,22 @@
 
 # Installing the prepacked image file
 
-The easiest way to install dealII on Mac OS X is downloading the prepacked image fils from the download page. Simply download and install. deal.II is found in the subdirectory Library under the installation target
+The easiest way to install dealII on Mac OS X is downloading the prepacked image fils from the download page. Simply download and install. deal.II is found in the subdirectory Library under the installation target.
+
+## Detailed instructions:
+
+1. Install xcode from the app store. You might need to install the command line tools. Open a terminal and make sure "clang" does not report "command not found". You might need to run
+
+        xcode-select --install
+
+    to install the tools.
+2. Install cmake if you don't have it (check by typing "cmake" in terminal). To do so got to http://www.cmake.org/download/ and download the Mac OSX binary .dmg, then open the .dmg and drag cmake into "applications".
+3. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
+4. You should now have cmake and deal.II in your "applications" in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed under ```/Applications/deal.II.app/Contents/Resources```
+5. Set up your bash profile. Open a terminal and type "touch .profile;open .profile". In the editor add the following line to the file:
+        export PATH=/Applications/CMake.app/Contents/bin:$PATH
+6. done.
+
 
 # Instructions for Mac 10.9 Users, Deal.II ver. 8.0 or later (current trunk)
 

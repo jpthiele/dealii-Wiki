@@ -17,7 +17,9 @@ The easiest way to install dealII on Mac OS X is downloading the prepacked image
 3. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
 4. You should now have cmake and deal.II in your "applications" in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed under ```/Applications/deal.II.app/Contents/Resources```
 5. Set up your bash profile. Open a terminal and type "touch .profile;open .profile". In the editor add the following line to the file:
+
         export PATH=/Applications/CMake.app/Contents/bin:$PATH
+
 6. done.
 
 

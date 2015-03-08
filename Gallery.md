@@ -247,6 +247,23 @@ Euler flow; simulating a dense blob sliding downhill.  Using DG and a Lax-Friedr
 <img width="180px" src="http://www.dealii.org/images/wiki/gallery/euler3.jpg" />
 
 
+## Crack propagation
+
+Here are some images of propagated cracks in anisotropic materials. (Origin: Martin Steigemann 2012)
+
+<img width="400px" src="http://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_01.png" />
+<img width="400px" src="http://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_02.png" />
+
+Quasistatic crack propagation in brittle materials can be simulated using the energy principle, where a crack grows in the direction of maximal energy release. Here, the direction of the crack is computed by an asymptotic formula for the change of energy in two dimensions using (classical) stress intensity factors (linear elasticity). The crack is elongated step-by-step and the domain is remeshed in each step.
+
+The pictures show crack paths in an orthotropic material with two axes of elastic symmetry in a compact-tension specimen. Both pictures show the crack under the same Mode-II shear loading, but with different orientation of the initial crack to the planes of elastic symmetry.
+
+The third picture shows a crack propagating in an isotropic base material with an anisotropic local inhomogeneity. This numerical experiment demonstrates how a local perturbation in the material can influence a crack path.
+
+<img width="600px" src="http://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_03.png" />
+
+
+
 ## Fun pictures
 
 <img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-golf_ball.png" />

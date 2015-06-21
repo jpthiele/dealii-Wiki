@@ -2,7 +2,7 @@
 
 ### Cubit
 
-The following cubit journal file (Actually a pyton script) exports the current mesh and 
+The following cubit journal file (Actually a python script) exports the current mesh and 
 boundary conditions from cubit to a file "output.ucd" in the current directory.
 
 This is a modification of the original script that takes into account boundary ids via

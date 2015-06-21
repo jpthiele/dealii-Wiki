@@ -460,7 +460,7 @@ since they share the same vector-matrix (and other) data structures.
 This is a complicated one (and it should also be fixed in more recent
 Trilinos versions). In the Trilinos file `Sacado_cmath.hpp`, there is some
 code of the form
-```
+```cpp
   namespace std {
     inline float acosh(float x) {
       return std::log(x + std::sqrt(x*x - float(1.0))); }
@@ -486,14 +486,14 @@ The only useful way to avoid this error is to edit the Trilinos header
 file. To do this, find and open the file `include/Sacado_cmath.hpp` in the
 directory in which Trilinos was installed. Then change the block enclosed
 in
-```
+```cpp
   namespace std {
     ...
   }
 ```
 
 to read
-```
+```cpp
 ##ifndef _GLIBCXX_USE_C99_MATH
   namespace std {
     ...
@@ -686,7 +686,7 @@ followed. But this isn't optimal either, for two reasons. For example,
 consider this code that describes the equivalent of the `Point<dim>` class
 for points in dim-dimensional space and its `norm()` member function:
 
-```
+```cpp
   class Point {
     public:
       Point (const unsigned int dimension)
@@ -725,7 +725,7 @@ This is going to lead to rather slow code, for multiple reasons:
 
 Compare this to the way deal.II implements this class:
 
-```
+```cpp
   template <unsigned int dim>
   class Point {
     public:
@@ -767,7 +767,7 @@ Here, the following holds:
    2d, the code the compiler will produce is likely to look more like this
    because the loop can be unrolled and the loop counter can be optimized
    away:
-```
+```cpp
   double Point<2>::norm () const {
     return std::sqrt(s)(coordinates[0](d]`) ** coordinates[+ coordinates[1](0]) ** coordinates[}
 ```
@@ -801,12 +801,12 @@ Yes, in general it does. The reason is that while for non-templates it is
 enough to put the ''declaration'' of a function into the header file and
 the ''definition'' into the `.cc` file, for templates that doesn't work.
 Let's say you have something like
-```
+```cpp
   template <typename T> T square (const T & t);
 ```
 
 in your header file and you put the definition
-```
+```cpp
   template <typename T> T square (const T & t) { return t*t; }
 ```
 
@@ -869,7 +869,7 @@ This is indeed a frequent question. To answer it, it is necessary to
 understand how a compiler deals with templates, which will take a bit of
 space here. Let's take for example this case:
 
-```
+```cpp
   void f(int);
   void g(double d) {
     f(d);
@@ -887,7 +887,7 @@ the compiler parsed `g`.
 Templates are designed to work essentially the same, but there are slight
 complications. Take this example:
 
-```
+```cpp
   void f(int);
   void f(char);
   template <typename T> void g(T t) {
@@ -907,7 +907,7 @@ depends on the template type, determining what function to actually call
 should only happen <i>at the time and place when the template is
 instantiated</i> (this is called <i>argument dependent name lookup</i> or
 <i>ADL</i>). In other words, if below the code above we had this:
-```
+```cpp
   void h() {
      g(1.1);
   }
@@ -925,7 +925,7 @@ argument `t` has type `T` and therefore depends on the template argument.
 Argument dependent lookup allows you to use function templates like `g`
 with your own data types. For example, you could have your own library that
 does
-```
+```cpp
   #include <f.h>
 
   struct X { /* something */ };
@@ -948,7 +948,7 @@ your code, the compiler has to figure out whether it depends on the
 template types or not, and it needs in fact to know quite a lot about it.
 Take this example:
 
-```
+```cpp
   int p;
   template <typename T> void g(T t) {
     T::something * p;
@@ -959,7 +959,7 @@ Take this example:
 Here, is the call to `f` dependent because `p` depends on the type `T`? If
 `f` is called with an argument of type `X` that is declared like this
 
-```
+```cpp
   struct X {
     typedef int something;
   };
@@ -968,7 +968,7 @@ Here, is the call to `f` dependent because `p` depends on the type `T`? If
 then `T::something * p;` would declare a local variable called `p` that is
 of type pointer-to-int. On the other hand, if we had
 
-```
+```cpp
   struct X {
     static double something;
   };
@@ -986,7 +986,7 @@ avoid this situation, C++ says: if a compiler sees `T::something` then this
 is a variable or function name unless it is prefixed by the keyword
 `typename` in which case it is supposed to be a type. In other words, the
 call to `f` here is going to be non-dependent:
-```
+```cpp
   int p;
   template <typename T> void g(T t) {
     T::something * p;
@@ -997,7 +997,7 @@ call to `f` here is going to be non-dependent:
 and instantiating `g` with the first example for `X` is going to lead to
 errors because `T::something` didn't turn out to be a variable. On the
 other hand, if we had
-```
+```cpp
   int p;
   template <typename T> void g(T t) {
     typename T::something * p;
@@ -1013,7 +1013,7 @@ the type of `T`.
 This is a consequence of the same rule in the C++ standard as discussed in
 the previous question, Argument Dependent Lookup of names (ADL). Consider
 this piece of code:
-```
+```cpp
   template <typename T> class Base {
     public:
       void f();
@@ -1036,7 +1036,7 @@ the function for a particular argument type `T`), it sees that the call to
 declaration of such a function somewhere. In the example above, it doesn't
 find one (we'll come to this in a second), which will yield an error. On
 the other hand, in this code,
-```
+```cpp
   void f(); // global function
 
   template <typename T> class Base {
@@ -1064,7 +1064,7 @@ The question of course is why the compiler didn't record a call to
 at the time of <i>parsing</i> the template, the compiler doesn't know for
 which template arguments the template will later be instantiated, and with
 explicit or partial specializations.  Consider for example this code:
-```
+```cpp
   template <typename T> class Base {
     public:
       void f();
@@ -1095,7 +1095,7 @@ says: if the call is not dependent, find a non-dependent function to record
 (e.g. a global function) rather than trying to find a call in scopes you
 can't yet know will be relevant (e.g. `Base` or `X`). Likewise, in this
 code,
-```
+```cpp
   template <typename T> class Base {
     public:
       void f();
@@ -1123,7 +1123,7 @@ again immediately. For all other template arguments `T`, it calls
 
 Given this longish description of how compilers look up names under the ADL
 rule, let's get back to the original question: If you have this code,
-```
+```cpp
   template <typename T> class Base {
     public:
       void f();
@@ -1144,7 +1144,7 @@ answer is: Tell the compiler to defer the decision of what the call is
 supposed to do till the time when it knows what `T` actually is. And we've
 already seen how to do that: we need to make the call <i>dependent</i> on
 `T`! The way to do that is this:
-```
+```cpp
   template <typename T> void Derived<T>::g() {
     this->f();
   }
@@ -1183,7 +1183,7 @@ provides the necessary functionality in deal.II and user codes.
 Yes. You can also convert between iterators belonging to different
 DoFHandlers as long as the are based on the identical Triangulation:
 
-```
+```cpp
 Triangulation<2>::active_cell_iterator it = triangulation.begin_active();
 
 DoFHandler<2>::active_cell_iterator it2 (&triangulation, it->level(), it->index(), &dof_handler);
@@ -1479,7 +1479,7 @@ which has a collection of best practices including code snippets to show
 how they are used.
 
 The single most successful strategy to avoid bugs is to <i>make assumptions explicit</i>. For example, assume for a second that you have a class that denotes a point in 3d space:
-```
+```cpp
   class Point3d {
     public:
       double coordinate (const unsigned int i) const;
@@ -1504,7 +1504,7 @@ any sense!". Defensive programming starts from the premise that this is
 something that simply <i>will happen</i> at one point in time, whether you
 want to or not. It's actually not very difficult to do, since all of us
 have probably written code like this:
-```
+```cpp
   Point3d point;
   // ... do something with it
   double norm = 0;
@@ -1518,7 +1518,7 @@ Note that we have accidentally used `<=` instead of `<` in the loop.
 If we accept that bugs will happen, we should make it as simple as possible
 to find them. In the spirit of making assumptions explicit, let's write
 above function like this:
-```
+```cpp
   double
   Point3d::coordinate (const unsigned int i) const {
     if (i >= 3) {
@@ -1538,7 +1538,7 @@ is called, indices are valid. To avoid this drawback, the C programming
 language has the `assert` macro, which expands to the code above by
 default, but that can be disabled using a compiler flag. deal.II provides
 an improved version of this macro that is used as follows:
-```
+```cpp
   double
   Point3d::coordinate (const unsigned int i) const {
     Assert (i<3, ExcMessage ("Function called with invalid argument!"));
@@ -1636,7 +1636,7 @@ Index 10 is not in [Stacktrace:
 ```
 
 This error is generated by the following program:
-```
+```cpp
 ##include <lac/vector.h>
 using namespace dealii;
 
@@ -1812,7 +1812,7 @@ variables are also destroyed, and so on. This automatic destruction of
 objects typically bypasses all the clean-up code you may have at the end of
 a function and can then lead to errors like the above. For example, take
 this code:
-```
+```cpp
 void f() {
   SparseMatrix s;
   SparsityPattern sp;
@@ -1861,7 +1861,7 @@ way to `main()` and display the error code there. Rather, you probably
 don't have a Plan B anyway if a solver fails, so you may want to abort the
 program if that happens. To do this, wrap the call to the solver in a
 try-catch block like this:
-```
+```cpp
   try {
     cg.solve (system_matrix, solution, system_rhs, preconditioner);
   } catch (...) {
@@ -2122,7 +2122,7 @@ $2 = {<dealii::TriaIterator<dealii::DoFCellAccessor<dealii::DoFHandler<2, 3> > >
 ```
 
 Fortunately, this can be simplified to this:
-```
+```cpp
 $3 = {
   triangulation = 0x4a1556,
   dof_handler = 0x7fffffffdac8,
@@ -2293,7 +2293,7 @@ likely -- because process X didn't think that it should participate in this
 communication. In either case, the other processes will wait forever for
 process X's message and deadlock the program. An example for this case
 would go like this:
-```
+```cpp
   void assemble_system () {
               // optimization in case there is nothing to do; we won't
               // have to initialize FEValues and other local objects in
@@ -2329,7 +2329,7 @@ call, then you already have a good idea what may be going on.
 
 Let's say you have a block of code that you suspect takes a long time and
 you want to time it like this:
-```
+```cpp
   Timer t;
   t.start();
   my_function();
@@ -2342,7 +2342,7 @@ The output is large, i.e. you think that the function you called is taking
 a long time to execute and that you should focus your efforts on optimizing
 it. But in an MPI program, this isn't quite always true. Imagine, for
 example, that the function looked like this:
-```
+```cpp
   void my_function () {
     double val = compute_something_locally();
     double global_sum = 0;
@@ -2364,7 +2364,7 @@ else on processor X" faster, not making `my_function` faster.
 
 To find out whether this is really the problem, here is a simple way to see
 what the "real" cost of `my_function` is:
-```
+```cpp
   Timer t;
   MPI_Barrier (MPI_COMM_WORLD);
   t.start();
@@ -2498,7 +2498,7 @@ Helmholtz problem.
 
 The easiest way to do this is setting up a system finite element after you
 chose your base element, e.g.,
-```
+```cpp
 FE_Q<dim> base_element(2);
 FESystem<dim> system_element(base_element, 3);
 ```
@@ -2567,7 +2567,7 @@ should do is this:
    nodal values of the errors u-u<sub>h</sub> on the current mesh.
 
 As an example, the following code shows how to do this in principle:
-```
+```cpp
   template <int dim>
   class ExactSolution : public Function<dim>
   {

@@ -3,7 +3,7 @@
 This is code that makes gdb aware of some of the deal.II classes and able to print their elements in a debugger in a way that is more easily readable.
 See the FrequentlyAskedQuestions for more information.
 
-```
+```python
 set print pretty 1
 
 python

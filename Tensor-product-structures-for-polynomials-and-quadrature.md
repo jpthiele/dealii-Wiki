@@ -76,7 +76,7 @@ The convention for the indices shall be that `d=1,...,dim`, `di`
 enumerates the coordinates in direction `d`, and `i` enumerates all
 quadrature points.
 
-```
+```cpp
 template <typename number, int dim, int...>
 class TensorProductPoints
 {

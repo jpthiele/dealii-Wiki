@@ -10,7 +10,7 @@ These codes should be easy to port to Octave.
 
 ## Reading vectors
 
-```
+```matlab
 function v = read_deal_vec(file, accuracy);
 % function vect = read_deal_vec(file);
 % function vect = read_deal_vec(file, accuracy);
@@ -50,7 +50,7 @@ end;
 
 ## Writing Vectors
 
-```
+```matlab
 function write_deal_vec(file, vec, accuracy);
 % function write_deal_vec(file, vector);
 % function write_deal_vec(file, vector, accuracy);

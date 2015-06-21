@@ -27,7 +27,7 @@ The easiest way to install dealII on Mac OS X is downloading the prepacked image
 
 From Mac OS 10.9 onwards, Apple changed quite a few things in their developer tools. You should install XCode 5 **and** its command line tools. If you only do this, however, the installer  will not populate /usr/lib and /usr/include as it used to do, since from Mac OS 10.9, they decided that everything should be self contained in specific SDK directories. If you want to have the standard locations populated (to have, among others, zlib.h, etc.) you should also run the following command:
   
-```
+```sh
 xcode-select --install
 ```
 
@@ -87,7 +87,7 @@ At the end of your `~/.profile` file, add the following lines:
 ```
 
 Create the file `~/.profile-libs`, which will accept a command line argument specifying the compiler to use:
-```
+```sh
 # TYPE is the first argument 
 TYPE=$1
 
@@ -142,7 +142,7 @@ Once the above environment variables are set, you can install Trilinos using the
 
 ### trilinos.sh
 
-```
+```sh
 EXTRA_ARGS=$@
 
 if [ ! -d "$TRILINOS_BUILD" ]; then
@@ -190,7 +190,7 @@ The following script will install p4est. It has been modified from the file `doc
 
 ### p4est.sh
 
-```
+```sh
 #! /bin/bash
 
 # This program comes with ABSOLUTELY NO WARRANTY.
@@ -291,7 +291,7 @@ feed the *build tests* page with the outcome of your compilation.
 
 ### deal.sh
 
-```
+```sh
 if [ ! -d "$DEAL_II_BUILD" ]; then
 	mkdir $DEAL_II_BUILD
 fi
@@ -440,7 +440,7 @@ It now seems possible to compile Trilinos 10.4.1  with all the features needed f
 
 Here is my configure script:
 
-```
+```sh
 EXTRA_ARGS=$@
 TRILINOS_HOME=/Users/andrewmcbride/lib/trilinos-10.4.1-Source
 
@@ -501,7 +501,7 @@ On a fully updated 10.6 (Snow Leopard) machine, you should be able to install ma
 
 Next, download and untar the Trilinos source, then create a directory where you want to build Trilinos.  Inside of that directory, copy the following into a text file:
 
-```
+```sh
  #!/bin/sh
 
  EXTRA_ARGS=$@

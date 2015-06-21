@@ -10,7 +10,7 @@ sidesets ids. If you want to save the boundary faces as well, you just need to
 add the relevant surfaces in 3d or curves in 2d to a sideset, and the id will be the one of the
 sideset. 
 
-```
+```python
 #!python
 # This script will output whatever mesh you have currently in CUBIT
 # in the AVS UCD format. (http://www.csit.fsu.edu/~burkardt/data/ucd/ucd.html)

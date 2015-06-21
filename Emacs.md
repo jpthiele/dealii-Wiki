@@ -6,7 +6,7 @@ Emacs used to be the tool most of the deal.II developers worked with day in and 
 
 If you want to use this style and you still happen to use emacs then the following emacs elisp macros are for you:
 
-```
+```elisp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Emacs macros supporting deal.II programming

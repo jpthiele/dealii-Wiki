@@ -39,7 +39,7 @@ Another important question to be settled is, whether we actually want to iterate
 
 Here a minimal mesh interface as it might be seen by the DoFHandler
 
-```
+```cpp
 template <int dim, int codim>
 class MeshAccessor
 {
@@ -77,7 +77,7 @@ Currently, MGDoFAccessor (which is going to be reitred and superceded by DoFAcce
 
 Alternatively, we continue having a separate Accessor/Iterator pair for level access, such that the begin functions would look like
 
-```
+```cpp
 class DoFHandler
 {
   cell_iterator begin(active);

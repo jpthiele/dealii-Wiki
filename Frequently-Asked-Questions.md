@@ -1480,16 +1480,19 @@ how they are used.
 
 The single most successful strategy to avoid bugs is to <i>make assumptions explicit</i>. For example, assume for a second that you have a class that denotes a point in 3d space:
 ```cpp
-  class Point3d {
-    public:
-      double coordinate (const unsigned int i) const;
-      // ...more here...
-    private:
-      double coordinates[};
+  class Point3d 
+  {
+  public:
+    double coordinate (const unsigned int i) const;
+    // ...more here...
+  private:
+    double coordinates[3];
+  };
 
   double
-  Point3d::coordinate (const unsigned int i) const {
-    return coordinates[i](3];);
+  Point3d::coordinate (const unsigned int i) const 
+  {
+    return coordinates[i];
   }
 ```
 
@@ -1520,12 +1523,15 @@ to find them. In the spirit of making assumptions explicit, let's write
 above function like this:
 ```cpp
   double
-  Point3d::coordinate (const unsigned int i) const {
-    if (i >= 3) {
-      std::cout << "Error: function called with invalid argument!" << std::endl;
-      std::abort ();
-    }
-    return coordinates[}
+  Point3d::coordinate (const unsigned int i) const 
+  {
+    if (i >= 3) 
+      {
+        std::cout << "Error: function called with invalid argument!" << std::endl;
+        std::abort ();
+      }
+    return coordinates[i]
+  }
 ```
 
 This has the advantage that an error message is produced whenever the
@@ -1540,9 +1546,10 @@ default, but that can be disabled using a compiler flag. deal.II provides
 an improved version of this macro that is used as follows:
 ```cpp
   double
-  Point3d::coordinate (const unsigned int i) const {
+  Point3d::coordinate (const unsigned int i) const 
+  {
     Assert (i<3, ExcMessage ("Function called with invalid argument!"));
-    return coordinates[i](i];);
+    return coordinates[i];
   }
 ```
 

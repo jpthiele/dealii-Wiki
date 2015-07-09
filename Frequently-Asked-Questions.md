@@ -668,7 +668,7 @@ programming, i.e. you want to write code in such a way that it looks
 exactly the same in 2d as in 3d (or 1d, for that matter). There are of
 course many ways to do this (and libraries have done this for a long time
 before deal.II has). The three most popular ones are to use a preprocessor
-##define that sets the space dimension globally, to use a global variable
+`#define` that sets the space dimension globally, to use a global variable
 that does this, and to have each object have a member variable that denotes
 the space dimension it is supposed to live in (in much the same way as the
 template argument does in deal.II). Neither of these approaches is optimal

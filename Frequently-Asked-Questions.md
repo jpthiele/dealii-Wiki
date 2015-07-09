@@ -596,7 +596,8 @@ have been used by people using deal.II.
 
 We have gathered some notes on using the following IDEs for deal.II:
   - [[Eclipse]]
-  - [- [emacs](KDevelop]): While we don't recommend using emacs any more, this link provides a couple of notes on formatting styles used within deal.II.
+  - [[KDevelop]]
+  - [[emacs]]: While we don't recommend using emacs any more, this link provides a couple of notes on formatting styles used within deal.II.
 
 When thinking about what IDE to use, keep this in mind: Many of us have
 used emacs (or, worse, vi) for years and feel very comfortable with it.

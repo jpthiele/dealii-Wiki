@@ -1158,26 +1158,14 @@ compiler knows what the base class is (for example it knows if there are
 explicit specializations) and so it knows which base classes to look into
 in an attempt to find a function with the name `f`.
 
-### Does deal.II use features of C++2011 (formerly known as C++0x or C++1x)?
+### Does deal.II use features of C++11 (formerly known as C++0x or C++1x)?
 
 We strive to keep deal.II compatible with the previous C++ standard, C++98,
 to make sure that deal.II can be built by all widely available compilers on
 current and recent operating systems. This typically prevents the use of
-new language features until some five years after compilers first implement
-them reliably.
+new language features. That said, we occasionally use things from C++11 for which we have backup solutions for compilers that do not provide them.
 
-That said, deal.II does use some elements of C++2011 that have been added
-to the C++ standard library. Specifically, this includes the
-`std::shared_ptr, std::function, std::bind, std::array, std::tuple` and
-`std::thread` facilities. We can do that because we can fall back to the
-implementation of these features available through the BOOST library
-whenever a compiler does not provide them. To this end, deal.II has a
-namespace `dealii::std_cxx1x` into which we either import a name such as
-`std::shared_ptr` through a `using` statement if the compiler provides it,
-or otherwise import the name `boost::shared_ptr`. Since the BOOST classes
-have in almost all instances the exact same interface as the standard
-classes, the use of a name such as `std_cxx1x::shared_ptr` transparently
-provides the necessary functionality in deal.II and user codes.
+The deal.II documentation has a page dedicated to the issue of what parts of C++11 we use and how this works: at http://dealii.org/developer/doxygen/deal.II/group__CPP11.html .
 
 ### Can I convert Triangulation cell iterators to DoFHandler cell iterators?
 

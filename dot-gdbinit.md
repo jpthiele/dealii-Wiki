@@ -1,9 +1,3 @@
-# Code one can put into a .gdbinit file to make gdb work better with deal.II
-
-This is code that makes gdb aware of some of the deal.II classes and able to print their elements in a debugger in a way that is more easily readable.
-See the FrequentlyAskedQuestions for more information.
-
-```python
 set print pretty 1
 
 python
@@ -27,7 +21,10 @@ class PointPrinter:
         self.val = val
 
     def to_string (self):
-        return '%s' % self.val[class TensorPrinter:
+        return '%s' % self.val['values']
+
+
+class TensorPrinter:
     "Print dealii::Tensor"
 
     def __init__ (self, typename, val):
@@ -35,13 +32,16 @@ class PointPrinter:
         self.val = val
 
     def to_string (self):
-        1. we could distinguish between Tensor<1,dim> and Tensor<2,dim>
-        1. by asking self.val.type.template_argument(0) but unfortunately
-        1. template_argument does not handle value arguments...
+        # we could distinguish between Tensor<1,dim> and Tensor<2,dim>
+        # by asking self.val.type.template_argument(0) but unfortunately
+        # template_argument does not handle value arguments...
         try:
-	  return self.val['values']('values'])
-	except:
-	  return self.val[class TriaIteratorPrinter:
+            return self.val['values']
+        except:
+            return self.val['subtensor']
+
+
+class TriaIteratorPrinter:
     "Print dealii::TriaIterator"
 
     def __init__ (self, typename, val):
@@ -51,9 +51,19 @@ class PointPrinter:
     def to_string (self):
         if re.compile('.*DoF.*').match('%s' % self.val.type.template_argument(0)):
           return ('{\n  triangulation = %s,\n  dof_handler = %s,\n  level = %d,\n  index = %d\n}' %
-	          (self.val['accessor']('subtensor'])[self.val['accessor']('tria'],)[self.val['accessor']('dof_handler'],)[self.val['accessor']('present_level'],)[else:
+              (self.val['accessor']['tria'],
+              self.val['accessor']['dof_handler'],
+              self.val['accessor']['present_level'],
+              self.val['accessor']['present_index']))
+        else:
           return ('{\n  triangulation = %s,\n  level = %d,\n  index = %d\n}' %
-	          (self.val['accessor']('present_index'])))[self.val['accessor']('tria'],)[self.val['accessor']('present_level'],)[class VectorPrinter:
+              (self.val['accessor']['tria'],
+              self.val['accessor']['present_level'],
+              self.val['accessor']['present_index']))
+
+
+
+class VectorPrinter:
     "Print dealii::Vector"
 
     class _iterator:
@@ -66,28 +76,46 @@ class PointPrinter:
             return self
 
         def next(self):
-            count = self.count
-            self.count = self.count + 1
-	    self.start = self.start + 1
             if self.count == self.size:
                 raise StopIteration
+            count = self.count
+            self.count = self.count + 1
+        self.start = self.start + 1
             elt = self.start.dereference()
-            return ('[%d]('present_index'])))' % count, elt)
+            return ('[%d]' % count, elt)
 
     def __init__ (self, typename, val):
         self.typename = typename
         self.val = val
 
     def children(self):
-        return self._iterator(self.val[self.val['vec_size']('val'],))
+        return self._iterator(self.val['val'],
+                              self.val['vec_size'])
 
     def to_string_x (self):
-        return ('%s[= {%s}' % (self.val.type.template_argument(0),
-                                   self.val['vec_size'](%d]),
-				   self.val[def to_string (self):
-        return ('%s[%d]('val'].dereference())))' % (self.val.type.template_argument(0),
-                            self.val[def display_hint(self):
+        return ('%s[%d] = {%s}' % (self.val.type.template_argument(0),
+                                   self.val['vec_size'],
+                   self.val['val'].dereference()))
+
+    def to_string (self):
+        return ('%s[%d]' % (self.val.type.template_argument(0),
+                            self.val['vec_size']))
+
+    def display_hint(self):
         return 'array'
+
+
+class QuadraturePrinter:
+    "Print dealii::Quadrature"
+
+    def __init__ (self, typename, val):
+        self.typename = typename
+        self.val = val
+
+    def to_string (self):
+        return ('{\n  points = {%s},\n  weights={%s}\n}' %
+             (self.val['quadrature_points'],
+          self.val['weights']))
 
 
 
@@ -112,25 +140,27 @@ class Printer(object):
     def __init__(self, name):
         super(Printer, self).__init__()
         self.name = name
-        self.subprinters = []('vec_size'])))
+        self.subprinters = []
         self.lookup = {}
         self.enabled = True
-        self.compiled_rx = re.compile('^([def add(self, name, function):
-        1. A small sanity check.
-        1. FIXME
+        self.compiled_rx = re.compile('^([a-zA-Z0-9_:]+)<.*>$')
+
+    def add(self, name, function):
+        # A small sanity check.
+        # FIXME
         if not self.compiled_rx.match(name + '<>'):
             raise ValueError, 'libstdc++ programming error: "%s" does not match' % name
         printer = RxPrinter(name, function)
         self.subprinters.append(printer)
-        self.lookup[name](a-zA-Z0-9_:]+)<.*>$')) = printer
+        self.lookup[name] = printer
 
     @staticmethod
     def get_basic_type(type):
-        1. If it points to a reference, get the reference.
+        # If it points to a reference, get the reference.
         if type.code == gdb.TYPE_CODE_REF:
             type = type.target ()
 
-        1. Get the unqualified type, stripped of typedefs.
+        # Get the unqualified type, stripped of typedefs.
         type = type.unqualified ().strip_typedefs ()
 
         return type.tag
@@ -140,8 +170,8 @@ class Printer(object):
         if not typename:
             return None
 
-        1. All the types we match are template types, so we can use a
-        1. dictionary.
+        # All the types we match are template types, so we can use a
+        # dictionary.
         match = self.compiled_rx.match(typename)
         if not match:
             return None
@@ -150,7 +180,7 @@ class Printer(object):
         if basename in self.lookup:
             return self.lookup[basename].invoke(val)
 
-        1. Cannot find a pretty printer.  Return None.
+        # Cannot find a pretty printer.  Return None.
         return None
 
 dealii_printer = None
@@ -165,6 +195,10 @@ def build_dealii_dictionary ():
     dealii_printer.add ('dealii::TriaIterator', TriaIteratorPrinter)
     dealii_printer.add ('dealii::TriaActiveIterator', TriaIteratorPrinter)
     dealii_printer.add ('dealii::Vector', VectorPrinter)
+    dealii_printer.add ('dealii::Quadrature', QuadraturePrinter)
+    dealii_printer.add ('dealii::QGauss', QuadraturePrinter)
+    dealii_printer.add ('dealii::QTrapez', QuadraturePrinter)
+    dealii_printer.add ('dealii::QIterated', QuadraturePrinter)
 
 def register_dealii_printers (obj):
     "Register deal.II pretty-printers with objfile Obj."
@@ -184,4 +218,3 @@ def register_dealii_printers (obj):
 register_dealii_printers (None)
 
 end
-```

@@ -1,3 +1,4 @@
+```python
 set print pretty 1
 
 python
@@ -218,3 +219,4 @@ def register_dealii_printers (obj):
 register_dealii_printers (None)
 
 end
+```

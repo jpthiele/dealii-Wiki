@@ -2,9 +2,19 @@
 
 <!-- No auto-Table of Contents support! -->
 
-# Installing the prepacked image file
+## Installing the prepacked image file
 
-The easiest way to install dealII on Mac OS X is downloading the prepacked image fils from the download page. Simply download and install. deal.II is found in the subdirectory Library under the installation target.
+The easiest way to install dealII on Mac OS X is by downloading the prepackaged `.dmg` file from the download page. Simply download and drag the `deal.II.app` to the `/Applications/` folder.
+
+The application is only a launcher for the `Terminal.app` application, which sets all required variables for deal.II to work correctly on your system.
+
+The examples are in the folder
+
+	/Applications/deal.II.app/Contents/Resources/examples/
+
+This application is always built with the latest version of the MacOS X operating system, and with the latest version of XCode. See instructions below to make sure your system is compatbile with the binary application.
+
+If you have a Mac with clang version lower than 6.1.0, then you can try with the the precompiled image named `deal.II.8.3.0.nocxx14.dmg` which may work on your system.
 
 ## Detailed instructions:
 

@@ -1,4 +1,5 @@
-# People who are actively using deal.II around the world and what they do
+This page contains a list of researchers, groups, and centers actively using
+deal.II and descriptions of what they do with it.
 
 # List of researchers, groups and centers using deal.II
 

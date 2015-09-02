@@ -688,27 +688,30 @@ consider this code that describes the equivalent of the `Point<dim>` class
 for points in dim-dimensional space and its `norm()` member function:
 
 ```cpp
-  class Point {
-    public:
-      Point (const unsigned int dimension)
-                   : dim(dimension),
-                     coordinates (new double[{}
+class Point
+{
+public:
+  Point (const unsigned int dimension)
+    : dim(dimension),
+      coordinates (new double[dim])
+  {}
 
-      ~Point() { delete[](dim])) coordinates; }
+  ~Point() { delete[] coordinates; }
 
-      double norm () const;
-      ...
-    private:
-      unsigned int dim;
-      double **coordinates;
-  };
+  double norm () const;
+  ...
+private:
+  unsigned int dim;
+  double *coordinates;
+};
 
-  double Point::norm () const {
-    double s = 0;
-    for (unsigned int d=0; d<dim; ++d)
-      s **= coordinates[* coordinates[d](d]);
-    return std::sqrt(s);
-  }
+double Point::norm () const
+{
+  double s = 0;
+  for (unsigned int d=0; d<dim; ++d)
+    s += coordinates[d] * coordinates[d];
+  return std::sqrt(s);
+}
 ```
 
 This is going to lead to rather slow code, for multiple reasons:
@@ -717,18 +720,19 @@ This is going to lead to rather slow code, for multiple reasons:
    the heap, both expensive processes.
 
  - When accessing any element of the `coordinates` array, two pointers have
-   to be dereferenced. For example, the access to `coordinates[really
-   expands to `(*((*this).coordinates + d)`.
+   to be dereferenced. For example, the access to `coordinates[d]` really
+   expands to `*(this->coordinates + d)`.
 
  - The compiler can not optimize the loop since the upper bound `dim` of
    the loop variable is unknown at compile time.
 
 
-Compare this to the way deal.II implements this class:
+Compare this to the way deal.II (approximately) implements this class:
 
 ```cpp
-  template <unsigned int dim>
-  class Point {
+  template <int dim>
+  class Point
+  {
     public:
       Point () {}
       ~Point() {}
@@ -736,14 +740,15 @@ Compare this to the way deal.II implements this class:
       double norm () const;
       ...
     private:
-      double coordinates[dim](d]`);
+      double coordinates[dim];
   };
 
-  template <unsigned int dim>
-  double Point<dim>::norm () const {
+  template <int dim>
+  double Point<dim>::norm () const
+  {
     double s = 0;
     for (unsigned int d=0; d<dim; ++d)
-      s **= coordinates[* coordinates[d](d]);
+      s += coordinates[d] * coordinates[d];
     return std::sqrt(s);
   }
 ```
@@ -760,8 +765,8 @@ Here, the following holds:
    the heap.
 
  - When accessing any element of the `coordinates` array, only one pointer
-   has to be dereferenced. For example, the access to `coordinates[really
-   expands to `(*(this + d)`.
+   has to be dereferenced. For example, the access to `coordinates` really
+   expands to `*(this + d)`.
 
  - The compiler can optimize the loop since the upper bound `dim` of the
    loop variable is known at compile time. In particular, for a point in
@@ -769,8 +774,10 @@ Here, the following holds:
    because the loop can be unrolled and the loop counter can be optimized
    away:
 ```cpp
-  double Point<2>::norm () const {
-    return std::sqrt(s)(coordinates[0](d]`) ** coordinates[+ coordinates[1](0]) ** coordinates[}
+double Point<2>::norm () const
+{
+  return std::sqrt(coordinates[0] * coordinates[0] + coordinates[1] * coordinates[1]);
+}
 ```
 Obviously, for a 3d point, the code will look differently, but the compiler
 can do this since it knows what the dimension of the point is at compile
@@ -1469,7 +1476,7 @@ how they are used.
 
 The single most successful strategy to avoid bugs is to <i>make assumptions explicit</i>. For example, assume for a second that you have a class that denotes a point in 3d space:
 ```cpp
-  class Point3d 
+  class Point3d
   {
   public:
     double coordinate (const unsigned int i) const;
@@ -1479,7 +1486,7 @@ The single most successful strategy to avoid bugs is to <i>make assumptions expl
   };
 
   double
-  Point3d::coordinate (const unsigned int i) const 
+  Point3d::coordinate (const unsigned int i) const
   {
     return coordinates[i];
   }
@@ -1512,9 +1519,9 @@ to find them. In the spirit of making assumptions explicit, let's write
 above function like this:
 ```cpp
   double
-  Point3d::coordinate (const unsigned int i) const 
+  Point3d::coordinate (const unsigned int i) const
   {
-    if (i >= 3) 
+    if (i >= 3)
       {
         std::cout << "Error: function called with invalid argument!" << std::endl;
         std::abort ();
@@ -1535,7 +1542,7 @@ default, but that can be disabled using a compiler flag. deal.II provides
 an improved version of this macro that is used as follows:
 ```cpp
   double
-  Point3d::coordinate (const unsigned int i) const 
+  Point3d::coordinate (const unsigned int i) const
   {
     Assert (i<3, ExcMessage ("Function called with invalid argument!"));
     return coordinates[i];

@@ -62,8 +62,8 @@ brew install cppunit
 brew install doxygen --with-graphviz
 brew install glpk
 brew install glm
-brew install trilinos --without-python
-brew install dealii --with-trilinos
+brew install trilinos
+brew install dealii
 ```
 
 ### Linux
@@ -96,6 +96,6 @@ brew install cppunit
 brew install doxygen --with-graphviz
 brew install glpk
 brew install glm
-brew install trilinos --with-openblas --without-python --without-scotch --without-x11
+brew install trilinos --with-openblas --without-scotch --without-x11
 brew install dealii --without-opencascade --without-muparser --with-openblas
 ```

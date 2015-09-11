@@ -33,8 +33,9 @@ of scientific software - by running
 brew tap homebrew/science
 ```
 Before trying the instructions below make sure that your Homebrew/Linuxbrew is up-to-date 
-by running `brew udpate`.
+by running `brew update`.
 ### OS-X
+Note that this uses the system BLAS/LAPACK libraries.
 ```
 brew install cmake
 brew install openmpi --c++11
@@ -68,6 +69,8 @@ brew install dealii
 
 ### Linux
 On Linux some of the packages do not currently compile, therefore they have to be skipped (thus `--without-XYZ` arguments). Otherwise, the steps are pretty much equivalent to those listed above.
+
+Note that this configuration uses OpenBLAS as opposed to the system BLAS/LAPACK libraries (such an option is currently not supported).
 ```
 brew install cmake
 brew install openmpi --c++11

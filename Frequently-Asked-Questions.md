@@ -1,3 +1,97 @@
+# The deal.II FAQ
+Over the course of the project deal.II has accumulated a large number of answers
+to frequently asked questions, which are collected here.
+
+## Table of Contents
+  * [The deal.II FAQ](#the-dealii-faq)
+    * [Table of Contents](#table-of-contents)
+    * [General questions on deal.II](#general-questions-on-dealii)
+      * [Can I use/implement triangles/tetrahedra in deal.II?](#can-i-useimplement-trianglestetrahedra-in-dealii)
+      * [I'm stuck!](#im-stuck)
+      * [I'm not sure the mailing list is the right place to ask ...](#im-not-sure-the-mailing-list-is-the-right-place-to-ask-)
+      * [How fast is deal.II?](#how-fast-is-dealii)
+      * [deal.II programs behave differently in 1d than in 2/3d](#dealii-programs-behave-differently-in-1d-than-in-23d)
+      * [I want to use deal.II for work in my company. Do I need a special license?](#i-want-to-use-dealii-for-work-in-my-company-do-i-need-a-special-license)
+    * [Supported System Architectures](#supported-system-architectures)
+      * [Can I use deal.II on a Windows platform?](#can-i-use-dealii-on-a-windows-platform)
+        * [Run deal.II through a virtual box](#run-dealii-through-a-virtual-box)
+        * [Dual-boot your machine with Ubuntu](#dual-boot-your-machine-with-ubuntu)
+        * [Run deal.II natively on Windows](#run-dealii-natively-on-windows)
+        * [Are any of the native Windows compilers supported by deal.II?](#are-any-of-the-native-windows-compilers-supported-by-dealii)
+      * [Can I use deal.II on an Apple Macintosh?](#can-i-use-dealii-on-an-apple-macintosh)
+      * [Does deal.II support shared memory parallel computing?](#does-dealii-support-shared-memory-parallel-computing)
+      * [Does deal.II support parallel computing with message passing?](#does-dealii-support-parallel-computing-with-message-passing)
+      * [How does deal.II support multi-threading?](#how-does-dealii-support-multi-threading)
+      * [My deal.II installation links with the Threading Building Blocks (TBB) but doesn't appear to use multiple threads!](#my-dealii-installation-links-with-the-threading-building-blocks-tbb-but-doesnt-appear-to-use-multiple-threads)
+    * [Configuration and Compiling](#configuration-and-compiling)
+      * [Where do I start?](#where-do-i-start)
+      * [I tried to install deal.II on system X and it does not work](#i-tried-to-install-dealii-on-system-x-and-it-does-not-work)
+      * [How do I change the compiler?](#how-do-i-change-the-compiler)
+      * [I get warnings during linking when compiling the library. What's wrong?](#i-get-warnings-during-linking-when-compiling-the-library-whats-wrong)
+      * [I can't seem to link/run with PETSc](#i-cant-seem-to-linkrun-with-petsc)
+        * [Is there a sure-fire way to compile deal.II with PETSc?](#is-there-a-sure-fire-way-to-compile-dealii-with-petsc)
+        * [I want to use HYPRE through PETSc](#i-want-to-use-hypre-through-petsc)
+        * [Is there a sure-fire way to compile dealii with SLEPc?](#is-there-a-sure-fire-way-to-compile-dealii-with-slepc)
+      * [Trilinos detection fails with an error in the file Sacado.hpp or <code>Sacado_cmath.hpp</code> ](#trilinos-detection-fails-with-an-error-in-the-file-sacadohpp-or-sacado_cmathhpp)
+      * [My program links with some template parameters but not with others.](#my-program-links-with-some-template-parameters-but-not-with-others)
+      * [When trying to run my program on Mac OS X, I get image errors.](#when-trying-to-run-my-program-on-mac-os-x-i-get-image-errors)
+    * [C++ questions](#c-questions)
+      * [What integrated development environment (IDE) works well with deal.II?](#what-integrated-development-environment-ide-works-well-with-dealii)
+      * [Is there a good introduction to C++?](#is-there-a-good-introduction-to-c)
+      * [Are there features of C++ that you avoid in deal.II?](#are-there-features-of-c-that-you-avoid-in-dealii)
+      * [Why use templates for the space dimension?](#why-use-templates-for-the-space-dimension)
+      * [Doesn't it take forever to compile templates?](#doesnt-it-take-forever-to-compile-templates)
+      * [Why do I need to use typename in all these templates?](#why-do-i-need-to-use-typename-in-all-these-templates)
+      * [Why do I need to use this-&gt; in all these templates?](#why-do-i-need-to-use-this--in-all-these-templates)
+      * [Does deal.II use features of C++11 (formerly known as C++0x or C++1x)?](#does-dealii-use-features-of-c11-formerly-known-as-c0x-or-c1x)
+      * [Can I convert Triangulation cell iterators to DoFHandler cell iterators?](#can-i-convert-triangulation-cell-iterators-to-dofhandler-cell-iterators)
+    * [Questions about specific behavior of parts of deal.II](#questions-about-specific-behavior-of-parts-of-dealii)
+      * [How do I create the mesh for my problem?](#how-do-i-create-the-mesh-for-my-problem)
+      * [How do I describe complex boundaries?](#how-do-i-describe-complex-boundaries)
+      * [I am using discontinuous Lagrange elements (FE_DGQ) but they don't seem to have vertex degrees of freedom!?](#i-am-using-discontinuous-lagrange-elements-fe_dgq-but-they-dont-seem-to-have-vertex-degrees-of-freedom)
+      * [How do I access values of discontinuous elements at vertices?](#how-do-i-access-values-of-discontinuous-elements-at-vertices)
+      * [Does deal.II support anisotropic finite element shape functions?](#does-dealii-support-anisotropic-finite-element-shape-functions)
+      * [The graphical output files don't make sense to me -- they seem to have too many degrees of freedom!](#the-graphical-output-files-dont-make-sense-to-me----they-seem-to-have-too-many-degrees-of-freedom)
+      * [In my graphical output, the solution appears discontinuous at hanging nodes](#in-my-graphical-output-the-solution-appears-discontinuous-at-hanging-nodes)
+      * [When I run the tutorial programs, I get slightly different results](#when-i-run-the-tutorial-programs-i-get-slightly-different-results)
+      * [How do I access the whole vector in a parallel MPI computation?](#how-do-i-access-the-whole-vector-in-a-parallel-mpi-computation)
+      * [How to get the (mapped) position of support points of my element?](#how-to-get-the-mapped-position-of-support-points-of-my-element)
+    * [Debugging deal.II applications](#debugging-dealii-applications)
+      * [I don't have a whole lot of experience programming large-scale software. Any recommendations?](#i-dont-have-a-whole-lot-of-experience-programming-large-scale-software-any-recommendations)
+      * [Are there strategies to avoid bugs in the first place?](#are-there-strategies-to-avoid-bugs-in-the-first-place)
+      * [How can deal.II help me find bugs?](#how-can-dealii-help-me-find-bugs)
+      * [Should I use a debugger?](#should-i-use-a-debugger)
+      * [deal.II aborts my program with an error message](#dealii-aborts-my-program-with-an-error-message)
+      * [The program aborts saying that an exception was thrown, but I can't find out where](#the-program-aborts-saying-that-an-exception-was-thrown-but-i-cant-find-out-where)
+      * [I get an exception in virtual dealii::Subscriptor::~Subscriptor() that makes no sense to me!](#i-get-an-exception-in-virtual-dealiisubscriptorsubscriptor-that-makes-no-sense-to-me)
+      * [I get an error that the solver doesn't converge. But which solver?](#i-get-an-error-that-the-solver-doesnt-converge-but-which-solver)
+      * [How do I know whether my finite element solution is correct? (Or: What is the "Method of Manufactured Solutions"?)](#how-do-i-know-whether-my-finite-element-solution-is-correct-or-what-is-the-method-of-manufactured-solutions)
+      * [My program doesn't produce the expected output!](#my-program-doesnt-produce-the-expected-output)
+      * [The solution converges initially, but the error doesn't go down below 10<sup>-8</sup>!](#the-solution-converges-initially-but-the-error-doesnt-go-down-below-10-8)
+      * [My time dependent solver does not produce the correct answer!](#my-time-dependent-solver-does-not-produce-the-correct-answer)
+      * [My Newton method for a nonlinear problem does not converge (or converges too slowly)!](#my-newton-method-for-a-nonlinear-problem-does-not-converge-or-converges-too-slowly)
+      * [Printing deal.II data types in debuggers is barely readable!](#printing-dealii-data-types-in-debuggers-is-barely-readable)
+      * [My program is slow!](#my-program-is-slow)
+      * [How do I debug MPI programs?](#how-do-i-debug-mpi-programs)
+      * [I have an MPI program that hangs](#i-have-an-mpi-program-that-hangs)
+      * [One statement/block/function in my MPI program takes a long time](#one-statementblockfunction-in-my-mpi-program-takes-a-long-time)
+    * [I have a special kind of equation!](#i-have-a-special-kind-of-equation)
+      * [Where do I start?](#where-do-i-start-1)
+      * [Can I solve my particular problem?](#can-i-solve-my-particular-problem)
+      * [Why use deal.II instead of writing my application from scratch?](#why-use-dealii-instead-of-writing-my-application-from-scratch)
+      * [Can I solve problems over complex numbers?](#can-i-solve-problems-over-complex-numbers)
+      * [How can I solve a problem with a system of PDEs instead of a single equation?](#how-can-i-solve-a-problem-with-a-system-of-pdes-instead-of-a-single-equation)
+      * [Is it possible to use different models/equations on different parts of the domain?](#is-it-possible-to-use-different-modelsequations-on-different-parts-of-the-domain)
+      * [Where do I start to implement a new Finite Element Class?](#where-do-i-start-to-implement-a-new-finite-element-class)
+    * [General finite element questions](#general-finite-element-questions)
+      * [How do I compute the error](#how-do-i-compute-the-error)
+      * [How to plot the error as a pointwise function](#how-to-plot-the-error-as-a-pointwise-function)
+      * [I'm trying to plot the right hand side vector but it doesn't seem to make sense!](#im-trying-to-plot-the-right-hand-side-vector-but-it-doesnt-seem-to-make-sense)
+      * [What does XXX mean?](#what-does-xxx-mean)
+    * [I want to contribute to the development of deal.II!](#i-want-to-contribute-to-the-development-of-dealii)
+    * [I found a typo or a bug and fixed it on my machine. How do I get it included in deal.II?](#i-found-a-typo-or-a-bug-and-fixed-it-on-my-machine-how-do-i-get-it-included-in-dealii)
+    * [I'm fluent in deal.II, are there jobs for me?](#im-fluent-in-dealii-are-there-jobs-for-me)
+
 ## General questions on deal.II
 
 ### Can I use/implement triangles/tetrahedra in deal.II?
@@ -494,11 +588,11 @@ in
 
 to read
 ```cpp
-##ifndef _GLIBCXX_USE_C99_MATH
+#ifndef _GLIBCXX_USE_C99_MATH
   namespace std {
     ...
   }
-##endif
+#endif
 ```
 
 What this will do is make sure that the new members of namespace `std` are
@@ -534,10 +628,16 @@ instance of e.g. `SparseMatrix<bool>`, you have to include the respective
 `.templates.h` file and you have to compile it along with the remaining
 files of your program every time.
 
-### When trying to run my program on Mac OS X, I get an error of the kind `dyld: Library not loaded: libdeal_II.g.7.0.0.dylib. Reason: image not found`
+### When trying to run my program on Mac OS X, I get image errors.
 
-This goes hand in hand with the following message you should have gotten at
-the end of the output of `./configure`:
+You may encounter an error of the form
+
+```
+dyld: Library not loaded: libdeal_II.g.7.0.0.dylib. Reason: image not found
+```
+
+on OS X. This goes hand in hand with the following message you should have
+gotten at the end of the output of `./configure`:
 
 ```
      Please add the line
@@ -1632,15 +1732,15 @@ The name and call sequence of the exception was:
 Additional Information:
 Index 10 is not in [Stacktrace:
 -----------
-##0  ./step-1: dealii::Vector<double>::operator()(unsigned int)
-##1  ./step-1: foo()
-##2  ./step-1: main
+#0  ./step-1: dealii::Vector<double>::operator()(unsigned int)
+#1  ./step-1: foo()
+#2  ./step-1: main
 --------------------------------------------------------
 ```
 
 This error is generated by the following program:
 ```cpp
-##include <lac/vector.h>
+#include <lac/vector.h>
 using namespace dealii;
 
 void foo ()
@@ -1775,14 +1875,14 @@ Object of class N6dealii15SparsityPatternE is still used by 5 other objects.
 
 Stacktrace:
 -----------
-##0  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::Subscriptor::~Subscriptor()
-##1  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::SparsityPattern::~SparsityPattern()
-##2  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPatternBase<dealii::SparsityPattern>::reinit(unsigned int, unsigned int)
-##3  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::reinit(unsigned int, unsigned int)
-##4  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::copy_from(dealii::BlockCompressedSimpleSparsityPattern const&)
-##5  ./step-6: NavierStokesProjectionIB<2>::setup_system()
-##6  ./step-6: NavierStokesProjectionIB<2>::run(bool, unsigned int)
-##7  ./step-6: main
+#0  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::Subscriptor::~Subscriptor()
+#1  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::SparsityPattern::~SparsityPattern()
+#2  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPatternBase<dealii::SparsityPattern>::reinit(unsigned int, unsigned int)
+#3  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::reinit(unsigned int, unsigned int)
+#4  /.../deal.II/lib/libdeal_II.g.so.7.0.0: dealii::BlockSparsityPattern::copy_from(dealii::BlockCompressedSimpleSparsityPattern const&)
+#5  ./step-6: NavierStokesProjectionIB<2>::setup_system()
+#6  ./step-6: NavierStokesProjectionIB<2>::run(bool, unsigned int)
+#7  ./step-6: main
 ```
 
 What is happening is this: deal.II derives a bunch of classes from the

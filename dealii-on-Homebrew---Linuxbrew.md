@@ -106,3 +106,4 @@ brew install dealii --without-opencascade --without-muparser --with-openblas
 Possible failures:
 
 If `netcdf` fails, you may need to install it via something like `LD_LIBRARY_PATH=~/.linuxbrew/Cellar/netcdf/4.3.3.1/lib brew install netcdf --with-fortran --with-cxx-compat`. 
+See https://github.com/Homebrew/homebrew-science/issues/2521#issuecomment-122032005 for a discussion.

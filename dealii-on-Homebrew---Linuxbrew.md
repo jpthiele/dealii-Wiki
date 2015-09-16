@@ -102,3 +102,7 @@ brew install glm
 brew install trilinos --with-openblas --without-scotch --without-x11
 brew install dealii --without-opencascade --without-muparser --with-openblas
 ```
+
+Possible failures:
+
+If `netcdf` fails, you may need to install it via something like `LD_LIBRARY_PATH=~/.linuxbrew/Cellar/netcdf/4.3.3.1/lib brew install netcdf --with-fortran --with-cxx-compat`. 

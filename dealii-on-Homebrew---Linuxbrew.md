@@ -14,6 +14,12 @@ On Debian/Ubuntu on needs extra packages:
 sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev csh subversion
 ```
 
+If you will be installing `opencascade`, you also need
+```
+sudo apt-get install libfontconfig1-dev libfreetype6-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxft-dev libxft-dev libxi-dev libxrandr-dev libxrender-dev
+```
+to be able to `brew install qt`.
+
 Then
 
 ```
@@ -100,7 +106,7 @@ brew install doxygen --with-graphviz
 brew install glpk
 brew install glm
 brew install trilinos --with-openblas --without-scotch --without-x11
-brew install dealii --without-opencascade --without-muparser --with-openblas
+brew install dealii --without-opencascade --with-openblas
 ```
 
 Possible failures:

@@ -18,7 +18,11 @@ If you will be installing `opencascade`, you also need
 ```
 sudo apt-get install libfontconfig1-dev libfreetype6-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxft-dev libxft-dev libxi-dev libxrandr-dev libxrender-dev
 ```
-to be able to `brew install qt`.
+to be able to `brew install qt` and 
+```
+sudo apt-get install libgl2ps-dev tcl8.6-dev tk8.6-dev libgl1-mesa-dev libglu1-mesa-dev libxmu-dev libxext-dev
+```
+to build `opencascade` itself.
 
 Then
 

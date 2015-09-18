@@ -80,7 +80,7 @@ Note that this configuration uses OpenBLAS as opposed to the system BLAS/LAPACK 
 ```
 brew install cmake
 brew install openmpi --c++11
-brew install boost --with-mpi --without-single --c++11
+brew install boost --with-mpi --without-single
 brew install gsl
 brew install openblas
 brew install scalapack --with-openblas --without-check

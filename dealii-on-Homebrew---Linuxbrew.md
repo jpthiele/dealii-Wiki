@@ -43,7 +43,6 @@ by running `brew update`.
 ### OS-X
 Note that this uses the system BLAS/LAPACK libraries.
 ```
-brew install pkg-config
 brew install cmake
 brew install openmpi --c++11
 brew install boost --c++11
@@ -79,6 +78,7 @@ On Linux some of the packages do not currently compile, therefore they have to b
 
 Note that this configuration uses OpenBLAS as opposed to the system BLAS/LAPACK libraries (such an option is currently not supported).
 ```
+brew install pkg-config
 brew install cmake
 brew install openmpi --c++11
 brew install boost --with-mpi --without-single

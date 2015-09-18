@@ -43,6 +43,7 @@ by running `brew update`.
 ### OS-X
 Note that this uses the system BLAS/LAPACK libraries.
 ```
+brew install pkg-config
 brew install cmake
 brew install openmpi --c++11
 brew install boost --c++11

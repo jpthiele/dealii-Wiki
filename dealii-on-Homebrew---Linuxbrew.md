@@ -56,7 +56,7 @@ brew install mumps
 brew install metis
 brew install parmetis
 brew install hypre --with-mpi
-brew install superlu
+brew install superlu43
 brew install superlu_dist
 brew install arpack --with-mpi --without-check
 brew install hdf5 --with-mpi --c++11
@@ -93,7 +93,7 @@ brew install mumps --with-openblas
 brew install metis
 brew install parmetis
 brew install hypre --with-mpi --with-openblas
-brew install superlu --with-openblas
+brew install superlu43 --with-openblas
 brew install superlu_dist  --with-openblas
 brew install arpack --with-mpi --with-openblas
 brew install hdf5 --with-mpi --c++11

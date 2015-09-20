@@ -65,7 +65,7 @@ brew install suite-sparse
 brew install hwloc
 brew install sundials --with-mpi
 brew install fftw --with-mpi --with-fortran
-brew install petsc --without-superlu
+brew install petsc
 brew install slepc
 brew install p4est
 brew install adol-c
@@ -102,7 +102,7 @@ brew install suite-sparse --with-openblas
 brew install hwloc
 brew install sundials --with-mpi
 brew install fftw --with-mpi --with-fortran
-brew install petsc --with-openblas --without-superlu
+brew install petsc --with-openblas
 brew install slepc --without-check
 brew install p4est --with-openblas
 brew install adol-c

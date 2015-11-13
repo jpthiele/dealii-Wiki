@@ -1,5 +1,11 @@
 # Using deal.II on Mac OS X and Linux via Homebrew/Linuxbrew
 
+---
+**The most up-to-date instructions can be found at the [homebrew-dealiisuite tap](https://github.com/davydden/homebrew-dealiisuite).**
+
+---
+
+
 The deal.II suite is also available on Homebrew ( OS-X) and Linuxbrew (https://github.com/Homebrew/linuxbrew Linux).
 
 ## Installing Homebrew/Linuxbrew

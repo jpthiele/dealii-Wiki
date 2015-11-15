@@ -2585,8 +2585,8 @@ Yes, you can, and it has been done numerous times with deal.II. However, we
 have a standard recommendation: consider such problems as systems of
 partial differential equations, where the individual components of the
 solution are the real and imaginary part of your unknown. The reason for
-this is that for complex-valued problems, the product <u,v> of two vectors
-is not the same as <v,u>, and it is very easy to get this wrong in many
+this is that for complex-valued problems, the product `<u,v>` of two vectors
+is not the same as `<v,u>`, and it is very easy to get this wrong in many
 places. If you want to avoid these common traps, then the easiest way
 around is to split up you equation into two equations of real and imaginary
 part first, and then treat the resulting system as a system of real

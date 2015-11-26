@@ -6,6 +6,11 @@ For an overview of different ways to use deal.II on Windows have a look at the c
 
 This page discusses how to compile and run deal.II on native Windows. We currently have experimental support for the gcc compiler ported by the [Cygwin64](http://www.cygwin.com/) and [MinGW-w64](http://mingw-w64.sourceforge.net/) project. Please note, that currently native Windows platforms aren't officially supported, so expect an a "told you so" as answer if something explodes in a funny way ;-)
 
+## Visual Studio
+
+There has been some progress with newer Visual Studio C++ compilers, but this is still work in progress. Please see the following threads for more details:
+- https://github.com/dealii/dealii/issues/1681
+
 ## Cygwin
 
 deal.II has been developed with a Unix-like environment in mind. Windows does not usually provide something like this, but it can be added to windows through the [Cygwin system](http://www.cygwin.com/). You should always use a current Cygwin distribution.
@@ -37,4 +42,4 @@ Due to the fact that this is a highly involved procedure that requires some know
 
 ## Other Windows compilers
 
-If you want to use any of the genuine Windows compilers, such as Visual C++, or Borland C++ this is more difficult. See the entry on this topic in the FrequentlyAskedQuestions.
+We haven't had much success with any other compiler on Windows (Intel, Borland, ...).

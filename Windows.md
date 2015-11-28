@@ -7,7 +7,7 @@ For an overview of different ways to use deal.II on Windows have a look at the c
 ## Visual Studio
 
 There has been some progress with newer Visual Studio C++ compilers, but this is still work in progress. Please see the following threads for more details:
-- https://github.com/dealii/dealii/issues/1681
+- https://github.com/dealii/dealii/issues/1921
 
 ## Cygwin / MingGW
 

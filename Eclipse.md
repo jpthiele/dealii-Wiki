@@ -282,6 +282,13 @@ I found the following key combinations useful, beyond the usual ones to open or 
 </td><td>Automatic indent highlighted lines of code.
 </td></tr>
 <tr>
+<td>	Ctrl-3
+</td><td>Quick access: start typing and it shows all menus, editors, views, commands that match that substring
+</td></tr>
+<td>	Ctrl-Shift-L
+</td><td>Show all key bindings, e.g,. for example to learn about more key shortcuts
+</td></tr>
+<tr>
 <th colspan="2" style="background-color:#ffff99;"> Debugging
 </th></tr>
 <tr>

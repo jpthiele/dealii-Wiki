@@ -2235,11 +2235,12 @@ $3 = {
 ```
 
 All you need is (i) gdb version 7.1 or later, or a graphical frontend for
-it (e.g. [http://www.gnu.org/software/ddd/ DDD](0,10[`.) or
+it (e.g. [http://www.gnu.org/software/ddd/ DDD] or
 [kdevelop](http://www.kdevelop.org)), (ii) some code that goes into your
-$HOME/.gdbinit file. This file, implementing pretty printers for the
-`Point, Tensor, Vector` and the various iterator classes for triangulations
-and DoFHandlers is posted [here](gdbinit).
+$HOME/.gdbinit file. Instructions for setting up this file, which implements
+pretty printers for `Point`, `Tensor`, `Vector`, and the various iterator
+classes for triangulations and DoFHandlers, is posted
+[here](Debugging-with-GDB).
 
 gdb can also pretty print many of the `std::XXX` classes, but not all linux
 distributions have it configured this way. To enable this, follow the

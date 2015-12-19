@@ -398,7 +398,7 @@ When the TBB initialization runs, still before `main()` starts, it will
 find that it can only run on a single core and will consequently not be
 able to work on multiple tasks in parallel.
 
-The solution to this problem is to forbit the GOTO BLAS to grab all
+The solution to this problem is to forbid the GOTO BLAS to grab all
 processors for itself, since we spend very little time in BLAS anyway. This
 can be done by setting either the `OMP_NUM_THREADS` or `GOTO_NUM_THREADS`
 environment variables to 1, see
@@ -603,7 +603,7 @@ only added if the compiler has not already done so itself.
 
 ### My program links with some template parameters but not with others.
 
-deall.II has many types for whose initialization you need to provide a
+deal.II has many types for whose initialization you need to provide a
 template parameter, e.g. `SparseMatrix<double>`. The implementation of
 these classes can typically be found in files ending `.templates.h`, e.g.
 `sparse_matrix.templates.h`. The corresponding `.cc` files, e.g.
@@ -1465,7 +1465,7 @@ coincide. However, if we have a hanging node, then the value at the
 hanging node appears to float above or below the linear interpolation
 from the longer side, like here (in the left picture, see the gap at
 the bottom in the blue green area, and around the top left in the
-greenesh area; pictures by Kevin Dugan):
+greenish area; pictures by Kevin Dugan):
 
 <img width="400px" src="http://www.dealii.org/images/wiki/gap-in-q2-1.png" align="center" />
 <img width="400px" src="http://www.dealii.org/images/wiki/gap-in-q2-2.png" align="center" />
@@ -1702,7 +1702,7 @@ Debuggers come in a variety of ways. On Linux and other Unix-like operating
 systems, they are almost all based in one way or other on the [GNU Debugger
 (GDB)](http://www.gnu.org/s/gdb/). GDB itself is a tool that is driven by
 interactively typing commands; if you know your way around with it, it is
-quite useable but it is rather austere and unless you are already familiar
+quite usable but it is rather austere and unless you are already familiar
 with this style of debugging, don't learn it. Rather, you should either use
 a graphical front-end or, even better, a front-end to GDB that is
 integrated into an Integrated Development Environment (IDE). An example of
@@ -1848,7 +1848,7 @@ To debug such problems, two approaches have proven useful:
    if it runs through if you don't create graphical output in `run()`. If
    it does, then you know that the exception must have been thrown in the
    block of code you just removed. If the program continues to abort, then
-   reduce the number of mesh refinement cycles to find out withhin which
+   reduce the number of mesh refinement cycles to find out within which
    cycle the problem happens. If it happens in the very first cycle, then
    remove calling the linear solver. If the program now runs through, then
    the problem happened in the solver. If it still aborts, then it must
@@ -2239,7 +2239,7 @@ it (e.g. [http://www.gnu.org/software/ddd/ DDD] or
 [kdevelop](http://www.kdevelop.org)), (ii) some code that goes into your
 $HOME/.gdbinit file. Instructions for setting up this file, which implements
 pretty printers for `Point`, `Tensor`, `Vector`, and the various iterator
-classes for triangulations and DoFHandlers, is posted
+classes for triangulations and DoFHandlers, are posted
 [here](Debugging-with-GDB).
 
 gdb can also pretty print many of the `std::XXX` classes, but not all linux
@@ -2768,7 +2768,7 @@ A few simple projects can also be found in the
 [list of open issues](https://code.google.com/p/dealii/issues/list), where they
 are generally marked as "Enhancements".
 
-If you consider providing some code for inclusing into the library, these
+If you consider providing some code for inclusion with the library, these
 are the simple rules of gaining reputation in the Open Source community:
  - your reputation grows with the number and complexity of your
    contributions;

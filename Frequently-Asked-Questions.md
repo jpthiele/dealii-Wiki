@@ -1767,7 +1767,7 @@ the error message actually says as it contains pretty much all the
 information you need. So let's take the error message apart:
 
  - The first two lines tell you where the problem happened: in the current
-   case, in line 1302 of file
+   case, in line 1223 of file
    `/.../dealii/include/deal.II/lac/vector.h` in the function
    `Number& dealii::Vector<Number>::operator()(dealii::Vector<Number>::size_type)`.
    This is a function in the library, so you likely don't know what exactly it

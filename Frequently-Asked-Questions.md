@@ -2243,7 +2243,7 @@ $3 = {
 ```
 
 All you need is (i) gdb version 7.1 or later, or a graphical frontend for
-it (e.g. [http://www.gnu.org/software/ddd/ DDD] or
+it (e.g. [DDD](http://www.gnu.org/software/ddd/) or
 [kdevelop](http://www.kdevelop.org)), (ii) some code that goes into your
 $HOME/.gdbinit file. Instructions for setting up this file, which implements
 pretty printers for `Point`, `Tensor`, `Vector`, and the various iterator

@@ -2182,12 +2182,14 @@ nonlinear PDEs:
    If that's not the case, something is wrong in your implementation.
 
  - Newton's iteration will converge with optimal order for the problem
-   `F(u)=0` if you <i>consistently</i> compute the Newton residual
-   `(F(u<sup>k</sup>), &phi;<sup>i</sup>)` and the Newton (Jacobian) matrix
-   `(F'(u<sup>k</sup>) &phi;<sup>j</sup>, &phi;<sup>i</sup>)`. If you have
+   *R(u)=0*, where *R* may be thought of as a residual, if you
+   <i>consistently</i> compute the Newton residual
+   *(&phi;<sup>i</sup>, R(u<sup>k</sup>))* and the Newton (Jacobian) matrix
+   *R'(u<sup>k</sup>)*. If you have
    a bug in either of the two, your method may converge, but typically at a
    (much) lower rate and with consequently many more iterations.
-   Consequently, one way to debug Newton's methods is to verify that Newton
+
+   Consequently, one way to debug Newton's methods is to verify that the Newton
    matrix and Newton residual are matching in their code. However, if you
    have a matching bug in <i>both</i> of the matrix and right hand side
    assembly, then your Newton method will converge with correct order but
@@ -2195,19 +2197,21 @@ nonlinear PDEs:
 
  - If you have nonzero boundary values for your problem, set the correct
    boundary values for the initial guess and use zero boundary values for
-   all following updates. This way, the updated `u<sup>k+1</sup> =
-   u<sup>k</sup> + &delta; u<sup>k+1</sup>` already has the right boundary
-   values for all following iterations.
+   all following updates. This way, the updated
+   *u<sup>k+1</sup> = u<sup>k</sup> + &delta; u<sup>k</sup>*
+   already has the right boundary values for all following iterations, where
+   *&delta; u<sup>k</sup>* is the Newton update.
 
  - If your problem is strongly nonlinear, you may need to employ a line
-   search where you compute `u<sup>k+1</sup> = u<sup>k</sup> + &alpha;
-   &delta; u<sup>k+1</sup>` and successively try &alpha;=1, &alpha;=1/2,
-   &alpha;=1/4, etc until the residual computed for `u<sup>k+1</sup>` for
-   this &alpha; is smaller than the residual for `u<sup>k</sup>`.
+   search where you compute
+   *u<sup>k+1</sup> = u<sup>k</sup> + &alpha; &delta; u<sup>k</sup>*
+   and successively try *&alpha;=1, &alpha;=1/2, &alpha;=1/4*, etc., until the
+   residual computed for *u<sup>k+1</sup>* for this *&alpha;* is smaller than
+   the residual for *u<sup>k</sup>*.
 
  - A rule of thumb is that if your problem is strongly nonlinear, you may
-   need 5 or 10 iterations with a step length &alpha; less than one, and
-   all following steps use the full step length &alpha;=1.
+   need 5 or 10 iterations with a step length *&alpha;* less than one, and
+   all following steps use the full step length *&alpha;=1*.
 
  - For most reasonably behaved problems, once your iteration reaches the
    point where it takes full steps, it usually converges in 5 or 10 more

@@ -2259,9 +2259,10 @@ however, some general observations:
  - Running deal.II programs in debug mode will take, depending on the program,
    between 4 and 10 times as long as in optimized mode. If you are using the
    standard setup for your own `CMakeLists.txt` file (described in the
-   [documentation](https://www.dealii.org/8.3.0/index.html)), then compiling
-   your code with `make release` will both compile your code at a higher
-   optimization level and link it against the optimized version of deal.II.
+   [documentation](https://www.dealii.org/8.3.0/users/cmakelists.html)), then
+   compiling your code with `make release` will both compile your code at a
+   higher optimization level and link it against the optimized version of
+   deal.II.
 
  - A typical finite element program will spend around one third of its time
    in assembling linear systems, around one half in solving these linear

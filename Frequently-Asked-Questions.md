@@ -1765,7 +1765,7 @@ information you need. So let's take the error message apart:
    case, in line 1302 of file
    `/u/bangerth/p/deal.II/1/deal.II/include/deal.II/lac/vector.h` in
    function `Number& dealii::Vector<Number>::operator()(unsigned int) [with
-   Number = double](0,10[)`. This is a function in the library, so you
+   Number = double]`. This is a function in the library, so you
    likely don't know what exactly it does and what to do with it, but there
    is more information to come.
 

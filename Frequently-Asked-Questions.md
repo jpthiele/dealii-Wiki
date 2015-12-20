@@ -102,7 +102,7 @@ quadrilaterals and hexahedra to make this trivially possible. Implementing
 other reference cells such as triangles and tetrahedra amounts to
 re-implementing nearly all grid and DoF classes from scratch, along with
 the finite element shape functions, mappings, quadratures and a whole host
-of other things. Make triangles and tetrahedra work would certainly involve
+of other things. Making triangles and tetrahedra work would certainly involve
 having to write several ten thousand lines of code, and to make it usable
 in all the rest of the library would require auditing a very significant
 fraction of the 600,000 lines of code that make up deal.II today.

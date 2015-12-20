@@ -685,10 +685,10 @@ opening it again, and then trying to execute
 
 ### What integrated development environment (IDE) works well with deal.II?
 
-The short answer is probably: whatever works best for you. deal.II uses
-standard unix-style Makefiles, which most IDEs should support. In the past,
-many of the main developers have used emacs (or even vi), but there are
-much better tools around today, such as [eclipse](http://www.eclipse.org/),
+The short answer is probably: whatever works best for you. deal.II uses the
+build tool CMake, which can generate a project description for virtually every
+IDE. In the past, many of the main developers have used emacs (or even vi), but
+there are much better tools around today, such as [eclipse](http://www.eclipse.org/),
 [KDevelop](http://www.kdevelop.org),
 [Xcode](http://developer.apple.com/technologies/tools/),
 [QtCreator](http://qt.nokia.com/products/developer-tools/), all of which
@@ -1684,9 +1684,11 @@ and that you don't know how to fix; certainly, if the library complains
 about something and you ignore it, nothing good can come out of the
 remainder of the run of your program.
 
-To switch between debug and optimized mode, take a look at the top of the
-deal.II-provided Makefiles: there's a flag you can set that switches
-between the two modes.
+You can switch between debug and optimized mode, at least for the example
+programs, by compiling the example with either `make debug` or `make
+release`. There are further
+[instructions](https://www.dealii.org/8.3.0/users/cmakelists.html#cmakesimple.build_type)
+in the documentation describing how to set this up in your own codes.
 
 ### Should I use a debugger?
 
@@ -2254,10 +2256,12 @@ This is a problem that is true for a lot of us. The question is which part
 of your program is causing it. Before going into more detail, there are,
 however, some general observations:
 
- - Running deal.II programs in debug mode will take, depending on the
-   program, between 4 and 10 times as long as in optimized mode. If you are
-   using the deal.II Makefiles, you can switch between debug and optimized
-   mode somewhere at the top of the Makefile.
+ - Running deal.II programs in debug mode will take, depending on the program,
+   between 4 and 10 times as long as in optimized mode. If you are using the
+   standard setup for your own `CMakeLists.txt` file (described in the
+   [documentation](https://www.dealii.org/8.3.0/index.html)), then compiling
+   your code with `make release` will both compile your code at a higher
+   optimization level and link it against the optimized version of deal.II.
 
  - A typical finite element program will spend around one third of its time
    in assembling linear systems, around one half in solving these linear

@@ -61,7 +61,7 @@ brew install scalapack
 brew install mumps
 brew install metis
 brew install parmetis
-brew install hypre --with-mpi
+brew install hypre
 brew install superlu43
 brew install superlu_dist
 brew install arpack --with-mpi --without-check
@@ -98,7 +98,7 @@ brew install scalapack --with-openblas --without-check
 brew install mumps --with-openblas
 brew install metis
 brew install parmetis
-brew install hypre --with-mpi --with-openblas
+brew install hypre --with-openblas
 brew install superlu43 --with-openblas
 brew install superlu_dist  --with-openblas
 brew install arpack --with-mpi --with-openblas

@@ -979,7 +979,8 @@ space here. Let's take for example this case:
 
 ```cpp
   void f(int);
-  void g(double d) {
+  void g(double d)
+  {
     f(d);
   }
   void f(double);
@@ -998,7 +999,8 @@ complications. Take this example:
 ```cpp
   void f(int);
   void f(char);
-  template <typename T> void g(T t) {
+  template <typename T> void g(T t)
+  {
     f(1.1);
     f(t);
   }
@@ -1016,8 +1018,9 @@ should only happen <i>at the time and place when the template is
 instantiated</i> (this is called <i>argument dependent name lookup</i> or
 <i>ADL</i>). In other words, if below the code above we had this:
 ```cpp
-  void h() {
-     g(1.1);
+  void h()
+  {
+    g(1.1);
   }
 ```
 
@@ -1040,7 +1043,8 @@ does
 
   void f (const X & x) { /* do something with the X */ }
 
-  void my_function() {
+  void my_function()
+  {
     X x;
     g(x);
   }
@@ -1058,7 +1062,9 @@ Take this example:
 
 ```cpp
   int p;
-  template <typename T> void g(T t) {
+  template <typename T>
+  void g(T t)
+  {
     T::something * p;
     f(p);
   }
@@ -1068,7 +1074,8 @@ Here, is the call to `f` dependent because `p` depends on the type `T`? If
 `f` is called with an argument of type `X` that is declared like this
 
 ```cpp
-  struct X {
+  struct X
+  {
     typedef int something;
   };
 ```
@@ -1077,7 +1084,8 @@ then `T::something * p;` would declare a local variable called `p` that is
 of type pointer-to-int. On the other hand, if we had
 
 ```cpp
-  struct X {
+  struct X
+  {
     static double something;
   };
 ```
@@ -1096,7 +1104,9 @@ is a variable or function name unless it is prefixed by the keyword
 call to `f` here is going to be non-dependent:
 ```cpp
   int p;
-  template <typename T> void g(T t) {
+  template <typename T>
+  void g(T t)
+  {
     T::something * p;
     f(p);
   }
@@ -1107,7 +1117,9 @@ errors because `T::something` didn't turn out to be a variable. On the
 other hand, if we had
 ```cpp
   int p;
-  template <typename T> void g(T t) {
+  template <typename T>
+  void g(T t)
+  {
     typename T::something * p;
     f(p);
   }
@@ -1122,17 +1134,23 @@ This is a consequence of the same rule in the C++ standard as discussed in
 the previous question, Argument Dependent Lookup of names (ADL). Consider
 this piece of code:
 ```cpp
-  template <typename T> class Base {
-    public:
-      void f();
+  template <typename T>
+  class Base
+  {
+  public:
+    void f();
   };
 
-  template <typename T> class Derived : public Base<T> {
-    public:
-      void g();
+  template <typename T>
+  class Derived : public Base<T>
+  {
+  public:
+    void g();
   };
 
-  template <typename T> void Derived<T>::g() {
+  template <typename T>
+  void Derived<T>::g()
+  {
     f();
   }
 ```
@@ -1147,17 +1165,23 @@ the other hand, in this code,
 ```cpp
   void f(); // global function
 
-  template <typename T> class Base {
-    public:
-      void f();
+  template <typename T>
+  class Base
+  {
+  public:
+    void f();
   };
 
-  template <typename T> class Derived : public Base<T> {
-    public:
-      void g();
+  template <typename T>
+  class Derived : public Base<T>
+  {
+  public:
+    void g();
   };
 
-  template <typename T> void Derived<T>::g() {
+  template <typename T>
+  void Derived<T>::g()
+  {
     f();
   }
 ```
@@ -1173,24 +1197,31 @@ at the time of <i>parsing</i> the template, the compiler doesn't know for
 which template arguments the template will later be instantiated, and with
 explicit or partial specializations.  Consider for example this code:
 ```cpp
-  template <typename T> class Base {
-    public:
-      void f();
+  template <typename T>
+  class Base
+  {
+  public:
+    void f();
   };
 
-  class X {
-    public:
-      void f();
+  class X
+  {
+  public:
+    void f();
   };
 
   template <> class Base<int> : public X {};
 
-  template <typename T> class Derived : public Base<T> {
-    public:
-      void g();
+  template <typename T>
+  class Derived : public Base<T>
+  {
+  public:
+    void g();
   };
 
-  template <typename T> void Derived<T>::g() {
+  template <typename T>
+  void Derived<T>::g()
+  {
     f();
   }
 ```
@@ -1204,22 +1235,30 @@ says: if the call is not dependent, find a non-dependent function to record
 can't yet know will be relevant (e.g. `Base` or `X`). Likewise, in this
 code,
 ```cpp
-  template <typename T> class Base {
-    public:
-      void f();
+  template <typename T>
+  class Base
+  {
+  public:
+    void f();
   };
 
-  template <> class Base<int> {
-    public:
-      struct f {};
+  template <>
+  class Base<int>
+  {
+  public:
+    struct f {};
   };
 
-  template <typename T> class Derived : public Base<T> {
-    public:
-      void g();
+  template <typename T>
+  class Derived : public Base<T>
+  {
+  public:
+    void g();
   };
 
-  template <typename T> void Derived<T>::g() {
+  template <typename T>
+  void Derived<T>::g()
+  {
     f();
   }
 ```
@@ -1232,17 +1271,22 @@ again immediately. For all other template arguments `T`, it calls
 Given this longish description of how compilers look up names under the ADL
 rule, let's get back to the original question: If you have this code,
 ```cpp
-  template <typename T> class Base {
-    public:
-      void f();
+  template <typename T>
+  class Base
+  {
+  public:
+    void f();
   };
 
-  template <typename T> class Derived : public Base<T> {
-    public:
-      void g();
+  template <typename T>
+  class Derived : public Base<T>
+  {
+  public:
+    void g();
   };
 
-  template <typename T> void Derived<T>::g() {
+  template <typename T> void Derived<T>::g()
+  {
     f();
   }
 ```
@@ -1253,7 +1297,9 @@ supposed to do till the time when it knows what `T` actually is. And we've
 already seen how to do that: we need to make the call <i>dependent</i> on
 `T`! The way to do that is this:
 ```cpp
-  template <typename T> void Derived<T>::g() {
+  template <typename T>
+  void Derived<T>::g()
+  {
     this->f();
   }
 ```
@@ -1969,9 +2015,12 @@ don't have a Plan B anyway if a solver fails, so you may want to abort the
 program if that happens. To do this, wrap the call to the solver in a
 try-catch block like this:
 ```cpp
-  try {
+  try
+  {
     cg.solve (system_matrix, solution, system_rhs, preconditioner);
-  } catch (...) {
+  }
+  catch (...)
+  {
     std::cerr << "*** Failure in Schur complement solver! ***" << std::endl;
     std::abort ();
   }
@@ -2409,10 +2458,11 @@ communication. In either case, the other processes will wait forever for
 process X's message and deadlock the program. An example for this case
 would go like this:
 ```cpp
-  void assemble_system () {
-              // optimization in case there is nothing to do; we won't
-              // have to initialize FEValues and other local objects in
-              // that case
+  void assemble_system ()
+  {
+    // optimization in case there is nothing to do; we won't
+    // have to initialize FEValues and other local objects in
+    // that case
     if (tria.n_locally_owned_active_cells() == 0)
       return;
 
@@ -2458,7 +2508,8 @@ a long time to execute and that you should focus your efforts on optimizing
 it. But in an MPI program, this isn't quite always true. Imagine, for
 example, that the function looked like this:
 ```cpp
-  void my_function () {
+  void my_function ()
+  {
     double val = compute_something_locally();
     double global_sum = 0;
     MPI_Reduce (&val, &global_sum, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD);

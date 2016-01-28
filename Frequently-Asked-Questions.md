@@ -125,7 +125,7 @@ compile time and consequently not allow the compiler to optimize on.
 If you do need to work with a geometry for which all you have is a
 triangular or tetrahedral mesh, then you can convert this mesh into one
 that consists of quadrilaterals and hexahedra using the `tethex` program,
-see http://code.google.com/p/tethex/wiki/Tethex .
+see https://github.com/martemyev/tethex .
 
 ### I'm stuck!
 
@@ -2775,8 +2775,8 @@ example:
  - tool classes that do something that might be interesting to use in other
    programs as well.
 
-A few simple projects can also be found in the
-[list of open issues](https://code.google.com/p/dealii/issues/list), where they
+A few projects (some easy, some difficult) can also be found in the
+[list of open issues](https://github.com/dealii/dealii/issues), where they
 are generally marked as "Enhancements".
 
 If you consider providing some code for inclusion with the library, these

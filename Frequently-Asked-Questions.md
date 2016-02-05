@@ -2611,10 +2611,11 @@ Problems other users of deal.II have solved include:
  - Thermoelastoplastic metal forming;
  - Eulerian coordinates problems in biomechanical modeling.
 
-Some images from these applications can be found on the deal.II Wiki's
-[page. A good overview of the sort of problems that are being solved with
-the help of deal.II can also be obtained by looking at the large number of
-[http://www.dealii.org/developer/publications/toc.html publications written with the help of deal.II]([[Gallery]]]).
+Some images from these applications can be found on this wiki's [[Gallery]]
+page. A good overview of the sort of problems that are being solved with the
+help of deal.II can also be obtained by looking at the large number of
+[publications](http://www.dealii.org/publications.html) written with the help of
+deal.II.
 
 Probably, many other problem types are solved by the many users which we do
 not know of directly. If someone would like to have his project added to

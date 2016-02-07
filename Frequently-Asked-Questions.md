@@ -555,9 +555,12 @@ This is a complicated one (and it should also be fixed in more recent
 Trilinos versions). In the Trilinos file `Sacado_cmath.hpp`, there is some
 code of the form
 ```cpp
-  namespace std {
-    inline float acosh(float x) {
-      return std::log(x + std::sqrt(x*x - float(1.0))); }
+  namespace std
+  {
+    inline float acosh(float x)
+    {
+      return std::log(x + std::sqrt(x*x - float(1.0)));
+    }
     ...
   }
 ```
@@ -581,7 +584,8 @@ file. To do this, find and open the file `include/Sacado_cmath.hpp` in the
 directory in which Trilinos was installed. Then change the block enclosed
 in
 ```cpp
-  namespace std {
+  namespace std
+  {
     ...
   }
 ```
@@ -589,7 +593,8 @@ in
 to read
 ```cpp
 #ifndef _GLIBCXX_USE_C99_MATH
-  namespace std {
+  namespace std
+  {
     ...
   }
 #endif
@@ -1966,7 +1971,8 @@ objects typically bypasses all the clean-up code you may have at the end of
 a function and can then lead to errors like the above. For example, take
 this code:
 ```cpp
-void f() {
+void f()
+{
   SparseMatrix s;
   SparsityPattern sp;
   // initialize sp somehow

@@ -2709,16 +2709,17 @@ the mailing list is there for!
 
 ### How do I compute the error
 
-If your goal is to compute the error in the form `||`u-u<sub>h</sub>`||` in
-some kind of norm, then you should use the function
-{{{VectorTools::integrate_difference}}} which can compute the norm above in
-any number of norms (such as the L2, H1, etc., norms). Take a look at
-step-7.
+If your goal is to compute the error in the form `||`u-u<sub>h</sub>`||` in some
+kind of norm, then you should use the function
+[VectorTools::integrate_difference](https://www.dealii.org/8.3.0/doxygen/deal.II/namespaceVectorTools.html#a01174a2a7e2ee8fa6abdfdd93ac7a317)
+which can compute the norm above in any number of norms (such as the L2, H1,
+etc., norms). Take a look at step-7.
 
-On the other hand, if your goal is to *estimate* the error, then the one
-class that can do this is {{{KellyErrorEstimator}}}. This class is used in
-most of the tutorial programs that use adaptively refined meshes, starting
-with step-6.
+On the other hand, if your goal is to *estimate* the error, then the one class
+that can do this is
+[Kelly Error Estimator](https://www.dealii.org/8.3.0/doxygen/deal.II/classKellyErrorEstimator.html).
+This class is used in most of the tutorial programs that use adaptively refined
+meshes, starting with step-6.
 
 ### How to plot the error as a pointwise function
 
@@ -2730,8 +2731,10 @@ find a pattern in why the solution is not as you expect it to be, what you
 should do is this:
  - Interpolate the exact solution
  - Subtract the interpolated exact solution from the computed solution
- - Put the resulting vector into a {{{DataOut}}} object. This will plot the
-   nodal values of the errors u-u<sub>h</sub> on the current mesh.
+ - Put the resulting vector into a
+   [DataOut object](https://www.dealii.org/8.3.0/doxygen/deal.II/classDataOut.html).
+   This will plot the nodal values of the errors u-u<sub>h</sub> on the current
+   mesh.
 
 As an example, the following code shows how to do this in principle:
 ```cpp

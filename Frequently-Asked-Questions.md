@@ -1369,7 +1369,7 @@ program:
    mesh by hand any more (i.e. if it requires more than, for example, 20-30
    coarse mesh cells), then you'll need a mesh generator. For
    quadrilaterals and hexahedra, there aren't all that many mesh
-   generators. [http://geuz.org/gmsh/ gmsh](1]);),
+   generators. [gmsh](http://www.gmsh.info),
    [lagrit](https://lagrit.lanl.gov/) and [cubit](http://cubit.sandia.gov/)
    come to mind. The primary problem is that most mesh generators' output
    meshes aren't particularly coarse by default, so you may want to pay

@@ -286,6 +286,11 @@ shows in a number of places regarding the build system and compilers
 supported. That said, there are multiple methods to get deal.II running if
 you have a Windows machine.
 
+
+#### Run deal.II natively on Windows
+
+Since deal.II 8.4.0 we have experimental support for Microsoft Visual Studio (2013 and 2015). See the separate page on [[Windows]] for more details.
+
 #### Run deal.II through a virtual box
 
 The simplest way to try out deal.II is to run it in a premade virtual
@@ -316,20 +321,6 @@ you would any other program.
 installer" in the first gray box.  You will be prompted to donate to
 Ubuntu, which is entirely optional. You will also be prompted to use a
 different version of Ubuntu if you use Windows 8.
-
-#### Run deal.II natively on Windows
-
-Native Windows support for deal.II is currently experimental and not
-officially supported. See the separate page on [[Windows]] for more
-details.
-
-#### Are any of the native Windows compilers supported by deal.II?
-
-If you are thinking of compilers like Microsoft Visual C++ or Borland C++,
-then the answer is: No, not at the moment. The basic problem is that none
-of the main developers use Windows and as in any other volunteer project,
-things happen if people with the necessary expertise step forward to make
-it work.
 
 ### Can I use deal.II on an Apple Macintosh?
 

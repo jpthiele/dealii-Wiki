@@ -2,11 +2,11 @@
 
 For an overview of different ways to use deal.II on Windows have a look at the corresponding [FAQ entry](https://code.google.com/p/dealii/wiki/FrequentlyAskedQuestions#Can_I_use_deal.II_on_a_Windows_platform?).
 
-**Warning: please be aware that the following is experimental and you will likely encounter bugs in compilers and deal.II itself. Only continue if you are an experienced developer and are willing to experiment. We *strongly* recommend other options listed in the FAQ.** 
+**Warning: please be aware that the following is experimental and you will likely encounter bugs in compilers and deal.II itself. Only continue if you are willing to experiment.** 
 
 ## Visual Studio
 
-There has been some progress with newer Visual Studio C++ compilers, but this is still work in progress. Please see the following threads for more details:
+Since deal.II 8.4.0 we have experimental support for the newer Visual Studio C++ compilers (2013 and 2015), but this is still work in progress. Please see the following threads for more details:
 - https://github.com/dealii/dealii/issues/1921
 
 ## Cygwin / MingGW

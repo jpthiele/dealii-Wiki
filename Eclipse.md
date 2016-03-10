@@ -34,6 +34,19 @@ and 25 at http://www.math.tamu.edu/~bangerth/videos.html .
 If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below about how to install the subversion plugin.
 
 
+# Setting up a project using deal.II with CMake help
+
+The easiest way to get Eclipse to understand your project is to let CMake generate an Eclipse project for you, assuming you are using CMake. To this end, go to the source directory (using the `step-22` example again) and say
+```
+  cmake -G"Eclipse CDT4 - Unix Makefiles" -DDEAL_II_DIR=/path/to/deal.II .
+```
+This generates not only a Unix Makefile, but also an Eclipse project file. You can get Eclipse to use it by selecting from the menu "File > Import...", then choosing "General > Existing Projects into Workspace". Click on "Next", and in the next dialog window select as the root directory the directory where you ran CMake above. After selecting this directory, Eclipse should show you the name of the project under "Projects". Simply click on "Finish" to let Eclipse choose it. It will then automatically know where to find header files, about build targets, etc.
+
+To build the executable, go to the "Make target" tab (usually located in the right sub-window) and double-click on "all". In the "Console" tab (usually located in the bottom sub-window) you can view the commands being executed to build your program.
+
+You may still have to set up run and debug launches if you want to run or debug the executable so built, however.
+
+
 
 # Setting up a project using deal.II by hand
 
@@ -107,17 +120,6 @@ Once you have set up a launch configuration for an application as described abov
 Using the symbols in the "Debug" sub-window at the top left (or the menu entries and corresponding keyboard shortcuts listed in the "Run" menu"), you can now step through the program, inspect the current state of your program at the top right by observing the values of local variables, and set breakpoints by going to certain source locations and right clicking onto the code line you want to set a breakpoint on.
 
 
-# Setting up a project using deal.II with CMake help
-
-An alternative to get Eclipse to understand your project is to let CMake generate an Eclipse project for you, assuming you are using CMake. To this end, go to the source directory (using the `step-22` example again) and say
-```
-  cmake -G"Eclipse CDT4 - Unix Makefiles" -DDEAL_II_DIR=/path/to/deal.II .
-```
-This generates not only a Unix Makefile, but also an Eclipse project file. You can get Eclipse to use it by selecting from the menu "File > Import...", then choosing "General > Existing Projects into Workspace". Click on "Next", and in the next dialog window select as the root directory the directory where you ran CMake above. After selecting this directory, Eclipse should show you the name of the project under "Projects". Simply click on "Finish" to let Eclipse choose it. It will then automatically know where to find header files, about build targets, etc.
-
-To build the executable, go to the "Make target" tab (usually located in the right sub-window) and double-click on "all". In the "Console" tab (usually located in the bottom sub-window) you can view the commands being executed to build your program.
-
-You may still have to set up run and debug launches if you want to run or debug the executable so built, however.
 
 # Setting up deal.II as a development project in itself
 

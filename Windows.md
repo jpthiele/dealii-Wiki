@@ -9,6 +9,30 @@ For an overview of different ways to use deal.II on Windows have a look at the c
 Since deal.II 8.4.0 we have experimental support for the newer Visual Studio C++ compilers (2013 and 2015), but this is still work in progress. Please see the following threads for more details:
 - https://github.com/dealii/dealii/issues/1921
 
+Installation instructions:
+
+1. Download and install Visual Studio: https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx and make sure you select the C++ compiler
+2. Install cmake from https://cmake.org/download/ (pick the windows installer)
+3. Extract deal.II to a folder, for example c:\dealii (or clone the git development version)
+4. Configure using cmake by opening cmd:
+
+    ```
+cd c:\dealii
+mkdir build
+cd c:\dealii\build
+cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install ..
+    ```
+
+6. Compile and install the library by opening ``deal.II.sln`` in c:\dealii\build, pick the install target and compile.
+7. in cmd go to one of the examples in c:\dealii\examples\step-xy:
+
+    ```
+cmake -D DEAL_II_DIR=c:\dealii\install .
+    ```
+
+8. Open the newly created solution (step-xy.sln) in that directory and compile/run/debug.
+
+
 ## Cygwin / MingGW
 
 Cygwin and forks such as MinGW and MinGW-64 are unsupported due to multiple unresolved miscompilation issues.

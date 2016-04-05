@@ -32,6 +32,17 @@ cmake -D DEAL_II_DIR=c:\dealii\install .
 
 8. Open the newly created solution (step-xy.sln) in that directory and compile/run/debug.
 
+## Running build tests on Windows:
+
+Install git and mingw (for perl etc). Then create a .bat file:
+```
+git pull origin master
+rmdir /Q /S buildtest15
+mkdir buildtest15
+cd buildtest15
+ctest -C Debug -DMAKEOPTS="/m:1" -DCTEST_CMAKE_GENERATOR="Visual Studio 14 2015" -S ../tests/run_buildtest.cmake -V
+cd ..
+```
 
 ## Cygwin / MingGW
 

@@ -2,14 +2,14 @@
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack).
 
-## Install and configure Spack
+## Download and configure Spack
 
 Add the following to `~/.bash_profile` (or equivalent)
 ```
 SPACK_ROOT=/path/to/spack
 export PATH=$SPACK_ROOT/bin:$PATH
 ```
-`SPACK_ROOT` is destination where you want Spack to be installed (i.e. `~/spack`).
+`SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `/Users/john/spack`).
 
 Now clone Spack
 ```
@@ -40,11 +40,7 @@ In order to use `deal.II` first do
 spack load dealii
 spack load cmake
 ```
-Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path:
-```
-$echo $DEAL_II_DIR
-$which cmake
-```
+Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path.
 
 ## Install GCC
 OSX by default does not provide any Fortran compiler.
@@ -54,12 +50,12 @@ One can get it from GCC
 spack install gcc
 ```
 
-Load `gcc` and let Spack find the newly installed compiler:
+Now `gcc` and let Spack find the newly installed compiler:
 ```
 spack load gcc
 spack compiler find
 ```
-Now you can install deal.II with `gcc`
+Finally you can install deal.II with `gcc`
 ```
 spack install dealii%gcc
 ```

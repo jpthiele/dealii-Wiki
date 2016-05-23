@@ -50,7 +50,7 @@ One can get it from GCC
 spack install gcc
 ```
 
-Now `gcc` and let Spack find the newly installed compiler:
+Now load `gcc` and let Spack find the newly installed compilers:
 ```
 spack load gcc
 spack compiler find

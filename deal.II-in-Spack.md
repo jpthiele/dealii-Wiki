@@ -116,5 +116,5 @@ Now you can install deal.II with clang+gfortran
 spack install dealii%clang
 ```
 
-
+------
 [1] The installation instructions were last time tested on Ubuntu 14.04 LTS with gcc 6.1 and Spack commit  https://github.com/LLNL/spack/commit/3ab56a188e83054420d9004be1c6d07276c91375

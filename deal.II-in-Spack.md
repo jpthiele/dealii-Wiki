@@ -27,7 +27,22 @@ and then add to `~/.bash_profile` (or equivalent)
 MODULES_HOME=`spack location -i environment-modules`
 source ${MODULES_HOME}/Modules/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
-``` 
+```
+
+Spack is flexible to use both self-compiled and system provided packages. One can also specify which packages should be used for `mpi`, `blas/lapack` and alike. For more details, see [Spack documentation](http://software.llnl.gov/spack/features.html). Below is a self-explanatory example of a configuration file `~/.spack/package.yaml` to use `openblas`, `openmpi` and system provided `python`:
+```
+packages:
+  all:
+    compiler: [gcc,clang]
+    providers:
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
+  python:
+    version: [2.7.11]
+    paths:
+      python@2.7.11: /usr
+```
 
 ## Install and use deal.II
 Make sure C/C++/Fortran compilers are in path (if that's not the case, see below),

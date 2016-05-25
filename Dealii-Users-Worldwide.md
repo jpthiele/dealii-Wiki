@@ -19,6 +19,14 @@ deal.II and descriptions of what they do with it.
     - Simulation and applications of turbulent flows
     - Parallel computing
 
+### [Friedrich-Alexander-Universität Erlangen-Nürnberg](http://www.fau.de/)
+
+  Researchers in Continuum Mechanics and Applied Mathematics associated with [Prof. Paul Steinmann](http://www.ltm.uni-erlangen.org/chair/staff/personal.shtml/paul-steinmann.shtml): Benjamin Brands, Denis Davydov, Markus Mehnert,  Jean-Paul Pelteret, Daniel Riedlbauer, Stefan Riehl.
+    - Continuum mechanics
+    - Reduced-Order Modelling
+    - Shape optimization
+    - Quantum mechanics
+
 ### [Helmut-Schmidt-Universität Universität der Bundeswehr Hamburg](http://www.hsu-hh.de/)
 
   [Prof. Markus Bause](http://www.hsu-hh.de/mb-mathe/index_8Nk2UtXjFq8mxHBX.html) and his team

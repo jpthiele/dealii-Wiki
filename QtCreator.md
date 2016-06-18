@@ -10,6 +10,9 @@ If you use a cmake build that is installed in your local user acccount, it needs
 
 In your default kit (settings->build&run->kits) select Qt version "none". Otherwise some reserved words like "signal" are not parsed correctly by qtcreator.
 
+You can download [dealii-prm.xml](https://drive.google.com/open?id=0B1_zqLUYjm2edkVIbW5KVUpqdDg) and put it into 
+~/.config/QtProject/qtcreator/generic-highlighter to get syntax highlighting for .prm files.
+
 ## Usage
 
 Open the CMakeLists.txt and then choose the existing build directory.

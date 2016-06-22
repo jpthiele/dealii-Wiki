@@ -82,12 +82,15 @@ At the time of writing this page, Spack does not provide a native way to mix C/C
 (i) Edit `~/.spack/compilers.yaml` to provide path to gfortran compiler within the `clang@x.y.z-apple` entry:
 ```
 compilers:
-  darwin-x86_64:
-    clang@7.3.0-apple:
+- compiler:
+    modules: []
+    operating_system: elcapitan
+    paths:
       cc: /usr/bin/clang
       cxx: /usr/bin/clang++
       f77: /path/to/bin/gfortran
       fc: /path/to/bin/gfortran
+    spec: clang@7.3.0-apple
 ```
 
 (ii) Create a symlink inside clang environement

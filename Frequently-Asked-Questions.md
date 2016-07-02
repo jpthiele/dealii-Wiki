@@ -2425,7 +2425,7 @@ strategies that have helped us in the past:
    shortcut: at least under linux (or any other unix system) you can run
    the program as in
 ```
-  mpirun -np 4 xterm -e gdb ./my_executable
+  mpirun -np 4 xterm -e gdb --args ./my_executable
 ```
 
 In this example, we start 4 MPI processes; in each of these 4 processes, we
@@ -2437,7 +2437,7 @@ gdb window belongs to which MPI rank, you can type the command
 ```
   !export | grep RANK
 ```
-into the gdb window (this works with openmpi at least).
+into the gdb window (this works with OpenMPI at least). See https://plus.google.com/+TimoHeister/posts/AgmoMT8W7GZ for more info.
 
 ### I have an MPI program that hangs
 

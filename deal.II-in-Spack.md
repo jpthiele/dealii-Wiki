@@ -140,7 +140,7 @@ Spack is complicated and flexible package manager primarily aimed at High-Perfom
 Below are some examples of using Spack to build and develop deal.II:
 
 ### Extra options:
-One specify extra options for packages in the deal.II suite. For example if you want to have boost with `python` module, this can be done by
+One can specify extra options for packages in the deal.II suite. For example if you want to have boost with `python` module, this can be done by
 ```
 spack install dealii@develop+mpi ^boost+python
 ```
@@ -161,7 +161,10 @@ spack install dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
 ```
 The good thing is that if you already have deal.ii built with real-valued petsc, then only `petsc`, `slepc` and `deal.ii` itself will be rebuild. Everything else (`trilinos`, `mumps`, `metis`, etc) will be reused.
 
-One can use `environement-modules` (see above) to automatically set `DEAL_II_DIR` to the complex version: `spack load dealii%gcc^petsc+complex`.
+One can use `environement-modules` (see above) to automatically set `DEAL_II_DIR` to the complex version: 
+```
+spack load dealii%gcc^petsc+complex
+```
 
 ### Filesystem Views:
 If you prefer to haave the whole dealii suite (and possible something else) symlinked into a single path (like `/usr/local`), one can use [Filesystem Views](http://software.llnl.gov/spack/basic_usage.html#filesystem-views):
@@ -170,7 +173,10 @@ spack view -v symlink dealii_suite dealii@develop
 ```
 
 ### Check before build:
-It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by building the conretized spec via, for example, `spack spec dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre`.
+It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by building the conretized spec via, for example, 
+```
+spack spec dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
+```
 
 ### Develop using Spack
 There are several ways to use Spack while contributing patches to the deal.II. The simplest is to create a Filesystem vew (see above) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. For example, if `dealii` view is located in `/Users/davydden/spack/_dealii_suite`, then one could configure deal.II by

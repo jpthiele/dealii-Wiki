@@ -20,8 +20,9 @@ and install the complete deal.II suite
 ```
 spack install dealii
 ```
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. For macOS read further. You may jump ahead and read [best practices using spack](#best-practices-using-spack).
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. You may jump ahead and read [best practices using spack](#best-practices-using-spack).
 
+For macOS read further.
 
 ## Environment Modules
 Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://software.llnl.gov/spack/basic_usage.html#installing-environment-modules

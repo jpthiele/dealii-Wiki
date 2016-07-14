@@ -11,7 +11,7 @@ export PATH=$SPACK_ROOT/bin:$PATH
 ```
 `SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `/Users/john/spack`).
 
-Now clone Spack [1]
+Now clone Spack
 ```
 git clone https://github.com/llnl/spack.git $SPACK_ROOT
 ```

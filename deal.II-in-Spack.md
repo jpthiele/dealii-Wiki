@@ -15,7 +15,7 @@ Now clone Spack
 ```
 git clone https://github.com/llnl/spack.git $SPACK_ROOT
 ```
-Make sure C/C++/Fortran compilers are in path (if that's not the case, see below),
+Make sure C/C++/Fortran compilers are in path (if that's not the case, see [below](https://github.com/dealii/dealii/wiki/deal.II-in-Spack#install-gcc)),
 and install the complete deal.II suite
 ```
 spack install dealii

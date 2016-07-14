@@ -67,26 +67,25 @@ packages:
 ```
 
 ## Install GCC
-macOS by default does not provide any Fortran compiler.
-One can get it from GCC
-
+If your system does not provide any Fortran compiler or you want to have the most recent `gcc`,
+you can install it by
 ```
 spack install gcc
 ```
 
-Assuming that you configured `environment modules`, load `gcc` and let Spack find the newly installed compilers:
+Assuming that you configured [Environment Modules](#environment-modules), load `gcc` and let Spack find the newly installed compilers:
 ```
 spack load gcc
 spack compiler find
 ```
-Finally you can install deal.II with `gcc`
+Now you can install deal.II with `gcc`
 ```
 spack install dealii%gcc
 ```
 
 ## Mixing GCC and Clang on OSX
 
-At the time of writing this page, Spack does not provide a native way to mix C/C++ and Fortran compilers from different families. However, that can be done by manually changing few lines of `python` code as described below:
+At the time of writing this page, Spack does not provide a native way to mix C/C++ and Fortran compilers from different families (e.g. `gcc` and `clang`). However, that can be done by manually changing few lines of `python` code as described below:
 
 (i) Edit `~/.spack/compilers.yaml` to provide path to gfortran compiler within the `clang@x.y.z-apple` entry:
 ```

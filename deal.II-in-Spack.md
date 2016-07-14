@@ -37,7 +37,7 @@ source ${MODULES_HOME}/Modules/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```
 
-If you install `deal.II` before activating setting up environment modules,
+If you install `deal.II` before setting up environment modules,
 the module files have to be regenerated
 ```
 spack module refresh

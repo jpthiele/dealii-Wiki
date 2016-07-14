@@ -20,7 +20,7 @@ and install the complete deal.II suite
 ```
 spack install dealii
 ```
-**DONE**. No extra (preliminary) configuration steps are needed on most Linux distributions. For macOS read below.
+**DONE**. No extra (preliminary) configuration steps are needed on most Linux distributions. For macOS read further.
 
 
 ## Environment Modules

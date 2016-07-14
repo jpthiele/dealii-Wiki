@@ -67,7 +67,7 @@ packages:
       python@2.7.11: /usr
 ```
 
-## Install GCC
+## Installing GCC
 If your system does not provide any Fortran compiler or you want to have the most recent `gcc`,
 you can install it by
 ```

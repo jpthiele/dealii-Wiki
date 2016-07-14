@@ -2,7 +2,7 @@
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack).
 
-## Download and configure Spack
+## Quick installation
 
 Add the following to `~/.bash_profile` (or equivalent)
 ```
@@ -15,10 +15,18 @@ Now clone Spack [1]
 ```
 git clone https://github.com/llnl/spack.git $SPACK_ROOT
 ```
+Make sure C/C++/Fortran compilers are in path (if that's not the case, see below),
+and install the complete deal.II suite
+```
+spack install dealii
+```
+**DONE**. No extra (preliminary) configuration steps are needed on most Linux distributions. For macOS read below.
 
+
+## Environment Modules
 Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://software.llnl.gov/spack/basic_usage.html#installing-environment-modules
 
-To add the support for Environment Modules, first run
+To add the support for Environment Modules run
 ```
 spack install environment-modules
 ```
@@ -29,6 +37,20 @@ source ${MODULES_HOME}/Modules/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```
 
+If you install `deal.II` before activating setting up environment modules,
+the module files have to be regenerated
+```
+spack module refresh
+```
+
+Then run
+```
+spack load dealii
+spack load cmake
+```
+Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path.
+
+## System provided packages
 Spack is flexible to use both self-compiled and system provided packages. One can also specify which packages should be used for `mpi`, `blas/lapack` and alike. For more details, see [Spack documentation](http://software.llnl.gov/spack/features.html). Below is a self-explanatory example of a configuration file `~/.spack/package.yaml` to use `openblas`, `openmpi` and system provided `python`:
 ```
 packages:
@@ -44,28 +66,15 @@ packages:
       python@2.7.11: /usr
 ```
 
-## Install and use deal.II
-Make sure C/C++/Fortran compilers are in path (if that's not the case, see below),
-and install the complete deal.II suite
-```
-spack install dealii
-```
-In order to use `deal.II` first do 
-```
-spack load dealii
-spack load cmake
-```
-Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path.
-
 ## Install GCC
-OSX by default does not provide any Fortran compiler.
+macOS by default does not provide any Fortran compiler.
 One can get it from GCC
 
 ```
 spack install gcc
 ```
 
-Now load `gcc` and let Spack find the newly installed compilers:
+Assuming that you configured `environment modules`, load `gcc` and let Spack find the newly installed compilers:
 ```
 spack load gcc
 spack compiler find
@@ -184,7 +193,3 @@ There are several ways to use Spack while contributing patches to the deal.II. T
 export DEAL_II_VIEW=/Users/davydden/spack/_dealii_suite
 cmake -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=FALSE -DCMAKE_INSTALL_RPATH=${DEAL_II_VIEW} -DCMAKE_BUILD_TYPE=DebugRelease -DDEAL_II_COMPONENT_EXAMPLES=ON -DDEAL_II_WITH_THREADS:BOOL=ON -DBOOST_DIR=${DEAL_II_VIEW} -DBZIP2_DIR=${DEAL_II_VIEW} -DLAPACK_FOUND=true -DLAPACK_INCLUDE_DIRS=${DEAL_II_VIEW}/include -DLAPACK_LIBRARIES=${DEAL_II_VIEW}/lib/libopenblas.dylib -DMUPARSER_DIR=${DEAL_II_VIEW} -DUMFPACK_DIR=${DEAL_II_VIEW} -DTBB_DIR=${DEAL_II_VIEW} -DZLIB_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_MPI:BOOL=ON -DCMAKE_C_COMPILER=${DEAL_II_VIEW}/bin/mpicc -DCMAKE_CXX_COMPILER=${DEAL_II_VIEW}/bin/mpic++ -DCMAKE_Fortran_COMPILER=${DEAL_II_VIEW}/bin/mpif90 -DGSL_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_GSL:BOOL=ON -DHDF5_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_HDF5:BOOL=ON -DP4EST_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_P4EST:BOOL=ON -DPETSC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_PETSC:BOOL=ON -DSLEPC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_SLEPC:BOOL=ON -DTRILINOS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_TRILINOS:BOOL=ON -DMETIS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_METIS:BOOL=ON -DDEAL_II_COMPONENT_DOCUMENTATION=OFF -DARPACK_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_ARPACK=ON -DDEAL_II_ARPACK_WITH_PARPACK=ON -DNETCDF_DIR=${DEAL_II_VIEW} -DOPENCASCADE_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_OPENCASCADE=ON ../
 ```
-
-
-------
-[1] The installation instructions were last time tested on Ubuntu 14.04 LTS with gcc 6.1 and Spack commit  https://github.com/LLNL/spack/commit/3ab56a188e83054420d9004be1c6d07276c91375

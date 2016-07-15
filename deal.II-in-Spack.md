@@ -187,7 +187,7 @@ spack view -v symlink dealii_suite the_silver_searcher
 
 
 ### Check before build:
-It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by building the conretized spec via, for example, 
+It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by examining the conretized spec via `spack spec` command, e.g. 
 ```
 spack spec dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
 ```

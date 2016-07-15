@@ -1,6 +1,6 @@
 # Using deal.II on Mac OS X and Linux via Spack
 
-The deal.II suite is also available on Spack (https://github.com/LLNL/spack).
+The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Perfomance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
 ## Quick installation
 

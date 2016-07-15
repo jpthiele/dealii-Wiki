@@ -180,6 +180,11 @@ If you prefer to haave the whole dealii suite (and possible something else) syml
 ```
 spack view -v symlink dealii_suite dealii@develop
 ```
+You can also add to this view other packages, i.e.
+```
+spack view -v symlink dealii_suite the_silver_searcher
+```
+
 
 ### Check before build:
 It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by building the conretized spec via, for example, 

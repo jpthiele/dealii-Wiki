@@ -36,13 +36,13 @@ deal.II and descriptions of what they do with it.
 
 ### [Ruprecht-Karls-Universität Heidelberg](http://www.uni-heidelberg.de/)
 
-  [Prof. Guido Kanschat](http://www.iwr.uni-heidelberg.de/groups/MathSim) and Natasha Sharma at the [IWR](http://www,iwr.uni-heidelberg.de) (Interdisziplinäres Zentrum für Wissenschaftliches Rechnen)
+  [Prof. Guido Kanschat](http://www.iwr.uni-heidelberg.de/groups/MathSim) at the [IWR](http://www,iwr.uni-heidelberg.de) (Interdisziplinäres Zentrum für Wissenschaftliches Rechnen)
     - coupled free and porous media flow
     - radiative transfer
     - computational electromagnetics
     - multigrid methods and adaptivity
 
-   Thomas Carraro, Matthias Maier and others associated with the chair for [Numerical Analysis](http://numerik.uni-hd.de/) of Prof. Rolf Rannacher
+   Thomas Carraro and others associated with the chair for [Numerical Analysis](http://numerik.uni-hd.de/) of Prof. Rolf Rannacher
     - Parameter estimation for PDE
     - Shape optimization
 

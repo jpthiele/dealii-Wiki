@@ -162,6 +162,10 @@ To check which packages implement `mpi` run
 ```
 spack providers mpi
 ```
+One can also specify which Blas/Lapack implementation to use. For example to build deal.II suite with `atlas` run
+```
+spack install dealii ^atlas
+```
 
 ### Different versions coexisting:
 One can easily have slightly different versions of deal.II side-by-side, e.g. to compile development version of deal.II with complex-valued PETSc and `gcc` compiler run

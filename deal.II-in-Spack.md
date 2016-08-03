@@ -148,6 +148,58 @@ spack install dealii%clang
 Spack is complicated and flexible package manager primarily aimed at High-Perfomance-Computing.
 Below are some examples of using Spack to build and develop deal.II:
 
+### Info:
+If you are not sure which options a given package has, simply run
+```
+spack info <package>
+```
+The output will contain available versions, variants, dependencies and description:
+```
+$ spack info dealii
+Package:    dealii
+Homepage:   https://www.dealii.org
+
+Safe versions:
+    develop    [git] https://github.com/dealii/dealii.git
+    8.4.1      https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz
+    8.4.0      https://github.com/dealii/dealii/releases/download/v8.4.0/dealii-8.4.0.tar.gz
+    8.3.0      https://github.com/dealii/dealii/releases/download/v8.3.0/dealii-8.3.0.tar.gz
+    8.2.1      https://github.com/dealii/dealii/releases/download/v8.2.1/dealii-8.2.1.tar.gz
+    8.1.0      https://github.com/dealii/dealii/releases/download/v8.1.0/dealii-8.1.0.tar.gz
+
+Variants:
+    Name        Default   Description
+
+    arpack      on        Compile with Arpack and PArpack (only with MPI)
+    doc         off       Compile with documentation
+    gsl         on        Compile with GSL
+    hdf5        on        Compile with HDF5 (only with MPI)
+    metis       on        Compile with Metis
+    mpi         on        Compile with MPI
+    netcdf      on        Compile with Netcdf (only with MPI)
+    oce         on        Compile with OCE
+    p4est       on        Compile with P4est (only with MPI)
+    petsc       on        Compile with Petsc (only with MPI)
+    slepc       on        Compile with Slepc (only with Petsc and MPI)
+    trilinos    on        Compile with Trilinos (only with MPI)
+
+Build Dependencies:
+    zlib  blas  graphviz  netcdf  arpack-ng  bzip2  cmake  lapack  oce  astyle  boost  trilinos  muparser  p4est  mpi  suite-sparse  tbb  doxygen  hdf5  slepc  numdiff  metis  petsc  netcdf-cxx  gsl
+
+Link Dependencies:
+    zlib  blas  graphviz  netcdf  arpack-ng  bzip2  lapack  oce  astyle  boost  trilinos  muparser  p4est  mpi  suite-sparse  tbb  doxygen  hdf5  slepc  numdiff  metis  petsc  netcdf-cxx  gsl
+
+Run Dependencies:
+    None
+
+Virtual packages:
+    None
+
+Description:
+    C++ software library providing well-documented tools to build finite
+    element codes for a broad variety of PDEs.
+```
+
 ### Extra options:
 One can specify extra options for packages in the deal.II suite. For example if you want to have boost with `python` module, this can be done by
 ```

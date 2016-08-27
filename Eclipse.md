@@ -422,7 +422,7 @@ Eclipse can be configured in more ways than one can count. One issue is to confi
   - Go to "Project > Properties" from the main menu, or right-click on the project and choose "Properties" in the context menu.
   - Then go to expand the "C/C++ General" sub-tree by clicking on the down arrow next to it and select "Code style".
   - In the panel on the right, you can click on "Configure Workspace Settings..." to get a dialog in which you can edit an existing coding style or create a new one.
-  - You can import the following style: [stylefile.xml](https://docs.google.com/open?id=0B1_zqLUYjm2ea1c0Y1VTdmJHNUU)
+  - You can import the following style: [stylefile.xml](https://raw.githubusercontent.com/dealii/dealii/master/contrib/styles/eclipse-dealii-code-format.xml)
   - Alternatively create a new one and choose the "GNU" style as the basis for this new style and follow the instructions below.
 
 Modify the entries under the various tabs of this dialog as shown in the following set of pictures (click on the pictures to get larger versions):

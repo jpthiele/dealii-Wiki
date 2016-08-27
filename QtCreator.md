@@ -4,13 +4,13 @@
 
 Download the binary for your system from https://www.qt.io/download-open-source/#section-6
 
-Download the deal.II indentation style from [qtcreator-dealii-format](https://docs.google.com/uc?id=0B1_zqLUYjm2eZV9YVkdsa3EtSm8&export=download) and set it under Tools->Options->C++->Code style->Import.
+Download the deal.II indentation style from [qtcreator-dealii-format](https://raw.githubusercontent.com/dealii/dealii/master/contrib/styles/qtcreator-dealii-code-format.xml) and set it under Tools->Options->C++->Code style->Import.
 
 If you use a cmake build that is installed in your local user acccount, it needs to be set under settings->build&run->cmake.
 
 In your default kit (settings->build&run->kits) select Qt version "none". Otherwise some reserved words like "signal" are not parsed correctly by qtcreator.
 
-You can download [dealii-prm.xml](https://drive.google.com/open?id=0B1_zqLUYjm2edkVIbW5KVUpqdDg) and put it into 
+You can download [dealii-prm.xml](https://raw.githubusercontent.com/dealii/dealii/master/contrib/styles/qtcreator-prm-format.xml) and put it into 
 ~/.config/QtProject/qtcreator/generic-highlighter to get syntax highlighting for .prm files.
 
 ## Usage

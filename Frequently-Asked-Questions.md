@@ -66,6 +66,7 @@ This page collects a few answers to questions that have frequently been asked ab
       * [How do I know whether my finite element solution is correct? (Or: What is the "Method of Manufactured Solutions"?)](#how-do-i-know-whether-my-finite-element-solution-is-correct-or-what-is-the-method-of-manufactured-solutions)
       * [My program doesn't produce the expected output!](#my-program-doesnt-produce-the-expected-output)
       * [The solution converges initially, but the error doesn't go down below 10<sup>-8</sup>!](#the-solution-converges-initially-but-the-error-doesnt-go-down-below-10-8)
+      * [My code converges with one version of deal.II but not with another](#user-content-my-code-converges-with-one-version-of-dealii-but-not-with-another)
       * [My time dependent solver does not produce the correct answer!](#my-time-dependent-solver-does-not-produce-the-correct-answer)
       * [My Newton method for a nonlinear problem does not converge (or converges too slowly)!](#my-newton-method-for-a-nonlinear-problem-does-not-converge-or-converges-too-slowly)
       * [Printing deal.II data types in debuggers is barely readable!](#printing-dealii-data-types-in-debuggers-is-barely-readable)

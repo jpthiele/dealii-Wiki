@@ -2160,7 +2160,7 @@ are a few strategies that have often worked in finding the problem:
 
 ### The solution converges initially, but the error doesn't go down below 10<sup>-8</sup>!
 
-First: if the error converges to zero, then you are basically doing
+First: If the error converges to zero, then you are basically doing
 something right already. Congratulations!
 
 As for why the error does not converge any further, there are two typical
@@ -2182,6 +2182,46 @@ cases what could be the reason:
    writes floating point numbers with approximately 8 digits, so if you
    want to make sure that your solution is correct to 10<sup>-10</sup>, for
    example, you'll have to write out the solution with more than 10 digits.
+
+
+### My code converges with one version of deal.II but not with another
+
+That is a tough case because the problem could literally be anywhere in the functions you call from deal.II.
+Rather than trying to start debugging blindly to find out what exactly is going on it's probably more productive to delineate the steps one could use to narrow down where the problem is.
+
+In an ideal world, you would have already found out which commit in the history of deal.II caused the problem.
+Let's say you have checked out the two offending versions of deal.II into separate source directories `dealii-good` and `dealii-bad`, and that you compiled them both separately and installed them into directories `install-good` and `install-bad`. If you can't find out which commit caused the problem, the good and bad versions could also be the last two releases.
+
+Let's also say that you have a directory `application` in which you have your own code.
+Now create two directories, `app-good`, `app-bad` parallel to `application`. Then do
+```bash
+  cd application
+  for i in * ; do
+    ln -s $i ../app-good/$i
+    ln -s $i ../app-bad/$i
+  done
+```
+This way you have two directories in which you can configure, compile, and run the exact same version of your application (exact same because they both contain links to the exact same source files), just compiled against the good and bad versions of the library, respectively.
+
+So you do
+```bash
+  cd app-good
+  cmake . -DDEAL_II_DIR=.../install-good
+  make
+
+  cd ../app-bad
+  cmake . -DDEAL_II_DIR=.../install-bad
+  make
+```
+If you run in these two directories, e.g., in two separate xterm windows, you will get one working and one failing run. Now start modifying the source files in `application` to figure out where the first point in the program is where there are differences. For example, after assembly, you could do insert a statement of the form
+```cpp
+  std::cout << "Linear system: " << system_matrix.l1_norm() << ' ' << system_rhs.l2_norm() << std::endl;
+```
+I would suspect (though that doesn't have to be true -- but just assume for the moment) that if you compile and run this modification in your two windows that you will get different results. At this point, you can remove everything that is executed after this point from your program -- likely a few hundred lines of code. Or, if you're too lazy, just put `abort()` after that statement because everything that comes after it clearly only shows symptoms but not the cause of the problem.
+
+Now that you know that the problem exists at the end of assembly, make your way further forward in the program. For example, is the local matrix on the first cell on which you assemble the same between the two programs? If it is, the problem is on a later cell. If it isn't the same, try to think about what the cause may be. Is the mesh the same? You can test that by putting output into an earlier spot of the program; if that output is different between the two programs, you can again delete everything that happens after that point.
+
+The whole exercise is designed to find the first place in the program where you can unambiguously say that something has changed. Non-convergence is just such a non-specific problem that it is not helpful in finding what exactly is going on. It also happens rather late in typical programs that there are too many possibilities for where the root cause may be.
 
 ### My time dependent solver does not produce the correct answer!
 

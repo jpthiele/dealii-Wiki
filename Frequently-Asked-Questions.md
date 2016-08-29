@@ -1,6 +1,5 @@
 # The deal.II FAQ
-Over the course of the project deal.II has accumulated a large number of answers
-to frequently asked questions, which are collected here.
+This page collects a few answers to questions that have frequently been asked about deal.II and that we thought are worth recording as they may be useful to others as well.
 
 ## Table of Contents
   * [The deal.II FAQ](#the-dealii-faq)

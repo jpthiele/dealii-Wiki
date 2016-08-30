@@ -1,6 +1,6 @@
 # Using deal.II on Mac OS X and Linux via Spack
 
-The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Perfomance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
+The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
 ## Quick installation
 
@@ -102,7 +102,7 @@ compilers:
     spec: clang@7.3.0-apple
 ```
 
-(ii) Create a symlink inside clang environement
+(ii) Create a symlink inside clang environment
 ```
 cd $SPACK_ROOT/lib/spack/env/clang
 ln -s ../cc gfortran
@@ -145,7 +145,7 @@ spack install dealii%clang
 
 ## Best practices using Spack:
 
-Spack is complicated and flexible package manager primarily aimed at High-Perfomance-Computing.
+Spack is complicated and flexible package manager primarily aimed at High-Performance-Computing.
 Below are some examples of using Spack to build and develop deal.II:
 
 ### Info:
@@ -226,13 +226,13 @@ spack install dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
 ```
 The good thing is that if you already have deal.ii built with real-valued petsc, then only `petsc`, `slepc` and `deal.ii` itself will be rebuild. Everything else (`trilinos`, `mumps`, `metis`, etc) will be reused.
 
-One can use `environement-modules` (see above) to automatically set `DEAL_II_DIR` to the complex version: 
+One can use `environment-modules` (see above) to automatically set `DEAL_II_DIR` to the complex version: 
 ```
 spack load dealii%gcc^petsc+complex
 ```
 
 ### Filesystem Views:
-If you prefer to haave the whole dealii suite (and possible something else) symlinked into a single path (like `/usr/local`), one can use [Filesystem Views](http://software.llnl.gov/spack/basic_usage.html#filesystem-views):
+If you prefer to have the whole dealii suite (and possible something else) symlinked into a single path (like `/usr/local`), one can use [Filesystem Views](http://software.llnl.gov/spack/basic_usage.html#filesystem-views):
 ```
 spack view -v symlink dealii_suite dealii@develop
 ```
@@ -243,13 +243,13 @@ spack view -v symlink dealii_suite the_silver_searcher
 
 
 ### Check before build:
-It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by examining the conretized spec via `spack spec` command, e.g. 
+It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by examining the concretized spec via `spack spec` command, e.g. 
 ```
 spack spec dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
 ```
 
 ### Develop using Spack
-There are several ways to use Spack while contributing patches to the deal.II. The simplest is to create a [Filesystem vew](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. For example on macOS with `openblas`:
+There are several ways to use Spack while contributing patches to the deal.II. The simplest is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. For example on macOS with `openblas`:
 ```
 export DEAL_II_VIEW=/Users/davydden/spack/_dealii_suite
 cmake -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=FALSE -DCMAKE_INSTALL_RPATH=${DEAL_II_VIEW} -DCMAKE_BUILD_TYPE=DebugRelease -DDEAL_II_COMPONENT_EXAMPLES=ON -DDEAL_II_WITH_THREADS:BOOL=ON -DBOOST_DIR=${DEAL_II_VIEW} -DBZIP2_DIR=${DEAL_II_VIEW} -DLAPACK_FOUND=true -DLAPACK_INCLUDE_DIRS=${DEAL_II_VIEW}/include -DLAPACK_LIBRARIES=${DEAL_II_VIEW}/lib/libopenblas.dylib -DMUPARSER_DIR=${DEAL_II_VIEW} -DUMFPACK_DIR=${DEAL_II_VIEW} -DTBB_DIR=${DEAL_II_VIEW} -DZLIB_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_MPI:BOOL=ON -DCMAKE_C_COMPILER=${DEAL_II_VIEW}/bin/mpicc -DCMAKE_CXX_COMPILER=${DEAL_II_VIEW}/bin/mpic++ -DCMAKE_Fortran_COMPILER=${DEAL_II_VIEW}/bin/mpif90 -DGSL_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_GSL:BOOL=ON -DHDF5_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_HDF5:BOOL=ON -DP4EST_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_P4EST:BOOL=ON -DPETSC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_PETSC:BOOL=ON -DSLEPC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_SLEPC:BOOL=ON -DTRILINOS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_TRILINOS:BOOL=ON -DMETIS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_METIS:BOOL=ON -DDEAL_II_COMPONENT_DOCUMENTATION=OFF -DARPACK_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_ARPACK=ON -DDEAL_II_ARPACK_WITH_PARPACK=ON -DNETCDF_DIR=${DEAL_II_VIEW} -DOPENCASCADE_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_OPENCASCADE=ON ../

@@ -273,3 +273,22 @@ Spack supports installation of [licensed software](http://software.llnl.gov/spac
 3. `cd` to the folder with archive and run `spack install mkl@11.3.2.181`.
 
 One can then run `spack install dealii ^mkl@11.3.2.181`.
+
+
+### Freeze package versions
+Currently Spack does not try to re-use already installed packages. On another hand, by default
+the most recent version of a package will be installed. When updating deal.II build (for example to use the new version of `trilinos`), the combination of the two factors may lead to recompilation of many other packages used in the deal.II suite when one of the main build dependency like `cmake` has a new version.
+
+To circumvent the problem, the user can specify preferred versions of packages in `~/.spack/packages.yaml`:
+```
+packages:
+  cmake:
+    version: [3.6.1]
+  curl:
+    version: [7.50.3]
+  openssl:
+    version: [1.0.2j]
+  python:
+    version: [2.7.12]
+```
+This settings will be taken into account during conretization process and thus will help to avoid rebuilding most of the deal.II suite when, for example, `openssl` is updated to the new version.

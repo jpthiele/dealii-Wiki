@@ -52,7 +52,18 @@ spack load cmake
 Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path.
 
 ## System provided packages
-Spack is flexible to use both self-compiled and system provided packages. One can also specify which packages should be used for `mpi`, `blas/lapack` and alike. For more details, see [Spack documentation](http://software.llnl.gov/spack/features.html). Below is a self-explanatory example of a configuration file `~/.spack/package.yaml` to use `openblas`, `openmpi` and system provided `python`:
+Spack is flexible to use both self-compiled and system provided packages. 
+In most cases this is desirable for `MPI`, which is already installed on computational clusters. To configure external packages you need to edit `~/.spack/packages.yaml`. For `openmpi` this could be
+```
+packages:
+  openmpi:
+    version: [1.8.8]
+    paths:
+      openmpi@1.8.8%gcc@6.2.0: /opt/openmpi-1.8.8
+    buildable: False
+```
+In order to make sure that `1.8.8` version of `openmpi` and not the most recent one (i.e. `2.0.2`) is used to build packages, we specified conretization preferences with `version: [1.8.8]`.
+One can also specify which packages should be used to provide `mpi`, `blas/lapack` and also prefered compilers:
 ```
 packages:
   all:
@@ -61,11 +72,9 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-  python:
-    version: [2.7.11]
-    paths:
-      python@2.7.11: /usr
 ```
+
+For more elaborated discussion, see [Spack documentation](http://spack.readthedocs.io/en/latest/configuration.html).
 
 ## Installing GCC
 If your system does not provide any Fortran compiler or you want to have the most recent `gcc`,
@@ -263,19 +272,3 @@ Spack supports installation of [licensed software](http://software.llnl.gov/spac
 3. `cd` to the folder with archive and run `spack install mkl@11.3.2.181`.
 
 One can then run `spack install dealii ^mkl@11.3.2.181`.
-
-### External packages and concretization preferences
-
-Spack can be configured to use externally-installed packages rather than building its own packages. In most cases this is desirable for `MPI`, which is already installed on computational clusters. To configure external packages you need to edit `packages.yaml`. For `openmpi` this could be
-```
-packages:
-  openmpi:
-    version: [1.8.8]
-    paths:
-      openmpi@1.8.8%gcc@6.2.0: /opt/openmpi-1.8.8
-    buildable: False
-```
-In order to make sure that `1.8.8` version of `openmpi` and not the most recent one (i.e. `2.0.2`) is used to build packages, we specified conretization preferences with `version: [1.8.8]`.
-
-
-For more elaborated discussion, see [Spack documentation](http://spack.readthedocs.io/en/latest/configuration.html).

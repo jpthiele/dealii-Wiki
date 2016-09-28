@@ -64,7 +64,7 @@ packages:
 ```
 In order to make sure that we use to build packages `1.8.8` version of `openmpi` and not the most recent one (i.e. `2.0.2`), we specified conretization preferences with `version: [1.8.8]`.
 
-One can also specify which packages should be used to provide `mpi`, `blas/lapack` as well as prefered compilers:
+One can also specify which packages should be used to provide `mpi`, `blas/lapack` , preferred compilers and preferred variants:
 ```
 packages:
   all:
@@ -73,6 +73,8 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
+    boost:
+      variants: +python
 ```
 
 For more elaborated discussion, see [Spack documentation](http://spack.readthedocs.io/en/latest/configuration.html).

@@ -1370,6 +1370,7 @@ program:
    refine it some more.) Once you have a mesh from a mesh generator, you
    would read it using the `GridIn` class, as demonstrated, for example, in
    step-5.
+ - As it was already mentioned, if you do need to work with a geometry for which all you have is a triangular or tetrahedral mesh, then you can convert this mesh into one that consists of quadrilaterals and hexahedra using the tethex program, see https://github.com/martemyev/tethex .
 
 ### How do I describe complex boundaries?
 

@@ -4,8 +4,19 @@
 
 Information about solving Maxwell equation using FEM (and Deal.II) is dispersed, this is an attempt to provide the whole picture in a single place.
 
+# Introduction
+
+There are two distinctive features of Maxwell`s equations, that should be taken into account in the scope of finite element method. 
+
+1. They are vector by nature.
+2. They can be discontinuous by definition.
+ 
+For some problems, it can be OK to solve it like a continuous scalar value. However, this can (and for many cases will) lead to spurious solutions or, on the other side, to completely losing the phenomena. Even in a simple case of Helmholtz equation, which is valid both for acoustics (let`s consider only pressure waves) and light propagation (time-harmonic Maxwell case) there is a difference, that shouldn`t be neglected in general. For the incidence of the acoustic wave to the interface of two media, you can evaluate the reflected and transmitted power just from material parameters and angle of incidence. For the electromagnetic wave, you will additionally need to know the polarization to give the answer: e.g. for Brewster's angle p-polarized wave has no reflection, while the s-polarized wave will be split to the reflected and transmitted parts. This result directly follows from two mentioned features of the electric (and magnetic) field: 1)It is a vector, so it always has some direction. Moreover, the phenomenon may (or may not) depend on this direction. 2) The normal (it is a direction!) vector component has to be discontinuous at a material interface (for most cases), it is a straightforward consequence of Maxwell`s equations. 
+
+To fit this properties of Maxwell`s equations along with Galerkin approach special "vector" types of finite elements were poposed, namely Nedelec (aka Whitney 1st form aka Bossavit aka edge aka H(curl)-conforming) and Raviart-Thomas (aka Whitney 2nd form aka Nedelec 2nd form aka Rao-Wilton-Glisson aka face aka H(div)-conforming) elements. You had to use them for simulation of new physical phenomena ab initio.   
+ 
 # Frequency domain
-Time harmonic Maxwell equation turns to be a Helmholtz equation.
+Time-harmonic Maxwell equation turns to be a Helmholtz equation.
 
 ### Available codes
 
@@ -13,7 +24,7 @@ Time harmonic Maxwell equation turns to be a Helmholtz equation.
 * [step-29](http://dealii.org/developer/doxygen/deal.II/step_29.html) Split complex valued functions into their real and imaginary parts. Uses absorbing boundary, however, the angle, when it stops working properly is not very big. See the reflection from "non-reflecting" boundary for the source located close to it.
 
  ![step 29 mod](https://docs.google.com/uc?authuser=0&id=0B7jg2ikAVgGLRXRRREZSX2F1MTg&export=download)
-* Ross Kynch done some work in this direction. There are a [testBC.cc (google group link)](https://groups.google.com/d/msg/dealii/ZJqmZgObysw/RfyFkbY0D9AJ) and [dealii/tests/fe/nedelec_non_rect_2d.cc](https://github.com/dealii/dealii/blob/master/tests/fe/nedelec_non_rect_2d.cc) solutions using Nedelec elements. 
+* Ross Kynch ( @rosskynch ) done some work in this direction. There are a [testBC.cc (google group link)](https://groups.google.com/d/msg/dealii/ZJqmZgObysw/RfyFkbY0D9AJ) and [dealii/tests/fe/nedelec_non_rect_2d.cc](https://github.com/dealii/dealii/blob/master/tests/fe/nedelec_non_rect_2d.cc) solutions using Nedelec elements. 
 An improvement (WIP) [PR #2240](https://github.com/dealii/dealii/pull/2240) "New Nedelec finite element: FE_NedelecSZ". [There is a topic](https://groups.google.com/d/msg/dealii/1g3YSUdPSGY/0oW3upegbqMJ) on the problem with face orientation of Nedelec elements (BTW, is it solved now in the current master of deal.ii?). He had also [published](https://github.com/rosskynch/MIT_Forward) a Deal.II solver for Eddy current. [One more topic](https://groups.google.com/d/msg/dealii/odXjp7U3y0s/qXjYyWAefhIJ) on assembly and preconditioning of Nedelec elements.
 * [There is a topic](https://groups.google.com/d/msg/dealii/8SbZ04qLwdQ/UReeEYmUFsAJ) by Ce Qin with his source to solve time-harmonic Maxwell equation with complex coefficients using Nedelec elements on a rectangular mesh.
 * Related topic to [Computing the curl of a solution vector field obtained from Nedelec elements](https://groups.google.com/d/msg/dealii/iWrNRAH8b6o/GHmCs2oLmtUJ) by David Fernández 
@@ -48,6 +59,12 @@ For a free space the problem can be solved as a [wave equation](https://en.wikip
 
 * [step-25](http://dealii.org/developer/doxygen/deal.II/step_25.html) The sine-Gordon soliton equation, which is a nonlinear variant of the time dependent wave equation covered in step-23 and step-24.
 * [step-48](http://dealii.org/developer/doxygen/deal.II/step_48.html) Explicit time stepping for the Sine–Gordon equation based on a diagonal mass matrix. Efficient implementation of (nonlinear) finite element operators.
+
+### Possible extensions
+
+There are many books and papers on different aspects of using FEM to solve Maxwell`s equations in time domain, things are changing fast, 
+
+
 
 ### Applied problems
 

@@ -13,10 +13,10 @@ There are two distinctive features of Maxwell`s equations, that should be taken 
  
 For some problems, it can be OK to solve it like a continuous scalar value. However, this can (and for many cases will) lead to spurious solutions or, on the other side, to completely losing the phenomena. Even in a simple case of Helmholtz equation, which is valid both for acoustics (let's consider only pressure waves) and light propagation (time-harmonic Maxwell case) there is a difference, that shouldn't be neglected in general. For the incidence of the acoustic wave to the interface of two media, you can evaluate the reflected and transmitted power just from material parameters and angle of incidence. For the electromagnetic wave, you will additionally need to know the polarization to give the answer: e.g. for Brewster's angle p-polarized wave has no reflection, while the s-polarized wave will be split to the reflected and transmitted parts. This result directly follows from two mentioned features of the electric (and magnetic) field: 1)It is a vector, so it always has some direction. Moreover, the phenomenon may (or may not) depend on this direction. 2) The normal (it is a direction!) vector component has to be discontinuous at a material interface (for most cases), it is a straightforward consequence of Maxwell`s equations. 
 
-To fit this properties of Maxwell`s equations along with Galerkin approach special "vector" types of finite elements were poposed, namely Nedelec (aka Whitney 1st form aka Bossavit aka edge aka H(curl)-conforming) and Raviart-Thomas (aka Whitney 2nd form aka Nedelec 2nd form aka Rao-Wilton-Glisson aka face aka H(div)-conforming) elements. You had to use them for simulation of new physical phenomena ab initio.   
+To fit this properties of Maxwell`s equations along with Galerkin approach special "vector" types of finite elements were proposed, namely Nedelec (aka Whitney 1st form aka Bossavit aka edge aka H(curl)-conforming) and Raviart-Thomas (aka Whitney 2nd form aka Nedelec 2nd form aka Rao-Wilton-Glisson aka face aka H(div)-conforming) elements. You had to use them for simulation of new physical phenomena ab initio.   
  
 # Frequency domain
-Time-harmonic Maxwell equation turns to be a Helmholtz equation.
+Time-harmonic Maxwell equation turns to be a Helmholtz equation. It is mostly applicable for free space propagation, cavity problems, scattering on ideal conductors, antennas, and some others, where you can use zero boundary condition on objects surface and the polarization is fixed. This way the problem is naturally reduced to a scalar one (no need for vector finite elements?). To describe more realistic cases you should solve inhomogeneous Helmholtz equation, so you can take into account the surface currents (real or displacement) impressed with the incident field. 
 
 ### Available codes
 
@@ -47,6 +47,8 @@ These problems are well known and can be used as starting point for many other p
 
 
 # Time domain
+
+
 
 ## Wave equation
 For a free space the problem can be solved as a [wave equation](https://en.wikipedia.org/wiki/Electromagnetic_wave_equation) 

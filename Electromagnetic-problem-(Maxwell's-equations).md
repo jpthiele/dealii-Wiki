@@ -1,4 +1,4 @@
-**Disclaimer:** This page is written by a FEM novice, I hope it will finish up with a set of working examples for a code gallery. However, it can contain some obvious knowledge or simply wrong statements. Feel free to improve the page or e-mail me directly to k.ladutenko@metalab.ifmo.ru
+**Disclaimer:** This page is written by a FEM novice, I hope it will finish up with a set of working examples for a code gallery. This way, it can contain some obvious knowledge or simply wrong statements. Feel free to improve the page or e-mail me directly to k.ladutenko@metalab.ifmo.ru
 
 # Rationale
 
@@ -51,7 +51,7 @@ These problems are well known and can be used as starting point for many other p
 
 
 ## Wave equation
-For a free space the problem can be solved as a [wave equation](https://en.wikipedia.org/wiki/Electromagnetic_wave_equation) 
+For a free space, the problem can be solved as a [wave equation](https://en.wikipedia.org/wiki/Electromagnetic_wave_equation), which is OK for scalar continuous quantity. However, the problem is at it was stated above: electric (or magnetic) field is a vector, which has a natural discontinuity on the interface between two materials.
 
 ### Available codes
 * [step-23](http://dealii.org/developer/doxygen/deal.II/step_23.html) Wave in the box (all boundaries are reflecting)
@@ -64,7 +64,18 @@ For a free space the problem can be solved as a [wave equation](https://en.wikip
 
 ### Possible extensions
 
-There are many books and papers on different aspects of using FEM to solve Maxwell`s equations in time domain, things are changing fast, 
+There are many books and papers on different aspects of using FEM to solve Maxwell`s equations in time domain, the problem is that there are too many ideas, so is even difficult so select which approach to use. 
+
+The one that looks to be done right is by Garry Rodrigue and Daniel White proposed in the paper "A Vector Finite Element Time-Domain Method for Solving Maxwell’s Equations on Unstructured Hexahedral Grids" published in [SIAM J. Sci. Comput.](http://epubs.siam.org/doi/abs/10.1137/S1064827598343826) (it seems to be also available with much more details in D. White [PhD thesis](http://www.osti.gov/scitech/servlets/purl/16341)). The proposed VFETD method uses vector "edge" (Nedelec) finite elements for the electric field and "face" (Raviart-Thomas) finite elements for magnetic flux. It was shown to be second-order accurate, to conserve energy and charge, stable to grid distortions. Similar to FDTD they use an explicit leapfrog time scheme with electric and magnetic field evaluations shifted by a half of the time-step. The mass matrix is solved with an incomplete Cholesky conjugate gradient. There are several examples in the paper, including PML usage (a very basic case with -31dB reflection).
+
+In 2004 Rieben, Rodrigue, and White "Application of Novel High Order Time Domain Vector Finite Element Method to Photonic Band-Cap Waveguides" demonstrated a single-layered PML using a high-order approximation.
+
+In 2005 Rieben, Rodrigue, and White published a paper titled "A high order mixed vector finite element method for solving the time dependent Maxwell equations on unstructured grids" ([preprint is available](https://e-reports-ext.llnl.gov/pdf/305732.pdf)), where they proposed to use any order elements (results for numerical simulations with up to 6-th order are provided) and time-stepping up to 4-th order and curvlinear mapping turning VFDTD method to the real state of art!
+
+In 2007 Fisher, White, and  Rodrigue published "An efficient vector finite element method for nonlinear electromagnetic modeling", which is an extension of VFETM to a nonlinear case includig many improvments to reduce CPU and memory usage.
+
+In 2008 Donderici and Teixeira published "Conformal Perfectly Matched Layer for the Mixed Finite Element Time-Domain Method". Using second-order time discretization with VFDTD method they showed -68dB performance for a 24 layers of CPML. Note that CMPL is usually very good for arbitrary media simulation (dispersion, nonlinearity, etc) and deals well with near fields (which original Berenger PML does not). I hope it can be converted to a high order formulation...
+
 
 
 
@@ -73,3 +84,7 @@ There are many books and papers on different aspects of using FEM to solve Maxwe
 * Surface plasmon-polaritons wave, e.g. like in fig 2 it this [paper](http://iopscience.iop.org/article/10.1088/1367-2630/10/3/033035)
 * It would be nice to have some example of non-trivial materials in time-domain, e.g. with dispersion, anisotropy, nonlinearity, etc...
 * Solving Mie problem in time domain is a good task to verify the method (it will give the spectral response, which should be post processed with discrete Fourie transform).
+
+### Other improvments
+
+* Rieben, Rodrigue, and White in "Improved Conditioning of Finite Element Matrices Using New High-Order Interpolatory Bases" showed an average 4x speedup on solving several problems due to usage of new basis for FE.

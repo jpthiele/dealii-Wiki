@@ -29,7 +29,8 @@ An improvement (WIP) [PR #2240](https://github.com/dealii/dealii/pull/2240) "New
 * [There is a topic](https://groups.google.com/d/msg/dealii/8SbZ04qLwdQ/UReeEYmUFsAJ) by Ce Qin with his source to solve time-harmonic Maxwell equation with complex coefficients using Nedelec elements on a rectangular mesh.
 * Related topic to [Computing the curl of a solution vector field obtained from Nedelec elements](https://groups.google.com/d/msg/dealii/iWrNRAH8b6o/GHmCs2oLmtUJ) by David Fernández 
 * [Topic by](https://groups.google.com/d/msg/dealii/xpW2-h326Bs/5Nhj9TzHKlgJ) Simon Schernthanner with some useful references.
-* There is a  detailed report on [Nedelec elements](http://www.dealii.org/reports/nedelec/nedelec.pdf) (by Anna Schneebeli, University of Basel, Switzerland).   
+* There is a  detailed report on [Nedelec elements](http://www.dealii.org/reports/nedelec/nedelec.pdf) (by Anna Schneebeli, University of Basel, Switzerland). 
+* [It was reported](http://library.seg.org/doi/abs/10.1190/geo2015-0013.1) in 2015 by Grayver and Kolev to use deal.ii to implement a large-scale 3D geoelectromagnetic modeling using parallel adaptive high-order finite element method. They use Nedelec elements to solve time-harmonic Maxwell equation (so it is a Helmholtz equation), displacement currents were neglected because they are irrelevant at frequencies of interest. It is was shown that h-refinement with higher p-order (p=3) is beneficial to low-p-order for larger models as compared using (CPU time)/error ratio. 
 
 ### Possible extensions
 
@@ -70,11 +71,11 @@ The one that looks to be done right is by Garry Rodrigue and Daniel White propos
 
 In 2004 Rieben, Rodrigue, and White "Application of Novel High Order Time Domain Vector Finite Element Method to Photonic Band-Cap Waveguides" demonstrated a single-layered PML using a high-order approximation.
 
-In 2005 Rieben, Rodrigue, and White published a paper titled "A high order mixed vector finite element method for solving the time dependent Maxwell equations on unstructured grids" ([preprint is available](https://e-reports-ext.llnl.gov/pdf/305732.pdf)), where they proposed to use any order elements (results for numerical simulations with up to 6-th order are provided) and time-stepping up to 4-th order and curvlinear mapping turning VFDTD method to the real state of art!
+In 2005 Rieben, Rodrigue, and White published a paper titled "A high order mixed vector finite element method for solving the time dependent Maxwell equations on unstructured grids" ([preprint is available](https://e-reports-ext.llnl.gov/pdf/305732.pdf)), where they proposed to use any order elements (results for numerical simulations with up to 6-th order are provided), time-stepping up to 4-th order (using symplectic integration), and curvilinear mapping turning VFDTD method to the real state of art!
 
-In 2007 Fisher, White, and  Rodrigue published "An efficient vector finite element method for nonlinear electromagnetic modeling", which is an extension of VFETM to a nonlinear case includig many improvments to reduce CPU and memory usage.
+In 2007 Fisher, White, and  Rodrigue published "An efficient vector finite element method for nonlinear electromagnetic modeling", which is an extension of VFETM to a nonlinear case including many improvements to reduce CPU and memory usage.
 
-In 2008 Donderici and Teixeira published "Conformal Perfectly Matched Layer for the Mixed Finite Element Time-Domain Method". Using second-order time discretization with VFDTD method they showed -68dB performance for a 24 layers of CPML. Note that CMPL is usually very good for arbitrary media simulation (dispersion, nonlinearity, etc) and deals well with near fields (which original Berenger PML does not). I hope it can be converted to a high order formulation...
+In 2008 Donderici and Teixeira published "Conformal Perfectly Matched Layer for the Mixed Finite Element Time-Domain Method". Using second-order time discretization with VFDTD method they showed -68dB performance for a 24 layers of CPML. Note that CMPL is usually very good for arbitrary media simulation (dispersion, nonlinearity, etc) and deals well with near-fields (which original Berenger PML does not). I hope it can be converted to a high order formulation...
 
 
 
@@ -87,4 +88,4 @@ In 2008 Donderici and Teixeira published "Conformal Perfectly Matched Layer for 
 
 ### Other improvments
 
-* Rieben, Rodrigue, and White in "Improved Conditioning of Finite Element Matrices Using New High-Order Interpolatory Bases" showed an average 4x speedup on solving several problems due to usage of new basis for FE.
+* Rieben, Rodrigue, and White in "Improved Conditioning of Finite Element Matrices Using New High-Order Interpolatory Bases" showed an average 4x speedup on solving several problems due to the usage of a new basis for FE.

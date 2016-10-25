@@ -416,3 +416,43 @@ print str(n_quad_cells) + " quads\n"
 print str(n_bc_quads) + " face_quads\n"
 print str(n_bc_edges) + " edges\n"
 ```
+
+### A note on the (non-) output of material ID's
+For either script the material IDs are not output (they are always set by default to zero).
+This is because there appears to be a deficiency/bug in the implementation of `cubit.get_block_hexes(block_id)` (in `Cubit v13.2`, at least). 
+In theory one should be able to collect the cells in the following manner, assuming that the `block_id` represents the material id (this mirrors what is done already for `sideset_id`s and boundary ids):
+
+```python
+# ============================================================
+# Collect all the hex
+# ============================================================
+hex_cell_list = {}
+n_hex_cells = 0
+
+block_ids = cubit.get_block_id_list()
+for block_id in block_ids:
+    hex_cell_list[block_id] = cubit.get_block_hexes(block_id)
+    n_hex_cells += len(hex_cell_list[block_id])
+```
+
+and one could then write out the elements to file with a set of commands along the lines of
+
+```python
+# ============================================================
+# The hex list. 3d
+# ============================================================
+k = 1
+for block_id in block_ids:
+    for hex_num in hex_cell_list[block_id]:
+        print str(k) + " " + str(block_id) + "  hex  "
+        outfile.write(str(k) + " " + str(block_id) + "  hex  ")
+        k += 1
+        hex_nodes = cubit.get_connectivity("Hex", hex_num)
+        i = 0
+        while i < 8:
+            outfile.write(str(hex_nodes[i]) + " ")
+            i += 1
+        outfile.write("\n")
+```
+
+However, there `cubit.get_block_hexes(block_id)` does not return anything other than an empty set when these sets of commands were last tested (`Cubit v13.2`).

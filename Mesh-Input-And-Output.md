@@ -2,8 +2,9 @@
 
 ### Cubit
 
-The following cubit journal file (Actually a python script) exports the current mesh and 
+The following cubit journal file (actually a python script) exports the current mesh and 
 boundary conditions from cubit to a file "output.ucd" in the current directory.
+The [output file format](http://www.csit.fsu.edu/~burkardt/data/ucd/ucd.html) is [`AVS UCD`](http://vis.lbl.gov/NERSC/Software/express/help6.2/help/reference/dvmac/UCD_Form.htm).
 
 This is a modification of the original script that takes into account boundary ids via
 sidesets ids. If you want to save the boundary faces as well, you just need to 
@@ -18,7 +19,7 @@ sideset.
 # it.  Your mileage may vary.
 
 # set the filename -- you may need the entire path
-outucdfile = "output.inp"
+outucdfile = "output.ucd"
 
 outfile = open(outucdfile,"w")
 
@@ -221,7 +222,7 @@ In case it is of any use, the initial version of this script is also provided be
 # it.  Your mileage may vary.
 
 # set the filename -- you may need the entire path
-outucdfile = "output.inp"
+outucdfile = "output.ucd"
 
 outfile = open(outucdfile,"w")
 

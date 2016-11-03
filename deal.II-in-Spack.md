@@ -15,17 +15,15 @@ Now clone Spack
 ```
 git clone https://github.com/llnl/spack.git $SPACK_ROOT
 ```
-**Make sure C/C++/Fortran compilers are in path** (if that's not the case, see [below](#install-gcc)),
+**Make sure C/C++/Fortran compilers are in path** (if that's not the case or you use macOS, see [below](#install-gcc)),
 and install the complete deal.II suite
 ```
 spack install dealii
 ```
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. You may jump ahead and read [best practices using spack](#best-practices-using-spack).
-
-For macOS read further.
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. You may jump ahead and read [best practices using spack](#best-practices-using-spack). Also a good starting point is [Getting Started Guide](http://spack.readthedocs.io/en/latest/getting_started.html).
 
 ## Environment Modules
-Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://software.llnl.gov/spack/basic_usage.html#installing-environment-modules
+Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://spack.readthedocs.io/en/latest/getting_started.html#environment-modules
 
 To add the support for Environment Modules run
 ```
@@ -77,7 +75,7 @@ packages:
       variants: +python
 ```
 
-For more elaborated discussion, see [Spack documentation](http://spack.readthedocs.io/en/latest/configuration.html).
+For more elaborated discussion, see [Configuration Files in Spack](http://spack.readthedocs.io/en/latest/configuration.html).
 
 ## Installing GCC
 If your system does not provide any Fortran compiler or you want to have the most recent `gcc`,
@@ -96,61 +94,9 @@ Now you can install deal.II with `gcc`
 spack install dealii%gcc
 ```
 
-## Mixing GCC and Clang on OSX
+If you are on the mac, read the following instructions on [Mixed Toolchains](http://spack.readthedocs.io/en/latest/getting_started.html#mixed-toolchains).
 
-At the time of writing this page, Spack does not provide a native way to mix C/C++ and Fortran compilers from different families (e.g. `gcc` and `clang`). However, that can be done by manually changing few lines of `python` code as described below:
-
-(i) Edit `~/.spack/compilers.yaml` to provide path to gfortran compiler within the `clang@x.y.z-apple` entry:
-```
-compilers:
-- compiler:
-    modules: []
-    operating_system: elcapitan
-    paths:
-      cc: /usr/bin/clang
-      cxx: /usr/bin/clang++
-      f77: /path/to/bin/gfortran
-      fc: /path/to/bin/gfortran
-    spec: clang@7.3.0-apple
-```
-
-(ii) Create a symlink inside clang environment
-```
-cd $SPACK_ROOT/lib/spack/env/clang
-ln -s ../cc gfortran
-```
-
-(iii) Finally, apply the following patch to `lib/spack/spack/compilers/clang.py`
-```
-diff --git a/lib/spack/spack/compilers/clang.py b/lib/spack/spack/compilers/clang.py
-index e406d86..cf8fd01 100644
---- a/lib/spack/spack/compilers/clang.py
-+++ b/lib/spack/spack/compilers/clang.py
-@@ -35,17 +35,17 @@ class Clang(Compiler):
-     cxx_names = ['clang++']
-
-     # Subclasses use possible names of Fortran 77 compiler
--    f77_names = []
-+    f77_names = ['gfortran']
-
-     # Subclasses use possible names of Fortran 90 compiler
--    fc_names = []
-+    fc_names = ['gfortran']
-
-     # Named wrapper links within spack.build_env_path
-     link_paths = { 'cc'  : 'clang/clang',
-                    'cxx' : 'clang/clang++',
-                    # Use default wrappers for fortran, in case provided in compilers.yaml
--                   'f77' : 'f77',
--                   'fc'  : 'f90' }
-+                   'f77' : 'clang/gfortran',
-+                   'fc'  : 'clang/gfortran' }
-
-     @classmethod
-     def default_version(self, comp):
-```
-
-Now you can install deal.II with clang+gfortran
+On following these instructions, you will be able to install deal.II with clang+gfortran
 ```
 spack install dealii%clang
 ```
@@ -244,7 +190,7 @@ spack load dealii%gcc^petsc+complex
 ```
 
 ### Filesystem Views:
-If you prefer to have the whole dealii suite (and possible something else) symlinked into a single path (like `/usr/local`), one can use [Filesystem Views](http://software.llnl.gov/spack/basic_usage.html#filesystem-views):
+If you prefer to have the whole dealii suite (and possible something else) symlinked into a single path (like `/usr/local`), one can use [Filesystem Views](http://spack.readthedocs.io/en/latest/workflows.html#filesystem-views):
 ```
 spack view -v symlink dealii_suite dealii@develop
 ```
@@ -268,7 +214,7 @@ cmake -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=FALSE -DCM
 ```
 
 ### MKL and Licensed software
-Spack supports installation of [licensed software](http://software.llnl.gov/spack/packaging_guide.html#licensed-software). For example in order to install MKL on Linux:
+Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license). For example in order to install MKL on Linux:
 
 1. add the `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
 2. manually download Intel MKL archive `l_mkl_11.3.2.181.tgz`

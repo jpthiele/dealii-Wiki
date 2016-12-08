@@ -22,6 +22,48 @@ spack install dealii
 ```
 **DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. You may jump ahead and read [best practices using spack](#best-practices-using-spack). Also a good starting point is [Getting Started Guide](http://spack.readthedocs.io/en/latest/getting_started.html).
 
+
+## Installation example on a cluster (Emmy cluster of RRZE, Erlangen, Germany)
+Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](https://www.rrze.fau.de/dienste/arbeiten-rechnen/hpc/systeme/emmy-cluster.shtml#access) of RRZE, Erlangen, Germany:
+
+(1) Download spack
+```
+module load git
+mkdir $WOODYHOME/spack
+git clone https://github.com/llnl/spack.git $WOODYHOME/spack
+export PATH=$WOODYHOME/spack/bin:$PATH
+```
+(2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
+```
+module load openmpi/2.0.1-gcc
+spack compiler find
+```
+(3) Add `openmpi` as an external package, along with `python` and a few other self explanatory setting for `deal.ii`. That is done by adding the following to `~/.spack/linux/packages.yaml`
+```
+packages:
+  all:
+    compiler: [gcc]
+    providers:
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
+  python:
+    version: [2.7.12]
+    paths:
+      python@2.7.12: /usr/
+    buildable: False
+  openmpi:
+    version: [2.0.1]
+    paths:
+      openmpi@2.0.1%gcc@4.8.5: /apps/OpenMPI/2.0.1-gcc/
+    buildable: False
+  dealii:
+    version: [develop]
+    variants: ~oce~python
+```
+(4) Now install deal.II:  `spack install dealii`.
+
+
 ## Environment Modules
 Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://spack.readthedocs.io/en/latest/getting_started.html#environment-modules
 

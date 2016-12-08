@@ -51,7 +51,7 @@ Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` e
 
 ## System provided packages
 Spack is flexible to use both self-compiled and system provided packages. 
-In most cases this is desirable for `MPI`, which is already installed on computational clusters. To configure external packages you need to edit `~/.spack/packages.yaml`. For `openmpi` this could be
+In most cases this is desirable for `MPI`, which is already installed on computational clusters. To configure external packages you need to edit `~/.spack/linux/packages.yaml`. For `openmpi` this could be
 ```
 packages:
   openmpi:

@@ -93,7 +93,7 @@ Then run
 spack load dealii
 spack load cmake
 ```
-Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path.
+Now `DEAL_II_DIR` environment variable should be set appropriately and `cmake` executable will be available in path. Keep in mind that `spack load dealii` will also set `LD_LIBRARY_PATH` accordingly, this may or may not be what you need. An alternative is to use `export DEAL_II_DIR=$(spack location -i dealii)`.
 
 ## System provided packages
 Spack is flexible to use both self-compiled and system provided packages. 

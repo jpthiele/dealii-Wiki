@@ -20,7 +20,11 @@ and install the complete deal.II suite
 ```
 spack install dealii
 ```
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. You may jump ahead and read [best practices using spack](#best-practices-using-spack). Also a good starting point is [Getting Started Guide](http://spack.readthedocs.io/en/latest/getting_started.html).
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. Before configuring your project you need to set `DEAL_II_DIR` by 
+```
+export DEAL_II_DIR=$(spack location -i dealii)
+```
+You may jump ahead and read [best practices using spack](#best-practices-using-spack). Also a good starting point is [Getting Started Guide](http://spack.readthedocs.io/en/latest/getting_started.html).
 
 
 ## Installation example on a cluster (Emmy cluster of RRZE, Erlangen, Germany)

@@ -13,7 +13,9 @@ export PATH=$SPACK_ROOT/bin:$PATH
 
 Now clone Spack
 ```
-git clone https://github.com/llnl/spack.git $SPACK_ROOT
+cd $SPACK_ROOT
+git clone https://github.com/llnl/spack.git .
+git checkout master
 ```
 **Make sure C/C++/Fortran compilers are in path** (if that's not the case or you use macOS, see [below](#install-gcc)),
 and install the complete deal.II suite

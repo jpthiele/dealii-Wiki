@@ -17,6 +17,8 @@ cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout master
 ```
+`master` branch contains stable releases, whereas `develop` is the current development branch.
+
 **Make sure C/C++/Fortran compilers are in path** (if that's not the case or you use macOS, see [below](#install-gcc)),
 and install the complete deal.II suite
 ```

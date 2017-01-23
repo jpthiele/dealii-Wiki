@@ -1315,6 +1315,24 @@ new language features. That said, we occasionally use things from C++11 for whic
 
 The deal.II documentation has a page dedicated to the issue of what parts of C++11 we use and how this works: at http://dealii.org/developer/doxygen/deal.II/group__CPP11.html .
 
+deal.II may be compiled in C++11 mode with some older compilers that do not
+support everything in the standard: more specifically, we limit the usage of
+features in C++11 to things that may be found in GCC 4.6 or newer. We currently
+require support for the following features:
+
+1. `auto`-typed variables
+2. The `nullptr` keyword
+3. Move constructors
+4. The `declval` and `decltype` keywords
+5. Lambda functions
+
+In addition, we do not use the following features for compatibility with older
+compilers:
+
+1. Marking virtual functions as `override`
+2. Some features of the `type_traits` header, such as `std::is_trivially_copyable`
+3. Inheriting constructors
+
 ### Can I convert Triangulation cell iterators to DoFHandler cell iterators?
 
 Yes. You can also convert between iterators belonging to different

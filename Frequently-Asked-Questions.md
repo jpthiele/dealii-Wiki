@@ -1317,8 +1317,8 @@ The deal.II documentation has a page dedicated to the issue of what parts of C++
 
 deal.II may be compiled in C++11 mode with some older compilers that do not
 support everything in the standard: more specifically, we limit the usage of
-features in C++11 to things that may be found in GCC 4.6 or newer. We currently
-require support for the following features:
+features in C++11 to things that are implemented in GCC 4.6 or newer. We
+currently require support for the following features for compilation with C++11:
 
 1. `auto`-typed variables
 2. The `nullptr` keyword
@@ -1326,12 +1326,16 @@ require support for the following features:
 4. The `declval` and `decltype` keywords
 5. Lambda functions
 
-In addition, we do not use the following features for compatibility with older
-compilers:
+In addition, we do not use the following features to maintain compatibility with
+older compilers:
 
 1. Marking virtual functions as `override`
 2. Some features of the `type_traits` header, such as `std::is_trivially_copyable`
 3. Inheriting constructors
+4. Template aliases
+
+For a more complete list of features we do and do not use see
+[the GCC 4.6 C++11 compatibility page](https://gcc.gnu.org/gcc-4.6/cxx0x_status.html).
 
 ### Can I convert Triangulation cell iterators to DoFHandler cell iterators?
 

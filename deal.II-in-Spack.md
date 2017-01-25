@@ -15,7 +15,7 @@ Now clone Spack
 ```
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
-git checkout master
+git checkout develop
 ```
 `master` branch contains stable releases, whereas `develop` is the current development branch.
 

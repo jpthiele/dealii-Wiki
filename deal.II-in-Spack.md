@@ -269,9 +269,9 @@ Spack supports installation of [licensed software](http://spack.readthedocs.io/e
 
 1. add the `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
 2. manually download Intel MKL archive `l_mkl_11.3.2.181.tgz`
-3. `cd` to the folder with archive and run `spack install mkl@11.3.2.181`.
+3. `cd` to the folder with archive and run `spack install intel-mkl@11.3.2.181`.
 
-One can then run `spack install dealii ^mkl@11.3.2.181`.
+One can then run `spack install dealii ^intel-mkl@11.3.2.181`.
 
 
 ### Freeze package versions

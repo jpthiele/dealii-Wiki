@@ -264,6 +264,21 @@ cmake -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=FALSE -DCM
 ```
 Here we specify locations of libraries in `${DEAL_II_VIEW}` and also point to `mpi` compilers by `${DEAL_II_VIEW}/bin/mpicc` and alike. Keep in mind that the autodetection of `LAPACK` is turned off and therefore we specified full path to libs as `${DEAL_II_VIEW}/lib/libopenblas.dylib`. You would need to adjust the suffix if you are on Linux.
 
+### Keep the stage to run unit tests
+By default, the build folder (aka `stage`) for each package is created in a temporary system dependent location.
+This gets purge by system on next restart.
+If you want to keep the stage after the installation, you need to do two things:
+First, make spack use a custom location for stage by adding the following to your `~/.spack/config.yaml`:
+```
+config:
+  build_stage:
+    - $spack/var/spack/stage
+```
+Second, prescribe an extra argument to `install` command to keep the stage after successful installation:
+```
+spack install --keep-stage dealii@develop
+```
+
 ### MKL and Licensed software
 Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license). For example in order to install MKL on Linux:
 

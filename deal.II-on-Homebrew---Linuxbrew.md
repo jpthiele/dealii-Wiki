@@ -15,7 +15,7 @@ The deal.II suite is also available on Homebrew ( OS-X) and Linuxbrew (https://g
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 ### Linuxbrew
-On Debian/Ubuntu on needs extra packages:
+Debian/Ubuntu needs extra packages:
 ```
 sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev csh subversion
 ```
@@ -30,7 +30,7 @@ sudo apt-get install libgl2ps-dev tcl8.6-dev tk8.6-dev libgl1-mesa-dev libglu1-m
 ```
 to build `opencascade` itself.
 
-Then
+Then run
 
 ```
 git clone https://github.com/Homebrew/linuxbrew.git ~/.linuxbrew
@@ -84,7 +84,7 @@ brew install dealii
 ```
 
 ### Linux
-On Linux some of the packages do not currently compile, therefore they have to be skipped (thus `--without-XYZ` arguments). Otherwise, the steps are pretty much equivalent to those listed above.
+On Linux some of the packages do not currently compile. Therefore, they have to be skipped (thus `--without-XYZ` arguments). Otherwise, the steps are pretty much equivalent to those listed above.
 
 Note that this configuration uses OpenBLAS as opposed to the system BLAS/LAPACK libraries (such an option is currently not supported).
 ```

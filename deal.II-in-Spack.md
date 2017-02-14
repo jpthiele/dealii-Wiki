@@ -236,7 +236,7 @@ The good thing is that if you already have deal.ii built with real-valued petsc,
 
 One can use `environment-modules` (see above) to automatically set `DEAL_II_DIR` to the complex version: 
 ```
-spack load dealii%gcc^petsc+complex
+spack load dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 ```
 
 ### Filesystem Views:
@@ -253,7 +253,7 @@ spack view -v symlink dealii_suite the_silver_searcher
 ### Check before build:
 It is often convenient to check which version of packages, compilers, variants etc will be used before actually starting installation. That can be done by examining the concretized spec via `spack spec` command, e.g. 
 ```
-spack spec dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
+spack spec dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 ```
 
 ### Develop using Spack

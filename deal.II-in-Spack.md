@@ -211,7 +211,7 @@ Description:
 ### Extra options:
 One can specify extra options for packages in the deal.II suite. For example if you want to have boost with `python` module, this can be done by
 ```
-spack install dealii@develop+mpi ^boost+python
+spack install dealii@develop+mpi~python ^boost+python
 ```
 
 If you want to specify blas/lapack/mpi implementations, this can be done similarly

@@ -230,7 +230,7 @@ spack install dealii ^atlas
 ### Different versions coexisting:
 One can easily have slightly different versions of deal.II side-by-side, e.g. to compile development version of deal.II with complex-valued PETSc and `gcc` compiler run
 ```
-spack install dealii@develop+mpi+petsc%gcc ^petsc+complex~hypre
+spack install dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 ```
 The good thing is that if you already have deal.ii built with real-valued petsc, then only `petsc`, `slepc` and `deal.ii` itself will be rebuild. Everything else (`trilinos`, `mumps`, `metis`, etc) will be reused.
 

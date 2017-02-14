@@ -246,7 +246,7 @@ spack view -v symlink dealii_suite dealii@develop
 ```
 You can also add to this view other packages, i.e.
 ```
-spack view -v symlink dealii_suite the_silver_searcher
+spack view -v symlink dealii_suite the-silver-searcher
 ```
 
 

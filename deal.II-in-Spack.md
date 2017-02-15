@@ -164,11 +164,12 @@ spack info <package>
 The output will contain available versions, variants, dependencies and description:
 ```
 $ spack info dealii
-Package:    dealii
-Homepage:   https://www.dealii.org
+CMakePackage:    dealii
+Homepage:        https://www.dealii.org
 
 Safe versions:
     develop    [git] https://github.com/dealii/dealii.git
+    8.4.2      https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz
     8.4.1      https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz
     8.4.0      https://github.com/dealii/dealii/releases/download/v8.4.0/dealii-8.4.0.tar.gz
     8.3.0      https://github.com/dealii/dealii/releases/download/v8.3.0/dealii-8.3.0.tar.gz
@@ -182,30 +183,69 @@ Variants:
     doc         off       Compile with documentation
     gsl         on        Compile with GSL
     hdf5        on        Compile with HDF5 (only with MPI)
+    int64       off       Compile with 64 bit indices support
     metis       on        Compile with Metis
     mpi         on        Compile with MPI
     netcdf      on        Compile with Netcdf (only with MPI)
     oce         on        Compile with OCE
     p4est       on        Compile with P4est (only with MPI)
     petsc       on        Compile with Petsc (only with MPI)
+    python      on        Compile with Python bindings
     slepc       on        Compile with Slepc (only with Petsc and MPI)
     trilinos    on        Compile with Trilinos (only with MPI)
 
+Installation Phases:
+    cmake    build    install
+
 Build Dependencies:
-    zlib  blas  graphviz  netcdf  arpack-ng  bzip2  cmake  lapack  oce  astyle  boost  trilinos  muparser  p4est  mpi  suite-sparse  tbb  doxygen  hdf5  slepc  numdiff  metis  petsc  netcdf-cxx  gsl
+    arpack-ng  blas  boost  bzip2  cmake  doxygen  graphviz  gsl  hdf5  lapack  metis  mpi  muparser  netcdf  netcdf-cxx  oce  p4est  petsc  python  slepc  suite-sparse  tbb  trilinos  zlib
 
 Link Dependencies:
-    zlib  blas  graphviz  netcdf  arpack-ng  bzip2  lapack  oce  astyle  boost  trilinos  muparser  p4est  mpi  suite-sparse  tbb  doxygen  hdf5  slepc  numdiff  metis  petsc  netcdf-cxx  gsl
+    arpack-ng  blas  boost  bzip2  doxygen  graphviz  gsl  hdf5  lapack  metis  mpi  muparser  netcdf  netcdf-cxx  oce  p4est  petsc  python  slepc  suite-sparse  tbb  trilinos  zlib
 
 Run Dependencies:
     None
 
-Virtual packages:
+Virtual Packages:
     None
 
 Description:
     C++ software library providing well-documented tools to build finite
     element codes for a broad variety of PDEs.
+```
+
+A lot of `spack` commands have help, for example
+```
+$spack isntall -h
+usage: spack install [-h] [--only {package,dependencies}] [-j JOBS]
+                     [--keep-prefix] [--keep-stage] [-n] [-v] [--fake]
+                     [--clean | --dirty] [--run-tests] [--log-format {junit}]
+                     [--log-file LOG_FILE]
+                     ...
+
+positional arguments:
+  package               spec of the package to install
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --only {package,dependencies}
+                        select the mode of installation. the default is to
+                        install the package along with all its dependencies.
+                        alternatively one can decide to install only the
+                        package or only the dependencies
+  -j JOBS, --jobs JOBS  explicitly set number of make jobs. default is #cpus
+  --keep-prefix         don't remove the install prefix if installation fails
+  --keep-stage          don't remove the build stage if installation succeeds
+  -n, --no-checksum     do not check packages against checksum
+  -v, --verbose         display verbose build output while installing
+  --fake                fake install. just remove prefix and create a fake
+                        file
+  --clean               clean environment before installing package
+  --dirty               do NOT clean environment before installing
+  --run-tests           run package level tests during installation
+  --log-format {junit}  format to be used for log files
+  --log-file LOG_FILE   filename for the log file. if not passed a default
+                        will be used
 ```
 
 ### Extra options:

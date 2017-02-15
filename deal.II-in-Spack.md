@@ -270,7 +270,7 @@ spack install dealii ^atlas
 ### Compiler flags
 You can specify compiler flags on the command line as
 ```
-spack install dealii cppflags="-O3 -fPIC"
+spack install dealii cppflags="-march=native -O3"
 ```
 Note that these flags will be inherited by dependencies such as `petsc`, `trilinos`, etc. Same can be done by declaring these flags in `~/.spack/compilers.yaml`:
 ```
@@ -293,7 +293,7 @@ compilers:
 If you want to use flags for `dealii` only, you can first build all the dependencies without flags and then build `dealii` with custom flags:
 ```
 spack install --only dependencies dealii
-spack install dealii cppflags="-O3 -fPIC"
+spack install dealii cppflags="-march=native -O3"
 ```
 
 See this [google forum topic](https://groups.google.com/forum/?fromgroups#!topic/dealii/3Yjy8CBIrgU) for discussion on which flags to use.

@@ -227,6 +227,37 @@ One can also specify which Blas/Lapack implementation to use. For example to bui
 spack install dealii ^atlas
 ```
 
+### Compiler flags
+You can specify compiler flags on the command line as
+```
+spack install dealii cppflags="-O3 -fPIC"
+```
+Note that these flags will be inherited by dependencies such as `petsc`, `trilinos`, etc. Same can be done by declaring these flags in `~/.spack/compilers.yaml`:
+```
+compilers:
+- compiler:
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags:
+      cflags: -O3 -fPIC
+      cxxflags: -O3 -fPIC
+      cppflags: -O3 -fPIC
+    spec: gcc@4.7.2
+```
+
+If you want to use flags for `dealii` only, you can first build all the dependencies without flags and then build `dealii` with custom flags:
+```
+spack install --only dependencies dealii
+spack install dealii cppflags="-O3 -fPIC"
+```
+
+See this [google forum topic](https://groups.google.com/forum/?fromgroups#!topic/dealii/3Yjy8CBIrgU) for discussion on which flags to use.
+
 ### Different versions coexisting:
 One can easily have slightly different versions of deal.II side-by-side, e.g. to compile development version of deal.II with complex-valued PETSc and `gcc` compiler run
 ```

@@ -4,7 +4,7 @@ The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- 
 
 ## Quick installation
 
-Add the following to `~/.bash_profile` (or equivalent)
+Add the following to `~/.bashrc` (or equivalent)
 ```
 SPACK_ROOT=/path/to/spack
 export PATH=$SPACK_ROOT/bin:$PATH
@@ -78,9 +78,13 @@ To add the support for Environment Modules run
 ```
 spack install environment-modules
 ```
-and then add to `~/.bash_profile` (or equivalent)
+Get the path to the prefix of `environment-modules` by:
 ```
-MODULES_HOME=`spack location -i environment-modules`
+spack location -i environment-modules
+```
+and then add to `~/.bashrc` (or equivalent)
+```
+MODULES_HOME=/path/to/environment-modules
 source ${MODULES_HOME}/Modules/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```

@@ -6,10 +6,10 @@ The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- 
 
 Add the following to `~/.bashrc` (or equivalent)
 ```
-SPACK_ROOT=/path/to/spack
-export PATH=$SPACK_ROOT/bin:$PATH
+export SPACK_ROOT=/path/to/spack
+PATH="$SPACK_ROOT/bin:$PATH"
 ```
-`SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `/Users/john/spack`).
+`SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `$HOME/spack`).
 
 Now clone Spack
 ```

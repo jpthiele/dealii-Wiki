@@ -80,7 +80,7 @@ spack install environment-modules
 ```
 Get the path to the prefix of `environment-modules` by:
 ```
-spack location -i environment-modules
+spack location --install-dir environment-modules
 ```
 and then add to `~/.bashrc` (or equivalent)
 ```

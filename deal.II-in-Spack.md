@@ -16,6 +16,7 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
+git reset --hard e3101808ae077a3d352d8740cc39d877ed355b86
 ```
 `master` branch contains stable releases, whereas `develop` is the current development branch.
 

@@ -300,7 +300,7 @@ spack install --only dependencies dealii
 spack install dealii cppflags="-march=native -O3"
 ```
 
-See this [google forum topic](https://groups.google.com/forum/?fromgroups#!topic/dealii/3Yjy8CBIrgU) for discussion on which flags to use.
+See this [google forum topic](https://groups.google.com/forum/?fromgroups#!topic/dealii/3Yjy8CBIrgU) for discussion on which flags to use. You can also use `spack install dealii+optflags` to enable extra optimization flags in release build.
 
 ### Different versions coexisting:
 One can easily have slightly different versions of deal.II side-by-side, e.g. to compile development version of deal.II with complex-valued PETSc and `gcc` compiler run

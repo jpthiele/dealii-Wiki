@@ -220,7 +220,7 @@ Description:
 
 A lot of `spack` commands have help, for example
 ```
-$spack isntall -h
+$spack install -h
 usage: spack install [-h] [--only {package,dependencies}] [-j JOBS]
                      [--keep-prefix] [--keep-stage] [-n] [-v] [--fake]
                      [--clean | --dirty] [--run-tests] [--log-format {junit}]

@@ -16,9 +16,11 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-git reset --hard e3101808ae077a3d352d8740cc39d877ed355b86
+# the following commit was tested on:
+# - Ubuntu16.04+gcc5.4.0 PC
+# - centos7+gcc4.8.5 cluster
+git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
 ```
-`master` branch contains stable releases, whereas `develop` is the current development branch.
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#install-gcc)), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
@@ -31,7 +33,7 @@ export DEAL_II_DIR=$(spack location -i dealii)
 You may jump ahead and read [best practices using spack](#best-practices-using-spack). Also a good starting point is [Getting Started Guide](http://spack.readthedocs.io/en/latest/getting_started.html).
 
 
-## Installation example on a cluster (Emmy cluster of RRZE, Erlangen, Germany)
+## Installation example on a Centos7 cluster (Emmy cluster of RRZE, Erlangen, Germany)
 Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](https://www.rrze.fau.de/dienste/arbeiten-rechnen/hpc/systeme/emmy-cluster.shtml#access) of RRZE, Erlangen, Germany:
 
 (1) Download spack
@@ -67,7 +69,6 @@ packages:
     buildable: False
   dealii:
     version: [develop]
-    variants: ~oce~python
 ```
 (4) Now install deal.II:  `spack install dealii`.
 

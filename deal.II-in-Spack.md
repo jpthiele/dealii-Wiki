@@ -69,9 +69,11 @@ packages:
     buildable: False
   dealii:
     version: [develop]
-    variants: +optflags
+    variants: +optflags~python
 ```
 (4) Now install deal.II:  `spack install dealii`.
+
+Note that we specifically build deal.II without `python` wrappers. Otherwise deal.II would be linked against system provided `python` which itself may be linked against system provided `zlib`. As a result we may have a mixture of Spack's build `zlib` and system provided `zlib`, which is certainly not what we want.
 
 
 ## Environment Modules

@@ -69,6 +69,7 @@ packages:
     buildable: False
   dealii:
     version: [develop]
+    variants: +optflags
 ```
 (4) Now install deal.II:  `spack install dealii`.
 

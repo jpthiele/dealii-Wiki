@@ -38,7 +38,7 @@ You may jump ahead and read [best practices using spack](#best-practices-using-s
 
 
 ## Installation example on a Centos7 cluster (Emmy cluster of RRZE, Erlangen, Germany)
-In order to use Spack on a cluster, there are two options: (1) you are a sysadmin and you know hardware details and can use Spack to properly configure and build MPI providers (e.g. `openmpi`); (2) you are a user and you need to make Spack use MPI provided on your cluster. Below we consider the latter case.
+In order to use Spack on a cluster, there are two options: (1) you are a sysadmin and you know hardware details and can use Spack to properly configure and build MPI providers (e.g. `openmpi`); (2) you are a user and you need to make Spack work with MPI provided on your cluster. Below we consider the latter case.
 
 Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](https://www.rrze.fau.de/dienste/arbeiten-rechnen/hpc/systeme/emmy-cluster.shtml#access) of RRZE, Erlangen, Germany:
 

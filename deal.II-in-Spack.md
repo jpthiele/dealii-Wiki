@@ -2,7 +2,7 @@
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
-## Quick installation
+## Quick installation on the desktop
 
 Add the following to `~/.bashrc` (or equivalent)
 ```
@@ -26,7 +26,9 @@ git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
 ```
 spack install dealii
 ```
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. Before configuring your project you need to set `DEAL_II_DIR` by 
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
+
+Before configuring your project you need to set `DEAL_II_DIR` by 
 ```
 export DEAL_II_DIR=$(spack location -i dealii)
 ```
@@ -34,13 +36,17 @@ You may jump ahead and read [best practices using spack](#best-practices-using-s
 
 
 ## Installation example on a Centos7 cluster (Emmy cluster of RRZE, Erlangen, Germany)
+In order to use Spack on a cluster, there are two options: (1) you are a sysadmin and you know hardware details and can use Spack to properly configure and build MPI providers (e.g. `openmpi`); (2) you are a user and you need to make Spack use MPI provided on your cluster. Below we consider the latter case.
+
 Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](https://www.rrze.fau.de/dienste/arbeiten-rechnen/hpc/systeme/emmy-cluster.shtml#access) of RRZE, Erlangen, Germany:
 
 (1) Download spack
 ```
 module load git
 mkdir $WOODYHOME/spack
+cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
+git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

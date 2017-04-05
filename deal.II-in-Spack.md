@@ -2,6 +2,8 @@
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
+For a short overview of features and motivation, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
+
 ## Quick installation on the desktop
 
 Add the following to `~/.bashrc` (or equivalent)

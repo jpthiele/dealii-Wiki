@@ -77,7 +77,7 @@ packages:
     version: [develop]
     variants: +optflags~python
 ```
-Note that the paths are the location where external packages can be found (i.e. `prefix` instead of `prefix/bin` or `prefix/lib`).
+Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`).
 (4) Now install deal.II:  `spack install dealii`.
 
 Note that we specifically build deal.II without `python` wrappers. Otherwise deal.II would be linked against system provided `python` which itself may be linked against system provided `zlib`. As a result we may have a mixture of Spack's build `zlib` and system provided `zlib`, which is certainly not what we want.

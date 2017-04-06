@@ -4,6 +4,8 @@ The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- 
 
 For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
 
+Note: Spack is in active development and is in alpha state, thereby below we recommend checking out specific hashes, that were tested with deal.II.
+
 ## Quick installation on the desktop
 
 Add the following to `~/.bashrc` (or equivalent)
@@ -20,8 +22,11 @@ git clone https://github.com/llnl/spack.git .
 git checkout develop
 # the following commit was tested on:
 # - Ubuntu16.04+gcc5.4.0 PC
-#   spack install dealii+mpi ^openmpi ^openblas
-git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
+#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^openblas
+#   [ ] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl@11.3.3.210
+#   [ ] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
+#   [ ] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
+git reset --hard 715ac8b7e67b094c094ec290729c5257cd565a0c
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#install-gcc)), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
@@ -371,11 +376,8 @@ spack install --keep-stage dealii@develop
 ### MKL and Licensed software
 Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license). For example in order to install MKL on Linux:
 
-1. add the `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
-2. manually download Intel MKL archive `l_mkl_11.3.2.181.tgz` (Spack can not do it for you due to the license of `intel-mkl`).
-3. `cd` to the folder with archive and run `spack install intel-mkl@11.3.2.181`.
-
-One can then run `spack install dealii ^intel-mkl@11.3.2.181`.
+1. add `Intel` license file as `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
+2. run `spack install dealii ^intel-mkl@11.3.2.210`
 
 
 ### Freeze package versions

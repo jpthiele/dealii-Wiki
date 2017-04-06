@@ -25,7 +25,7 @@ git checkout develop
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^openblas
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl@11.3.3.210
 #   [ ] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
-#   [ ] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
+#   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
 git reset --hard 715ac8b7e67b094c094ec290729c5257cd565a0c
 ```
 

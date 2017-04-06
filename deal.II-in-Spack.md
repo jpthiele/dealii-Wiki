@@ -2,7 +2,7 @@
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
-For a short overview of features and motivation, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
+For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
 
 ## Quick installation on the desktop
 
@@ -20,7 +20,7 @@ git clone https://github.com/llnl/spack.git .
 git checkout develop
 # the following commit was tested on:
 # - Ubuntu16.04+gcc5.4.0 PC
-# - centos7+gcc4.8.5 cluster
+#   spack install dealii+mpi ^openmpi ^openblas
 git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
 ```
 
@@ -48,12 +48,12 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard 1124bdc99ee84c26201c40536d9b04dac74d7f6a
+git reset --hard 715ac8b7e67b094c094ec290729c5257cd565a0c
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
 ```
-module load openmpi/2.0.1-gcc
+module load openmpi/2.0.2-gcc
 spack compiler find
 ```
 (3) Add `openmpi` as an external package, along with `python` and a few other self explanatory setting for `deal.ii`. That is done by adding the following to `~/.spack/linux/packages.yaml`
@@ -71,9 +71,9 @@ packages:
       python@2.7.12: /usr/
     buildable: False
   openmpi:
-    version: [2.0.1]
+    version: [2.0.2]
     paths:
-      openmpi@2.0.1%gcc@4.8.5: /apps/OpenMPI/2.0.1-gcc/
+      openmpi@2.0.2%gcc@4.8.5: /apps/OpenMPI/2.0.2-gcc/
     buildable: False
   dealii:
     version: [develop]

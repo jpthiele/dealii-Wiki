@@ -5,7 +5,7 @@ This note tries to give best practices for DOIs for deal.II tutorial and code ga
    - You can include a README.md which will be prominently displayed in the citation (example: https://doi.org/10.5281/zenodo.484156). This allows you to link to the current version of the tutorial and provide instructions and additional citations, etc..
    - Select type "Software" and provide keywords, description, etc.
    - You probably want "open access" and "LGPL 2.1" (this is necessary to be included in deal.II anyways)
-   - Create a "has this upload as part" entry with URL github.com/dealii/dealii or https://github.com/dealii/code-gallery
+   - Create a reference of type "has this upload as part" entry with URL https://github.com/dealii/dealii or https://github.com/dealii/code-gallery
 2. Add your paper to the deal.II zenodo community: https://zenodo.org/communities/dealii/
 3. Add a ``@dealiiTutorialDOI{link,imglink}`` entry to your tutorial (see https://github.com/dealii/dealii/pull/4145 and https://github.com/dealii/dealii/pull/4180 for examples)
 

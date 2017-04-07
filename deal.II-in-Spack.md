@@ -21,12 +21,12 @@ cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
 # the following commit was tested on:
-# - Ubuntu16.04+gcc5.4.0 PC
+# - Ubuntu16.04 PC
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^openblas
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl@11.3.3.210
-#   [ ] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
+#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
 #   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
-git reset --hard 715ac8b7e67b094c094ec290729c5257cd565a0c
+git reset --hard 030127a07173357013302d024acf60b151a95fbd
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#install-gcc)), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
@@ -53,7 +53,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard 715ac8b7e67b094c094ec290729c5257cd565a0c
+git reset --hard 030127a07173357013302d024acf60b151a95fbd
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
@@ -81,7 +81,6 @@ packages:
       openmpi@2.0.2%gcc@4.8.5: /apps/OpenMPI/2.0.2-gcc/
     buildable: False
   dealii:
-    version: [develop]
     variants: +optflags~python
 ```
 Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc.

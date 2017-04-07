@@ -1,6 +1,6 @@
 This note tries to give best practices for DOIs for deal.II tutorial and code gallery contributions.
 
-1. Create a DOI at zenodo.org with title "The deal.II tutorial step-XY: The Title" or "The deal.II code gallery: The Title":
+1. Create a DOI at https://zenodo.org with title "The deal.II tutorial step-XY: The Title" or "The deal.II code gallery: The Title":
    - Include the .cc, CMakeLists.txt, and all necessary parameter files
    - You can include a README.md which will be prominently displayed in the citation (example: https://doi.org/10.5281/zenodo.484156). This allows you to link to the current version of the tutorial and provide instructions and additional citations, etc..
    - Select type "Software" and provide keywords, description, etc.

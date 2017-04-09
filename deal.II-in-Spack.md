@@ -380,6 +380,8 @@ Spack supports installation of [licensed software](http://spack.readthedocs.io/e
 1. add `Intel` license file as `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
 2. run `spack install dealii ^intel-mkl@11.3.2.210`
 
+In order to configure Intel compilers see [this page](http://spack.readthedocs.io/en/latest/getting_started.html#vendor-specific-compiler-configuration).
+
 
 ### Freeze package versions
 Currently Spack does not try to re-use already installed packages. On another hand, by default

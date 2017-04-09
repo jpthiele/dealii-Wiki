@@ -375,7 +375,7 @@ spack install --keep-stage dealii@develop
 ```
 
 ### MKL and Licensed software
-Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license). For example in order to install MKL on Linux:
+Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license) as well as usage of [Licensed compilers](http://spack.readthedocs.io/en/latest/getting_started.html#licensed-compilers). For example in order to install MKL on Linux:
 
 1. add `Intel` license file as `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
 2. run `spack install dealii ^intel-mkl@11.3.2.210`

@@ -191,6 +191,7 @@ Homepage:        https://www.dealii.org
 
 Safe versions:
     develop    [git] https://github.com/dealii/dealii.git
+    8.5.0      https://github.com/dealii/dealii/releases/download/v8.5.0/dealii-8.5.0.tar.gz
     8.4.2      https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz
     8.4.1      https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz
     8.4.0      https://github.com/dealii/dealii/releases/download/v8.4.0/dealii-8.4.0.tar.gz
@@ -210,6 +211,7 @@ Variants:
     mpi         on        Compile with MPI
     netcdf      on        Compile with Netcdf (only with MPI)
     oce         on        Compile with OCE
+    optflags    off       Compile using additional optimization flags
     p4est       on        Compile with P4est (only with MPI)
     petsc       on        Compile with Petsc (only with MPI)
     python      on        Compile with Python bindings

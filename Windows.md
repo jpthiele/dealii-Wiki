@@ -17,17 +17,20 @@ Installation instructions:
 4. Configure using cmake by opening cmd:
 
     ```
-cd c:\dealii
-mkdir build
-cd c:\dealii\build
-cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install ..
+    set PreferredToolArchitecture=x64
+    cd c:\dealii
+    mkdir build
+    cd c:\dealii\build
+    cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install ..
     ```
+    Note: setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
 
-6. Compile and install the library by opening ``deal.II.sln`` in c:\dealii\build, pick the install target and compile.
+6. Compile and install the library by opening ``deal.II.sln`` in c:\dealii\build, pick the install target and compile. Note: you need to either compile in the same terminal as above (using ``cmake --build .``) or open ``devenv.exe`` from the same terminal, to use the 64 bit tool architecture.
+
 7. in cmd go to one of the examples in c:\dealii\examples\step-xy:
 
     ```
-cmake -D DEAL_II_DIR=c:\dealii\install .
+    cmake -D DEAL_II_DIR=c:\dealii\install .
     ```
 
 8. Open the newly created solution (step-xy.sln) in that directory and compile/run/debug.

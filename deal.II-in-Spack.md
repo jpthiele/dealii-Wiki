@@ -26,7 +26,9 @@ git checkout develop
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl@11.3.3.210
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
 #   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
-git reset --hard 030127a07173357013302d024acf60b151a95fbd
+# - macOS Sierra 10.12.4 XCode 8.3.1 clang@8.1.0+gfortran@6.3.0
+#   [x] spack install dealii@develop+mpi ^openmpi ^openblas 
+git reset --hard 0ed18de8365f6e951938dc686392aaf7be3e621c
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#install-gcc)), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
@@ -350,6 +352,8 @@ It is often convenient to check which version of packages, compilers, variants e
 ```
 spack spec dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 ```
+
+The `spec` command has a useful flag `-I` which will show install status of dependencies in the graph.
 
 ### Develop using Spack
 There are several ways to use Spack while contributing patches to the deal.II. The simplest is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. For example on macOS with `openblas`:

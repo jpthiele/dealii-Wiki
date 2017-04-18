@@ -28,6 +28,8 @@ git checkout develop
 #   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
 # - macOS Sierra 10.12.4 XCode 8.3.1 clang@8.1.0+gfortran@6.3.0
 #   [x] spack install dealii@develop+mpi ^openmpi ^openblas 
+# - CentOS 7 cluster with GCC 4.8.5 (see below) and external OpenMPI
+#   [x] spack install dealii
 git reset --hard 0ed18de8365f6e951938dc686392aaf7be3e621c
 ```
 
@@ -55,7 +57,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard 030127a07173357013302d024acf60b151a95fbd
+git reset --hard 0ed18de8365f6e951938dc686392aaf7be3e621c
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

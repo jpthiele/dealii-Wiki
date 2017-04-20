@@ -11,17 +11,17 @@ Since deal.II 8.4.0 we have experimental support for the newer Visual Studio C++
 
 Installation instructions:
 
-1. Download and install Visual Studio: https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx and make sure you select the C++ compiler
+1. Download and install Visual Studio 2015 or 2017: https://www.visualstudio.com/vs/ and make sure you select the C++ compiler
 2. Install cmake from https://cmake.org/download/ (pick the windows installer)
 3. Extract deal.II to a folder, for example c:\dealii (or clone the git development version)
-4. Configure using cmake by opening cmd:
+4. Configure using cmake by opening the 64bit command line shortcut and run:
 
     ```
     set PreferredToolArchitecture=x64
     cd c:\dealii
     mkdir build
     cd c:\dealii\build
-    cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install ..
+    cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install -G "Visual Studio 15 2017 Win64" ..
     ```
     Note: setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
 
@@ -30,7 +30,7 @@ Installation instructions:
 7. in cmd go to one of the examples in c:\dealii\examples\step-xy:
 
     ```
-    cmake -D DEAL_II_DIR=c:\dealii\install .
+    cmake -D DEAL_II_DIR=c:\dealii\install -G "Visual Studio 15 2017 Win64" .
     ```
 
 8. Open the newly created solution (step-xy.sln) in that directory and compile/run/debug.

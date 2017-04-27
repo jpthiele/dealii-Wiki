@@ -41,7 +41,7 @@ This page collects a few answers to questions that have frequently been asked ab
       * [Doesn't it take forever to compile templates?](#doesnt-it-take-forever-to-compile-templates)
       * [Why do I need to use typename in all these templates?](#why-do-i-need-to-use-typename-in-all-these-templates)
       * [Why do I need to use this-&gt; in all these templates?](#why-do-i-need-to-use-this--in-all-these-templates)
-      * [Does deal.II use features of C++11 (formerly known as C++0x or C++1x)?](#does-dealii-use-features-of-c11-formerly-known-as-c0x-or-c1x)
+      * [Does deal.II require C++11 support?](#does-dealii-require-c11-support)
       * [Can I convert Triangulation cell iterators to DoFHandler cell iterators?](#can-i-convert-triangulation-cell-iterators-to-dofhandler-cell-iterators)
     * [Questions about specific behavior of parts of deal.II](#questions-about-specific-behavior-of-parts-of-dealii)
       * [How do I create the mesh for my problem?](#how-do-i-create-the-mesh-for-my-problem)
@@ -555,14 +555,13 @@ code of the form
   }
 ```
 
-In other words, Sacado is putting things into namespace `std`. The
-functions it is putting there are functions that have been defined by the
-C99 standard but that didn't make it into the C++98 standard before; some
-of them are widely used. The problem is that these functions were later
-added to the C++0x (now C++11) standard and so if your compiler is new
-enough (e.g. GCC 4.5 and later) then the compiler's C++ standard library
-already contains these functions. Adding them again in this file then
-yields errors of the kind
+In other words, Sacado is putting things into namespace `std`. The functions it
+is putting there are functions that have been defined by the C99 standard but
+that didn't make it into the C++98 standard before; some of them are widely
+used. The problem is that these functions were later added to the standard and
+so if your compiler is new enough (e.g. GCC 4.5 and later) then the compiler's
+C++ standard library already contains these functions. Adding them again in this
+file then yields errors of the kind
 ```
 /home/.../trilinos-10.4.2/include/Sacado_cmath.hpp: In function 'float std::acosh(float)':
 /home/.../trilinos-10.4.2/include/Sacado_cmath.hpp:41:16: error: redefinition of 'float std::acosh(float)'
@@ -1306,19 +1305,20 @@ compiler knows what the base class is (for example it knows if there are
 explicit specializations) and so it knows which base classes to look into
 in an attempt to find a function with the name `f`.
 
-### Does deal.II use features of C++11 (formerly known as C++0x or C++1x)?
+### Does deal.II require C++11 support?
+The answer to this question depends on the version of deal.II that you are
+interested in using
 
-We strive to keep deal.II compatible with the previous C++ standard, C++98,
-to make sure that deal.II can be built by all widely available compilers on
-current and recent operating systems. This typically prevents the use of
-new language features. That said, we occasionally use things from C++11 for which we have backup solutions for compilers that do not provide them.
+#### deal.II version 9.0.0
+As of version 9.0.0, deal.II requires C++11 support equivalent to that provided
+by GCC 4.8.0., which is, essentially, every new feature in C++11.
 
-The deal.II documentation has a page dedicated to the issue of what parts of C++11 we use and how this works: at http://dealii.org/developer/doxygen/deal.II/group__CPP11.html .
-
-deal.II may be compiled in C++11 mode with some older compilers that do not
-support everything in the standard: more specifically, we limit the usage of
-features in C++11 to things that are implemented in GCC 4.6 or newer. We
-currently require support for the following features for compilation with C++11:
+#### deal.II version 8.5.0 and previous
+The current release of deal.II, 8.5.0, is compatible with the C++98 and C++03
+standards, but some features (e.g., the `LinearOperator` class) are only
+available if your compiler supports a subset of C++11 features. GCC 4.6 and
+newer implement enough of C++11 for these features to be turned on. More
+exactly, we currently require the following language features to be present:
 
 1. `auto`-typed variables
 2. The `nullptr` keyword
@@ -1326,15 +1326,17 @@ currently require support for the following features for compilation with C++11:
 4. The `declval` and `decltype` keywords
 5. Lambda functions
 
-In addition, we do not use the following features to maintain compatibility with
-older compilers:
+while we do not use the following features:
 
 1. Marking virtual functions as `override`
 2. Some features of the `type_traits` header, such as `std::is_trivially_copyable`
 3. Inheriting constructors
 4. Template aliases
 
-For a more complete list of features we do and do not use see
+The deal.II documentation has a
+[page](http://dealii.org/8.5.0/doxygen/deal.II/group__CPP11.html) dedicated to
+the issue of what parts of C++11 we use and how this works. For a more complete
+list of features we do and do not use see
 [the GCC 4.6 C++11 compatibility page](https://gcc.gnu.org/gcc-4.6/cxx0x_status.html).
 
 ### Can I convert Triangulation cell iterators to DoFHandler cell iterators?

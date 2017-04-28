@@ -23,7 +23,8 @@ Installation instructions:
     cd c:\dealii\build
     cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install -G "Visual Studio 15 2017 Win64" ..
     ```
-    Note: setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
+    Note: Setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
+    Note: Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio 2017 and ``"Visual Studio 14 2015 Win64"`` for Visual Studio 2015.
 
 6. Compile and install the library by opening ``deal.II.sln`` in c:\dealii\build, pick the install target and compile. Note: you need to either compile in the same terminal as above (using ``cmake --build .``) or open ``devenv.exe`` from the same terminal, to use the 64 bit tool architecture.
 

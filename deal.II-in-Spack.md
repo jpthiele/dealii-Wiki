@@ -358,12 +358,21 @@ spack spec dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 The `spec` command has a useful flag `-I` which will show install status of dependencies in the graph.
 
 ### Develop using Spack
-There are several ways to use Spack while contributing patches to the deal.II. The simplest is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. For example on macOS with `openblas`:
+Probably the easiest way to use Spack while contributing patches to the deal.II is the following. 
+Install `deal.II` via Spack, go to its installation prefix and copy-paste the CMake command from `.spack/build.out`, which looks like
 ```
-export DEAL_II_VIEW=/Users/davydden/spack/_dealii_suite
-cmake -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=FALSE -DCMAKE_INSTALL_RPATH=${DEAL_II_VIEW} -DCMAKE_BUILD_TYPE=DebugRelease -DDEAL_II_COMPONENT_EXAMPLES=ON -DDEAL_II_WITH_THREADS:BOOL=ON -DBOOST_DIR=${DEAL_II_VIEW} -DBZIP2_DIR=${DEAL_II_VIEW} -DLAPACK_FOUND=true -DLAPACK_INCLUDE_DIRS=${DEAL_II_VIEW}/include -DLAPACK_LIBRARIES=${DEAL_II_VIEW}/lib/libopenblas.dylib -DMUPARSER_DIR=${DEAL_II_VIEW} -DUMFPACK_DIR=${DEAL_II_VIEW} -DTBB_DIR=${DEAL_II_VIEW} -DZLIB_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_MPI:BOOL=ON -DCMAKE_C_COMPILER=${DEAL_II_VIEW}/bin/mpicc -DCMAKE_CXX_COMPILER=${DEAL_II_VIEW}/bin/mpic++ -DCMAKE_Fortran_COMPILER=${DEAL_II_VIEW}/bin/mpif90 -DGSL_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_GSL:BOOL=ON -DHDF5_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_HDF5:BOOL=ON -DP4EST_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_P4EST:BOOL=ON -DPETSC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_PETSC:BOOL=ON -DSLEPC_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_SLEPC:BOOL=ON -DTRILINOS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_TRILINOS:BOOL=ON -DMETIS_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_METIS:BOOL=ON -DDEAL_II_COMPONENT_DOCUMENTATION=OFF -DARPACK_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_ARPACK=ON -DDEAL_II_ARPACK_WITH_PARPACK=ON -DNETCDF_DIR=${DEAL_II_VIEW} -DOPENCASCADE_DIR=${DEAL_II_VIEW} -DDEAL_II_WITH_OPENCASCADE=ON ../
+'cmake' '/path/to/spack/var/spack/stage/dealii-develop-tkowxhk55kpi7facfh3ufipofyolt6h7/dealii' '-DCMAKE_INSTALL_PREFIX:PATH=path/to/spack/opt/spack/darwin-sierra-x86_64/clang-8.1.0-apple/dealii-develop-tkowxhk55kpi7facfh3ufipofyolt6h7' '-DCMAKE_BUILD_TYPE:STRING=DebugRelease' <more options>
 ```
-Here we specify locations of libraries in `${DEAL_II_VIEW}` and also point to `mpi` compilers by `${DEAL_II_VIEW}/bin/mpicc` and alike. Keep in mind that the autodetection of `LAPACK` is turned off and therefore we specified full path to libs as `${DEAL_II_VIEW}/lib/libopenblas.dylib`. You would need to adjust the suffix if you are on Linux.
+You would need to adjust the path to the `dea.II` source folder (first path) and should remove the `DCMAKE_INSTALL_PREFIX` as you probably don't want to accidentally override the version installed by Spack. 
+
+Before running `cmake` from the build folder, you may want to run 
+```
+spack env dealii@develop+mpi^openmpi^openblas bash
+```
+to make sure your environment (paths, variables, etc) is set exactly the same way as when compiling `deal.II` from Spack
+(adjust the spec `dealii@develop+mpi^openmpi^openblas` to be what you use when you installed `deal.II`).
+
+An alternative is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. 
 
 ### Keep the stage to run unit tests
 By default, the build folder (aka `stage`) for each package is created in a temporary system dependent location.

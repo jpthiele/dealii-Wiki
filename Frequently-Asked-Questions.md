@@ -2959,7 +2959,9 @@ mailing list):
 This list may sound intimidating at first, but in reality it's a fairly
 straightforward process that takes no more than 2 minutes after the first
 couple of times. But, as said, we'll be happy to hold your hand the first few
-times around and help you with the process!
+times around and help you with the process! There's also a video lecture that
+demonstrates 
+[how to submit a patch to github](http://www.math.colostate.edu/~bangerth/videos.676.32.8.html).
 
 If you've submitted patches several times and know your way around git by now,
 please also consider to

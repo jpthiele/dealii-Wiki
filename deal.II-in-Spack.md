@@ -20,17 +20,17 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-# the following commit was tested on:
+# the following commit (Jul2017) was tested on:
 # - Ubuntu16.04 PC
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^openblas
-#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl@11.3.3.210
+#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl
 #   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
 #   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
 # - macOS Sierra 10.12.4 XCode 8.3.1 clang@8.1.0+gfortran@6.3.0
 #   [x] spack install dealii@develop+mpi ^openmpi ^openblas 
 # - CentOS 7 cluster with GCC 4.8.5 (see below) and external OpenMPI
 #   [x] spack install dealii
-git reset --hard 0ed18de8365f6e951938dc686392aaf7be3e621c
+git reset --hard d929ea8102bf9d5e7f2ffdd794cb9546511270ba
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#install-gcc)), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite

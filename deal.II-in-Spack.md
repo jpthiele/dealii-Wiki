@@ -4,7 +4,7 @@ The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- 
 
 For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
 
-Note: Spack is in active development and is in alpha state, thereby below we recommend checking out specific hashes, that were tested with deal.II.
+Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested with deal.II.
 
 ## Quick installation on the desktop
 

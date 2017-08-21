@@ -190,11 +190,20 @@ spack info <package>
 The output will contain available versions, variants, dependencies and description:
 ```
 $ spack info dealii
-CMakePackage:    dealii
-Homepage:        https://www.dealii.org
+CMakePackage:   dealii
 
-Safe versions:
+Description:
+    C++ software library providing well-documented tools to build finite
+    element codes for a broad variety of PDEs.
+
+Homepage: https://www.dealii.org
+
+Preferred version:  
+    8.5.1      https://github.com/dealii/dealii/releases/download/v8.5.1/dealii-8.5.1.tar.gz
+
+Safe versions:  
     develop    [git] https://github.com/dealii/dealii.git
+    8.5.1      https://github.com/dealii/dealii/releases/download/v8.5.1/dealii-8.5.1.tar.gz
     8.5.0      https://github.com/dealii/dealii/releases/download/v8.5.0/dealii-8.5.0.tar.gz
     8.4.2      https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz
     8.4.1      https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz
@@ -204,52 +213,71 @@ Safe versions:
     8.1.0      https://github.com/dealii/dealii/releases/download/v8.1.0/dealii-8.1.0.tar.gz
 
 Variants:
-    Name        Default   Description
+    Name [Default]               Allowed values          Description
 
-    arpack      on        Compile with Arpack and PArpack (only with MPI)
-    doc         off       Compile with documentation
-    gsl         on        Compile with GSL
-    hdf5        on        Compile with HDF5 (only with MPI)
-    int64       off       Compile with 64 bit indices support
-    metis       on        Compile with Metis
-    mpi         on        Compile with MPI
-    netcdf      on        Compile with Netcdf (only with MPI)
-    oce         on        Compile with OCE
-    optflags    off       Compile using additional optimization flags
-    p4est       on        Compile with P4est (only with MPI)
-    petsc       on        Compile with Petsc (only with MPI)
-    python      on        Compile with Python bindings
-    slepc       on        Compile with Slepc (only with Petsc and MPI)
-    trilinos    on        Compile with Trilinos (only with MPI)
+
+    adol-c [off]                 True, False             Compile with Adol-c
+    arpack [on]                  True, False             Compile with Arpack and
+                                                         PArpack (only with MPI)
+    build_type [DebugRelease]    Debug, Release,         The build type to build
+                                 DebugRelease            
+    doc [off]                    True, False             Compile with documentation
+    gsl [on]                     True, False             Compile with GSL
+    hdf5 [on]                    True, False             Compile with HDF5 (only with
+                                                         MPI)
+    int64 [off]                  True, False             Compile with 64 bit indices
+                                                         support
+    metis [on]                   True, False             Compile with Metis
+    mpi [on]                     True, False             Compile with MPI
+    nanoflann [off]              True, False             Compile with Nanoflann
+    netcdf [on]                  True, False             Compile with Netcdf (only with
+                                                         MPI)
+    oce [on]                     True, False             Compile with OCE
+    optflags [off]               True, False             Compile using additional
+                                                         optimization flags
+    p4est [on]                   True, False             Compile with P4est (only with
+                                                         MPI)
+    petsc [on]                   True, False             Compile with Petsc (only with
+                                                         MPI)
+    python [on]                  True, False             Compile with Python bindings
+    slepc [on]                   True, False             Compile with Slepc (only with
+                                                         Petsc and MPI)
+    sundials [off]               True, False             Compile with Sundials
+    trilinos [on]                True, False             Compile with Trilinos (only
+                                                         with MPI)
 
 Installation Phases:
     cmake    build    install
 
 Build Dependencies:
-    arpack-ng  blas  boost  bzip2  cmake  doxygen  graphviz  gsl  hdf5  lapack  metis  mpi  muparser  netcdf  netcdf-cxx  oce  p4est  petsc  python  slepc  suite-sparse  tbb  trilinos  zlib
+    adol-c     bzip2     gsl     mpi        netcdf-cxx  python        tbb
+    arpack-ng  cmake     hdf5    muparser   oce         slepc         trilinos
+    blas       doxygen   lapack  nanoflann  p4est       suite-sparse  zlib
+    boost      graphviz  metis   netcdf     petsc       sundials
 
 Link Dependencies:
-    arpack-ng  blas  boost  bzip2  doxygen  graphviz  gsl  hdf5  lapack  metis  mpi  muparser  netcdf  netcdf-cxx  oce  p4est  petsc  python  slepc  suite-sparse  tbb  trilinos  zlib
+    adol-c     bzip2     hdf5    muparser    oce     slepc         trilinos
+    arpack-ng  doxygen   lapack  nanoflann   p4est   suite-sparse  zlib
+    blas       graphviz  metis   netcdf      petsc   sundials
+    boost      gsl       mpi     netcdf-cxx  python  tbb
 
 Run Dependencies:
     None
 
-Virtual Packages:
+Virtual Packages: 
     None
-
-Description:
-    C++ software library providing well-documented tools to build finite
-    element codes for a broad variety of PDEs.
 ```
 
 A lot of `spack` commands have help, for example
 ```
-$spack install -h
+$ spack install -h
 usage: spack install [-h] [--only {package,dependencies}] [-j JOBS]
-                     [--keep-prefix] [--keep-stage] [-n] [-v] [--fake]
-                     [--clean | --dirty] [--run-tests] [--log-format {junit}]
-                     [--log-file LOG_FILE]
+                     [--keep-prefix] [--keep-stage] [--restage] [-n] [-v]
+                     [--fake] [-f] [--clean | --dirty] [--run-tests]
+                     [--log-format {junit}] [--log-file LOG_FILE]
                      ...
+
+build and install packages
 
 positional arguments:
   package               spec of the package to install
@@ -264,10 +292,13 @@ optional arguments:
   -j JOBS, --jobs JOBS  explicitly set number of make jobs. default is #cpus
   --keep-prefix         don't remove the install prefix if installation fails
   --keep-stage          don't remove the build stage if installation succeeds
+  --restage             if a partial install is detected, delete prior state
   -n, --no-checksum     do not check packages against checksum
   -v, --verbose         display verbose build output while installing
   --fake                fake install. just remove prefix and create a fake
                         file
+  -f, --file            install from file. Read specs to install from .yaml
+                        files
   --clean               clean environment before installing package
   --dirty               do NOT clean environment before installing
   --run-tests           run package level tests during installation

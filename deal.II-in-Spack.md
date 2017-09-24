@@ -31,7 +31,7 @@ git checkout develop
 #   [x] spack install dealii@develop+mpi ^openmpi ^openblas 
 # - CentOS 7 cluster with GCC 4.8.5 (see below) and external OpenMPI
 #   [x] spack install dealii
-git reset --hard f710a520e5246bc95e95506b8831b72237c2172c
+git reset --hard 8db69de2583d4f8ff5b20041e3eba68780cbd05b
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite

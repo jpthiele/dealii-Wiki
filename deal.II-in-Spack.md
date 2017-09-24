@@ -58,7 +58,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard 0ed18de8365f6e951938dc686392aaf7be3e621c
+git reset --hard 8db69de2583d4f8ff5b20041e3eba68780cbd05b
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

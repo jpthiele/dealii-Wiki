@@ -3,6 +3,9 @@
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
 For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
+or the following videos from lead developers:
+[Massimiliano Culpo - SPACK: A Package Manager for Supercomputers, Linux and MacOS](https://www.youtube.com/watch?v=Qok-nXfIWfg) and 
+[Todd Gamblin (LLNL) - Managing HPC Software Complexity with Spack](https://www.youtube.com/watch?v=Ie1cZTR09kk)
 
 Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested with deal.II.
 

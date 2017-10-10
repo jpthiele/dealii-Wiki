@@ -5,7 +5,9 @@ The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- 
 For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
 or the following videos from lead developers:
 [Massimiliano Culpo - SPACK: A Package Manager for Supercomputers, Linux and MacOS](https://www.youtube.com/watch?v=Qok-nXfIWfg) and 
-[Todd Gamblin (LLNL) - Managing HPC Software Complexity with Spack](https://www.youtube.com/watch?v=Ie1cZTR09kk)
+[Todd Gamblin (LLNL) - Managing HPC Software Complexity with Spack](https://www.youtube.com/watch?v=Ie1cZTR09kk).
+
+[Spack tutorial 101](http://spack.readthedocs.io/en/latest/tutorial.html) is good place to start as well.
 
 Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested with deal.II.
 

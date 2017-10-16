@@ -9,7 +9,7 @@ or the following videos from lead developers:
 
 [Spack tutorial 101](http://spack.readthedocs.io/en/latest/tutorial.html) is good place to start as well.
 
-Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested with deal.II.
+Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Unbutu16.04` with `openmpi` and `openblas`. See [Experimental section of CDash](https://cdash.kyomu.43-1.org/index.php?project=deal.II).
 
 ## Quick installation on the desktop
 
@@ -25,18 +25,7 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-# the following commit (Sep2017) was tested on:
-# - Ubuntu16.04 PC
-#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^openblas
-#   [x] spack install dealii%gcc@5.4.0+mpi ^mpich ^openblas
-#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^intel-mkl
-#   [x] spack install dealii%gcc@5.4.0+mpi ^openmpi ^atlas
-#   [x] spack install dealii%gcc@5.4.0+mpi+int64 ^openmpi ^openblas
-# - macOS Sierra 10.12.4 XCode 8.3.1 clang@8.1.0+gfortran@6.3.0
-#   [x] spack install dealii@develop+mpi ^openmpi ^openblas 
-# - CentOS 7 cluster with GCC 4.8.5 (see below) and external OpenMPI
-#   [x] spack install dealii
-git reset --hard 8db69de2583d4f8ff5b20041e3eba68780cbd05b
+git reset --hard f6c16de6de54c4f3a1a3f972f2236f1b2675fb3d
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite

@@ -69,11 +69,6 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-  python:
-    version: [2.7.12]
-    paths:
-      python@2.7.12: /usr/
-    buildable: False
   openmpi:
     version: [2.0.2]
     paths:
@@ -85,9 +80,6 @@ packages:
 Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc.
 
 (4) Now install deal.II:  `spack install dealii`.
-
-Note that we specifically build deal.II without `python` wrappers. Otherwise deal.II would be linked against system provided `python` which itself may be linked against system provided `zlib`. As a result we may have a mixture of Spack's build `zlib` and system provided `zlib`, which is certainly not what we want.
-
 
 ## Environment Modules
 Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://spack.readthedocs.io/en/latest/getting_started.html#environment-modules

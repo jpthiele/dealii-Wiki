@@ -14,6 +14,16 @@ All pull-requests on github are tested with the following machines and their sta
 
    Note: PRs are not run automatically but need to be approved by one of the developers by having a comment in the PR that contains the text ``/run-tests``. If this comment is found, this PR will be continuously monitored for changes and tested as needed.
 
+# Regression testing
+
+In addition to testing pull requests, we also continuously have machines execute the current master branch with different configurations. The results are reported at https://cdash.kyomu.43-1.org and documentation can be found at https://www.dealii.org/developer/developers/testsuite.html#build_tests
+
+We currently have the following machines running:
+
+1. **tester**: The only machine in the "Regression tests" category on cdash. Many configurations. Located in Minneapolis and maintained by https://github.com/tamiko
+2. **simserv04**: The only machine in the "Continuous" category on cdash. Many configurations. Located in Heidelberg  and maintained by https://github.com/tamiko
+3. **simserv02**: Running the Intel compiler. Maintained by https://github.com/masterleinad
+4. **davyddenubuntu**: Maintained by https://github.com/davydden
 
 ## Details on **tjhei-alpha**
 

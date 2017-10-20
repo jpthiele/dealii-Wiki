@@ -10,7 +10,7 @@ All pull-requests on github are tested with the following machines and their sta
 
    Note: PRs are not run automatically but need to be approved by one of the developers by having a comment in the PR that contains the text ``/run-tests``. If this comment is found (or the PR is created by one of the developers), this PR will be continuously monitored for changes and tested as needed.
 
-3. **tjhei-gcc-serial**: Configures deal.II with without MPI (see more info below) and runs all tests of the testsuite. Maintained by: https://github.com/tjhei
+3. **tjhei-gcc-serial**: Configures deal.II with gcc without MPI (see more info below) and runs all tests of the testsuite. Maintained by: https://github.com/tjhei
 
    Note: PRs are not run automatically but need to be approved by one of the developers by having a comment in the PR that contains the text ``/run-tests``. If this comment is found, this PR will be continuously monitored for changes and tested as needed.
 

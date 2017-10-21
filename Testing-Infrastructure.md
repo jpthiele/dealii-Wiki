@@ -6,11 +6,11 @@ All pull-requests on github are tested with the following machines and their sta
 
 1. **indentation** (name: ``continuous-integration/travis-ci/pr``): Checks the indentation using astyle by running ``./contrib/utilities/check_indentation.sh`` and checking that there are no changes detected. Runs on https://travis-ci.org/. Maintained by: deal.II developers
 
-2. **tjhei-alpha**: Configures deal.II with clang and MPI (see more info below) and runs a subset of the testsuite. Maintained by: https://github.com/tjhei
+2. **tjhei-alpha**: Configures deal.II with clang and MPI (see more info below) and runs a subset of the testsuite. Maintained by: [@tjhei](https://github.com/tjhei)
 
    Note: PRs are not run automatically but need to be approved by one of the developers by having a comment in the PR that contains the text ``/run-tests``. If this comment is found (or the PR is created by one of the developers), this PR will be continuously monitored for changes and tested as needed.
 
-3. **tjhei-gcc-serial**: Configures deal.II with gcc without MPI (see more info below) and runs all tests of the testsuite. Maintained by: https://github.com/tjhei
+3. **tjhei-gcc-serial**: Configures deal.II with gcc without MPI (see more info below) and runs all tests of the testsuite. Maintained by: [@tjhei](https://github.com/tjhei)
 
    Note: PRs are not run automatically but need to be approved by one of the developers by having a comment in the PR that contains the text ``/run-tests``. If this comment is found, this PR will be continuously monitored for changes and tested as needed.
 
@@ -20,10 +20,10 @@ In addition to testing pull requests, we also continuously have machines execute
 
 We currently have the following machines running:
 
-1. **tester**: The only machine in the "Regression tests" category on cdash. Many configurations. Located in Minneapolis and maintained by https://github.com/tamiko
-2. **simserv04**: The only machine in the "Continuous" category on cdash. Many configurations. Located in Heidelberg and maintained by https://github.com/tamiko
-3. **simserv02**: Running the Intel compiler. Maintained by https://github.com/masterleinad
-4. **davyddenubuntu**: A configuration with all dependencies but CUDA enabled and built via [Spack](https://github.com/dealii/dealii/wiki/deal.II-in-Spack) with and without optimization flags on Ubuntu 16.04 with GCC 5.4.0. Maintained by https://github.com/davydden
+1. **tester**: The only machine in the "Regression tests" category on cdash. Many configurations. Located in Minneapolis and maintained by [@tamiko](https://github.com/tamiko)
+2. **simserv04**: The only machine in the "Continuous" category on cdash. Many configurations. Located in Heidelberg and maintained by [@tamiko](https://github.com/tamiko)
+3. **simserv02**: Running the Intel compiler. Maintained by [@masterleinad](https://github.com/masterleinad)
+4. **davyddenubuntu**: A configuration with all dependencies but CUDA enabled and built via [Spack](https://github.com/dealii/dealii/wiki/deal.II-in-Spack) with and without optimization flags on Ubuntu 16.04 with GCC 5.4.0. Maintained by [@davydden](https://github.com/davydden)
 
 ## Details on **tjhei-alpha**
 

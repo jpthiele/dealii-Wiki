@@ -21,9 +21,9 @@ In addition to testing pull requests, we also continuously have machines execute
 We currently have the following machines running:
 
 1. **tester**: The only machine in the "Regression tests" category on cdash. Many configurations. Located in Minneapolis and maintained by https://github.com/tamiko
-2. **simserv04**: The only machine in the "Continuous" category on cdash. Many configurations. Located in Heidelberg  and maintained by https://github.com/tamiko
+2. **simserv04**: The only machine in the "Continuous" category on cdash. Many configurations. Located in Heidelberg and maintained by https://github.com/tamiko
 3. **simserv02**: Running the Intel compiler. Maintained by https://github.com/masterleinad
-4. **davyddenubuntu**: Maintained by https://github.com/davydden
+4. **davyddenubuntu**: A configuration with ddependencies but CUDA enabled and built via [Spack](https://github.com/dealii/dealii/wiki/deal.II-in-Spack) with and without optimization flags on Ubuntu 16.04 with GCC 5.4.0. Maintained by https://github.com/davydden
 
 ## Details on **tjhei-alpha**
 

@@ -237,16 +237,16 @@ Installation Phases:
     cmake    build    install
 
 Build Dependencies:
-    adol-c     bzip2     gsl     mpi        netcdf-cxx  python        tbb
-    arpack-ng  cmake     hdf5    muparser   oce         slepc         trilinos
-    blas       doxygen   lapack  nanoflann  p4est       suite-sparse  zlib
-    boost      graphviz  metis   netcdf     petsc       sundials
+    adol-c     cmake     hdf5     muparser    oce     slepc         trilinos
+    arpack-ng  doxygen   lapack   nanoflann   p4set   suite-sparse  zlib
+    blas       graphivz  metis    netcdf      petsc   sundials      
+    boost      gsl       mpi      netcdf-cxx  python  tbb
 
 Link Dependencies:
-    adol-c     bzip2     hdf5    muparser    oce     slepc         trilinos
-    arpack-ng  doxygen   lapack  nanoflann   p4est   suite-sparse  zlib
-    blas       graphviz  metis   netcdf      petsc   sundials
-    boost      gsl       mpi     netcdf-cxx  python  tbb
+    adol-c     doxygen   lapack   nanoflann   p4est   suite-sparse  zlib
+    arpack-ng  graphviz  metis    netcdf      petsc   sundials      
+    blas       graphviz  mpi      netcdf-cxx  python  tbb
+    boost      hdf5      muparser oce         slepc   trilinos
 
 Run Dependencies:
     None

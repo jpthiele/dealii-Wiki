@@ -45,7 +45,6 @@ This is the current configuration:
 #      ( DEAL_II_WITH_ARPACK = OFF )
 #      ( DEAL_II_WITH_ASSIMP = OFF )
 #        DEAL_II_WITH_BOOST set up with bundled packages
-#      ( DEAL_II_WITH_BZIP2 = OFF )
 #      ( DEAL_II_WITH_CUDA = OFF )
 #      ( DEAL_II_WITH_CXX14 = OFF )
 #      ( DEAL_II_WITH_CXX17 = OFF )
@@ -87,7 +86,6 @@ This is the current configuration:
 #      ( DEAL_II_WITH_ARPACK = OFF )
 #      ( DEAL_II_WITH_ASSIMP = OFF )
 #        DEAL_II_WITH_BOOST set up with bundled packages
-#      ( DEAL_II_WITH_BZIP2 = OFF )
 #      ( DEAL_II_WITH_CUDA = OFF )
 #      ( DEAL_II_WITH_CXX14 = OFF )
 #      ( DEAL_II_WITH_CXX17 = OFF )

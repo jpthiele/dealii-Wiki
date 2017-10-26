@@ -383,6 +383,11 @@ Install `deal.II` via Spack, go to its installation prefix and copy-paste the CM
 ```
 You would need to adjust the path to the `dea.II` source folder (first path) and should remove the `DCMAKE_INSTALL_PREFIX` as you probably don't want to accidentally override the version installed by Spack. 
 
+Assuming that your build folder is within the `dealii` sources (tha'ts what `..\/` is for below), you can get this substitution done by
+```
+$ cat build.out | grep "==> 'cmake'" | sed -e "s/[^ ]*[^ ]/'..\/'/3" | cut -d " " -f2-
+```
+
 Before running `cmake` from the build folder, you may want to run 
 ```
 spack env dealii@develop+mpi^openmpi^openblas bash

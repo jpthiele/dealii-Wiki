@@ -385,7 +385,7 @@ You would need to adjust the path to the `dea.II` source folder (first path) and
 
 Assuming that your build folder is within the `dealii` sources (tha'ts what `..\/` is for below), you can get this substitution done by
 ```
-$ cat build.out | grep "==> 'cmake'" | sed -e "s/[^ ]*[^ ]/'..\/'/3" | cut -d " " -f2-
+$ cat $(spack location -i dealii)/.spack/build.out | grep "==> 'cmake'" | sed -e "s/[^ ]*[^ ]/'..\/'/3" | cut -d " " -f2-
 ```
 
 Before running `cmake` from the build folder, you may want to run 

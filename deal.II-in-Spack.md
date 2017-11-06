@@ -25,7 +25,7 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-git reset --hard 3e67b98e29579ae8203f308f9e14e2f1de8f7b77
+git reset --hard f538b7ac3e96ef6cd1d07c945f41eae991f372ab
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite

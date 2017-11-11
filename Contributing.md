@@ -1,6 +1,6 @@
 # Contributing code via Git and GitHub
 
-deal.II is developed using [Git](https://git-scm.com) as a version control tool, [GitHub](https://github.com/about) as the central source-code host and a [branch-based workflow](https://guides.github.com/introduction/flow/). This article supplements the information given in the [CONTRIBUTING](https://github.com/dealii/dealii/blob/master/CONTRIBUTING.md) documentation and this [video lecture](http://www.math.colostate.edu/%7Ebangerth/videos.676.32.8.html).
+deal.II is developed using [Git](https://git-scm.com) as a version control tool, [GitHub](https://github.com/about) as the central source-code host and a [branch-based workflow](https://guides.github.com/introduction/flow/). This article supplements the information given in the [CONTRIBUTING](https://github.com/dealii/dealii/blob/master/CONTRIBUTING.md) documentation and this [detailed video lecture](http://www.math.colostate.edu/%7Ebangerth/videos.676.32.8.html).
 
 To contribute a patch back to the project (which we greatly appreciate), the following summarises the steps that you need to take to do this:
 
@@ -76,12 +76,12 @@ index 733e289308..1564ac6e5c 100644
  Further information:
  --------------------
 ```
-Here we fixed a typographical error, a small but valuable contribution!
+Here we fixed a typographical error - a small but valuable contribution!
 At this point it appears that we're ready to inform Git of the changes that we've made, but remember the styling that deal.II expects? We should first ensure that our changes adheres to them.
 ```sh
-$ ./contrib/utilities/indent # Called from the base deal.II directory.
+$ ./contrib/utilities/indent # Called from the base directory.
 ```
-The next step is to add these changes to Git's index, which is reflected in a change in status of these two files.
+The next step is to add these changes to Git's index (_staging_), which is reflected in a change in status of these two files.
 ```sh
 $ git add README.md MORE_DOCUMENTATION.md # Add to the index the current state of these files
 $ git status
@@ -116,7 +116,12 @@ In this example commit, we've used two keywords that show that upon merging issu
 ```sh
 $ git push -u origin my_amazing_new_feature # Push a specified branch to the specified remote destination
 ```
-In particular, this tells Git to synchronize (or create) the branch `my_amazing_new_feature` on the remote repository labelled `origin`.  
+In particular, this tells Git to synchronize (or create) the branch `my_amazing_new_feature` on the remote repository labelled `origin`. We could also verify exactly where `origin` points before pushing our changes:
+```sh
+$ git remote -vv
+origin	git@github.com:jppelteret/dealii.git (fetch)
+origin	git@github.com:jppelteret/dealii.git (push)
+```
 
 There's also a tool called [`hub`](https://github.com/github/hub) that facilitates interactions with GitHub (e.g. forking a repository, opening pull requests) from the command line.
 

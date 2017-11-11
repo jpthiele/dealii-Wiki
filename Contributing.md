@@ -2,6 +2,8 @@
 
 deal.II is developed using [Git](https://git-scm.com) as a version control tool, [GitHub](https://github.com/about) as the central source-code host and a [branch-based workflow](https://guides.github.com/introduction/flow/). This article supplements the information given in the [CONTRIBUTING](https://github.com/dealii/dealii/blob/master/CONTRIBUTING.md) documentation and this [detailed video lecture](http://www.math.colostate.edu/%7Ebangerth/videos.676.32.8.html).
 
+## The basic steps
+
 To contribute a patch back to the project (which we greatly appreciate), the following summarises the steps that you need to take to do this:
 
 1. Create a GitHub account and _fork_ the [deal.II project](https://github.com/dealii/dealii).
@@ -12,6 +14,8 @@ To contribute a patch back to the project (which we greatly appreciate), the fol
     - If you submit a patch that adds a new feature or something substantial, then please add a note of your changes to whichever of the directory `<path/to/deal.II/fork>/doc/news/changes/[minor/major/incompatibilities]` best suits the nature of the patch.
 5. When you're finished committing all of your changes to your local repository, you can push them all upstream to your Github repository.
 6. Now you're set to open a pull request, which is typically done from GitHub's website. Once you've done this one or more of the principal developers, or fellow members of the community, may review your changes and engage you on them. We may then go through a (hopefully succinct) stage of iterating your developments until all parties are satisfied with the proposed changes. After this the project, incorporating the proposed modifications, will be built and tested on a remote machine to check that the additions to not break any existing functionality. If these final tests pass then your feature branch will be merged by one of the principal developers.
+
+## An example
 
 Using the command line, steps 2-5 would be achieved in the following manner:
 
@@ -122,6 +126,8 @@ $ git remote -vv
 origin	git@github.com:jppelteret/dealii.git (fetch)
 origin	git@github.com:jppelteret/dealii.git (push)
 ```
+
+## Further information
 
 There's also a tool called [`hub`](https://github.com/github/hub) that facilitates interactions with GitHub (e.g. forking a repository, opening pull requests) from the command line.
 

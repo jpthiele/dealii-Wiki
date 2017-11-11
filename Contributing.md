@@ -107,7 +107,7 @@ You can see that your branch differs from the `master` branch. We can also inspe
 ```sh
 $ git log -n 1 # Show the last entry in the history
 commit a4f12d6ee26f3fefab24c758807261cd91f2a46e
-Author: Jean-Paul Pelteret
+Author: <Author's name> <Author's email address>
 Date:   Sat Nov 11 16:25:26 2017 +0100
 
     A short description of my changes
@@ -123,8 +123,8 @@ $ git push -u origin my_amazing_new_feature # Push a specified branch to the spe
 In particular, this tells Git to synchronize (or create) the branch `my_amazing_new_feature` on the remote repository labelled `origin`. We could also verify exactly where `origin` points before pushing our changes:
 ```sh
 $ git remote -vv
-origin	git@github.com:jppelteret/dealii.git (fetch)
-origin	git@github.com:jppelteret/dealii.git (push)
+origin	git@github.com:<username>/dealii.git (fetch)
+origin	git@github.com:<username>/dealii.git (push)
 ```
 
 ## Further information

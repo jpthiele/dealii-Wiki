@@ -1,3 +1,25 @@
+Table of Contents
+=================
+
+   * [Using deal.II on Mac OS X and Linux via Spack](#using-dealii-on-mac-os-x-and-linux-via-spack)
+      * [Quick installation on the desktop](#quick-installation-on-the-desktop)
+      * [Installation example on a Centos7 cluster (Emmy cluster of RRZE, Erlangen, Germany)](#installation-example-on-a-centos7-cluster-emmy-cluster-of-rrze-erlangen-germany)
+      * [Enabling CUDA](#enabling-cuda)
+      * [Environment Modules](#environment-modules)
+      * [System provided packages](#system-provided-packages)
+      * [Installing GCC](#installing-gcc)
+      * [Best practices using Spack:](#best-practices-using-spack)
+         * [Info:](#info)
+         * [Extra options:](#extra-options)
+         * [Compiler flags](#compiler-flags)
+         * [Different versions coexisting:](#different-versions-coexisting)
+         * [Filesystem Views:](#filesystem-views)
+         * [Check before build:](#check-before-build)
+         * [Develop using Spack](#develop-using-spack)
+         * [Keep the stage to run unit tests](#keep-the-stage-to-run-unit-tests)
+         * [MKL and Licensed software](#mkl-and-licensed-software)
+         * [Freeze package versions](#freeze-package-versions)
+
 # Using deal.II on Mac OS X and Linux via Spack
 
 The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.

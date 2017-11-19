@@ -25,7 +25,7 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-git reset --hard f538b7ac3e96ef6cd1d07c945f41eae991f372ab
+git reset --hard 34da07db9b0384c0ae7fa7fcbd11ce64232678f4
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
@@ -52,7 +52,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard 3e67b98e29579ae8203f308f9e14e2f1de8f7b77
+git reset --hard 34da07db9b0384c0ae7fa7fcbd11ce64232678f4
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
@@ -80,6 +80,18 @@ packages:
 Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc.
 
 (4) Now install deal.II:  `spack install dealii`.
+
+## Enabling CUDA
+You can build the current development version of `dealii` with CUDA. A possible configuration of `packages.yaml` is
+```
+packages:
+ dealii:
+  version: ['develop']
+  variants: +cuda cuda_arch=52
+ cuda:
+  version: ['8.0.61']
+```
+where we specified explicitly CUDA architecture as well as version of `cuda` to be used.
 
 ## Environment Modules
 Spack provides some integration with Environment Modules and Dotkit to make it easier to use the packages it installs. For a full description, read http://spack.readthedocs.io/en/latest/getting_started.html#environment-modules

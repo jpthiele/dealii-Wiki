@@ -428,6 +428,15 @@ is simple, and described in a
 in the [cmake
 documentation](http://www.dealii.org/developer/development/cmake.html).
 
+### I can configure and compile the library but installation fails. What is going on?
+
+If you configure with the default ``CMAKE_INSTALL_PREFIX``, the library is configured to installed to ``/usr/local`` and this fails without superuser rights with an error message like
+```
+CMake Error at cmake/scripts/cmake_install.cmake:42 (FILE):
+  file cannot create directory: /usr/local/common/scripts.  Maybe need
+  administrative privileges.
+```
+Please see the [readme](http://www.dealii.org/developer/readme.html#configuration) on how to pick an install directory with write access (for example some path below your home directory).
 
 ### I get warnings during linking when compiling the library. What's wrong?
 

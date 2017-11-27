@@ -5,3 +5,13 @@ A word of caution for contributors: due to limitations with Github's wiki implem
 https://github.com/ekalinin/github-markdown-toc
 
 (with a little postprocessing) generated the FAQ table of contents. If you add new entries, then please also update the table of contents accordingly.
+
+# Step by step on how to update the TOC:
+
+```
+git clone https://github.com/tjhei/github-markdown-toc
+cd github-markdown-toc
+./gh-md-toc https://github.com/dealii/dealii/wiki/Frequently-Asked-Question
+```
+
+and replace the TOC with the output.

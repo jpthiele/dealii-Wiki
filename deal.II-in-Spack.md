@@ -38,7 +38,7 @@ Note: Spack is in active development and is in alpha state, thereby below we rec
 Add the following to `~/.bashrc` (or equivalent)
 ```
 export SPACK_ROOT=/path/to/spack
-PATH="$SPACK_ROOT/bin:$PATH"
+export PATH="$SPACK_ROOT/bin:$PATH"
 ```
 `SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `$HOME/spack`).
 

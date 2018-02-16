@@ -21,7 +21,7 @@ Installation instructions:
     cd c:\dealii
     mkdir build
     cd c:\dealii\build
-    cmake -D CMAKE_INSTALL_PREFIX=c:\dealii\install -G "Visual Studio 15 2017 Win64" ..
+    cmake -G "Visual Studio 15 2017 Win64" ..
     ```
     Note: Setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
     Note: Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio 2017 and ``"Visual Studio 14 2015 Win64"`` for Visual Studio 2015.
@@ -31,7 +31,7 @@ Installation instructions:
 7. in cmd go to one of the examples in c:\dealii\examples\step-xy:
 
     ```
-    cmake -D DEAL_II_DIR=c:\dealii\install -G "Visual Studio 15 2017 Win64" .
+    cmake -D DEAL_II_DIR=c:\dealii\build -G "Visual Studio 15 2017 Win64" .
     ```
 
 8. Open the newly created solution (step-xy.sln) in that directory and compile/run/debug.

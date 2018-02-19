@@ -52,7 +52,7 @@ git reset --hard d8c105a7b1f882f6a25f6c590d31e94a891220e0
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
-spack install dealii
+spack install dealii@8.5.1
 ```
 **DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 
@@ -101,7 +101,7 @@ packages:
 ```
 Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc.
 
-(4) Now install deal.II:  `spack install dealii`.
+(4) Now install deal.II:  `spack install dealii@8.5.1`.
 
 ## Enabling CUDA
 You can build the current development version of `dealii` with CUDA. A possible configuration of `packages.yaml` is

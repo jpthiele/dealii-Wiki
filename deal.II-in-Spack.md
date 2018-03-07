@@ -19,6 +19,7 @@ Table of Contents
          * [Keep the stage to run unit tests](#keep-the-stage-to-run-unit-tests)
          * [MKL and Licensed software](#mkl-and-licensed-software)
          * [Freeze package versions](#freeze-package-versions)
+      * [Known issues using Spack:](#known-issues-using-spack)
 
 # Using deal.II on Mac OS X and Linux via Spack
 
@@ -472,3 +473,13 @@ packages:
     version: [2.7.12]
 ```
 This settings will be taken into account during conretization process and thus will help to avoid rebuilding most of the deal.II suite when, for example, `openssl` is updated to the new version.
+
+## Known issues using Spack:
+
+### Incompatible CMake versions
+
+At the moment there is an incompatibility between deal.II and CMake with version 3.10 and greater.
+To install deal.II using an earlier version of CMake, either use the `packages.yaml` file to freeze CMake to an earlier version, or specify the version at install time, e.g.
+```
+spack install dealii^cmake@3.9.4
+```

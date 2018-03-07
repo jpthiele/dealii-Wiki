@@ -478,8 +478,8 @@ This settings will be taken into account during conretization process and thus w
 
 ### Incompatible CMake versions
 
-At the moment there is an incompatibility between deal.II and CMake with version 3.10 and greater.
-To install deal.II using an earlier version of CMake, either use the `packages.yaml` file to freeze CMake to an earlier version, or specify the version at install time, e.g.
+At the moment there is an incompatibility between deal.II and `cmake` with version 3.10 and greater.
+To install deal.II using an earlier version of `cmake`, either use the `packages.yaml` file to freeze `cmake` to an earlier version, or specify the version at install time, e.g.
 ```
 spack install dealii^cmake@3.9.4
 ```

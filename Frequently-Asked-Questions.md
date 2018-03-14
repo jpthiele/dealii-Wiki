@@ -2499,14 +2499,18 @@ strategies that have helped us in the past:
    complicated, or if it isn't predictable which process will produce an
    error, then there is a fallback option: attach a debugger to
    <i>every</i> MPI process. This is awkward to do by hand, but there is a
-   shortcut: at least under linux (or any other unix system) you can run
+   shortcut: under linux (or any other unix system) you can run
    the program as in
 ```
   mpirun -np 4 xterm -e gdb --args ./my_executable
 ```
+The equivalent for macOS is
+```
+  mpirun -np 4 xterm -e lldb -f ./my_executable
+```
 
 In this example, we start 4 MPI processes; in each of these 4 processes, we
-open an `xterm` window in which we start an instance of `gdb` with the
+open an `xterm` window in which we start an instance of `gdb`/`lldb` with the
 executable. You'd then `run` the executable in each of the 4 windows, and
 debug it as you usually would. This might be tedious but as mentioned
 above, debugging MPI programs often is tedious indeed. To find out which

@@ -97,10 +97,12 @@ packages:
     paths:
       openmpi@2.0.2%gcc@4.8.5: /apps/OpenMPI/2.0.2-gcc/
     buildable: False
+  suite-sparse:
+    version: [5.1.0]
   dealii:
     variants: +optflags~python
 ```
-Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc.
+Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc. Here we also limit version of `suite-sparse` to `5.1.0` as we build with `gcc@4.8.5` whereas `5.2.0` requires at least `gcc@4.9`. 
 
 (4) Now install deal.II:  `spack install dealii@8.5.1`.
 

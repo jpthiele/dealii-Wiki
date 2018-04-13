@@ -2,7 +2,7 @@
 
 ## Installation
 
-Download the binary for your system from https://www.qt.io/download-open-source/#section-9
+Download the binary for your system from https://download.qt.io/official_releases/qtcreator/
 
 Download the deal.II indentation style from [qtcreator-dealii-format](https://raw.githubusercontent.com/dealii/dealii/master/contrib/styles/qtcreator-dealii-code-format.xml) and set it under Tools->Options->C++->Code style->Import.
 

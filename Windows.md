@@ -6,12 +6,12 @@ For an overview of different ways to use deal.II on Windows have a look at the c
 
 ## Visual Studio
 
-Since deal.II 8.4.0 we have experimental support for the newer Visual Studio C++ compilers (2013 and 2015), but this is still work in progress. Please see the following threads for more details:
+Since deal.II 8.4.0 we have experimental support for the newer Visual Studio C++ compilers (2017 or newer), but this is still work in progress. Please see the following threads for more details:
 - https://github.com/dealii/dealii/issues/1921
 
 Installation instructions:
 
-1. Download and install Visual Studio 2015 or 2017: https://www.visualstudio.com/vs/ and make sure you select the C++ compiler
+1. Download and install Visual Studio 2017: https://www.visualstudio.com/vs/ and make sure you select the C++ compiler
 2. Install cmake from https://cmake.org/download/ (pick the windows installer)
 3. Extract deal.II to a folder, for example c:\dealii (or clone the git development version)
 4. Configure using cmake by opening the 64bit command line shortcut and run:
@@ -24,7 +24,7 @@ Installation instructions:
     cmake -G "Visual Studio 15 2017 Win64" ..
     ```
     Note: Setting the tool architecture to 64 bit works around problems of the compiler or linker running out of memory and leads to much quicker compile times.
-    Note: Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio 2017 and ``"Visual Studio 14 2015 Win64"`` for Visual Studio 2015.
+    Note: Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio 2017.
 
 6. Compile and install the library by opening ``deal.II.sln`` in c:\dealii\build, pick the install target and compile. Note: you need to either compile in the same terminal as above (using ``cmake --build .``) or open ``devenv.exe`` from the same terminal, to use the 64 bit tool architecture.
 
@@ -41,10 +41,10 @@ Installation instructions:
 Install git and mingw (for perl etc). Then create a .bat file:
 ```
 git pull origin master
-rmdir /Q /S buildtest15
-mkdir buildtest15
-cd buildtest15
-ctest -C Debug -DMAKEOPTS="/m:1" -DCTEST_CMAKE_GENERATOR="Visual Studio 14 2015" -S ../tests/run_buildtest.cmake -V
+rmdir /Q /S buildtest17
+mkdir buildtest17
+cd buildtest17
+ctest -C Debug -DMAKEOPTS="/m:1" -DCTEST_CMAKE_GENERATOR="Visual Studio 15 2017" -S ../tests/run_buildtest.cmake -V
 cd ..
 ```
 

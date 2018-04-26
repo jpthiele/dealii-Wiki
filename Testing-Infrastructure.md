@@ -1,4 +1,4 @@
-This documents the testing infrastructure and who it is administering it.
+This documents the testing infrastructure and who it is administrating it.
 
 # Continuous Integration
 

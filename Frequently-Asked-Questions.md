@@ -2516,7 +2516,7 @@ debug it as you usually would. This might be tedious but as mentioned
 above, debugging MPI programs often is tedious indeed. To find out which
 gdb window belongs to which MPI rank, you can type the command
 ```
-  !export | grep RANK
+  !env | grep RANK
 ```
 into the gdb window (this works with OpenMPI at least). See https://plus.google.com/+TimoHeister/posts/AgmoMT8W7GZ for more info.
 
@@ -2976,7 +2976,7 @@ This list may sound intimidating at first, but in reality it's a fairly
 straightforward process that takes no more than 2 minutes after the first
 couple of times. But, as said, we'll be happy to hold your hand the first few
 times around and help you with the process! There's also a video lecture that
-demonstrates 
+demonstrates
 [how to submit a patch to github](http://www.math.colostate.edu/~bangerth/videos.676.32.8.html).
 
 If you've submitted patches several times and know your way around git by now,

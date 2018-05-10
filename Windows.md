@@ -1,7 +1,102 @@
 # Using deal.II with the Linux subsystem (Windows 10 64bit only)
 
+Windows 10 has gained a compatibility layer for running Linux binaries
+natively on Windows. You can find more information on the
+[Wikipedia page](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
 
-[tamiko: Work in progress. Very promissing!]
+In the following section a detailed HowTo is given to install the subsystem
+and a Linux distribution on top of it. Our choice at hand is [Debian
+GNU/Linux](https://www.microsoft.com/en-us/store/p/debian-gnu-linux/9msvkqc78pk6)
+because it already contains the latest deal.II release in binary form.
+(<b>Note:</b> The same is true for the Ubuntu distribution.)
+
+## Installing the subsystem and Debian GNU/Linux
+
+Have a look at the excellent documentation about the Linux subsystem on the
+[Windows help pages](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+1. (As described in detail on the Windows help pages, we first have to
+   install the subsystem. For this, locate the Windows PowerShell in your
+   Start menu (`Start` -> `Windows PowerShell`), right click on `Windows PowerShell`
+  -> `More` -> `Run as administrator`
+
+2. Install the subsystem by using the following command
+   ```console
+   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+   ```
+   and restart
+
+3. Open the Windows Store and search for "Debian", and install "Get Debian
+   GNU/Linux". When finished start the application. You will be prompted to
+   enter a user name and password.
+
+4. Switch to the "root" account by running
+   ```console
+   user@computer% sudo -s
+   ```
+   Enter the password that you used in step 3.
+
+5. Edit the package manager configuration by using nano (or an editor of
+   your choice):
+   ```console
+   root@computer# nano /etc/apt/sources.list
+   ```
+   You should see three lines. If they contain the release name `stretch`,
+   remove all three lines and replace them with a single line:
+   ```
+   deb http://deb.debian.org/debian buster main contrib non-free
+   ```
+   (<i>TODO: replace with `testing`</i>)
+
+6. Now update/upgrade the system by running
+   ```console
+   root@computer# apt update
+   [...]
+
+   root@computer# apt dist-upgrade
+   [...]
+   Do you want to continue? [Y/n] <Enter>
+   [...]
+
+   root@computer# apt autoremove
+   [...]
+   Do you want to continue? [Y/n] <Enter>
+   [...]
+   ```
+
+## Installing the deal.II library and tools
+
+We continue the installation process by installing the deal.II library with
+development headers and documentation. The packages in Debian (or Ubuntu)
+are called `libdeal.ii-dev` and `libdeal.ii-doc`:
+
+1. As root user (see above) run:
+   ```console
+   root@computer# apt install libdeal.ii-dev libdeal.ii-doc
+   [... long list ...]
+   0 upgraded, 443 newly installed, 0 to remove and 0 not upgraded.
+   Need to get 441 MB of archives.
+   After this operation, 2,016 MB of additional disk space will be used.
+   Do you want to continue? [Y/n] <Enter>
+   ```
+
+   Now, exit the root account:
+   ```console
+   root@computer# exit
+   user@computer$
+   ```
+
+2. Do a quick "smoke test" whether everything installed fine by compiling
+   and running the first example step:
+   ```console
+   ```
+
+(<i>TODO: explain how to install tools </i>)
+
+## Workflow
+
+(<i>TODO: Explain workflow </i>)
+
 
 
 # Using deal.II on native Windows

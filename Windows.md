@@ -1,3 +1,9 @@
+# Using deal.II with the Linux subsystem (Windows 10 64bit only)
+
+
+[tamiko: Work in progress. Very promissing!]
+
+
 # Using deal.II on native Windows
 
 For an overview of different ways to use deal.II on Windows have a look at

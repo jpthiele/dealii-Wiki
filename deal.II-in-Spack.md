@@ -32,7 +32,7 @@ or the following videos from lead developers:
 
 [Spack tutorial 101](http://spack.readthedocs.io/en/latest/tutorial.html) is good place to start as well.
 
-Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Unbutu16.04` with `openmpi` and `openblas`. See [Experimental section of CDash](https://cdash.kyomu.43-1.org/index.php?project=deal.II).
+Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Unbutu18.04` with `openmpi` and `openblas`. See [Continuous section of CDash](https://cdash.kyomu.43-1.org/index.php?project=deal.II).
 
 ## Quick installation on the desktop
 
@@ -48,12 +48,12 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-git reset --hard cbd77e3a8d22f389041c216ba743eda601fe3754
+git reset --hard e271f14493ecd0305ac073914e451b6bcc50e3ba
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
-spack install dealii@8.5.1
+spack install dealii
 ```
 **DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 
@@ -75,7 +75,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard cbd77e3a8d22f389041c216ba743eda601fe3754
+git reset --hard e271f14493ecd0305ac073914e451b6bcc50e3ba
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
@@ -104,7 +104,7 @@ packages:
 ```
 Those paths are the location where external packages can be found (i.e. `<prefix>` instead of `<prefix>/bin` or `<prefix>/lib`). `providers` section essentially tells Spack which packages to use to satisfy virtual dependencies such as `MPI`, `BLAS`, `LAPACK`, `ScaLAPACK`, etc. Here we also limit version of `suite-sparse` to `5.1.0` as we build with `gcc@4.8.5` whereas `5.2.0` requires at least `gcc@4.9`. 
 
-(4) Now install deal.II:  `spack install dealii@8.5.1`.
+(4) Now install deal.II:  `spack install dealii`.
 
 ## Enabling CUDA
 You can build the current development version of `dealii` with CUDA. A possible configuration of `packages.yaml` is

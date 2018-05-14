@@ -48,12 +48,12 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/llnl/spack.git .
 git checkout develop
-git reset --hard e271f14493ecd0305ac073914e451b6bcc50e3ba
+git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
-spack install dealii
+spack install --test=root dealii
 ```
 **DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 
@@ -75,7 +75,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
-git reset --hard e271f14493ecd0305ac073914e451b6bcc50e3ba
+git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

@@ -56,6 +56,7 @@ git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
 spack install --test=root dealii
 ```
 **DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
+Additional option `--test=root` instructs Spack to run quick tests for `dealii`.
 
 Before configuring your project you need to set `DEAL_II_DIR` by 
 ```

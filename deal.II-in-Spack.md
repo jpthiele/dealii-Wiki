@@ -46,7 +46,7 @@ export PATH="$SPACK_ROOT/bin:$PATH"
 Now clone Spack
 ```
 cd $SPACK_ROOT
-git clone https://github.com/llnl/spack.git .
+git clone https://github.com/spack/spack.git .
 git checkout develop
 git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
 ```
@@ -75,7 +75,7 @@ Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](ht
 module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
-git clone https://github.com/llnl/spack.git $WOODYHOME/spack
+git clone https://github.com/spack/spack.git $WOODYHOME/spack
 git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```

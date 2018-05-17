@@ -1,4 +1,9 @@
+This wiki page contains information about how to use deal.II on the
+ - [Linux subsystem for Windows 10](#using-dealii-with-the-linux-subsystem-windows-10-64bit-only)
+ - [Using deal.II on native Windows](#using-dealii-on-native-windows)
+
 # Using deal.II with the Linux subsystem (Windows 10 64bit only)
+
 
 Windows 10 has gained a compatibility layer for running Linux binaries
 natively on Windows. You can find more information on the

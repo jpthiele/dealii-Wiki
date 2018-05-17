@@ -152,16 +152,10 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
 (<i>Warning: The rest of this section is work in progress.</i>)
 
 3. Now, open Microsoft Visual Studio and click on `File` -> `New` ->
-   `Project`. Select `Installed` -> `Visual C++` -> `Cross Platform` ->
-   `Linux` and `Makefile Project (Linux)`. Rename the project to "step-6"
-   and change the location to
-   `C:\Users\<user>\Documents\workspace\step-6\`. Click OK to create the
-   project.
-
-4. Next, in the right panel, right click on `step-6 (Linux)` and select
-   `build`. A pop-up window with the title `Connect to Remote System`
-   should appear. Enter hostname "localhost", Port "22", fill in your Linux
-   user name and password.
+   `Create New Project from Existing Code Files`. Use
+   `C:\Users\<user>\Documents\workspace\step-6` as "Project file location"
+   and "step-6" as project name. Click next. Select "Use external build
+   system" and click next again.
 
 
 ## Installing X server

@@ -1,10 +1,10 @@
 This wiki page contains information about how to use deal.II on the
- - [Linux subsystem for Windows 10](#using-dealii-with-the-linux-subsystem-windows-10-64bit-only)
+ - [Windows subsystem for Linux](#using-dealii-with-the-windows-subsystem-for-windows)
  - [Using deal.II on native Windows](#using-dealii-on-native-windows)
 For an overview of different ways to use deal.II on Windows have a look at
 the corresponding [FAQ entry](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions#can-i-use-dealii-on-a-windows-platform).
 
-# Using deal.II with the Linux subsystem (Windows 10 64bit only)
+# Using deal.II with the Windows Subsystem for Linux
 
 **Warning: please be aware that the following is experimental and you will
 likely encounter bugs in compilers and deal.II itself. Only continue if you

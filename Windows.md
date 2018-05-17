@@ -80,6 +80,21 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    Do you want to continue? [Y/n] <Enter>
    ```
 
+   At this point, let us install a number of useful, additional tools:
+   ```console
+   root@computer# apt install build-essential cmake ninja-build gdb clang clang-format
+   [...]
+   Do you want to continue? [Y/n] <Enter>
+   ```
+
+   If you plan to use MSVC, you will also need to install ssh, zip and
+   unzip:
+   ```console
+   root@computer# apt install ssh zip unzip
+   [...]
+   Do you want to continue? [Y/n] <Enter>
+   ```
+
    Now, exit the root account:
    ```console
    root@computer# exit
@@ -89,13 +104,69 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
 2. Do a quick "smoke test" whether everything installed fine by compiling
    and running the first example step:
    ```console
+   user@computer$ cd
+   user@computer$ cp -r /usr/share/doc/libdeal.ii-doc/examples/step-55 .
+   user@computer$ cd step-55
+   user@computer$ cmake .
+   user@computer$ make release
+   user@computer$ make run
+   [...]
+   [100%] Built target run
    ```
 
-(<i>TODO: explain how to install tools </i>)
+## Installing Microsoft Visual Studio Community Edition
 
-## Workflow
+1. Go to the [Microsoft website](https://www.visualstudio.com/downloads)
+   and download Microsoft Visual Studio Community Edition
 
-(<i>TODO: Explain workflow </i>)
+2. Launch the web installer. Make sure to select "Linux development with C++"
+
+3. Restart.
+
+### Create MSVC project
+
+Next, let us create a small example project with MSVC. First, you have to
+decide where the MSVC project shall be located. For this example we will
+use the directory `workspace` in the (Windows) documents directory of the
+current user located on driver C.  The corresponding path to access this
+directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
+`<user>` with your Windows user name in the following console listings!)
+
+1. Copy an example step to the Windows user directory. For this, start the Linux
+   terminal again and `cd` to the user directory and copy and example step:
+   ```console
+   user@computer$ mkdir -p /mnt/c/Users/<user>/Documents/workspace
+   user@computer$ cd /mnt/c/Users/<user>/Documents/workspace
+   user@computer$ cp -r /usr/share/doc/libdeal.ii-doc/examples/step-6 .
+   user@computer$ cd step-6
+   user@computer$ cmake .
+   ```
+
+2. Start the sshd server:
+   ```console
+   user@computer$ sudo -s
+   root@computer# /etc/init.d/sshd start
+   root@computer# exit
+   ```
+
+(<i>Warning: The rest of this section is work in progress.</i>)
+
+3. Now, open Microsoft Visual Studio and click on `File` -> `New` ->
+   `Project`. Select `Installed` -> `Visual C++` -> `Cross Platform` ->
+   `Linux` and `Makefile Project (Linux)`. Rename the project to "step-6"
+   and change the location to
+   `C:\Users\<user>\Documents\workspace\step-6\`. Click OK to create the
+   project.
+
+4. Next, in the right panel, right click on `step-6 (Linux)` and select
+   `build`. A pop-up window with the title `Connect to Remote System`
+   should appear. Enter hostname "localhost", Port "22", fill in your Linux
+   user name and password.
+
+
+## Installing X server
+
+(<i>TODO: write section</i>)
 
 
 

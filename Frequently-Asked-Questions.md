@@ -13,6 +13,7 @@ This page collects a few answers to questions that have frequently been asked ab
       * [I want to use deal.II for work in my company. Do I need a special license?](#i-want-to-use-dealii-for-work-in-my-company-do-i-need-a-special-license)
     * [Supported System Architectures](#supported-system-architectures)
       * [Can I use deal.II on a Windows platform?](#can-i-use-dealii-on-a-windows-platform)
+        * [Run deal.II in the Linux Subsystem for Windows 10](#run-dealii-in-the-linux-subsystem-for-windows-10)
         * [Run deal.II natively on Windows](#run-dealii-natively-on-windows)
         * [Run deal.II through a virtual box](#run-dealii-through-a-virtual-box)
         * [Dual-boot your machine with Ubuntu](#dual-boot-your-machine-with-ubuntu)
@@ -288,6 +289,16 @@ shows in a number of places regarding the build system and compilers
 supported. That said, there are multiple methods to get deal.II running if
 you have a Windows machine.
 
+#### Run deal.II in the Linux Subsystem for Windows 10
+
+Windows 10 has gained a compatibility layer for running Linux binaries
+natively on Windows. You can find more information on the
+[Wikipedia page](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
+This means you do not have to use
+[virtualization](#run-dealii-through-a-virtual-box), or [dual
+boot](#dual-boot-your-machine-with-ubuntu) any more to install a
+full-featured Linux distribution! We summarize the installation on a
+separate wiki page on [[Windows]].
 
 #### Run deal.II natively on Windows
 

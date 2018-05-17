@@ -10,7 +10,7 @@ GNU/Linux](https://www.microsoft.com/en-us/store/p/debian-gnu-linux/9msvkqc78pk6
 because it already contains the latest deal.II release in binary form.
 (<b>Note:</b> The same is true for the Ubuntu distribution.)
 
-## Installing the subsystem and Debian GNU/Linux
+## (Required) Installing the subsystem and Debian GNU/Linux
 
 Have a look at the excellent documentation about the Linux subsystem on the
 [Windows help pages](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -46,7 +46,6 @@ Have a look at the excellent documentation about the Linux subsystem on the
    ```
    deb http://deb.debian.org/debian buster main contrib non-free
    ```
-   (<i>TODO: replace with `testing`</i>)
 
 6. Now update/upgrade the system by running
    ```console
@@ -64,7 +63,7 @@ Have a look at the excellent documentation about the Linux subsystem on the
    [...]
    ```
 
-## Installing the deal.II library and tools
+## (Required) Installing the deal.II library and tools
 
 We continue the installation process by installing the deal.II library with
 development headers and documentation. The packages in Debian (or Ubuntu)
@@ -83,6 +82,13 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    At this point, let us install a number of useful, additional tools:
    ```console
    root@computer# apt install build-essential cmake ninja-build gdb clang clang-format
+   [...]
+   Do you want to continue? [Y/n] <Enter>
+   ```
+
+   If you plan to use graphical tools, a number of useful programs are:
+   ```console
+   root@computer# apt install xterm gnuplot
    [...]
    Do you want to continue? [Y/n] <Enter>
    ```
@@ -114,7 +120,45 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    [100%] Built target run
    ```
 
-## Installing Microsoft Visual Studio Community Edition
+## (Recommended) Installing an X server
+
+In order to run graphical applications from within the Linux Subsystem a
+so-called X server has to be installed. This step is in particular
+necessary, if you plan to install
+[Eclipse](https://github.com/dealii/dealii/wiki/Eclipse), or
+[KDevelop](https://github.com/dealii/dealii/wiki/KDevelop) via the Linux
+subsystem.
+
+1. Download and install [xming](https://sourceforge.net/projects/xming/).
+
+2. Start xming. A styliced X should appear in the task bar.
+
+3. Open a Linux terminal and try to run xterm:
+   ```console
+   user@computer$ export DISPLAY=:0
+   user@computer$ xterm
+   ```
+   This should spawn a new window with a shell. Simply close the shell
+   again.
+
+4. In order to avoid to have to export `DISPLAY=:0` every single time, it
+   is convenient to append
+   ```
+   export DISPLAY=:0
+   ```
+   to the end of the `.bashrc` file.
+
+You should now be able to proceed and run all graphical and command lines
+tools that are mentioned in the documentation and video lectures about
+deal.II.
+
+
+## (Optional) Installing Microsoft Visual Studio Community Edition
+
+This step is optional and only needed if you intent to use MSVC for code
+development. (Great alternatives are
+[Eclipse](https://github.com/dealii/dealii/wiki/Eclipse), or
+[KDevelop](https://github.com/dealii/dealii/wiki/KDevelop).)
 
 1. Go to the [Microsoft website](https://www.visualstudio.com/downloads)
    and download Microsoft Visual Studio Community Edition
@@ -149,18 +193,7 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
    root@computer# exit
    ```
 
-(<i>Warning: The rest of this section is work in progress.</i>)
-
-3. Now, open Microsoft Visual Studio and click on `File` -> `New` ->
-   `Create New Project from Existing Code Files`. Use
-   `C:\Users\<user>\Documents\workspace\step-6` as "Project file location"
-   and "step-6" as project name. Click next. Select "Use external build
-   system" and click next again.
-
-
-## Installing X server
-
-(<i>TODO: write section</i>)
+(<i>TODO: Write rest.</i>)
 
 
 

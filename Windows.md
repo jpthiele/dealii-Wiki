@@ -1,9 +1,14 @@
 This wiki page contains information about how to use deal.II on the
  - [Linux subsystem for Windows 10](#using-dealii-with-the-linux-subsystem-windows-10-64bit-only)
  - [Using deal.II on native Windows](#using-dealii-on-native-windows)
+For an overview of different ways to use deal.II on Windows have a look at
+the corresponding [FAQ entry](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions#can-i-use-dealii-on-a-windows-platform).
 
 # Using deal.II with the Linux subsystem (Windows 10 64bit only)
 
+**Warning: please be aware that the following is experimental and you will
+likely encounter bugs in compilers and deal.II itself. Only continue if you
+are willing to experiment.**
 
 Windows 10 has gained a compatibility layer for running Linux binaries
 natively on Windows. You can find more information on the
@@ -203,9 +208,6 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
 
 
 # Using deal.II on native Windows
-
-For an overview of different ways to use deal.II on Windows have a look at
-the corresponding [FAQ entry](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions#can-i-use-dealii-on-a-windows-platform).
 
 **Warning: please be aware that the following is experimental and you will
 likely encounter bugs in compilers and deal.II itself. Only continue if you

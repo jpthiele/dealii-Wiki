@@ -48,7 +48,7 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/spack/spack.git .
 git checkout develop
-git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
+git reset --hard 99f678035a279cf85a32a4fdbd98a117b9c1832f
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
@@ -76,7 +76,7 @@ module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 git clone https://github.com/spack/spack.git $WOODYHOME/spack
-git reset --hard e7a737621f81b7d532aeed733df5fc9e215fc93a
+git reset --hard 99f678035a279cf85a32a4fdbd98a117b9c1832f
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

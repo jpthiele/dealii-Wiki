@@ -143,6 +143,8 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl`:
 and install dealii `spack install dealii%intel+mpi^intel-mpi^intel-mkl`.
 Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use.
 
+See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
+
 
 ## Enabling CUDA
 You can build the current development version of `dealii` with CUDA. A possible configuration of `packages.yaml` is

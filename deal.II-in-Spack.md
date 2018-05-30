@@ -127,17 +127,22 @@ Edit it to have
 ```
     extra_rpaths: ['/apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64_lin']
 ```
-Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl`:
+Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` as well as `cmake` which currently does not build with `Intel`:
 ```
   intel-mpi:
-    version: ['2017.5.239']
+    version: [2017.5.239]
     paths:
       intel-mpi@2017.5.239%intel@17.0.5: /apps/intel/mpi/2017.5.239/
     buildable: False
   intel-mkl:
-    version: ['2017.5.239']
+    version: [2017.5.239]
     paths:
       intel-mkl@2017.5.239%intel@17.0.5: /apps/intel/ComposerXE2017/
+    buildable: False
+  cmake:
+    version: [3.6.0]
+    paths:
+      cmake@3.6.0%intel@17.0.5: /apps/cmake/3.6.0/
     buildable: False
 ```
 and install dealii `spack install dealii%intel+mpi^intel-mpi^intel-mkl`.

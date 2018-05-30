@@ -145,8 +145,11 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` 
       cmake@3.6.0%intel@17.0.5: /apps/cmake/3.6.0/
     buildable: False
 ```
-and install dealii `spack install dealii%intel+mpi^intel-mpi^intel-mkl`.
-Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use.
+Finally install dealii 
+```
+spack install dealii%intel~assimp+mpi^intel-mpi^intel-mkl
+```
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` as it does not build with `Intel`.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
 

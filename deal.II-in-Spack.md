@@ -147,9 +147,9 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` 
 ```
 Finally install dealii 
 ```
-spack install dealii%intel~assimp+mpi^intel-mpi^intel-mkl
+spack install dealii%intel~assimp~gmsh+mpi^intel-mpi^intel-mkl
 ```
-Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` as it does not build with `Intel`.
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` and `gmsh` as they do not build with `Intel`.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
 

@@ -123,7 +123,11 @@ Those paths are the location where external packages can be found (i.e. `<prefix
     spec: intel@17.0.3
     target: x86_64
 ```
-then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl`:
+Edit it to have
+```
+    extra_rpaths: ['/apps/intel/ComposerXE2017/compilers_and_libraries_2017.3.191/linux/compiler/lib/intel64_lin']
+```
+Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl`:
 ```
   intel-mpi: # intelmpi/2017up02-intel
     version: ['2017.2.174']

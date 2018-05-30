@@ -107,6 +107,39 @@ Those paths are the location where external packages can be found (i.e. `<prefix
 
 (4) Now install deal.II:  `spack install dealii`.
 
+(5) Here is an alternative setup with Intel compilers. Run `module load intel64/17.0up03` followed by `spack compiler find`. You should get the following new entry in `~/.spack/linux/compilers.yaml`:
+```
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.3.191/linux/bin/intel64/icc
+      cxx: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.3.191/linux/bin/intel64/icpc
+      f77: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.3.191/linux/bin/intel64/ifort
+      fc: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.3.191/linux/bin/intel64/ifort
+    spec: intel@17.0.3
+    target: x86_64
+```
+then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl`:
+```
+  intel-mpi: # intelmpi/2017up02-intel
+    version: ['2017.2.174']
+    paths:
+      intel-mpi@2017.2.174%intel@17.0.3: /apps/intel/mpi/2017.2.174/
+    buildable: False
+  intel-mkl: # mkl/2017up03
+    version: ['2017.3.196']
+    paths:
+      intel-mkl@2017.3.196%intel@17.0.3: /apps/intel/ComposerXE2017/
+    buildable: False
+```
+and install dealii `spack install dealii%intel+mpi^intel-mpi^intel-mkl`.
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use.
+
+
 ## Enabling CUDA
 You can build the current development version of `dealii` with CUDA. A possible configuration of `packages.yaml` is
 ```

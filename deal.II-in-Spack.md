@@ -75,8 +75,8 @@ Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](ht
 module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
-git clone https://github.com/spack/spack.git $WOODYHOME/spack
-git reset --hard 99f678035a279cf85a32a4fdbd98a117b9c1832f
+# clone modified version of Spack to fit RRZE setup
+git clone -b pkg/intel_mpi_fix https://github.com/davydden/spack.git .
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:

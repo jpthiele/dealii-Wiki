@@ -131,17 +131,12 @@ Edit it to have
     extra_rpaths:
      - /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64_lin
 ```
-Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` as well as `cmake` which currently does not build with `Intel`:
+Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmake` which currently does not build with `Intel`:
 ```
   intel-mpi:
     version: [2017.5.239]
     paths:
       intel-mpi@2017.5.239%intel@17.0.5: /apps/intel/mpi/2017.5.239/
-    buildable: False
-  intel-mkl:
-    version: [2017.5.239]
-    paths:
-      intel-mkl@2017.5.239%intel@17.0.5: /apps/intel/ComposerXE2017/
     buildable: False
   cmake:
     version: [3.6.0]
@@ -149,11 +144,12 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` 
       cmake@3.6.0%intel@17.0.5: /apps/cmake/3.6.0/
     buildable: False
 ```
+NOTE: due to directory layout at this cluster in combination with Spack compiler wrappers, using `intel-mkl` is not possible here, see [this comment for details](https://github.com/spack/spack/issues/8324#issuecomment-393418311).
 Finally install dealii 
 ```
-spack install dealii%intel~assimp~gmsh~petsc~slepc+mpi^intel-mpi^intel-mkl
+spack install dealii%intel~assimp~gmsh~petsc~slepc+mpi^intel-mpi^openblas
 ```
-Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` and `gmsh` as they do not build with `Intel`.
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^openblas` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` and `gmsh` as they do not build with `Intel`.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
 

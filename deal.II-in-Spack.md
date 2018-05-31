@@ -421,12 +421,6 @@ compilers:
     spec: gcc@4.7.2
 ```
 
-If you want to use flags for `dealii` only, you can first build all the dependencies without flags and then build `dealii` with custom flags:
-```
-spack install --only dependencies dealii
-spack install dealii cppflags="-march=native -O3"
-```
-
 See this [google forum topic](https://groups.google.com/forum/?fromgroups#!topic/dealii/3Yjy8CBIrgU) for discussion on which flags to use. You can also use `spack install dealii+optflags` to enable extra optimization flags in release build.
 
 ### Different versions coexisting:

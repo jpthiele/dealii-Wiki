@@ -152,7 +152,7 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmak
 ```
 Finally install dealii 
 ```
-spack install dealii%intel~assimp~petsc~slepc~scalapack+mpi+trilinos~int64~cuda^intel-mpi^intel-mkl^trilinos~mumps
+spack install -j 20 dealii%intel~assimp~petsc~slepc+mpi^intel-mpi^intel-mkl
 ```
 Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled few other packages that have issues building with `Intel` compilers.
 

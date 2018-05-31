@@ -147,7 +147,7 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmak
   cmake:
     version: [3.6.0]
     paths:
-      cmake@3.6.0%intel@17.0.5: /apps/cmake/3.6.0/
+      cmake@3.6.0%intel@18.0.2: /apps/cmake/3.6.0/
     buildable: False
 ```
 Finally install dealii 

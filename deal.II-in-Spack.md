@@ -125,7 +125,11 @@ Those paths are the location where external packages can be found (i.e. `<prefix
 ```
 Edit it to have
 ```
-    extra_rpaths: ['/apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64_lin']
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 1713@license4
+    extra_rpaths:
+     - /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64_lin
 ```
 Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` and `intel-mkl` as well as `cmake` which currently does not build with `Intel`:
 ```

@@ -147,9 +147,9 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmak
 NOTE: due to directory layout at this cluster in combination with Spack compiler wrappers, using `intel-mkl` is not possible here, see [this comment for details](https://github.com/spack/spack/issues/8324#issuecomment-393418311).
 Finally install dealii 
 ```
-spack install dealii%intel~assimp~gmsh~petsc~slepc+mpi^intel-mpi^openblas
+spack install dealii%intel~assimp~petsc~slepc~scalapack+mpi+trilinos~int64~cuda^intel-mpi^openblas^trilinos~mumps
 ```
-Note that `%intel` specified the compiler whereas `^intel-mpi` and `^openblas` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled `assimp` and `gmsh` as they do not build with `Intel`.
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^openblas` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled few other packages that have issues building with `Intel` compilers.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
 

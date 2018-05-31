@@ -132,7 +132,7 @@ Edit it to set environment variable (with license) and extra rpaths:
      - /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/ipp/lib/intel64
      - /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64_lin
 ```
-Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmake` which currently does not build with `Intel`:
+Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi`, `intel-mkl` as well as `cmake` which currently does not build with `Intel`:
 ```
   intel-mpi:
     version: [2018.2.199]
@@ -150,7 +150,7 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmak
       cmake@3.6.0%intel@18.0.2: /apps/cmake/3.6.0/
     buildable: False
 ```
-Finally install dealii 
+Finally install `deal.II` 
 ```
 spack install -j 20 dealii%intel~assimp~petsc~slepc+mpi^intel-mpi^intel-mkl
 ```

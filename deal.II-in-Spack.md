@@ -107,7 +107,7 @@ Those paths are the location where external packages can be found (i.e. `<prefix
 
 (4) Now install deal.II:  `spack install dealii`.
 
-(5) Here is an alternative setup with Intel compilers. Run `module load intel64/17.0up05` followed by `spack compiler find`. You should get the following new entry in `~/.spack/linux/compilers.yaml`:
+(5) Here is an alternative setup with Intel compilers. Run `module load intel64/18.0up02` followed by `spack compiler find`. You should get the following new entry in `~/.spack/linux/compilers.yaml`:
 ```
 - compiler:
     environment: {}
@@ -116,27 +116,33 @@ Those paths are the location where external packages can be found (i.e. `<prefix
     modules: []
     operating_system: centos7
     paths:
-      cc: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/bin/intel64/icc
-      cxx: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/bin/intel64/icpc
-      f77: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/bin/intel64/ifort
-      fc: /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/bin/intel64/ifort
-    spec: intel@17.0.5
+      cc: /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/bin/intel64/icc
+      cxx: /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/bin/intel64/icpc
+      f77: /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/bin/intel64/ifort
+      fc: /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/bin/intel64/ifort
+    spec: intel@18.0.2
     target: x86_64
 ```
-Edit it to have
+Edit it to set environment variable (with license) and extra rpaths:
 ```
     environment:
       set:
         INTEL_LICENSE_FILE: 1713@license4
-    extra_rpaths:
-     - /apps/intel/ComposerXE2017/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64_lin
+    extra_rpaths: # take from echo $LIBRARY_PATH
+     - /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/ipp/lib/intel64
+     - /apps/intel/ComposerXE2018/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64_lin
 ```
 Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmake` which currently does not build with `Intel`:
 ```
   intel-mpi:
-    version: [2017.5.239]
+    version: [2018.2.199]
     paths:
-      intel-mpi@2017.5.239%intel@17.0.5: /apps/intel/mpi/2017.5.239/
+      intel-mpi@2018.2.199%intel@18.0.2: /apps/intel/ComposerXE2018/
+    buildable: False
+  intel-mkl:
+    version: [2018.2.199]
+    paths:
+      intel-mkl@2018.2.199%intel@18.0.2: /apps/intel/ComposerXE2018/
     buildable: False
   cmake:
     version: [3.6.0]
@@ -144,12 +150,11 @@ Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi` as well as `cmak
       cmake@3.6.0%intel@17.0.5: /apps/cmake/3.6.0/
     buildable: False
 ```
-NOTE: due to directory layout at this cluster in combination with Spack compiler wrappers, using `intel-mkl` is not possible here, see [this comment for details](https://github.com/spack/spack/issues/8324#issuecomment-393418311).
 Finally install dealii 
 ```
-spack install dealii%intel~assimp~petsc~slepc~scalapack+mpi+trilinos~int64~cuda^intel-mpi^openblas^trilinos~mumps
+spack install dealii%intel~assimp~petsc~slepc~scalapack+mpi+trilinos~int64~cuda^intel-mpi^intel-mkl^trilinos~mumps
 ```
-Note that `%intel` specified the compiler whereas `^intel-mpi` and `^openblas` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled few other packages that have issues building with `Intel` compilers.
+Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled few other packages that have issues building with `Intel` compilers.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
 

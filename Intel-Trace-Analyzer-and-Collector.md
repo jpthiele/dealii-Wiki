@@ -1,4 +1,4 @@
-# Using Intel Trace Collector / Analyzer (work-in-progress)
+# Using Intel Trace Analyzer and Collector (work-in-progress)
 
 ##  links
 

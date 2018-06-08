@@ -36,12 +36,19 @@ ADD_DEFINITIONS(-DUSE_VT)
 and then use
 ```
 #ifdef USE_VT
-VT_Region region("my_name", “my_group", __FILE__, __LINE__);
+#include <VT.h>
+#endif
+
+int main (int argc,char **argv)
+{
+#ifdef USE_VT
+  VT_Region region("my_name", “my_group", __FILE__, __LINE__);
 #endif
 ...
 #ifdef USE_VT
-region.end();
+  region.end();
 #endif
+}
 ```
 Then build as usual
 ```

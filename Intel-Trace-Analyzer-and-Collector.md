@@ -1,5 +1,7 @@
 # Using Intel Trace Analyzer and Collector (work-in-progress)
 
+![itac_example](https://user-images.githubusercontent.com/8023934/41157662-df8546e2-6b26-11e8-8fd2-1ad69ea56605.png)
+
 ##  links
 
 - https://software.intel.com/en-us/intel-trace-analyzer/documentation 

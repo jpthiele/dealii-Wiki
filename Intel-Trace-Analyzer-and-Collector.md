@@ -7,6 +7,10 @@
 - http://www.prace-ri.eu/IMG/pdf/WP237.pdf 
 - https://software.intel.com/en-us/intel-trace-analyzer-support/training
 
+similar tools
+- http://ipm-hpc.sourceforge.net
+- http://hpctoolkit.org
+
 ## Procedure
 
 ### 1.a) Build deal.II

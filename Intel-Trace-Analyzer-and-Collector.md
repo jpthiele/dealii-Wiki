@@ -20,7 +20,7 @@ Below we consider the case when a user/developer would like to manually measure 
 ### 1.a) Build deal.II
 
 ```
-module load intel64/18.0up02 itac/2018up02 cmake
+module load intel64/18.0up02 itac/2018up02 cmake git
 cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native" -DDEAL_II_LINKER_FLAGS="-trace" -DDEAL_II_INCLUDE_DIRS="/apps/intel/ComposerXE2018/itac/2018.2.020/include" -DDEAL_II_DEFINITIONS="USE_VT"
 ```
 Notes:

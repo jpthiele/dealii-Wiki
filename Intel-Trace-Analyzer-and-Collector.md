@@ -49,9 +49,15 @@ make all -j20
 
 ### 1.b) Build downstream library/project
 
-Build the user project/library as usual
+Add to `CMakeList.txt`
 ```
-cmake ../ -DDEAL_II_DIR=/path/to/dealii
+IF (DEFINED USE_VT)
+  ADD_DEFINITIONS(-DUSE_VT)
+ENDIF (DEFINED USE_VT)
+```
+and then build the user project/library as usual
+```
+cmake ../ -DDEAL_II_DIR=/path/to/dealii -DUSE_VT
 make all -j20
 ```
 Similar to the above, you can manually add timers to certain parts of the project.

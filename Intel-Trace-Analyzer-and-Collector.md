@@ -17,6 +17,17 @@ similar tools
 
 Below we consider the case when a user/developer would like to manually measure non-MPI timing of certain regions of the deal.II library and/or user code. This necessitates extra include and link flags.
 
+### 0) Setup environment variables
+If you are using a cluster that uses modules, you should set appropriate environment variables by loading the respective modules. This might look like:
+```
+module load intel64/18.0up02 itac/2018up02 cmake git
+```
+This might already initialize the variables for `Intel Trace Analyzer and Collector`correctly.
+Otherwise, set the repective environment variables explicitly:
+```
+source <INTEL_INSTALL_DIR>/parallel_studio_xe_<VERSION>.x.xxx/bin/psxevars.sh
+```
+
 ### 1.a) Build deal.II
 
 ```
@@ -25,7 +36,6 @@ cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native" -DDEAL_II_LINKE
 ```
 Notes:
 * Avoid specifying MPI libraries manually, this ruins link sequence set up by compiler flag `–trace`.
-* adjust `intel` modules to fit your setup.
 
 Now you can add timers to required parts of the library
 ```

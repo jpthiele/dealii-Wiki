@@ -13,48 +13,48 @@ similar tools
 - http://ipm-hpc.sourceforge.net
 - http://hpctoolkit.org
 
-## Procedure
+## Usage Procedure
+
+Below we consider the case when a user/developer would like to manually measure non-MPI timing of certain regions of the deal.II library and/or user code. This necessitates extra include and link flags.
 
 ### 1.a) Build deal.II
 
 ```
-module load intel64/18.0up02 itac/2018up02
-cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native"
-make all -j20
+module load intel64/18.0up02 itac/2018up02 cmake
+cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native" -DDEAL_II_LINKER_FLAGS="-trace" -DDEAL_II_INCLUDE_DIRS="/apps/intel/ComposerXE2018/itac/2018.2.020/include" -DDEAL_II_DEFINITIONS="USE_VT"
 ```
+Notes:
+* Avoid specifying MPI libraries manually, this ruins link sequence set up by compiler flag `–trace`.
+* adjust `intel` modules to fit your setup.
 
-Note: Avoid specifying MPI libraries manually, this ruins link sequence set up by `–trace`.
-
-### 1.b) Build downstream library/project
-
-In order to get statistics about calls other than MPI, add to `CMakeList.txt`
-```
-INCLUDE_DIRECTORIES ("/apps/intel/ComposerXE2018/itac/2018.2.020/include")
-TARGET_LINK_LIBRARIES(${TARGET} "-trace")
-ADD_DEFINITIONS(-DUSE_VT)
-```
-and then use
+Now you can add timers to required parts of the library
 ```
 #ifdef USE_VT
 #include <VT.h>
 #endif
-
-int main (int argc,char **argv)
-{
+...
 #ifdef USE_VT
   VT_Region region("my_name", “my_group", __FILE__, __LINE__);
 #endif
-...
+<some-function>
 #ifdef USE_VT
   region.end();
 #endif
-}
 ```
-Then build as usual
+
+Finally build the library
+```
+make all -j20
+```
+
+### 1.b) Build downstream library/project
+
+Build the user project/library as usual
 ```
 cmake ../ -DDEAL_II_DIR=/path/to/dealii
 make all -j20
 ```
+Similar to the above, you can manually add timers to certain parts of the project.
 
 ### 2. Prepare a configuration file  `trace.conf`
 ```

@@ -22,7 +22,7 @@ If you are using a cluster that uses modules, you should set appropriate environ
 ```
 module load intel64/18.0up02 itac/2018up02 cmake git
 ```
-This might already initialize the variables for `Intel Trace Analyzer and Collector`correctly.
+This might already initialize the variables for `Intel Trace Analyzer and Collector` (`ITAC`) correctly.
 Otherwise, set the repective environment variables explicitly:
 ```
 source <INTEL_INSTALL_DIR>/parallel_studio_xe_<VERSION>.x.xxx/bin/psxevars.sh
@@ -31,9 +31,10 @@ source <INTEL_INSTALL_DIR>/parallel_studio_xe_<VERSION>.x.xxx/bin/psxevars.sh
 ### 1.a) Build deal.II
 
 ```
-module load intel64/18.0up02 itac/2018up02 cmake git
-cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native" -DDEAL_II_LINKER_FLAGS="-trace" -DDEAL_II_INCLUDE_DIRS="/apps/intel/ComposerXE2018/itac/2018.2.020/include" -DDEAL_II_DEFINITIONS="USE_VT"
+cmake ../ -DCMAKE_CXX_FLAGS:STRING="-g -trace -O2 -march=native" -DDEAL_II_LINKER_FLAGS="-trace" -DDEAL_II_INCLUDE_DIRS="$ITC_INC" -DDEAL_II_USER_INCLUDE_DIRS="$ITC_INC" -DDEAL_II_DEFINITIONS="USE_VT" -DDEAL_II_USER_DEFINITIONS="USE_VT"
 ```
+where `ITC_INC` is environment variable with `ITAC` include directory, i.e. `/apps/intel/ComposerXE2018/itac/2018.2.020/include`.
+
 Notes:
 * Avoid specifying MPI libraries manually, this ruins link sequence set up by compiler flag `–trace`.
 
@@ -59,18 +60,16 @@ make all -j20
 
 ### 1.b) Build downstream library/project
 
-Add to `CMakeList.txt`
+Configure the user project/library as usual
 ```
-IF (DEFINED USE_VT)
-  ADD_DEFINITIONS(-DUSE_VT)
-ENDIF (DEFINED USE_VT)
+cmake ../ -DDEAL_II_DIR=/path/to/dealii
 ```
-and then build the user project/library as usual
+
+Similar to the above, you can manually add timers to certain parts of the project and then build it
+
 ```
-cmake ../ -DDEAL_II_DIR=/path/to/dealii -DUSE_VT
 make all -j20
 ```
-Similar to the above, you can manually add timers to certain parts of the project.
 
 ### 2. Prepare a configuration file  `trace.conf`
 ```

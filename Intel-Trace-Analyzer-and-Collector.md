@@ -1,4 +1,4 @@
-# Using Intel Trace Analyzer and Collector (work-in-progress)
+# Using Intel Trace Analyzer and Collector
 
 ![itac_example](https://user-images.githubusercontent.com/8023934/41157662-df8546e2-6b26-11e8-8fd2-1ad69ea56605.png)
 

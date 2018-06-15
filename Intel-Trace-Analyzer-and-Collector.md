@@ -8,6 +8,7 @@
 - https://software.intel.com/en-us/itc-user-and-reference-guide-user-guide 
 - http://www.prace-ri.eu/IMG/pdf/WP237.pdf 
 - https://software.intel.com/en-us/intel-trace-analyzer-support/training
+- https://scc.ustc.edu.cn/zlsc/tc4600/intel/2017.0.098/itac/FAQ.pdf
 
 similar tools
 - http://ipm-hpc.sourceforge.net

@@ -202,25 +202,25 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
    user@computer$ git clone https://github.com/robotdad/vclinux
    ```
 
-2. Generate the Visual C++ Linux project file:
+3. Generate the Visual C++ Linux project file:
    ```console
    user@computer$ cd /mnt/c/Users/<user>/Documents/workspace/step-6
-   user@computer$ ../vclinux/bash7genvcxproj.sh . step-6.vcxproj
+   user@computer$ ../vclinux/bash/genvcxproj.sh . step-6.vcxproj
    ```
 
-3. Start the sshd server:
+4. Start the sshd server:
    ```console
    root@computer$ sudo service ssh start
    ```
    Make sure to keep the terminal open and the sshd server running while working in Visual Studio
 
-4. Configure the project in Visual Studio
-    * Open the project file `c:\Users\<user>\Documents\workspacestep-6.vcxproj` in Visual Studio.
+5. Configure the project in Visual Studio
+    * Open the project file `c:\Users\<user>\Documents\workspace\step-6.vcxproj` in Visual Studio.
     * In the `Solution Explorer` right-click on the project and select `Properties`
     * Go to the `Debugging` page and set `Program` to `/mnt/c/Users/<user>/Documents/workspace/step-6/step-6`.
     * Go to the `Debugging` page and set `Build Command Line` to `cd /mnt/c/Users/<user>/Documents/workspace/step-6/; cmake .; make`.
 
-5. Run the executable via `Debug` -> `Start Debugging` (or press `F5`) and celebrate!
+6. Run the executable via `Debug` -> `Start Debugging` (or press `F5`) and celebrate!
 
 # Using deal.II on native Windows
 

@@ -214,13 +214,19 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
    ```
    Make sure to keep the terminal open and the sshd server running while working in Visual Studio
 
-5. Configure the project in Visual Studio
+5. Open Visual Studio and navigate to 'Tools' -> 'Options' -> 'Cross Platform' -> 'Connection Manager'
+    * The Host name should be 'localhost'
+    * The Port should be 22
+    * The User Name and Password are the ones you used to set up Debian
+    * Hit okay and wait for Visual Studio to run through setting up the connection
+
+6. Configure the project in Visual Studio
     * Open the project file `c:\Users\<user>\Documents\workspace\step-6.vcxproj` in Visual Studio.
     * In the `Solution Explorer` right-click on the project and select `Properties`
     * Go to the `Debugging` page and set `Program` to `/mnt/c/Users/<user>/Documents/workspace/step-6/step-6`.
     * Go to the `Build` page and set `Build Command Line` to `cd /mnt/c/Users/<user>/Documents/workspace/step-6/; cmake .; make`.
 
-6. Run the executable via `Debug` -> `Start Debugging` (or press `F5`) and celebrate!
+7. Run the executable via `Debug` -> `Start Debugging` (or press `F5`) and celebrate!
 
 # Using deal.II on native Windows
 

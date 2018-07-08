@@ -214,7 +214,7 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
    ```
    Make sure to keep the terminal open and the sshd server running while working in Visual Studio
 
-5. Open Visual Studio and navigate to 'Tools' -> 'Options' -> 'Cross Platform' -> 'Connection Manager'
+5. Open Visual Studio and navigate to `Tools` -> `Options` -> `Cross Platform` -> `Connection Manager`
     * The Host name should be 'localhost'
     * The Port should be 22
     * The User Name and Password are the ones you used to set up Debian

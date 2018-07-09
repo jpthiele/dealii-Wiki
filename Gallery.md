@@ -101,14 +101,7 @@ Phase field modeling of the normal grain growth.
 
 ## Incompressible Navier-Stokes
 
-<img width="100px" src="http://www.dealii.org/images/wiki/gallery/Kovasznay10.jpg" />
-
-Visualization of the analytic solution to the Navier-Stokes equations by L. I. G. Kovasznay (Laminar flow behind a two-dimensional grid, Proc. Camb. Philos. Soc. 44, pp. 58-62, 1948). Displayed is the stationary concentration of a tracer entering from the left. Therefore, the lines of same color are stream lines. The nice thing about this solution is its existence for any Reynolds number (even if the stationary solution shown here may be unstable and therefore unphysical for higher Reynolds numbers).
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-block10.jpg" />
-
-Here, Couette flow coming in from the far end of the brick flows around a cube standing on the ground. Imagine a very slow wind flow around a house. Reynolds number is 10 on the left and 100 on the right. You clearly see the wake behind the cube extending. Does anybody know if there is a loop in the wake? I could not find it putting in streamlines. Guido Kanschat 19:01, 17 May 2005 (CEST)
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-block100.jpg" />
+<img width="250px" src="http://www.dealii.org/images/wiki/gallery/Gallery-block100.jpg" />
 
 
 <img width="250px" src="http://www.dealii.org/images/wiki/gallery/Gallery-backward_facing_step_01.jpg" />
@@ -125,11 +118,10 @@ Convection in itself is a hard problem (see the entry further up this page on th
 
 ## Solitons
 
-The step-25 tutorial program demonstrates the solution of the nonlinear, wave equation-type sine-Gordon equation, from which the pictures at the right are taken. Full movies of these solutions can be found in the results section of that program as well.
+The step-25 tutorial program demonstrates the solution of the nonlinear, wave equation-type sine-Gordon equation, from which the pictures here are taken. Full movies of these solutions can be found in the results section of that program as well.
 
 (Origin: Ivan Christov, 2006)
 
-<img width="180px" src="http://www.dealii.org/images/wiki/gallery/Gallery-step25-1.png" />
 <img width="180px" src="http://www.dealii.org/images/wiki/gallery/Gallery-step25-2.png" />
 <img width="180px" src="http://www.dealii.org/images/wiki/gallery/Gallery-step25-3.png" />
 
@@ -141,10 +133,6 @@ The step-25 tutorial program demonstrates the solution of the nonlinear, wave eq
 Modelling transport via the wavelike approach, numerical waves occur.
 (Origin: Andre Große-Wöhrmann, 2005)
 
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/advdiff.jpg" />
-
-The rotating cone problem with some diffusion on a spacetime mesh
-(Origin: Guido Kanschat, 2007)
 
 
 <img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-kpp.png" />
@@ -163,16 +151,6 @@ This is the boundary supported fictitious domain method applied for the problem 
 
 This is the boundary supported fictitious domain method applied to the potential equation. Again the curve may be independent of the mesh. Nevertheless the mesh is refined in the vicinity of the curve. (Origin: Andre Große-Wöhrmann, 2005)
 
-
-## Immersed Boundary Method
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/shell_re10_0001.jpeg" />
-
-This is a messy representation of the hydrostatic pressure of a
-fluid-structure interaction system composed of an elastic shell
-immersed in an incompressible fluid. The simulation was done using the
-immersed boundary method and a "net-like" elasticity which results in
-the interior pressure of the shell being a mess.  --Luca Heltai 19:02, 17 January 2006 (CET)
 
 
 
@@ -193,13 +171,7 @@ about this simulation can be found in the step-18
 tutorial. (Origin: Wolfgang Bangerth, 2005)
 
 
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0002.0000.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0005.0000.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0007.0000.png" />
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0008.0000.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0009.0000.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Solution-0010.0000.png" />
+<img width="300px" src="http://www.dealii.org/images/wiki/gallery/Solution-0010.0000.png" />
 
 
 <img width="300px" src="http://www.dealii.org/images/wiki/gallery/Step-18-contours.png" />
@@ -213,21 +185,8 @@ Here is an image of a mesh of a rather complicated domain. It shows a mesh creat
 <img width="300px" src="http://www.dealii.org/images/wiki/gallery/Left_lung.png" />
 
 
-## Euler flow
-
-Euler flow; simulating a dense blob sliding downhill.  Using DG and a Lax-Friedrichs type flux; Full Newton solve of the nonlinear system, using Trilinos/Aztec solvers.  (Origin: David Neckels 2007)
-
-<img width="180px" src="http://www.dealii.org/images/wiki/gallery/euler1.jpg" />
-<img width="180px" src="http://www.dealii.org/images/wiki/gallery/Gallery-Euler2.jpg" />
-<img width="180px" src="http://www.dealii.org/images/wiki/gallery/euler3.jpg" />
-
 
 ## Crack propagation
-
-Here are some images of propagated cracks in anisotropic materials. (Origin: Martin Steigemann 2012)
-
-<img width="400px" src="http://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_01.png" />
-<img width="400px" src="http://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_02.png" />
 
 Quasistatic crack propagation in brittle materials can be simulated using the energy principle, where a crack grows in the direction of maximal energy release. Here, the direction of the crack is computed by an asymptotic formula for the change of energy in two dimensions using (classical) stress intensity factors (linear elasticity). The crack is elongated step-by-step and the domain is remeshed in each step.
 
@@ -240,26 +199,6 @@ The third picture shows a crack propagating in an isotropic base material with a
 
 
 ## Fun pictures
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-golf_ball.png" />
-
-Originally, I only wanted to test a discretization of a sphere, so I created one, attached a boundary object, put it into a Laplace solver where the boundary values are given by |r|, and solved. Out came this picture, which was not quite what I had expected. What had happened is that I created the sphere with a radius 0.8, but the boundary object assumed a radius 1, so all points that were introduced by refining faces on the surface went to a different radius - only the original ones remained at the smaller radius and can now be seen as dimples. That makes for a botched simulation, but a nice picture anyway. (Origin: Wolfgang Bangerth, 2000)
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/earth_mantle.png" />
-
-This is slightly more what I had mind for the sphere (or here, a spherical shell, thresholded by one of the variables in my simulation), some 11 years later. This is essentially output from step-32. (Origin: Wolfgang Bangerth, 2011)
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-buckling-cylinder-3.png" />
-
-Not an accident, but not very realistic either: this is from a program that computes large deformations of objects. At the time when this picture was made, it could only handle some sort of elastic deformation, although it is nonlinear since the mesh is moved in each time step according to the incremental displacement computed. However, it has no notion of parts of the body coming into contact with each other, and the mesh is also way too coarse to resemble anything useful. Nevertheless, it shows something that looks physical, namely a pipe under vertical compression, where the bottom surface is completely clamped whereas the top surface can move horizontally, but is subjected to a prescribed vertical compression. The result is buckling. Pictures of more realistic
-buckling are shown further up on this page. (Origin: Wolfgang Bangerth, 2004)
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Cube.png" />
-
-Similar direction, different problem: With a second generation of the program that had already computed above cylinder (this time
-using a displacement-based formulation like in the step-18 example program, but also using pressure stabilization), I wanted to
-compute the deformation of a cube under extension. However, the tolerance of the linear solver was not tight enough, rendering
-the solution useless. The reason why the picture has the mottled look is that we deform the mesh based on the computed (wrong) solution, which makes some of the interior cells protrude through the surface we are looking on. In that case, GMV apparently doesn't quite know any more which cells to plot (the cells do intersect and overlap, after all), and decides on a somewhat random, if appealing, pattern. The quantity shown is the norm of the average stress inside each cell. (Origin: Wolfgang Bangerth, 2005)
 
 <img width="150px" src="http://www.dealii.org/images/wiki/gallery/Gallery-rotation.jpg" />
 

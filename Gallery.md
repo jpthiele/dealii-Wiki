@@ -36,28 +36,18 @@ produced a number of pretty pictures!
 ## Thermally driven convection
 
 <table>
-  <tr><td><img width="400px" src="http://www.dealii.org/images/wiki/gallery/Step-22.candles-1.png" /></td><td><img width="400px" src="http://www.dealii.org/images/wiki/gallery/Step-22.candles-2.png" /></td></tr>
+  <tr><td><img width="400px" src="http://www.dealii.org/images/wiki/gallery/Step-22.candles-1.png" /></td></tr>
 </table>
 
-The images on the left show results obtained with a variant of the step-22 [tutorial program that computes thermally driven convection with Stokes flow. The images show three non-equidistantly space heat sources at the bottom and the flow field that emanates at various times from the rising plumes of hot air.
+The image shows results obtained with a variant of step-22 and step-31, tutorial programs that compute thermally driven convection with Stokes flow. The image shows three non-equidistantly spaced heat sources at the bottom and the flow field that emanates from the rising plumes of hot air.
 
 The flow pattern becomes unstable at various times switching from one configuration to another. The full dynamics only really become visible when watching these images as a movie.
-Several movies of various configurations are posted on Wolfgang Bangerth's webpage [http://www.math.tamu.edu/~bangerth/pictures.html#convection](http://dealii.org/developer/doxygen/deal.II/step_22.html]).
+Several movies of various configurations are posted on Wolfgang Bangerth's webpage [http://www.math.colostate.edu/~bangerth/pictures.html#convection](http://dealii.org/developer/doxygen/deal.II/step_22.html]).
 
 
 (Origin: Wolfgang Bangerth, December 2007)
 
 
-
-## Optical imaging
-
-<table>
-  <tr><td><img width="400px" src="http://www.dealii.org/images/wiki/gallery/Tumor-1.png" /></td><td><img width="400px" src="http://www.dealii.org/images/wiki/gallery/Tumor-4.png" /></td></tr>
-</table>
-
-These are a couple of pictures created for an application in biomedical imaging. The exact meaning of the various quantities shown are explained in more detail at this linke [In short, the iso-contours on the left show the intensity of incident and fluorescent light, whereas the volume image on the right depicts the reconstructed tumor location.
-
-(Origin: Wolfgang Bangerth, December 2007)
 
 
 ## Singular and Hypersingular Source Terms
@@ -85,9 +75,8 @@ After completing optimization on a coarse grid level, the grid is adapted based 
 ## Multiphase flow
 
 <img width="200px" src="http://www.dealii.org/images/wiki/gallery/Random2d.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Random3d.png" />
 
-These images show the saturation at one time step of a simulation of how a mixture of two fluids moves through a random medium in 2d (left) and 3d (right). The full description as well as movies of this problem can be found as step-21 in the tutorial of deal.II.
+This image shows the saturation at one time step of a simulation of how a mixture of two fluids moves through a random medium. The full description as well as movies of this problem and a 3d simulation can be found as step-21 in the tutorial of deal.II.
 
 (Origin: Wolfgang Bangerth, 2006)
 
@@ -108,20 +97,6 @@ Phase field modeling of the normal grain growth.
 -Slawa, 07:49, 6 September 2010 (UTC)
 
 
-
-
-## Wave equations
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-elasto_1x.png" />
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-elasto_2x.png" />
-
-Here are two images of elastic waves propagating outward from their origin. One can think of this simulation as a two-dimensional solid where we tuck at the center, pull it to the right, then let it snap. What you get is a fast pressure (P-)wave travelling to the left and right, and aslower shear (S-)wave travelling up and downward. After a while, these waves hit the boundary of the domain and are reflected from there. A closer look at the data would reveal that the reflections bring conversions from P- to S-waves with them, but that would require taking a look at the curl and divergence of the vector fields separately. (Origin: Wolfgang Bangerth, 1999)
-
-<img width="200px" src="http://www.dealii.org/images/wiki/gallery/Gallery-acoustic_ring1.png" />
-
-This image shows waves in an inhomogenous medium after circling around the ring-shaped domain several times. Such waves
-occur in earthquake simulations, where shear waves only propagate in the the (solid) earth crust, but not in the (liquid)
-earth mantle and core below the crust. For strong earthquakes, these waves can travel around the entire globe several times before the are too attenuated to be detected. The resolution of this simulation is not high enough to be realistic, and neither are the geometry, dimensions, or physical constants realistic, but it gives an idea. (Origin: Wolfgang Bangerth, 1999)
 
 
 ## Incompressible Navier-Stokes

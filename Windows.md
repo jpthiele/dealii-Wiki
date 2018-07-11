@@ -87,6 +87,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    Need to get 441 MB of archives.
    After this operation, 2,016 MB of additional disk space will be used.
    Do you want to continue? [Y/n] <Enter>
+   [...]
    ```
 
    At this point, let us install a number of useful, additional tools:
@@ -94,6 +95,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    root@computer# apt install build-essential cmake ninja-build gdb clang clang-format
    [...]
    Do you want to continue? [Y/n] <Enter>
+   [...]
    ```
 
    If you plan to use graphical tools, a number of useful programs are:
@@ -101,6 +103,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    root@computer# apt install xterm gnuplot
    [...]
    Do you want to continue? [Y/n] <Enter>
+   [...]
    ```
 
    If you plan to use MSVC, you will also need to install ssh, zip and
@@ -109,8 +112,15 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    root@computer# apt install ssh zip unzip
    [...]
    Do you want to continue? [Y/n] <Enter>
+   [...]
    ```
-
+   You will also need to install git:
+   ```console
+   root@computer# apt-get install git-core
+   [...]
+   Do you want to contiue? [Y/n] <Enter>
+   [...]
+   ```
    Now, exit the root account:
    ```console
    root@computer# exit

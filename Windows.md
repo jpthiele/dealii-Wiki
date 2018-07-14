@@ -233,7 +233,7 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
 6. Configure the project in Visual Studio
     * Open the project file `c:\Users\<user>\Documents\workspace\step-6.vcxproj` in Visual Studio.
     * In the `Solution Explorer` right-click on the project and select `Properties`
-    * Go to the `Debugging` page and set `Program` to `/mnt/c/Users/<user>/Documents/workspace/step-6/step-6`.
+    * Go to the `Debugging` page and set `Program` to `/mnt/c/Users/<user>/Documents/workspace/step-6/step-6` and set `Working Directory` to `/mnt/c/Users/<user>/Documents/workspace/step-6/`
     * Go to the `Remote Build` page and set `Build Command Line` to `cd /mnt/c/Users/<user>/Documents/workspace/step-6/; cmake .; make`.
     * Go to `General` and set `Remote Build Root Directory` to `/mnt/c/Users/<user>/Documents/workspace` and `Remote Build Project Directory` to `/mnt/c/Users/<user>/Documents/workspace/step-6/`
     * Warning! Windows is very accepting of paths that include space characters, but you will run into errors at this step if you use a path with a space character. At this time, escape characters in the above steps will not work. Thus, you must find the short path name for your file location. I recommend using [these](https://superuser.com/a/728792) steps to find the short path name.

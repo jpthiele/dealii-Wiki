@@ -105,11 +105,12 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    Do you want to continue? [Y/n] <Enter>
    [...]
    ```
+   You can also install gnuplot and ParaView natively on Windows to view the files created by deal.II.
 
-   If you plan to use MSVC, you will also need to install ssh, zip and
+   If you plan to use MSVC, you will also need to install ssh, rsync, zip and
    unzip:
    ```console
-   root@computer# apt install ssh zip unzip
+   root@computer# apt install ssh zip unzip rsync
    [...]
    Do you want to continue? [Y/n] <Enter>
    [...]
@@ -121,6 +122,22 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    Do you want to contiue? [Y/n] <Enter>
    [...]
    ```
+
+   If you would like to use the CMake version managed by Microsoft, run the following:
+   ```console
+   git clone https://github.com/Microsoft/CMake.git
+   […]
+   cd cmake
+   mkdir out
+   cd out
+   cmake ../
+   […]
+   make
+   […]
+   sudo make install
+   […]
+   ```
+
    Now, exit the root account:
    ```console
    root@computer# exit
@@ -181,11 +198,13 @@ development. (Great alternatives are
 [KDevelop](https://github.com/dealii/dealii/wiki/KDevelop).)
 
 1. Go to the [Microsoft website](https://www.visualstudio.com/downloads)
-   and download Microsoft Visual Studio Community Edition
+   and download Microsoft Visual Studio Community Edition. Visual Studio versions below 15.8.0 will have problems with IntelliSense. You might need to install the Preview edition of Visual Studio to get version 15.8.0.
 
 2. Launch the web installer. Make sure to select "Linux development with C++"
 
 3. Restart.
+
+4. To fix occasional IntelliSense bugs, install the Visual Studio tool IntelliSense Extender.
 
 ### Create MSVC project
 
@@ -235,8 +254,6 @@ directory from Linux is `/mnt/c/Users/<user>/Documents/workspace`. (Substitute
     * In the `Solution Explorer` right-click on the project and select `Properties`
     * Go to the `Debugging` page and set `Program` to `/mnt/c/Users/<user>/Documents/workspace/step-6/step-6` and set `Working Directory` to `/mnt/c/Users/<user>/Documents/workspace/step-6/`
     * Go to the `Remote Build` page and set `Build Command Line` to `cd /mnt/c/Users/<user>/Documents/workspace/step-6/; cmake .; make`.
-    * Go to `General` and set `Remote Build Root Directory` to `/mnt/c/Users/<user>/Documents/workspace` and `Remote Build Project Directory` to `/mnt/c/Users/<user>/Documents/workspace/step-6/`
-    * Warning! Windows is very accepting of paths that include space characters, but you will run into errors at this step if you use a path with a space character. At this time, escape characters in the above steps will not work. Thus, you must find the short path name for your file location. I recommend using [these](https://superuser.com/a/728792) steps to find the short path name.
 
 7. Run the executable via `Debug` -> `Start Debugging` (or press `F5`) and celebrate!
 

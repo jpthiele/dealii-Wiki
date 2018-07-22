@@ -36,9 +36,9 @@ Have a look at the excellent documentation about the Linux subsystem on the
    ```
    and restart
 
-3. Open the Windows Store and search for "Debian", and install "Get Debian
+3. Open the Microsoft Store and search for "Debian", and install "Get Debian
    GNU/Linux". When finished start the application. You will be prompted to
-   enter a user name and password.
+   enter a username and password.
 
 4. Switch to the "root" account by running
    ```console

@@ -158,6 +158,10 @@ packages:
     paths:
       cmake@3.6.0%intel@18.0.2: /apps/cmake/3.6.0/
     buildable: False
+  suite-sparse:
+    version: [5.1.0]
+  dealii:
+    variants: +optflags~python
 ```
 Finally install `deal.II` 
 ```

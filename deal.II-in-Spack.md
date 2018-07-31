@@ -46,6 +46,7 @@ export PATH="$SPACK_ROOT/bin:$PATH"
 Now clone Spack
 ```
 cd $SPACK_ROOT
+module load git
 git clone https://github.com/spack/spack.git .
 git checkout develop
 git reset --hard 99f678035a279cf85a32a4fdbd98a117b9c1832f

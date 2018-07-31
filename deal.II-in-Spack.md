@@ -46,7 +46,6 @@ export PATH="$SPACK_ROOT/bin:$PATH"
 Now clone Spack
 ```
 cd $SPACK_ROOT
-module load git
 git clone https://github.com/spack/spack.git .
 git checkout develop
 git reset --hard 99f678035a279cf85a32a4fdbd98a117b9c1832f
@@ -76,6 +75,7 @@ Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](ht
 module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
+module load git
 # clone modified version of Spack to fit RRZE setup
 git clone -b pkg/intel_mpi_fix https://github.com/davydden/spack.git .
 export PATH=$WOODYHOME/spack/bin:$PATH

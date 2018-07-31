@@ -135,6 +135,14 @@ Edit it to set environment variable (with license) and extra rpaths:
 ```
 Then add to `~/.spack/linux/packages.yaml` paths to `intel-mpi`, `intel-mkl` as well as `cmake` which currently does not build with `Intel`:
 ```
+packages:
+  all:
+    compiler: [intel]
+    providers:
+      mpi: [intel-mpi]
+      blas: [intel-mkl]
+      lapack: [intel-mkl]
+      scalapack: [intel-mkl]
   intel-mpi:
     version: [2018.2.199]
     paths:

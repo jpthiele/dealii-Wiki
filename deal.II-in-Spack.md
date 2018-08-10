@@ -72,7 +72,6 @@ Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](ht
 
 (1) Download spack
 ```
-module load git
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 module load git

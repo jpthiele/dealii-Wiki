@@ -75,7 +75,16 @@ Here is a brief step-by-step instruction to install deal.II on [Emmy cluster](ht
 mkdir $WOODYHOME/spack
 cd $WOODYHOME/spack
 module load git
-# clone modified version of Spack to fit RRZE setup
+```
+(1a) If you plan on using `GCC/Clang` as a compiler:
+```
+# Clone standard version of Spack
+git clone https://github.com/llnl/spack.git $WOODYHOME/spack
+export PATH=$WOODYHOME/spack/bin:$PATH
+```
+(1b) If you plan on using `Intel` compilers:
+```
+# Clone modified version of Spack to fit RRZE setup
 git clone -b pkg/intel_mpi_fix https://github.com/davydden/spack.git .
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```

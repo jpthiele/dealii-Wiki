@@ -88,12 +88,12 @@ export PATH=$WOODYHOME/spack/bin:$PATH
 git clone -b pkg/intel_mpi_fix https://github.com/davydden/spack.git .
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
-(2) Load `openmpi` and let Spack find GCC compiler which is also loaded as a dependency:
+(2) Load the `openmpi` module and let Spack find `GCC` compiler which is also loaded as a dependency. You might get a warning that spack has not detected any new compilers - this only means that the `compilers.yaml` file already has the correct version of `GCC` listed in it.
 ```
 module load openmpi/2.0.2-gcc
 spack compiler find
 ```
-(3) Add `openmpi` as an external package, along with `python` and a few other self explanatory setting for `deal.ii`. That is done by adding the following to `~/.spack/linux/packages.yaml`
+(3) Add `openmpi` as an external package, along with `python` and a few other self explanatory setting for `deal.ii`. That is done by adding the following to `~/.spack/linux/packages.yaml`:
 ```
 packages:
   all:

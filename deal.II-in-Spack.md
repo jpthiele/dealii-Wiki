@@ -82,7 +82,7 @@ module load git
 git clone https://github.com/llnl/spack.git $WOODYHOME/spack
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
-(1b) If you plan on using `Intel` compilers:
+(1b) If you plan on using `Intel` compilers (this point is expanded upon in step (5)):
 ```
 # Clone modified version of Spack to fit RRZE setup
 git clone -b pkg/intel_mpi_fix https://github.com/davydden/spack.git .

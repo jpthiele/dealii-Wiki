@@ -12,13 +12,11 @@ The examples are in the folder
 
 	/Applications/deal.II.app/Contents/Resources/examples/
 
-This application is always built with the latest version of the MacOS X operating system, and with the latest version of XCode. See instructions below to make sure your system is compatbile with the binary application.
-
-If you have a Mac with clang version lower than 6.1.0, then you can try with the the precompiled image named `deal.II.8.3.0.nocxx14.dmg` which may work on your system.
+This application is always built with the latest version of the MacOS X operating system, and with the latest version of XCode. See instructions below to make sure your system is compatible with the binary application.
 
 ## Detailed instructions:
 
-1. Install xcode from the app store. You might need to install the command line tools. Open a terminal and make sure "clang" does not report "command not found". You might need to run
+1. Install xcode from the app store. You might need to install the command line tools. Open a terminal and make sure "clang --version" does not report "command not found". You might need to run
 
         xcode-select --install
 
@@ -26,6 +24,7 @@ If you have a Mac with clang version lower than 6.1.0, then you can try with the
 2. Install cmake if you don't have it (check by typing "cmake" in terminal). To do so got to http://www.cmake.org/download/ and download the Mac OSX binary .dmg, then open the .dmg and drag cmake into "applications".
 3. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
 4. You should now have cmake and deal.II in your "applications" in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed under ```/Applications/deal.II.app/Contents/Resources```
+NOTE: If you can not run the app because it is from an "unidentified developer", go to "Applications" in "Finder", ctrl+click on the deal.II app and select "Open".
 5. Set up your bash profile. Open a terminal and type "touch .profile;open .profile". In the editor add the following line to the file:
 
         export PATH=/Applications/CMake.app/Contents/bin:$PATH

@@ -48,8 +48,9 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/spack/spack.git .
 git checkout develop
-git reset --hard d182d85dd1c220251e60b98ffa02ecd624f3504c
+git reset --hard e38f39e4eafeaa6daed580cece935141e5d8f04b
 ```
+The last command will reset Spack to the version dated 12.10.2018.
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```

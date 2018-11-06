@@ -8,6 +8,7 @@ Table of Contents
       * [Environment Modules](#environment-modules)
       * [System provided packages](#system-provided-packages)
       * [Installing GCC](#installing-gcc)
+      * [Using macOS](#using-macos)
       * [Best practices using Spack:](#best-practices-using-spack)
          * [Info:](#info)
          * [Extra options:](#extra-options)
@@ -268,6 +269,8 @@ Now you can install deal.II with `gcc`
 ```
 spack install dealii%gcc
 ```
+
+## Using macOS
 
 If you are on the mac, read the following instructions on [Mixed Toolchains](http://spack.readthedocs.io/en/latest/getting_started.html#mixed-toolchains).
 

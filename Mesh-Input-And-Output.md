@@ -671,7 +671,7 @@ However, there `cubit.get_block_hexes(block_id)` does not return anything other 
 By contrast the script verified to work with `Cubit v15.2` includes this logic as the bug has been corrected in later versions of the software. 
 
 The following version of the above script, instead, produces a VTK file:
-```
+```python
 #!python
 #!python
 # This script will output whatever mesh you have currently in CUBIT
@@ -965,3 +965,7 @@ if True:
     print n_quads, "quads"
     print n_edges, "edges"
 ```
+In principle, it should be possible to add a shortcut in a Custom Toolbar to load the script into memory. Then when you are
+ready to export, you can type the following command in the script tab:
+
+	saveVTK("filename.vtk")

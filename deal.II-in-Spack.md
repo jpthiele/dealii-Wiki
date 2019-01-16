@@ -18,7 +18,7 @@ Table of Contents
          * [Check before build:](#check-before-build)
          * [Develop using Spack](#develop-using-spack)
          * [Keep the stage to run unit tests](#keep-the-stage-to-run-unit-tests)
-         * [MKL and Licensed software](#mkl-and-licensed-software)
+         * [Licensed software](#licensed-software)
          * [Freeze package versions](#freeze-package-versions)
       * [Known issues using Spack:](#known-issues-using-spack)
 
@@ -180,6 +180,8 @@ spack install -j 20 dealii%intel~assimp~petsc~slepc+mpi^intel-mpi^intel-mkl
 Note that `%intel` specified the compiler whereas `^intel-mpi` and `^intel-mkl` specified which implementation of MPI and BLAS/LAPACK we want to use. Here we also disabled few other packages that have issues building with `Intel` compilers.
 
 See [this discussion](https://groups.google.com/d/msg/spack/NxyNTAZyMQg/Klu2CHR8GQAJ) on more info about using Intel compilers in Spack.
+
+Note that in order to install multiple flavors of `intel-mkl` via Spack (i.e. with and without threading), you may have to delete `$HOME/intel/.pset`, see [this comment](https://github.com/spack/spack/issues/9713#issuecomment-436081356).
 
 
 ## Enabling CUDA
@@ -521,13 +523,8 @@ Second, prescribe an extra argument to `install` command to keep the stage after
 spack install --keep-stage dealii@develop
 ```
 
-### MKL and Licensed software
-Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license) as well as usage of [Licensed compilers](http://spack.readthedocs.io/en/latest/getting_started.html#licensed-compilers). For example in order to install MKL on Linux:
-
-1. add `Intel` license file as `license.lic` file to `${SPACK_ROOT}/etc/spack/licenses/intel/`.
-2. run `spack install dealii ^intel-mkl@11.3.2.210`
-
-In order to configure Intel compilers see [this page](http://spack.readthedocs.io/en/latest/getting_started.html#vendor-specific-compiler-configuration).
+### Licensed software
+Spack supports installation of [licensed software](http://spack.readthedocs.io/en/latest/packaging_guide.html#license) as well as usage of [Licensed compilers](http://spack.readthedocs.io/en/latest/getting_started.html#licensed-compilers). In order to configure Intel compilers see [this page](http://spack.readthedocs.io/en/latest/getting_started.html#vendor-specific-compiler-configuration).
 
 
 ### Freeze package versions

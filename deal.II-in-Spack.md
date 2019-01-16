@@ -57,8 +57,11 @@ The last command will reset Spack to the version dated 12.01.2019.
 ```
 spack install --test=root dealii
 ```
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 Additional option `--test=root` instructs Spack to run quick tests for `dealii`.
+
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. 
+
+**IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 
 Before configuring your project you need to set `DEAL_II_DIR` by 
 ```

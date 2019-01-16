@@ -49,9 +49,9 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/spack/spack.git .
 git checkout develop
-git reset --hard e38f39e4eafeaa6daed580cece935141e5d8f04b
+git reset --hard 09033e991ef390370955eebecb2c0f734994d16b
 ```
-The last command will reset Spack to the version dated 12.10.2018.
+The last command will reset Spack to the version dated 12.01.2019.
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
@@ -501,7 +501,7 @@ $ cat $(spack location -i dealii)/.spack/build.out | grep "==> 'cmake'" | sed -e
 
 Before running `cmake` from the build folder, you may want to run 
 ```
-spack env dealii@develop+mpi^openmpi^openblas bash
+spack build-env dealii@develop+mpi^openmpi^openblas bash
 ```
 to make sure your environment (paths, variables, etc) is set exactly the same way as when compiling `deal.II` from Spack
 (adjust the spec `dealii@develop+mpi^openmpi^openblas` to be what you use when you installed `deal.II`).

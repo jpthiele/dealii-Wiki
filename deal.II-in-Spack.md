@@ -490,24 +490,29 @@ spack spec dealii@develop+mpi+petsc~int64%gcc ^petsc+complex~hypre
 The `spec` command has a useful flag `-I` which will show install status of dependencies in the graph.
 
 ### Develop using Spack
-Probably the easiest way to use Spack while contributing patches to the deal.II is the following. 
-Install `deal.II` via Spack, go to its installation prefix and copy-paste the CMake command from `.spack/build.out`, which looks like
-```
-'cmake' '/path/to/spack/var/spack/stage/dealii-develop-tkowxhk55kpi7facfh3ufipofyolt6h7/dealii' '-DCMAKE_INSTALL_PREFIX:PATH=path/to/spack/opt/spack/darwin-sierra-x86_64/clang-8.1.0-apple/dealii-develop-tkowxhk55kpi7facfh3ufipofyolt6h7' '-DCMAKE_BUILD_TYPE:STRING=DebugRelease' <more options>
-```
-You would need to adjust the path to the `dea.II` source folder (first path) and should remove the `DCMAKE_INSTALL_PREFIX` as you probably don't want to accidentally override the version installed by Spack. 
+Probably the easiest way to use Spack while contributing patches to the deal.II is the following.
+ 
+1. Install `deal.II` via Spack as usual `spack install <dealii-spec>` (`<dealii-spec>` can be `dealii@develop+mpi^openmpi^openblas` or alike)
+2. Clone the deal.II sources and `cd` to a build folder (we assume it's in the root of source location)
+3. Get `cmake` command used by Spack to build `deal.II` from `<dealii-prefix>/.spack/build.out` and save it in `build_command.sh` via
 
-Assuming that your build folder is within the `dealii` sources (tha'ts what `..\/` is for below), you can get this substitution done by
 ```
-$ cat $(spack location -i dealii)/.spack/build.out | grep "==> 'cmake'" | sed -e "s/[^ ]*[^ ]/'..\/'/3" | cut -d " " -f2-
+cat $(spack location -i <dealii-spec>)/.spack/build.out | grep "==> 'cmake'" | sed -e "s/[^ ]*[^ ]/'..\/'/3" | cut -d " " -f2- > build_command.sh
 ```
 
-Before running `cmake` from the build folder, you may want to run 
+You might want to remove the `DCMAKE_INSTALL_PREFIX` as you probably don't want to accidentally override the version installed by Spack. 
+
+4. Setup build environment to be exactly the same as used by Spack
+
 ```
 spack build-env dealii@develop+mpi^openmpi^openblas bash
 ```
-to make sure your environment (paths, variables, etc) is set exactly the same way as when compiling `deal.II` from Spack
-(adjust the spec `dealii@develop+mpi^openmpi^openblas` to be what you use when you installed `deal.II`).
+
+5. Configure and build 
+```
+source build_command.sh
+make all
+```
 
 An alternative is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. 
 

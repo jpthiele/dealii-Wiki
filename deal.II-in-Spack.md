@@ -279,7 +279,9 @@ spack install dealii%gcc
 
 If you are on the mac, read the following instructions on [Mixed Toolchains](http://spack.readthedocs.io/en/latest/getting_started.html#mixed-toolchains).
 
-On following these instructions, you will be able to install deal.II with clang+gfortran
+Note that XCode 10 does **NOT** install command line tools (`$xcode-select --install`) in `/usr/include` (see [this discussion](https://forums.developer.apple.com/thread/104296)). Therefore prior to installing `gcc` package via Spack, please install `/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg`.
+
+Once you have `gcc` installed and edit `~/.spack/compilers.yaml` to use it with Apple's clang, you will be able to install deal.II
 ```
 spack install dealii%clang
 ```

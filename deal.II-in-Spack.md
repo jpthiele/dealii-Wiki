@@ -44,6 +44,11 @@ export PATH="$SPACK_ROOT/bin:$PATH"
 ```
 `SPACK_ROOT` is the destination where you want Spack to be installed (i.e. `$HOME/spack`).
 
+Make sure that `python` and `git` are installed, i.e. by running:
+```
+sudo apt install python git
+```
+
 Now clone Spack
 ```
 cd $SPACK_ROOT

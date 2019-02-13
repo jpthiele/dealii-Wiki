@@ -521,6 +521,15 @@ source build_command.sh
 make all
 ```
 
+#### Installation of dependencies alone
+It is possible to get Spack to install only the dependencies, and leave the configuration and installation of deal.II entirely up to you. 
+The manual configuration process includes having to point CMake to the Spack installed libraries, which could possibly be assisted using [Filesystem view](#filesystem-views)). 
+To install only the dependencies of deal.II (specifically, the developer version), issue the following command:
+```
+spack install --only dependencies dealii@develop ^cmake@3.9.4
+```
+
+#### Filesystem view
 An alternative is to create a [Filesystem view](#filesystem-views) for an already installed library and then compile patched version of deal.II manually by providing path to the view for each dependency. 
 
 ### Keep the stage to run unit tests

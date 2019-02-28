@@ -92,9 +92,6 @@ deal.II and descriptions of what they do with it.
   The groups of [Bruce Buffett](http://eps.berkeley.edu/development/view_person.php?uid=326008) and [Mark Richards](http://eps.berkeley.edu/development/view_person.php?uid=7517) are also using the ASPECT code mentioned above.
 
 
-### [Rensselaer Polytechnic Institute](http://www.rpi.edu/)
+### [University of North Carolina, Chapel Hill](http://www.unc.edu/)
 
-  David Wells and others in the
-  [Mathematical Sciences Department](http://www.rpi.edu/dept/math/) are using
-  deal.II to research model reduction and algorithms for discontinuous Galerkin
-  methods.
+  David Wells is using deal.II to research superconvergence and fluid-structure interaction algorithms.

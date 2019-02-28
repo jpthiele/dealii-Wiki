@@ -13,12 +13,6 @@ deal.II and descriptions of what they do with it.
 
 ## Germany
 
-### [Georg-August-Universität Göttingen](http://www.uni-goettingen.de/)
-
-  Researchers in Applied Mathematics associated with [Prof. Gert Lube](http://www.num.math.uni-goettingen.de/lube/); notably, Timo Heister joined the developer team from this group.
-    - Simulation and applications of turbulent flows
-    - Parallel computing
-
 ### [Friedrich-Alexander-Universität Erlangen-Nürnberg](http://www.fau.de/)
 
   Researchers in Continuum Mechanics and Applied Mathematics associated with [Prof. Paul Steinmann](http://www.ltm.uni-erlangen.org/chair/staff/personal.shtml/paul-steinmann.shtml): Benjamin Brands, Denis Davydov, Markus Mehnert,  Jean-Paul Pelteret, Daniel Riedlbauer, Stefan Riehl.
@@ -95,3 +89,7 @@ deal.II and descriptions of what they do with it.
 ### [University of North Carolina, Chapel Hill](http://www.unc.edu/)
 
   David Wells is using deal.II to research superconvergence and fluid-structure interaction algorithms.
+
+### [Oak Ridge National Lab, Oak Ridge](http://ww.ornl.gov/)
+
+  The [Computational Engineering and Energy Sciences](https://energy.ornl.gov/) group Bruno Turcksin and Daniel Arndt are associated with.

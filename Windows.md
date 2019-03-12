@@ -1,6 +1,7 @@
 This wiki page contains information about how to use deal.II on the
  - [Windows subsystem for Linux](#using-dealii-with-the-windows-subsystem-for-windows)
  - [Using deal.II on native Windows](#using-dealii-on-native-windows)
+
 For an overview of different ways to use deal.II on Windows have a look at
 the corresponding [FAQ entry](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions#can-i-use-dealii-on-a-windows-platform).
 

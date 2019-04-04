@@ -24,7 +24,7 @@ Table of Contents
 
 # Using deal.II on Mac OS X and Linux via Spack
 
-The deal.II suite is also available on Spack (https://github.com/LLNL/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
+The deal.II suite is also available on Spack (https://github.com/spack/spack) -- a flexible package manager developed with High-Performance-Computing in mind. It is intended to let you build for many combinations of compiler, architectures, dependency libraries, and build configurations, all with a friendly, intuitive user interface.
 
 For a quick overview of Spack's features, we recommend this short presentation https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf
 or the following videos from lead developers:
@@ -89,7 +89,7 @@ module load git
 (1a) If you plan on using `GCC/Clang` as a compiler:
 ```
 # Clone standard version of Spack
-git clone https://github.com/llnl/spack.git $WOODYHOME/spack
+git clone https://github.com/spack/spack.git $WOODYHOME/spack
 export PATH=$WOODYHOME/spack/bin:$PATH
 ```
 (1b) If you plan on using `Intel` compilers (this point is expanded upon in step (5)):

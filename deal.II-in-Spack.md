@@ -64,7 +64,7 @@ spack install --test=root dealii
 ```
 Additional option `--test=root` instructs Spack to run quick tests for `dealii`.
 
-**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. For configuration files, have a look at [xsdk project](https://github.com/xsdk-project/installxSDK/tree/master/platformFiles) or [ceed project](https://ceed.exascaleproject.org/ceed-2.0/).
+**DONE**! No extra (preliminary) configuration steps are needed on most Linux distributions. For configuration files, have a look at [xsdk project](https://github.com/xsdk-project/installxSDK/tree/master/platformFiles), [ceed project](https://ceed.exascaleproject.org/ceed-2.0/) or [spack-configs repository](https://github.com/spack/spack-configs).
 
 **IMPORTANT:** If you compile deal.II on a cluster, see the next section on how to use externally provided MPI implementation instead.
 

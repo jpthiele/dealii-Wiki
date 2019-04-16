@@ -294,7 +294,7 @@ Installation instructions:
    the compiler or linker running out of memory and leads to much quicker
    compile times.
    <b>Note:</b> Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio
-   2017.
+   2017 and ``Visual Studio 16 2019"`` for Visual Studio 2019.
 
 6. Compile and install the library by opening ``deal.II.sln`` in
    c:\dealii\build, pick the install target and compile. Note: you need to
@@ -305,6 +305,10 @@ Installation instructions:
 7. in cmd go to one of the examples in c:\dealii\examples\step-xy:
    ```
    cmake -D DEAL_II_DIR=c:\dealii\build -G "Visual Studio 15 2017 Win64" .
+   ```
+   or
+   ```
+   cmake -D DEAL_II_DIR=c:\dealii\build -G "Visual Studio 16 2019" .
    ```
 
 8. Open the newly created solution (step-xy.sln) in that directory and

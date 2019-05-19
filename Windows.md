@@ -273,7 +273,7 @@ You can check the current development status
 
 Installation instructions:
 
-1. Download and install Visual Studio 2017:
+1. Download and install Visual Studio (2017 or newer):
    https://www.visualstudio.com/vs/ and make sure you select the C++
    compiler
 2. Install cmake from https://cmake.org/download/ (pick the windows
@@ -293,6 +293,7 @@ Installation instructions:
    <b>Note:</b> Setting the tool architecture to 64 bit works around problems of
    the compiler or linker running out of memory and leads to much quicker
    compile times.
+
    <b>Note:</b> Use generator ``"Visual Studio 15 2017 Win64"`` for Visual Studio
    2017 and ``Visual Studio 16 2019"`` for Visual Studio 2019.
 

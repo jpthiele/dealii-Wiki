@@ -50,7 +50,7 @@ This page collects a few answers to questions that have frequently been asked ab
     * [Questions about specific behavior of parts of deal.II](#questions-about-specific-behavior-of-parts-of-dealii)
       * [How do I create the mesh for my problem?](#how-do-i-create-the-mesh-for-my-problem)
       * [How do I describe complex boundaries?](#how-do-i-describe-complex-boundaries)
-      * [How do I get the degree of freedom indices at vertices?](#how-do-i-get-the-degree-of-freedom-indices-at-vertices) 
+      * [How do I get the degree of freedom indices at vertices?](#how-do-i-get-the-degree-of-freedom-indices-at-vertices)
       * [I am using discontinuous Lagrange elements (FE_DGQ) but they don't seem to have vertex degrees of freedom!?](#i-am-using-discontinuous-lagrange-elements-fe_dgq-but-they-dont-seem-to-have-vertex-degrees-of-freedom)
       * [How do I access values of discontinuous elements at vertices?](#how-do-i-access-values-of-discontinuous-elements-at-vertices)
       * [Does deal.II support anisotropic finite element shape functions?](#does-dealii-support-anisotropic-finite-element-shape-functions)
@@ -86,6 +86,7 @@ This page collects a few answers to questions that have frequently been asked ab
       * [Can I solve problems over complex numbers?](#can-i-solve-problems-over-complex-numbers)
       * [How can I solve a problem with a system of PDEs instead of a single equation?](#how-can-i-solve-a-problem-with-a-system-of-pdes-instead-of-a-single-equation)
       * [Is it possible to use different models/equations on different parts of the domain?](#is-it-possible-to-use-different-modelsequations-on-different-parts-of-the-domain)
+      * [Can I solve problems with higher regularity requirements?](#can-i-solve-problems-with-higher-regularity-requirements)
       * [Where do I start to implement a new Finite Element Class?](#where-do-i-start-to-implement-a-new-finite-element-class)
     * [General finite element questions](#general-finite-element-questions)
       * [How do I compute the error](#how-do-i-compute-the-error)
@@ -1436,30 +1437,30 @@ for a realistic example.
 
 ### How do I get the degree of freedom indices at vertices?
 
-For simple cases (for example, where only `FE_Q` elements are used) you could 
-use the `cell->vertex_dof_index()` function. This would mean that you'd require 
-a single grid traversal to extract each DoF value  associated with support 
-points corresponding to the vertices. The code to do this would look something 
-like this: 
+For simple cases (for example, where only `FE_Q` elements are used) you could
+use the `cell->vertex_dof_index()` function. This would mean that you'd require
+a single grid traversal to extract each DoF value  associated with support
+points corresponding to the vertices. The code to do this would look something
+like this:
 ```cpp
 auto cell = dof_handler.begin_active ();
 const auto endc = dof_handler.end ();
 for (; cell != endc; ++cell)
 {
-  for (unsigned int vertex = 0; vertex < GeometryInfo<dim>::vertices_per_cell; 
+  for (unsigned int vertex = 0; vertex < GeometryInfo<dim>::vertices_per_cell;
        ++vertex)
   {
     for (unsigned int component=0; component<fe.n_components(); ++component)
       // Index associated with the given component at the cell local vertex
       const unsigned int idx = cell->vertex_dof_index(vertex,component);
   }
-}  
+}
 ```
-If this is something that you might repeat often then you could use the `GridTools::find_cells_adjacent_to_vertex()` function to cache this association 
-once up front for a single vertex, or the `GridTools::vertex_to_cell_map()` function 
-to do the same for all vertices. 
+If this is something that you might repeat often then you could use the `GridTools::find_cells_adjacent_to_vertex()` function to cache this association
+once up front for a single vertex, or the `GridTools::vertex_to_cell_map()` function
+to do the same for all vertices.
 
-For the most general case (e.g., when using non-primitive finite elements), you 
+For the most general case (e.g., when using non-primitive finite elements), you
 might need to use `DoFTools::map_dofs_to_support_points()` function and then find
 which support points at located at the vertex position that you're interested in.
 
@@ -2806,6 +2807,18 @@ the rest of the domain, and couple them on the interface. Similar
 techniques can be used if you want to exclude part of the domain from
 consideration, for example when considering voids in a body in which the
 governing equations do not make sense because there is no medium.
+
+### Can I solve problems with higher regularity requirements?
+
+deal.II does not currently support *C<sup>1</sup>* or *C<sup>2</sup>* elements since these elements
+require specialized unit-to-reference mappings that have not yet been
+implemented. We recommend solving these problems by converting a higher-order
+problem into a lower-order one; e.g., one can rewrite a biharmonic problem as a
+coupled pair of Laplace equations.
+
+Some projects have managed to use deal.II for problems with higher regularity
+requirements by exploiting properties of structured grids: see
+https://arxiv.org/abs/1810.02473 for more information.
 
 ### Where do I start to implement a new Finite Element Class?
 

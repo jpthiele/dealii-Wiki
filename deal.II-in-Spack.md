@@ -33,7 +33,7 @@ or the following videos from lead developers:
 
 [Spack tutorial 101](http://spack.readthedocs.io/en/latest/tutorial.html) is good place to start as well.
 
-Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Unbutu18.04` with `openmpi` and `openblas`. See [Continuous section of CDash](https://cdash.kyomu.43-1.org/index.php?project=deal.II).
+Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Unbutu18.04` with `openmpi` and `openblas`. See [Continuous section of CDash](https://cdash.43-1.org/index.php?project=deal.II).
 
 ## Quick installation on the desktop
 

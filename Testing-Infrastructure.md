@@ -16,7 +16,7 @@ Note: PRs are not run automatically but need to be approved by one of the develo
 
 # Regression testing
 
-In addition to testing pull requests, we also continuously have machines execute the current master branch with different configurations. The results are reported at https://cdash.kyomu.43-1.org and documentation can be found at https://www.dealii.org/developer/developers/testsuite.html#build_tests
+In addition to testing pull requests, we also continuously have machines execute the current master branch with different configurations. The results are reported at https://cdash.43-1.org and documentation can be found at https://www.dealii.org/developer/developers/testsuite.html#build_tests
 
 We currently have the following machines running:
 

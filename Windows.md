@@ -52,10 +52,11 @@ Have a look at the excellent documentation about the Linux subsystem on the
    ```console
    root@computer# nano /etc/apt/sources.list
    ```
-   You should see three lines. If they contain the release name `stretch`,
-   remove all three lines and replace them with a single line:
+   You should see three lines with a release name (for example `stretch`, or `buster`).
+   In order to get the newest (packaged) version of deal.II we ar going to
+   remove all three lines and replace them with a single line for the `testing` suite:
    ```
-   deb http://deb.debian.org/debian buster main contrib non-free
+   deb http://deb.debian.org/debian testing main contrib non-free
    ```
 
 6. Now update/upgrade the system by running

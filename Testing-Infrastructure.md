@@ -24,4 +24,4 @@ We currently have the following machines running:
 2. **simserv04**: One of the machines in the "Continuous" category on cdash. Some older configurations. Located in Heidelberg and maintained by [@tamiko](https://github.com/tamiko)
 3. **simserv02**: One of the machines in the "Continuous" category on cdash. Running the Intel compiler. Maintained by [@masterleinad](https://github.com/masterleinad)
 4. **davyddenubuntu**: One of the machines in the "Continuous" category on cdash. A configuration with all dependencies but CUDA enabled and built via [Spack](https://github.com/dealii/dealii/wiki/deal.II-in-Spack) with and without optimization flags on Ubuntu 16.04 with GCC 5.4.0. Maintained by [@davydden](https://github.com/davydden)
-5. **CUDA8** and **CUDA9**: One of the machines in the "Continuous" category on cdash. Configurations with CUDA 8 and CUDA 9 enabled. Maintained by [@Rombur](https://github.com/Rombur)
+5. **CUDA10** : One of the machines in the "Continuous" category on cdash. Configuration with CUDA 10. Maintained by [@Rombur](https://github.com/Rombur)

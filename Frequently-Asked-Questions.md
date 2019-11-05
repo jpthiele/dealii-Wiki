@@ -2560,7 +2560,7 @@ gdb window belongs to which MPI rank, you can type the command
 ```
   !env | grep RANK
 ```
-into the gdb window (this works with OpenMPI at least). See https://plus.google.com/+TimoHeister/posts/AgmoMT8W7GZ for more info.
+into the gdb window (this works with OpenMPI at least).
 
 ### I have an MPI program that hangs
 

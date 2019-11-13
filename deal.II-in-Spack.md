@@ -54,13 +54,13 @@ Now clone Spack
 cd $SPACK_ROOT
 git clone https://github.com/spack/spack.git .
 git checkout develop
-git reset --hard 09033e991ef390370955eebecb2c0f734994d16b
+git reset --hard b4501c458623ed12cfb9a93cb6ebdfc4604b3fe2
 ```
 The last command will reset Spack to the version dated 12.01.2019.
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
-spack install --test=root dealii
+spack install --test=root dealii ^suite-sparse@5.2.0
 ```
 Additional option `--test=root` instructs Spack to run quick tests for `dealii`.
 
@@ -218,14 +218,14 @@ spack location --install-dir environment-modules
 and then add to `~/.bashrc` (or equivalent)
 ```
 MODULES_HOME=/path/to/environment-modules
-source ${MODULES_HOME}/Modules/init/bash
+source ${MODULES_HOME}/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```
 
 If you install `deal.II` before setting up environment modules,
 the module files have to be regenerated
 ```
-spack module refresh
+spack module tcl refresh
 ```
 
 Then run

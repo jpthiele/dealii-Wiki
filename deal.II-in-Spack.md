@@ -211,13 +211,9 @@ To add the support for Environment Modules run
 ```
 spack install environment-modules
 ```
-Get the path to the prefix of `environment-modules` by:
-```
-spack location --install-dir environment-modules
-```
 and then add to `~/.bashrc` (or equivalent)
 ```
-MODULES_HOME=/path/to/environment-modules
+MODULES_HOME=$(spack location --i environment-modules)
 source ${MODULES_HOME}/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```

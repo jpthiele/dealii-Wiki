@@ -213,7 +213,7 @@ spack install environment-modules
 ```
 and then add to `~/.bashrc` (or equivalent)
 ```
-MODULES_HOME=$(spack location --i environment-modules)
+MODULES_HOME=$(spack location -i environment-modules)
 source ${MODULES_HOME}/init/bash
 . $SPACK_ROOT/share/spack/setup-env.sh
 ```

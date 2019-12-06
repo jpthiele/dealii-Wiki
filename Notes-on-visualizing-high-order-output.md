@@ -1,6 +1,6 @@
 ### Motivation
 
-As of version 9.1, deal.II allows one to generate VTK and VTU output using high-order Lagrange [cells](https://blog.kitware.com/modeling-arbitrary-order-lagrange-finite-elements-in-the-visualization-toolkit/). As their name suggests, these cells are described by a set of Lagrange points with numerical quantities attached to them. This becomes useful if you are working with high-order elements and/or high-order mappings, since these objects can be visualized . 
+As of version 9.1, deal.II allows one to generate VTK and VTU output using high-order Lagrange [cells](https://blog.kitware.com/modeling-arbitrary-order-lagrange-finite-elements-in-the-visualization-toolkit/). As their name suggests, these cells are described by a set of Lagrange points with numerical quantities attached to them. This becomes useful when you are working with high-order elements and/or high-order mappings, since these objects can be represented more accurately. 
 
 This page provides instructions on how these high-order meshes can be visualized using ParaView (note: this feature was implemented in the version 5.5, older versions will not be able to visualize these meshes).
 

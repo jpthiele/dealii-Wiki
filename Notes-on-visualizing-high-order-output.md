@@ -1,18 +1,18 @@
 ### Motivation
 
-As of version 9.1, deal.II allows one to generate VTK and VTU output using high-order Lagrange [cells](https://blog.kitware.com/modeling-arbitrary-order-lagrange-finite-elements-in-the-visualization-toolkit/). As their name suggests, these cells are described by a set of Lagrange points with numerical quantities attached to them. This becomes useful when you are working with high-order elements and/or high-order mappings, since these objects can be represented more accurately. 
+As of version 9.1, deal.II allows one to generate _vtk_ and _vtu_ output using high-order [Lagrange VTK cells](https://blog.kitware.com/modeling-arbitrary-order-lagrange-finite-elements-in-the-visualization-toolkit/). As their name suggests, these cells are described by a set of Lagrange points with numerical quantities attached to them. This becomes useful when you are working with high-order elements and/or high-order mappings, since these objects can be represented more accurately. 
 
-This page provides instructions on how these high-order meshes can be visualized using ParaView (note: this feature was implemented in the version 5.5, older versions will not be able to visualize these meshes).
+This page provides instructions on how the high-order VTK meshes can be visualized using ParaView (note: this feature was implemented in the version 5.5, older versions will not be able to visualize these meshes).
 
 ### Creating high-order output
 
-First, we produced 2D and 3D VTU output of a spherical shell mesh using the program provided below. Specifically, the mesh was generated using the `GridGenerator::hyper_shell` function, which attaches a `SphericalManifold` manifold to all cells. Subsequently, the mesh was attached to a `DoFHandler` object with a `FE_Q` element of the order four. A trigonometric function was interpolated to the underlying discrete high-order finite-element space using the `MappingQGeneric` mapping of order four. 
+First, we produced 2D and 3D _vtu_ output of a spherical shell mesh using the program provided below. Specifically, the mesh was generated using the `GridGenerator::hyper_shell` function, which attaches a `SphericalManifold` manifold to all cells. Subsequently, the mesh was attached to a `DoFHandler` object with a `FE_Q` element of the order four. A trigonometric function was interpolated to the underlying discrete high-order finite-element space using the `MappingQGeneric` mapping of order four. 
 
-Finally, we write the mesh along with the finite-element representation of the function to a VTU file using `DataOut::write_vtu` with high-order Lagrange cells of 4-th order. Note that the cell order in this context relates to both the description of a cell shape and all quantities (e.g., vector and scalar fields) attached to it. Since we used the 4-th order finite element in this example to represent a function on our mesh, writing the result using cells of orders higher than four will not really give us much in terms of representating the function more accurately (unless your basis functions behave very differently compared to Lagrange polynomials used by VTK, which is not the case here since we used `FE_Q`). However, our mesh represents a spherical shell, which, strictly speaking, cannot be described by a polynomial precisely. Therefore, increasing the cell order will allow one to store and visualize the shape more accurately. Note that for this to produce an effect, you will have to increase the order of the `MappingQGeneric` mapping accordingly. All this, of course, comes at an additional computational and memory. Thus, it requires finding a compromise for a problem you are solving. 
+Finally, we write the mesh along with the finite-element representation of the function to a _vtu_ file using `DataOut::write_vtu` with high-order Lagrange cells of 4-th order. Note that the cell order in this context relates to both the description of a cell shape and all quantities (e.g., vector and scalar fields) attached to it. Since we used the 4-th order finite element in this example to represent a function on our mesh, writing the result using cells of orders higher than four will not really give us much in terms of representating the function more accurately (unless your basis functions behave very differently compared to Lagrange polynomials used by VTK, which is not the case here since we used `FE_Q`). However, our mesh represents a spherical shell, which, strictly speaking, cannot be described by a polynomial precisely. Therefore, increasing the cell order will allow one to store and visualize the shape more accurately. Note that for this to produce an effect, you will have to increase the order of the `MappingQGeneric` mapping accordingly. All this, of course, comes at an additional computational and memory. Thus, it requires finding a compromise for a problem you are solving. 
 
 ### Visualization
 
-The produced VTU output was loaded into ParaView v5.7. Even though the mesh is high-order, ParaView uses (bi-/tri-)linear interpolation between the Lagrange points by default. To enable the high-order interpolation, you need to locate the property "Nonlinear Subdivision Level" in the object properties (the easiest way to do this is to search for this field by its name) and set the value to a number larger than one, according to your needs:
+The produced _vtu_ files were loaded in the ParaView v5.7. Even though the mesh is high-order, ParaView uses (bi-/tri-)linear interpolation between the Lagrange points by default. To enable the high-order interpolation, you need to locate the property "Nonlinear Subdivision Level" in the object properties (the easiest way to do this is to search for this field by its name) and set the value to a number larger than one, according to your needs:
 
 ![Nonlinear Subdivision Level](https://github.com/agrayver/dealii_wiki_imgs/blob/master/subdivision_option.png)
 
@@ -32,7 +32,7 @@ For more information on the deal.II's implementation of this feature, see the do
 
 ### Code
 
-The images shown above were generated using the VTU files produced by the program below:
+The images shown above were generated using the _vtu_ files produced by the program below:
 
 ```c++
 #include <deal.II/grid/tria.h>

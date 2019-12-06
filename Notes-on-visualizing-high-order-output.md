@@ -28,7 +28,7 @@ You can see now that cells have curved shapes and the quantity within each cell 
 
 ### Extra details
 
-For more information on deal.II implementation of this feature, see the documentation of the [DataOut::build_patches](https://www.dealii.org/current/doxygen/deal.II/classDataOut.html#a5eb51872b8736849bb7e8d2007fae086) method. Additionally, step-53 and step-65 provide some more examples and details about high-order mappings, their internal representation and output. 
+For more information on the deal.II's implementation of this feature, see the documentation of the [DataOut::build_patches](https://www.dealii.org/current/doxygen/deal.II/classDataOut.html#a5eb51872b8736849bb7e8d2007fae086) method. Additionally, step-53 and step-65 provide some more examples and details about high-order mappings, their internal representation and output. 
 
 ### Code
 

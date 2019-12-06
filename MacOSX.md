@@ -21,15 +21,11 @@ This application is always built with the latest version of the MacOS X operatin
         xcode-select --install
 
     to install the tools.
-2. Install cmake if you don't have it (check by typing "cmake" in terminal). To do so got to http://www.cmake.org/download/ and download the Mac OSX binary .dmg, then open the .dmg and drag cmake into "applications".
-3. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
-4. You should now have cmake and deal.II in your "applications" in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed under ```/Applications/deal.II.app/Contents/Resources```
-NOTE: If you can not run the app because it is from an "unidentified developer", go to "Applications" in "Finder", ctrl+click on the deal.II app and select "Open".
-5. Set up your bash profile. Open a terminal and type "touch .profile;open .profile". In the editor add the following line to the file:
-
-        export PATH=/Applications/CMake.app/Contents/bin:$PATH
-
-6. done.
+2. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
+3. You should now have cmake and deal.II in your "applications" in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed somewhere in ```/Applications/deal.II.app/Contents/Resources```
+NOTE: If you can not run the app because it is from an "unidentified developer", go to "Applications" in "Finder", ctrl+click (or right click) on the deal.II app and select "Open".
+4. Optionally follow the instruction on the terminal, if you want to keep the deal.II library paths in your day to day terminal.
+5. done.
 
 
 # Instructions for Mac 10.9 Users, Deal.II ver. 8.0 or later (current trunk)

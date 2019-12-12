@@ -49,11 +49,11 @@ Make sure that `python`, `curl`, `git`, `make`, `g++` and `gfortran` are install
 sudo apt install python git curl make g++ gfortran
 ```
 
-Now clone Spack
+Now clone Spack and checkout the latest stable release (pointed by branch `master`)
 ```
 cd $SPACK_ROOT
 git clone https://github.com/spack/spack.git .
-git checkout develop
+git checkout master
 ```
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite

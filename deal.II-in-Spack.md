@@ -33,7 +33,7 @@ or the following videos from lead developers:
 
 [Spack tutorial 101](http://spack.readthedocs.io/en/latest/tutorial.html) is good place to start as well.
 
-Note: Spack is in active development and is in alpha state, thereby below we recommend using the specific snapshot of the code (hash), that was tested on macOS / Ubuntu / CentOS7 with deal.II and is being used to run the complete testsuite on `Ubuntu18.04` with `openmpi` and `openblas`. See [Continuous section of CDash](https://cdash.43-1.org/index.php?project=deal.II).
+Note: Spack is in active development and at the time of writing this page the following installation procedure was tested on Ubuntu, macOS and on two HPC clusters (one of which being a Cray supercomputer).
 
 ## Quick installation on the desktop
 

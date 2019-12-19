@@ -1,7 +1,5 @@
 # The Eclipse Integrated Development Environment and how to set up deal.II in it
 
-**Note: The following page is written with the CMake build system in mind that will be used starting with deal.II 8.0.**
-
 # About Eclipse
 
 [Eclipse](http://www.eclipse.org) is, today, the integrated development
@@ -22,12 +20,8 @@ separately.
 
 Using an integrated development environment such as Eclipse is difficult to
 learn by just reading something about it. It's best learned by <i>doing</i> or
-watching someone else do it. To this end, take a look at training videos 7, 8
-and 25 at http://www.math.tamu.edu/~bangerth/videos.html .
-
-*Overview:*
-<wiki:toc />
-
+watching someone else do it. To this end, take a look at training videos 7, 8,
+8.01, and 25 at https://www.math.colostate.edu/~bangerth/videos.html .
 
 # A note up front on using Subversion and Eclipse
 

@@ -21,6 +21,22 @@ This application is always built with the latest version of the MacOS X operatin
         xcode-select --install
 
     to install the tools.
+
+
+    If you have the error:
+
+    ```
+    xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+    ```
+
+    then you might need to run
+
+    ```
+    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+    ```
+
+    to fix it. The explanation is available at [StackOverflow](https://stackoverflow.com/questions/17980759/xcode-select-active-developer-directory-error/17980786#17980786).
+
 2. Download the latest .dmg of deal.II from https://www.dealii.org/download.html and drag it into "applications".
 3. You should now have a deal.II app in your "Applications" folder in finder. Opening the deal.II app will give you a terminal you can use to compile deal.II applications. The library is installed somewhere in ```/Applications/deal.II.app/Contents/Resources```
 NOTE: If you can not run the app because it is from an "unidentified developer", go to "Applications" in "Finder", ctrl+click (or right click) on the deal.II app and select "Open".

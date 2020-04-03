@@ -50,6 +50,7 @@ This page collects a few answers to questions that have frequently been asked ab
     * [Questions about specific behavior of parts of deal.II](#questions-about-specific-behavior-of-parts-of-dealii)
       * [How do I create the mesh for my problem?](#how-do-i-create-the-mesh-for-my-problem)
       * [How do I describe complex boundaries?](#how-do-i-describe-complex-boundaries)
+        * [How do I ensure that my refined grid is correct when using CAD geometry?](#how-do-i-ensure-that-my-refined-grid-is-correct-when-using-cad-geometry)
       * [How do I get the degree of freedom indices at vertices?](#how-do-i-get-the-degree-of-freedom-indices-at-vertices)
       * [I am using discontinuous Lagrange elements (FE_DGQ) but they don't seem to have vertex degrees of freedom!?](#i-am-using-discontinuous-lagrange-elements-fe_dgq-but-they-dont-seem-to-have-vertex-degrees-of-freedom)
       * [How do I access values of discontinuous elements at vertices?](#how-do-i-access-values-of-discontinuous-elements-at-vertices)
@@ -1432,8 +1433,36 @@ In deal.II releases after 8.1, the way geometry is described has been made
 much more flexible. In particular, it is no longer only possible to
 describe the boundary, but it is also possible to describe where points in
 the interior lie. The step-53 tutorial program explains how this is done
-for a realistic example.
+for a realistic example. Additionally, the step-54 tutorial highlights how 
+boundary points can be mapped to CAD geometry.
 
+#### How do I ensure that my refined grid is correct when using CAD geometry?
+When using CAD geometries, it is critical that the manifold ID's for objects 
+in the mesh (that is, faces and lines) are correctly set such that, upon refinement,
+the child elements are projected to the correct CAD entities. The mesh that
+results when this is not done correctly will not only be wrong, but may also
+difficult to interpret the source of the error.
+
+The principles that constitute the current best practice are as follows:
+1. Start from the lowest codimension objects, and identify how to deform them. 
+For the case of a codimension one triangulation, the cells of a `Triangulation<2,3>` 
+are quadrilaterals, that should deform as a `TopoDS_FACE`. (For a pure 3d triangulation,
+you might start by setting the manifold IDs of the cells themselves.)
+2. For the codimension one case, attach your favourite manifold to the `TopoDS_Face` using 
+`cell->set_all_manifold_ids(manifold_id)`. Notice the use of `set_all_manifold_ids()`, 
+and **not** `set_manifold_id()`. This is necessary because you want all children 
+of these objects to belong to the same manifold. In particular, for this want all faces
+that are internal (i.e., that are shared between two objects with the same manifold 
+ID) to inherit the same manifold ID. For the choice of manifold to apply here,
+it is often most appropriate to employ a `NormalToMeshProjectionManifold`.
+3. Now go one codimension lower. For this codimension one example, that would mean setting
+the manifold IDs on curves (and for pure 3d meshes, surfaces). Follow the same rule as 
+before, setting all manifold IDs on faces that you know should follow a known 
+codimension one geometry (for curves, a known `TopoDS_EDGE`, or `TopoDS_WIRE`) using
+calls to `set_all_manifold_ids()`.  Here it is often most appropriate to choose 
+`ArcLengthProjectionManifold` objects, attached to the wires that identify your geometry. 
+
+Doing things in this order guarantees that internal edges get the correct manifold ID.
 
 ### How do I get the degree of freedom indices at vertices?
 

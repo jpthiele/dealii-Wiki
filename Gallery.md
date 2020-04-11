@@ -5,7 +5,22 @@ show what can be done with deal.II. Most of the pictures also contain a brief su
 
 Feel free to add your own pictures here, but please add the name of the person who did the simulation -- others may be so excited by it that they would want to contact you!
 
-## Flow through the blades of a turbine
+## Supersonic flow around a cylinder
+
+<a href="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.2d-2.jpg">
+<img height="400px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.2d-2.jpg" />
+</a>
+
+Finite element simulation with an invariant-domain preserving convex limiting scheme (9.5M gridoints). The corresponding first-order method is discussed in <a href="https://www.dealii.org/developer/doxygen/deal.II/step_69.html">step-69</a>. There are also videos available of the 2D computation and a corresponding 3D simulation with 1.8 billion gridpoints (click on the pictures below):
+
+<a href="https://tamiko.43-1.org/developer/mach-3-cylinder-9.5M.mp4">
+<img width="400px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.2d.jpg" />
+</a>
+<a href="https://tamiko.43-1.org/developer/mach-3-cylinder-3D-1817M.mp4">
+<img width="400px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.3d-2.jpg" />
+</a>
+
+- Matthias Maier, 2020
 
 
 ## Flow through the blades of a turbine
@@ -43,7 +58,7 @@ The flow pattern becomes unstable at various times switching from one configurat
 Several movies of various configurations are posted on Wolfgang Bangerth's webpage [https://www.math.colostate.edu/~bangerth/pictures.html#convection](https://dealii.org/developer/doxygen/deal.II/step_22.html]).
 
 
-(Origin: Wolfgang Bangerth, December 2007)
+(Author: Wolfgang Bangerth, December 2007)
 
 
 
@@ -57,7 +72,7 @@ Several movies of various configurations are posted on Wolfgang Bangerth's webpa
 These images show a Laplacian with singular and hypersingular right hand sides, supported on a
 co-dimension one circle.
 
-(Origin: Luca Heltai, 16 May 2007)
+(Author Luca Heltai, 16 May 2007)
 
 
 ## Topology Optimization
@@ -67,7 +82,7 @@ co-dimension one circle.
 These images result from a constrained topology optimization problem related to the minimization of steady state thermal compliance on a 2D square plate. The optimization is performed on a hierarchically adapted grid:
 After completing optimization on a coarse grid level, the grid is adapted based on topology indicator derivatives and the optimization loop is restarted with interpolated topology indicator field on the (adaptively) refined grid as initial guess. The figure shows the global optimized topology and a selected zoomed part.
 
-(Origin: Rohallah Tavakoli, 9 Feb. 2007)
+(Author: Rohallah Tavakoli, 9 February 2007)
 
 
 ## Multiphase flow
@@ -76,7 +91,7 @@ After completing optimization on a coarse grid level, the grid is adapted based 
 
 This image shows the saturation at one time step of a simulation of how a mixture of two fluids moves through a random medium. The full description as well as movies of this problem and a 3d simulation can be found as step-21 in the tutorial of deal.II.
 
-(Origin: Wolfgang Bangerth, 2006)
+(Author: Wolfgang Bangerth, 2006)
 
 
 ## Phase change/crystal growth
@@ -85,7 +100,9 @@ This image shows the saturation at one time step of a simulation of how a mixtur
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-dendrite2.jpg" />
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-dendrite3.jpg" />
 
-Dendritic growth of crystals. (Origin: Denis Danilov)
+Dendritic growth of crystals.
+
+(Author: Denis Danilov)
 
 
 <img width="400px" src="https://www.dealii.org/images/wiki/gallery/Gallery-Grain_growth.png" />
@@ -111,45 +128,50 @@ The pressure of an incompressible flow around a backward facing step is visualiz
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-convection.png" />
 
-Convection in itself is a hard problem (see the entry further up this page on thermally driven convection]](http://www.math.tamu.edu/~bangerth/pictures.html#optical].), but if it is between moving surfaces or with nonvertical gravity, it is even more challenging. This is what makes simulations of the earth's interior, both of the liquid rock earth mantle as well of the liquid metal outer core, so complicated. The picture to the right shows streamlines of a simulation of a convecting fluid in a radial gravity field between a hotter inner sphere and a cooler outer sphere, both of which are rotating and dragging the fluid along. Under such conditions, very complicated flow patterns develop after a while - among which are those that are responsible for the earth's magnetic field. (Origin: Andre Grosse-Woehrmann, 2005)
+Convection in itself is a hard problem (see the entry further up this page on thermally driven convection]](http://www.math.tamu.edu/~bangerth/pictures.html#optical].), but if it is between moving surfaces or with nonvertical gravity, it is even more challenging. This is what makes simulations of the earth's interior, both of the liquid rock earth mantle as well of the liquid metal outer core, so complicated. The picture to the right shows streamlines of a simulation of a convecting fluid in a radial gravity field between a hotter inner sphere and a cooler outer sphere, both of which are rotating and dragging the fluid along. Under such conditions, very complicated flow patterns develop after a while - among which are those that are responsible for the earth's magnetic field.
+
+(Author: Andre Grosse-Woehrmann, 2005)
 
 
 ## Solitons
 
-The step-25 tutorial program demonstrates the solution of the nonlinear, wave equation-type sine-Gordon equation, from which the pictures here are taken. Full movies of these solutions can be found in the results section of that program as well.
-
-(Origin: Ivan Christov, 2006)
-
 <img width="180px" src="https://www.dealii.org/images/wiki/gallery/Gallery-step25-2.png" />
 <img width="180px" src="https://www.dealii.org/images/wiki/gallery/Gallery-step25-3.png" />
 
+The step-25 tutorial program demonstrates the solution of the nonlinear, wave equation-type sine-Gordon equation, from which the pictures here are taken. Full movies of these solutions can be found in the results section of that program as well.
+
+(Author: Ivan Christov, 2006)
 
 ## Transport
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-transport_01.jpg" />
 
 Modelling transport via the wavelike approach, numerical waves occur.
-(Origin: Andre Große-Wöhrmann, 2005)
+
+(Author: Andre Große-Wöhrmann, 2005)
 
 
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-kpp.png" />
 
 Modeling nonlinear transport equations is slightly more complicated since they can develop shocks even if the initial conditions are smooth. This isn't the case for the initial conditions that produced this solution of the KPP equations, but the difficulty of capturing the solution's features is still apparent.
-(Origin: Orhan Mamedov, Vladimir Tomov, Abner Salgado, as part of a student project, 2011)
+
+(Author: Orhan Mamedov, Vladimir Tomov, Abner Salgado, as part of a student project, 2011)
 
 
 ## Fictitious Domain Method
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-fdm_stokes_01.jpg" />
 
-This is the boundary supported fictitious domain method applied for the problem of Stokes.`You can see the pressure and the velocity field. The velocity is enforced on the circle via a weak condition. The key feature of this method is that this curve may be independent of the discretization mesh. (Origin: Andre Große-Wöhrmann, 2005)
+This is the boundary supported fictitious domain method applied for the problem of Stokes.`You can see the pressure and the velocity field. The velocity is enforced on the circle via a weak condition. The key feature of this method is that this curve may be independent of the discretization mesh.
+
+(Author: Andre Große-Wöhrmann, 2005)
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-fdm_potential_01.jpg" />
 
-This is the boundary supported fictitious domain method applied to the potential equation. Again the curve may be independent of the mesh. Nevertheless the mesh is refined in the vicinity of the curve. (Origin: Andre Große-Wöhrmann, 2005)
+This is the boundary supported fictitious domain method applied to the potential equation. Again the curve may be independent of the mesh. Nevertheless the mesh is refined in the vicinity of the curve.
 
-
+(Author: Andre Große-Wöhrmann, 2005)
 
 
 ## Plastic and quasistatic deformation
@@ -162,29 +184,29 @@ shows the displacement by pressing a printing letter in the shape of the
 Chinese character for "force" into a metal block. (The displacement at every
 node is exaggerated by a factor of 100.)
 
-On the other hand, the images below correspond to the step-18 tutorial program. It shows the gradual deformation of a cylinder under
-pressure from above, until it essentially fails. The color coding indicates
-stress levels in the material. Because it looks nice, at the very bottom, there is also an isosurface view of the x-displacement early on in the simulation. More details
-about this simulation can be found in the step-18
-tutorial. (Origin: Wolfgang Bangerth, 2005)
-
-
 <img width="300px" src="https://www.dealii.org/images/wiki/gallery/Solution-0010.0000.png" />
-
-
+&nbsp;&nbsp;
 <img width="300px" src="https://www.dealii.org/images/wiki/gallery/Step-18-contours.png" />
 
+On the other hand, the images above correspond to the step-18 tutorial program. It shows the gradual deformation of a cylinder under pressure from above, until it essentially fails. The color coding indicates
+stress levels in the material. Because it looks nice, at the very bottom, there is also an isosurface view of the x-displacement early on in the simulation. More details about this simulation can be found in the step-18
+tutorial.
+
+(Authors: Wolfgang Bangerth, 2005; Joerg Frohne, 2013)
 
 
 ## Complicated domains
 
-Here is an image of a mesh of a rather complicated domain. It shows a mesh created from CT data of the left lung (Origin: Li Pan, 2006)
-
 <img width="300px" src="https://www.dealii.org/images/wiki/gallery/Left_lung.png" />
 
+Here is an image of a mesh of a rather complicated domain. It shows a mesh created from CT data of the left lung 
+
+(Author: Li Pan, 2006)
 
 
 ## Crack propagation
+
+<img width="600px" src="https://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_03.png" />
 
 Quasistatic crack propagation in brittle materials can be simulated using the energy principle, where a crack grows in the direction of maximal energy release. Here, the direction of the crack is computed by an asymptotic formula for the change of energy in two dimensions using (classical) stress intensity factors (linear elasticity). The crack is elongated step-by-step and the domain is remeshed in each step.
 
@@ -192,27 +214,20 @@ The pictures show crack paths in an orthotropic material with two axes of elasti
 
 The third picture shows a crack propagating in an isotropic base material with an anisotropic local inhomogeneity. This numerical experiment demonstrates how a local perturbation in the material can influence a crack path.
 
-<img width="600px" src="https://www.dealii.org/images/wiki/gallery/crack_propagation_cts-specimen_03.png" />
-
 
 
 ## Fun pictures
 
 <img width="150px" src="https://www.dealii.org/images/wiki/gallery/Gallery-rotation.jpg" />
 
-When changing the numbering to something regular, some of the structures in DataOutRotation were forgotten. Instead of iso-surfaces symmetric to the center, we got this nice picture looking a bit like a complicated turbine. Guido Kanschat 08:10, 17 January 2006 (CET)
+When changing the numbering to something regular, some of the structures in DataOutRotation were forgotten. Instead of iso-surfaces symmetric to the center, we got this nice picture looking a bit like a complicated turbine. (Guido Kanschat, 17 January 2006)
 
 <img width="400px" src="https://www.dealii.org/images/wiki/gallery/Gallery-PacmanBenchmark.png" />
 
 Poisson equation with homogeneous Dirichlet boundary conditions solved using Rvachev R-functions method combined with finite elements. Mesh is nonconforming, boundary conditions are enforced exactly. Pacman domain is considered as a benchmark because it contains curved parts as well as reentrant corner :)
 
-For those who are interested to learn a bit about theory of R-functions, [here is a link](http://onlinelibrary.wiley.com/doi/10.1002/pamm.200701055/abstract) to my old 2-pages conference paper. More detailed  and extensive info in English is available at [Spatial Automation Lab](http://sal-cnc.me.wisc.edu/).
-
--Slawa, 07:21, 6 September 2010 (UTC)
-
+For those who are interested to learn a bit about theory of R-functions, [here is a link](http://onlinelibrary.wiley.com/doi/10.1002/pamm.200701055/abstract) to my old 2-pages conference paper. More detailed  and extensive info in English is available at [Spatial Automation Lab](http://sal-cnc.me.wisc.edu/). (Slawa, 6 September 2010)
 
 <img width="200px" src="https://www.dealii.org/images/wiki/gallery/Gallery-Solidification-Tree.png" />
 
-This had to be a simulation of directional solidification/dendritic growth. But something was wrong with the model and it produced such a nice tree in the end :)
-
--Slawa, 08:08, 6 September 2010 (UTC)
+This had to be a simulation of directional solidification/dendritic growth. But something was wrong with the model and it produced such a nice tree in the end :) (Slawa, 6 September 2010)

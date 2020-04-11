@@ -14,13 +14,13 @@ Feel free to add your own pictures here, but please add the name of the person w
 Finite element simulation with an invariant-domain preserving convex limiting scheme (9.5M gridoints). The corresponding first-order method is discussed in <a href="https://www.dealii.org/developer/doxygen/deal.II/step_69.html">step-69</a>. There are also videos available of the 2D computation and a corresponding 3D simulation with 1.8 billion gridpoints (click on the pictures below):
 
 <a href="https://tamiko.43-1.org/developer/mach-3-cylinder-9.5M.mp4">
-<img width="400px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.2d.jpg" />
+<img width="350px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.2d.jpg" />
 </a>
 <a href="https://tamiko.43-1.org/developer/mach-3-cylinder-3D-1817M.mp4">
-<img width="400px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.3d-2.jpg" />
+<img width="350px" src="https://www.dealii.org/images/wiki/gallery/step-69.2nd-order.3d-2.jpg" />
 </a>
 
-- Matthias Maier, 2020
+(Author: Matthias Maier, 10 April 2020)
 
 
 ## Flow through the blades of a turbine

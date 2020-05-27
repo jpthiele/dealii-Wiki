@@ -12,6 +12,11 @@ All pull-requests on github are tested with the following machines and their sta
 
 4. **tidy** (running on https://jenkins.tjhei.info/job/dealii-tidy/ and controlled by ``./contrib/ci/Jenkinsfile.tidy``). Runs clang-tidy (by running ``./contrib/utilities/run_clang_tidy.sh``). Maintained by: [@tjhei](https://github.com/tjhei)
 
+5. **github-** simple build running inside "Github Actions" in several configurations (currently Linux, windows, OSX). Configured using [``./.github/workflows``](https://github.com/dealii/dealii/tree/master/.github/workflows)). The virtual machines only have 2 cores, so no tests are being run due to time constraints.
+
+6. **MSVC - appveyor** A Windows build using https://appveyor.com, controlled via [``./contrib/ci/appveyor.yml``](https://github.com/dealii/dealii/blob/master/contrib/ci/appveyor.yml).
+
+
 Note: PRs are not run automatically but need to be approved by one of the developers by adding the label "ready to test" to the PR. From now on, every push to this PR will cause a new build. To build the original build or to rebuild the last commit (maybe because the tester crashed), trigger a new build by leaving a comment containing the text ``/rebuild``.
 
 # Regression testing

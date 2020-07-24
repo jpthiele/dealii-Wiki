@@ -10,25 +10,25 @@ Please follow the following guidelines:
 
 1. Are you happy with latest release of deal.II? If yes, go to the next
    point. If you want to work on deal.II itself, you will need the latest
-   development version. Go to #development.
+   development version. Go to [Development version](https://github.com/dealii/dealii/wiki/Getting-deal.II#development-version).
 
 2. Are you just trying things out and learning how to use deal.II? If yes, try
-   #VM or if you are confortable using docker, try #docker. Otherwise go to
+   [VM](https://github.com/dealii/dealii/wiki/Getting-deal.II#vm) or if you are comfortable using docker, try [docker](https://github.com/dealii/dealii/wiki/Getting-deal.II#docker). Otherwise go to
    the next point.
 
-3. Is your machine running Windows? See #Windows. Are you running
-   MacOS? You can use the prebuilt package, see #MacOS.
+3. Is your machine running Windows? See [Windows](https://github.com/dealii/dealii/wiki/Getting-deal.II#windows). Are you running
+   MacOS? You can use the prebuilt package. See [MacOS](https://github.com/dealii/dealii/wiki/Getting-deal.II#macos).
 
-4. Are you running Ubuntu/Debian/Arch/Gentoo/..., consider installing a #Linux
-   package.
+4. Are you running Ubuntu/Debian/Arch/Gentoo/..., consider installing a [Linux
+   package](https://github.com/dealii/dealii/wiki/Getting-deal.II#linux-packages). If not, continue to the next point.
 
 5. If you need additional dependencies (MPI, Trilinos, p4est, PETSC, ...) it
-   is easier to use a source-based installer like #candi or #spack. Otherwise,
+   is easier to use a source-based installer like [candi](https://github.com/dealii/dealii/wiki/Getting-deal.II#candi) or spack. Otherwise,
    go to the next point.
 
-6. Download the source code to deal.II (.tar.gz file from the latest 
+6. Get the source code to deal.II by downloading the .tar.gz file from the latest release at
      https://github.com/dealii/dealii/releases
-   and go to "Installation from source".
+   and go to [Installation from source](https://github.com/dealii/dealii/wiki/Getting-deal.II#installation-from-source).
 
 7. None of this works or still lost? Contact us at https://www.dealii.org/mail.html
 
@@ -106,4 +106,3 @@ apt-get update && apt-get install -y software-properties-common && add-apt-repos
   quite useful to run on clusters where you need typically need to install
   packages manually.
   See https://github.com/dealii/candi
-

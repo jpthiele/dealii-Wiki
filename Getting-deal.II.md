@@ -82,7 +82,7 @@ Please follow the following guidelines:
   We provide packages to several linux distributions as shown under 
   "Linux distributions" at https://www.dealii.org/download.html
 
-  For example, if you are running 18.04 you can use the deal.II package using
+  For example, if you are running Ubuntu 18.04 you can use the deal.II package using
 
 ```
 export REPO=ppa:ginggs/deal.ii-9.2.0-backports
@@ -91,7 +91,7 @@ apt-get update && apt-get install -y software-properties-common && add-apt-repos
 && apt-get update && apt-get install -y libdeal.ii-dev
 ```
 
-If you are running 20.04 you can use the deal.II package:
+If you are running Ubuntu 20.04 you can use the deal.II package:
 
 ```
 export REPO=ppa:ginggs/deal.ii-9.2.0-backports

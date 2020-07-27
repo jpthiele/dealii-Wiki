@@ -3,12 +3,12 @@
 deal.II is somewhat difficult to install especially if you are new to it and
 if you need additional dependencies for parallel computations (p4est,
 Trilinos, PETsc, etc.). There are various different ways to acquire deal.II and
-its (optional) dependencies and the number of choices can be overwhelming. This document tries to help you navigating the
+its (optional) dependencies and the number of choices can be overwhelming. This document tries to help you navigate the
 different options.
 
 Please follow the following guidelines:
 
-1. Are you happy with latest release of deal.II? If yes, go to the next
+1. Are you happy with the latest release of deal.II? If yes, go to the next
    point. If you want to work on deal.II itself, you will need the latest
    development version. Go to [Development version](https://github.com/dealii/dealii/wiki/Getting-deal.II#development-version).
 
@@ -65,7 +65,7 @@ Please follow the following guidelines:
   Studio, but there is limited support for other dependencies (MPI, TBB,
   PETSc, Trilinos).  
 
-  Note that WSL practically work like a Linux machine (with a few quirks such
+  Note that the WSL practically works like a Linux machine (with a few quirks such
   as graphical user interfaces), so you can install dependencies (and deal.II)
   from source or using candi or spack.
 
@@ -74,24 +74,15 @@ Please follow the following guidelines:
   https://github.com/dealii/dealii/releases and download and install it.
   For more details see https://github.com/dealii/dealii/wiki/MacOSX
 
-  Otherwise, the .dmg is also a convenient way to aquire common dependencies
-  and installing from source is the easy, see "Installation from source".
+  Otherwise, the .dmg is also a convenient way to acquire common dependencies
+  and installing from source is easy, see "Installation from source".
 
 # Linux packages
 
   We provide packages to several linux distributions as shown under 
   "Linux distributions" at https://www.dealii.org/download.html
 
-  For example, if you are running Ubuntu 18.04 you can use the deal.II package using
-
-```
-export REPO=ppa:ginggs/deal.ii-9.2.0-backports
-
-apt-get update && apt-get install -y software-properties-common && add-apt-repository $REPO \
-&& apt-get update && apt-get install -y libdeal.ii-dev
-```
-
-If you are running Ubuntu 20.04 you can use the deal.II package:
+  For example, if you are running Ubuntu 18.04 or 20.04 you can use the deal.II package using
 
 ```
 export REPO=ppa:ginggs/deal.ii-9.2.0-backports
@@ -103,6 +94,6 @@ apt-get update && apt-get install -y software-properties-common && add-apt-repos
 # Candi
   Candi is a tool maintained by the deal.II community to install deal.II and
   many of the optional dependencies on a linux-like system from source and is
-  quite useful to run on clusters where you need typically need to install
+  quite useful to run on clusters where you typically need to install
   packages manually.
   See https://github.com/dealii/candi

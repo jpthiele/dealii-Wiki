@@ -56,7 +56,7 @@ Please follow the following guidelines:
     install dependencies in several different ways: manually, using the
     Debian/Ubuntu or other packages, using candi, or using spack
 
-# Windows:
+# Windows
   Instructions: https://github.com/dealii/dealii/wiki/Windows
 
   If you are running Windows 10, we recommend using the WSL as this allows you

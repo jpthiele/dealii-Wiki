@@ -1,8 +1,8 @@
 # Introduction
 
-deal.II is somewhat difficult to install especially if you are new to it and
+deal.II relies on a large number of other packages, making the installation cumbersome -- especially if you are new to the project and
 if you need additional dependencies for parallel computations (p4est,
-Trilinos, PETsc, etc.). There are various different ways to acquire deal.II and
+Trilinos, PETsc, etc.). Additionally, there are various different ways to acquire deal.II and
 its (optional) dependencies and the number of choices can be overwhelming. This document tries to help you navigate the
 different options.
 

@@ -13,7 +13,7 @@ Please follow the following guidelines:
    development version. Go to [Development version](https://github.com/dealii/dealii/wiki/Getting-deal.II#development-version).
 
 2. Are you just trying things out and learning how to use deal.II? If yes, try
-   [VM](https://github.com/dealii/dealii/wiki/Getting-deal.II#vm) or if you are comfortable using docker, try [docker](https://github.com/dealii/dealii/wiki/Getting-deal.II#docker). Otherwise go to
+   the [Virtual Machine](https://github.com/dealii/dealii/wiki/Getting-deal.II#virtual-machine) or if you are comfortable using docker, try [docker](https://github.com/dealii/dealii/wiki/Getting-deal.II#docker). Otherwise go to
    the next point.
 
 3. Is your machine running Windows? See [Windows](https://github.com/dealii/dealii/wiki/Getting-deal.II#windows). Are you running
@@ -39,7 +39,7 @@ Please follow the following guidelines:
   installation as described at
   https://www.dealii.org/current/readme.html#installation
 
-# VM
+# Virtual Machine
  Install VirtualBox on your Windows/MacOS/Linux machine and download the
  virtual machine image from https://www.math.clemson.edu/~heister/dealvm/
 

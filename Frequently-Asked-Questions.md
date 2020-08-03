@@ -1331,20 +1331,26 @@ compiler knows what the base class is (for example it knows if there are
 explicit specializations) and so it knows which base classes to look into
 in an attempt to find a function with the name `f`.
 
-### Does deal.II require C++11 support?
+### Does deal.II require C++11/C++14/C++17 support?
 The answer to this question depends on the version of deal.II that you are
-interested in using
+interested in using.
 
-#### deal.II version 9.0.0
+#### deal.II version after 9.2 and later
+
+While deal.II version 9.2 only requires C++11 support, versions after 9.2 actually
+require C++14 support from compilers. 
+
+#### deal.II version 9.0 and later
 As of version 9.0.0, deal.II requires C++11 support equivalent to that provided
-by GCC 4.8.0., which is, essentially, every new feature in C++11.
+by GCC 4.8.0, which is, essentially, all of the features that are new C++11.
 
-#### deal.II version 8.5.0 and previous
-The current release of deal.II, 8.5.0, is compatible with the C++98 and C++03
+#### deal.II version 8.5.0 and older
+deal.II up to version 8.5.0 is compatible with the C++98 and C++03
 standards, but some features (e.g., the `LinearOperator` class) are only
 available if your compiler supports a subset of C++11 features. GCC 4.6 and
 newer implement enough of C++11 for these features to be turned on. More
-exactly, we currently require the following language features to be present:
+exactly, these specific features of deal.II currently require the following 
+language features to be present:
 
 1. `auto`-typed variables
 2. The `nullptr` keyword
@@ -1352,7 +1358,7 @@ exactly, we currently require the following language features to be present:
 4. The `declval` and `decltype` keywords
 5. Lambda functions
 
-while we do not use the following features:
+while they do not use the following features:
 
 1. Marking virtual functions as `override`
 2. Some features of the `type_traits` header, such as `std::is_trivially_copyable`

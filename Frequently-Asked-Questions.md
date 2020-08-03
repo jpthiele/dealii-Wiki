@@ -43,9 +43,10 @@ This page collects a few answers to questions that have frequently been asked ab
       * [Doesn't it take forever to compile templates?](#doesnt-it-take-forever-to-compile-templates)
       * [Why do I need to use typename in all these templates?](#why-do-i-need-to-use-typename-in-all-these-templates)
       * [Why do I need to use this-&gt; in all these templates?](#why-do-i-need-to-use-this--in-all-these-templates)
-      * [Does deal.II require C++11 support?](#does-dealii-require-c11-support)
-        * [deal.II version 9.0.0](#dealii-version-900)
-        * [deal.II version 8.5.0 and previous](#dealii-version-850-and-previous)
+      * [Does deal.II require C++11/C++14/C++17 support?](#does-dealii-require-c11c14c17-support)
+        * [deal.II versions after 9.2](#dealii-versions-after-92)
+        * [deal.II version 9.0 and later](#dealii-version-90-and-later)
+        * [deal.II version 8.5.0 and older](#dealii-version-850-and-older)
       * [Can I convert Triangulation cell iterators to DoFHandler cell iterators?](#can-i-convert-triangulation-cell-iterators-to-dofhandler-cell-iterators)
     * [Questions about specific behavior of parts of deal.II](#questions-about-specific-behavior-of-parts-of-dealii)
       * [How do I create the mesh for my problem?](#how-do-i-create-the-mesh-for-my-problem)
@@ -1335,7 +1336,7 @@ in an attempt to find a function with the name `f`.
 The answer to this question depends on the version of deal.II that you are
 interested in using.
 
-#### deal.II version after 9.2 and later
+#### deal.II versions after 9.2
 
 While deal.II version 9.2 only requires C++11 support, versions after 9.2 actually
 require C++14 support from compilers. 

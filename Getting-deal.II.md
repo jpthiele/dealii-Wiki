@@ -57,7 +57,7 @@ Please follow the following guidelines:
     Debian/Ubuntu or other packages, using candi, or using spack
 
 # Windows
-  Instructions: https://github.com/dealii/dealii/wiki/Windows
+  Additional information: https://github.com/dealii/dealii/wiki/Windows
 
   If you are running Windows 10, we recommend using the WSL as this allows you
   to use the Debian/Ubuntu packages and run with MPI and other
@@ -68,6 +68,28 @@ Please follow the following guidelines:
   Note that the WSL practically works like a Linux machine (with a few quirks such
   as graphical user interfaces), so you can install dependencies (and deal.II)
   from source or using candi or spack.
+
+  WSL installation steps:
+  1. Enable WSL in an Admin Power Shell (see [WSL Guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for more details):
+```
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+  2. Open the Microsoft store and install "Ubuntu 20.04"
+  3. Reboot your computer, open "Ubuntu", a terminal appears and you are asked to create an account.
+  4. Install deal.II:
+```
+sudo -i
+
+export REPO=ppa:ginggs/deal.ii-9.2.0-backports
+
+apt-get update && apt-get install -y software-properties-common
+add-apt-repository $REPO
+apt-get update
+apt-get install libdeal.ii-dev
+apt-get install build-essential cmake ninja-build gdb git-core
+```
+  5. Optional: install [VS Code](https://code.visualstudio.com/)
+     with the "c++" and the "WSL" extension.
 
 # MacOS
   We provide a binary package (.dmg) as part of each of the releases, see

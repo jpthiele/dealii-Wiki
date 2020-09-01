@@ -7,19 +7,17 @@ the corresponding [FAQ entry](https://github.com/dealii/dealii/wiki/Frequently-A
 
 # Using deal.II with the Windows Subsystem for Linux
 
-**Warning: please be aware that the following is experimental and you will
-likely encounter bugs in compilers and deal.II itself. Only continue if you
-are willing to experiment.**
-
 Windows 10 has gained a compatibility layer for running Linux binaries
 natively on Windows. You can find more information on the
 [Wikipedia page](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
 
 In the following section a detailed HowTo is given to install the subsystem
-and a Linux distribution on top of it. Our choice at hand is [Debian
+and a Linux distribution on top of it. Our choice at hand is 
+[Ubuntu 20.04](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?activetab=pivot:overviewtab)
+but the latest 
+[Debian
 GNU/Linux](https://www.microsoft.com/en-us/store/p/debian-gnu-linux/9msvkqc78pk6)
-because it already contains the latest deal.II release in binary form.
-(<b>Note:</b> The same is true for the Ubuntu distribution.)
+is also a good choice. With both, you can install the latest deal.II release in binary form.
 
 ## (Required) Installing the subsystem and Debian GNU/Linux
 
@@ -37,64 +35,34 @@ Have a look at the excellent documentation about the Linux subsystem on the
    ```
    and restart
 
-3. Open the Microsoft Store and search for "Debian", and install "Get Debian
-   GNU/Linux". When finished start the application. You will be prompted to
-   enter a username and password.
+3. Open the Microsoft Store and search for "Ubuntu", and install it.
+   When finished start the application. You will be prompted to
+   create a user account with username and password.
 
 4. Switch to the "root" account by running
    ```console
-   user@computer% sudo -s
+   sudo -i
    ```
    Enter the password that you used in step 3.
-
-5. Edit the package manager configuration by using nano (or an editor of
-   your choice):
-   ```console
-   root@computer# nano /etc/apt/sources.list
-   ```
-   You should see three lines with a release name (for example `stretch`, or `buster`).
-   In order to get the newest (packaged) version of deal.II we ar going to
-   remove all three lines and replace them with a single line for the `testing` suite:
-   ```
-   deb http://deb.debian.org/debian testing main contrib non-free
-   ```
-
-6. Now update/upgrade the system by running
-   ```console
-   root@computer# apt update
-   [...]
-
-   root@computer# apt dist-upgrade
-   [...]
-   Do you want to continue? [Y/n] <Enter>
-   [...]
-
-   root@computer# apt autoremove
-   [...]
-   Do you want to continue? [Y/n] <Enter>
-   [...]
-   ```
 
 ## (Required) Installing the deal.II library and tools
 
 We continue the installation process by installing the deal.II library with
-development headers and documentation. The packages in Debian (or Ubuntu)
+development headers and documentation. The packages in Debian or Ubuntu
 are called `libdeal.ii-dev` and `libdeal.ii-doc`:
 
 1. As root user (see above) run:
    ```console
-   root@computer# apt install libdeal.ii-dev libdeal.ii-doc
-   [... long list ...]
-   0 upgraded, 443 newly installed, 0 to remove and 0 not upgraded.
-   Need to get 441 MB of archives.
-   After this operation, 2,016 MB of additional disk space will be used.
-   Do you want to continue? [Y/n] <Enter>
-   [...]
-   ```
+    export REPO=ppa:ginggs/deal.ii-9.2.0-backports
+    apt-get update && apt-get install -y software-properties-common
+    add-apt-repository $REPO
+    apt-get update
+    apt-get install libdeal.ii-dev libdeal.ii-doc
+    ```
 
    At this point, let us install a number of useful, additional tools:
    ```console
-   root@computer# apt install build-essential cmake ninja-build gdb clang clang-format
+   root@computer# apt install build-essential cmake ninja-build gdb clang-format git-core
    [...]
    Do you want to continue? [Y/n] <Enter>
    [...]
@@ -109,38 +77,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    ```
    You can also install gnuplot and ParaView natively on Windows to view the files created by deal.II.
 
-   If you plan to use MSVC, you will also need to install ssh, rsync, zip and
-   unzip:
-   ```console
-   root@computer# apt install ssh zip unzip rsync
-   [...]
-   Do you want to continue? [Y/n] <Enter>
-   [...]
-   ```
-   You will also need to install git:
-   ```console
-   root@computer# apt-get install git-core
-   [...]
-   Do you want to contiue? [Y/n] <Enter>
-   [...]
-   ```
-
-   If you would like to use the CMake version managed by Microsoft, run the following:
-   ```console
-   git clone https://github.com/Microsoft/CMake.git
-   […]
-   cd cmake
-   mkdir out
-   cd out
-   cmake ../
-   […]
-   make
-   […]
-   sudo make install
-   […]
-   ```
-
-   Now, exit the root account:
+   Finally, exit the root account:
    ```console
    root@computer# exit
    user@computer$
@@ -159,7 +96,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
    [100%] Built target run
    ```
 
-## (Recommended) Installing an X server
+## (Optional) Installing an X server
 
 In order to run graphical applications from within the Linux Subsystem a
 so-called X server has to be installed. This step is in particular

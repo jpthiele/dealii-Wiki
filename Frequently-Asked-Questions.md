@@ -356,8 +356,8 @@ however.
 ### Does deal.II support shared memory parallel computing?
 
 Yes. deal.II supports multithreading with the help of the
-[http://www.threadingbuildingblocks.org Threading Building Blocks (TBB)
-library](c967ec2ff74d85bd4327f9f773a93af3]). It is enabled by default and
+[Threading Building Blocks (TBB)
+library](http://www.threadingbuildingblocks.org). It is enabled by default and
 can be controlled via the `DEAL_II_WITH_THREADS` configuration toggle
 passed to `cmake` (see the deal.II readme file).
 

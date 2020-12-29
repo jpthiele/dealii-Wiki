@@ -58,7 +58,7 @@ git checkout master
 
 **Make sure C/C++/Fortran compilers are in path** (on Ubuntu you need to `sudo apt-get install gfortran`, on macOS you can compile `gcc` with spack, see [below](#installing-gcc), and you have **curl** (`sudo apt-get install curl`) to download packages. Then install the complete deal.II suite
 ```
-spack install --test=root dealii ^suite-sparse@5.2.0 ^trilinos~exodus~netcdf
+spack install --test=root dealii ^trilinos~exodus~netcdf
 ```
 Additional option `--test=root` instructs Spack to run quick tests for `dealii`.
 

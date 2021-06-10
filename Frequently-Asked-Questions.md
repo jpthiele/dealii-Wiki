@@ -103,36 +103,23 @@ This page collects a few answers to questions that have frequently been asked ab
 
 ### Can I use/implement triangles/tetrahedra in deal.II?
 
-This is truly one of the most frequently asked questions. The short answer
-is: No, you can't. deal.II's basic data structures are too much tailored to
-quadrilaterals and hexahedra to make this trivially possible. Implementing
-other reference cells such as triangles and tetrahedra amounts to
-re-implementing nearly all grid and DoF classes from scratch, along with
-the finite element shape functions, mappings, quadratures and a whole host
-of other things. Making triangles and tetrahedra work would certainly involve
-having to write several ten thousand lines of code, and to make it usable
-in all the rest of the library would require auditing a very significant
-fraction of the 600,000 lines of code that make up deal.II today.
+Can I use/implement triangles/tetrahedra in deal.II?
 
-That said, the current specialization on quadrilaterals and hexahedra has
-two very positive aspects: First, quadrilaterals and hexahedra typically
-provide a significantly better approximation quality than triangular meshes
-with the same number of degrees of freedom; you therefore get more accurate
-solutions for the same amount of work. Secondly, because the shape of cells
-are known, we can make a lot of things known to the compiler (such as the
-number of iterations of a loop over all vertices of a cell) which avoid a
-large number of run-time computations and makes the library as fast as it
-is. A simple example is that in deal.II we know that a loop over all
-vertices of a cell has exactly `GeometryInfo<dim>::vertices_per_cell`
-iterations, a number that is known to the compiler at compile-time. If we
-allowed both triangles and quadrilaterals, the loop would have
-`cell->n_vertices()` iterations, but this would in general not be known at
-compile time and consequently not allow the compiler to optimize on.
+This is truly one of the most frequently asked questions. The short answer is: 
+Yes, you can. Since release 9.3, we provide an experimental simplex and mixed
+mesh support. To get started, see the tests (`tests/simplex`) and the 
+[Simplex](https://www.dealii.org/developer/doxygen/deal.II/group__simplex.html) module page.
 
-If you do need to work with a geometry for which all you have is a
-triangular or tetrahedral mesh, then you can convert this mesh into one
-that consists of quadrilaterals and hexahedra using the `tethex` program,
-see https://github.com/martemyev/tethex .
+The implementation is quite mature; current limitations include that no adaptive-mesh 
+refinement is supported and only a few low-order finite elements are implemented.
+But since it is quite new and not all functions in the library could be tested 
+for the new mesh type (see also the old comment answering this same question about 
+the complexity of making deal.II work on simplex meshes: "Making triangles and 
+tetrahedra work [in deal.II] would certainly involve having to write several ten 
+thousand lines of code, and to make it usable in all the rest of the library 
+would require auditing a very significant fraction of the 600,000 lines of code 
+that make up deal.II today."), we have labeled the simplex/mixed-mesh support as 
+experimental. 
 
 ### I'm stuck!
 

@@ -1628,7 +1628,7 @@ with an argument larger than one -- see its documentation.
 
 This all said, if you are in fact using a Q1 element and you see such
 gaps in the solution, then something is genuinely wrong. One
-possibility is that you forget to call `ConstraintMatrix::distribute`
+possibility is that you forget to call `AffineConstraints::distribute()`
 after solving the linear system, or you do not set up these
 constraints correctly. In either case, it's a bug if this happens with
 Q1 elements.
@@ -2193,15 +2193,15 @@ which of these causes might be the reason. Possible places to start are:
    of error; do the same in your derivations.
 
  - Your constraints or boundary values may be wrong. While the
-   ConstraintMatrix and functions like
-   VectorTools::interpolate_boundary_values are well enough tested that
+   `AffineConstraints` class and functions like
+   `VectorTools::interpolate_boundary_values()` are well enough tested that
    they are unlikely candidates for problems, you may have computed
    constraints wrongly if you collect them by hand (for example if you deal
    with periodic boundary conditions or similar) or you may have specified
    the wrong boundary indicator for a Dirichlet boundary condition. Again,
    the solution is to reduce the problem to the simplest one you can find
    (e.g. on the 1x1 or 2x2 mesh talked about above) and to ask the
-   ConstraintMatrix to print its contents so that you can compare it by
+   `AffineConstraints` object to print its contents so that you can compare it by
    hand with your expectations.
 
  - Your discretization might be wrong. Some equations require you to use

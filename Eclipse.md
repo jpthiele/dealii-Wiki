@@ -386,7 +386,7 @@ Once you have the Subversive plugin installed, create an Eclipse project as disc
 
 All the usual subversion operations (adding a file or directory, updating it from the repository, committing, diffing, annotating, or showing a history) can then be obtained through one of two ways:
 
-  - If you are in an editor window, right click into the window to get the context menu and from there go to the sub-menu called "Team".
+  - If you are in an editor window, right-click into the window to get the context menu and from there go to the sub-menu called "Team".
   - Right-clicking on a file or directory in the "Project Explorer" panel on the left (i.e., the one shown above) and then again selecting the sub-menu "Team".
 
 Maybe confusingly, however, the option to see the diffs of a file/directory against the one that's in the repository is not found in the "Team" sub-menu, but in the "Compare with" sub-menu.
@@ -411,13 +411,18 @@ You can then start filling in the documentation for the function as a whole, the
 
 ## Code style issues
 
-Eclipse can be configured in more ways than one can count. One issue is to configure the indentation style. As a historical accident, deal.II is using an indentation style that doesn't match pretty much any other style that is around, but it can be approximated using Eclipse's settings. To this end:
+
+Eclipse can be configured in more ways than one can count. One issue is configuring the indentation style. As a historical accident, deal.II is using an indentation style that doesn't match pretty much any other style that is around, but it can be approximated using Eclipse's settings.
+
+Deal.II uses clang-format for indentation. This is not natively supported by Eclipse, but fortunately, a suitable add-on exists. From the Eclipse menu choose Help->Eclipse Market place... and search for CppStyle. This allows you to run clang-formant when Ctrl+Shift+F is pressed. It also has an option to run clang-format on save. It uses settings from the .clang-format file (custom for every project).  You can configure CppStyle globally from Window->preferences and then C/C++ -> CppStyle (or just type CppStyle in search bar). Project-wise settings are also possible. 
+
+There is also a way to configure eclipse without installing addons:
   - Highlight the deal.II project you have created above in the "Project Explorer" sub-window.
   - Go to "Project > Properties" from the main menu, or right-click on the project and choose "Properties" in the context menu.
   - Then go to expand the "C/C++ General" sub-tree by clicking on the down arrow next to it and select "Code style".
   - In the panel on the right, you can click on "Configure Workspace Settings..." to get a dialog in which you can edit an existing coding style or create a new one.
   - You can import the following style: [stylefile.xml](https://raw.githubusercontent.com/dealii/dealii/master/contrib/styles/eclipse-dealii-code-format.xml)
-  - Alternatively create a new one and choose the "GNU" style as the basis for this new style and follow the instructions below.
+  - Alternatively, create a new one and choose the "GNU" style as the basis for this new style and follow the instructions below.
 
 Modify the entries under the various tabs of this dialog as shown in the following set of pictures (click on the pictures to get larger versions):
 
@@ -444,14 +449,14 @@ Modify the entries under the various tabs of this dialog as shown in the followi
 Section currently under development. Please be patient.
 ## What PTP is?
 
-[PTP](http://www.eclipse.org/ptp/) is set of tool for developing, debugging and profiling MPI applications. Instructions for installation into existing Eclipse can be found [here](http://www.eclipse.org/ptp/downloads.php). Make sure you're trying to install correct PTP version for your Eclipse (7.0 for Kepler, 6.0 for Juno, 5.0 for Indigo). Most of installation issues are described in PTP release notes [v.7.0](http://wiki.eclipse.org/PTP/release_notes/7.0). 
+[PTP](http://www.eclipse.org/ptp/) is a set of tools for developing, debugging and profiling MPI applications. Instructions for installation into existing Eclipse can be found [here](http://www.eclipse.org/ptp/downloads.php). Make sure you're trying to install the correct PTP version for your Eclipse (7.0 for Kepler, 6.0 for Juno, 5.0 for Indigo). Most of the installation issues are described in PTP release notes [v.7.0](http://wiki.eclipse.org/PTP/release_notes/7.0). 
 ## Installing from package
 
-This instructions have been tested under Ubuntu 12.04
-If you were not able to install PTP into exesting  Eclipse (or you can't find PTP perspectives in Window->Show Perspective -> Other  - it sometimes happens), maybe it would be easier to download a complete package from [Eclipse download site](http://www.eclipse.org/downloads/).  "Eclipse for Parallel Application Developers Eclipse for Parallel Application Developers" is package that you have to download. Untar it wherever you want, open terminal, navigate to Eclipse folder and run ./eclipse (it is safe to do it this way - to make sure that Eclipse has same environmental variables as in terminal).
+These instructions have been tested under Ubuntu 12.04
+If you were not able to install PTP into existing  Eclipse (or you can't find PTP perspectives in Window->Show Perspective -> Other  - it sometimes happens), maybe it would be easier to download a complete package from [Eclipse download site](http://www.eclipse.org/downloads/).  "Eclipse for Parallel Application Developers Eclipse for Parallel Application Developers" is the package that you have to download. Untar it wherever you want, open terminal, navigate to Eclipse folder and run ./eclipse (it is safe to do it this way - to make sure that Eclipse has some environmental variables as in terminal).
 ## SDM - Scalable debug manager
 
-Debugging parallel program is not easy - especially when the error occurs only in parallel executions. SDM allows debugging parallel programs in similar way that standard Eclipse debugger can help you improve  non-mpi applications. To use SDM you have to install it on target machine. [Here](http://wiki.eclipse.org/PTP/release_notes/7.0#Install_optional_PTP_debugger_component) are instructions how to do it. Compiling from source should work (tested on Ubuntu), but if you have some trouble with it, you should find compiled PTP in ptp-sdm-7.0.x.zip  package from here: [http://download.eclipse.org/tools/ptp/updates/kepler] (directory sdm/org.eclipse.ptp.OS_7.0.x.yyyymmddhhmm , where  OS is operating system and 7.0.x.yyyymmddhhmm is PTP release ).
+Debugging parallel programs is not easy - especially when the error occurs only in parallel executions. SDM allows debugging parallel programs in similar way that standard Eclipse debugger can help you improve  non-mpi applications. To use SDM you have to install it on target machine. [Here](http://wiki.eclipse.org/PTP/release_notes/7.0#Install_optional_PTP_debugger_component) are instructions how to do it. Compiling from source should work (tested on Ubuntu), but if you have some trouble with it, you should find compiled PTP in ptp-sdm-7.0.x.zip  package from here: [http://download.eclipse.org/tools/ptp/updates/kepler] (directory sdm/org.eclipse.ptp.OS_7.0.x.yyyymmddhhmm , where  OS is operating system and 7.0.x.yyyymmddhhmm is PTP release ).
 ## Setting up project with parallel run configuration
 
 Set up you project in the same way as for standard deal.II programs. If you have workspace folder from other versions of Eclipse you can reuse it. Now you will only have to configure parallel runs.

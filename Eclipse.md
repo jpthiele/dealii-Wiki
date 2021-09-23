@@ -27,8 +27,19 @@ watching someone else do it. To this end, take a look at training videos 7, 8,
 
 If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below about how to install the subversion plugin.
 
+# Setting up workspace in Eclipse using cmake4eclipse
 
-# Setting up a project using deal.II with CMake help
+The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337
+
+From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
+First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library.  Go to `File`->`New`->`C/C++ Project`. Choose `Empty or Existing CMake Project`. Click `Next`, then uncheck `Use default location`, click `Browse` and navigate to the deal.II source directory (or just type the patch to deal.II source dir). Fill `Project name` and click `Finish`. After deal.II is added as a project indexer starts working, it may take long time for it to finish. Fortunately, it is done only on newly added projects.
+
+Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference.
+
+If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing indexer. 
+
+# Setting up a project depending on deal.II using CMake built-in generators
+
 
 The easiest way to get Eclipse to understand your project is to let CMake generate an Eclipse project for you, assuming you are using CMake. To this end, go to the source directory (using the `step-22` example again) and say
 ```
@@ -38,7 +49,7 @@ This generates not only a Unix Makefile, but also an Eclipse project file. You c
 
 To build the executable, go to the "Make target" tab (usually located in the right sub-window) and double-click on "all". In the "Console" tab (usually located in the bottom sub-window) you can view the commands being executed to build your program.
 
-You may still have to set up run and debug launches if you want to run or debug the executable so built, however.
+You may still have to set up, run and debug launches if you want to run or debug the executable so built, however.
 
 
 
@@ -111,7 +122,7 @@ Once you have set up a launch configuration for an application as described abov
 
 "Debug perspective" gives you an entirely different view on the program as the "Code perspective" you have seen before. (You can toggle between the two perspectives using the icons at the top right of the Eclipse main window.) In particular, what you primarily get to see is the call stack at the top left, a view of all local variables at the top right, the source at the center left, an outline of the current file at the center right, and the console output of your program at the bottom. All of these sub-windows can be resized, of course. Some of these sub-windows have other tabs as well that you can explore, and if you don't need one sub-window for a moment, then click on the triangle pointing down to minimize it -- it will end up as an icon at the left margin, right margin, or bottom right of the main window (depending on where the sub-window was located before) from where it can be restored.
 
-Using the symbols in the "Debug" sub-window at the top left (or the menu entries and corresponding keyboard shortcuts listed in the "Run" menu"), you can now step through the program, inspect the current state of your program at the top right by observing the values of local variables, and set breakpoints by going to certain source locations and right clicking onto the code line you want to set a breakpoint on.
+Using the symbols in the "Debug" sub-window at the top left (or the menu entries and corresponding keyboard shortcuts listed in the "Run" menu"), you can now step through the program, inspect the current state of your program at the top right by observing the values of local variables, and set breakpoints by going to certain source locations and right-clicking onto the code line you want to set a breakpoint on.
 
 
 
@@ -173,9 +184,9 @@ Everything you've done so far is visible in the following screenshot:
 
 <br>
 
-*Note:* If a particular tab of a sub-window is not where you expect it, look around in the other sub-windows. They can be drag-and-dropped into the place where you want them to be. If they're not there altogether, take a look at the list of views in the "Window > Show view" menu entry for what's avaiable!
+*Note:* If a particular tab of a sub-window is not where you expect it, look around in the other sub-windows. They can be drag-and-dropped into the place where you want them to be. If they're not there altogether, take a look at the list of views in the "Window > Show view" menu entry for what's available!
 
-A final, useful, modification if you have more than one processor in your system is to enable parallel builds. To this end, select the menu entry "Project > Properties...", then select "C/C++ Build" and in the "Builder Settings" tab uncheck the box that says "Use default build command". This enables editing the text field that follows and allows you to replace the default command *make* by *make -j8*, for example if you want to compile with 8 parallel compile jobs.
+A final, useful, modification if you have more than one processor in your system is to enable parallel builds. To this end, select the menu entry "Project > Properties...", then select "C/C++ Build" and in the "Builder Settings" tab uncheck the box that says "Use default build command". This enables editing the text field that follows and allows you to replace the default command *make* by *make -j8*, for example, if you want to compile with 8 parallel compile jobs.
 
 
 
@@ -414,9 +425,9 @@ You can then start filling in the documentation for the function as a whole, the
 
 Eclipse can be configured in more ways than one can count. One issue is configuring the indentation style. As a historical accident, deal.II is using an indentation style that doesn't match pretty much any other style that is around, but it can be approximated using Eclipse's settings.
 
-Deal.II uses clang-format for indentation. This is not natively supported by Eclipse, but fortunately, a suitable add-on exists. From the Eclipse menu choose Help->Eclipse Market place... and search for CppStyle. This allows you to run clang-formant when Ctrl+Shift+F is pressed. It also has an option to run clang-format on save. It uses settings from the .clang-format file (custom for every project).  You can configure CppStyle globally from Window->preferences and then C/C++ -> CppStyle (or just type CppStyle in search bar). Project-wise settings are also possible. 
+Deal.II uses clang-format for indentation. This is not natively supported by Eclipse, but fortunately, a suitable add-on exists. From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for CppStyle. This allows you to run clang-formant when Ctrl+Shift+F is pressed. It also has an option to run clang-format on save. It uses settings from the .clang-format file (custom for every project).  You can configure CppStyle globally from Window->preferences and then C/C++ -> CppStyle (or just type CppStyle in search bar). Project-wise settings are also possible. 
 
-There is also a way to configure eclipse without installing addons:
+There is also a way to configure Eclipse without installing add-ons:
   - Highlight the deal.II project you have created above in the "Project Explorer" sub-window.
   - Go to "Project > Properties" from the main menu, or right-click on the project and choose "Properties" in the context menu.
   - Then go to expand the "C/C++ General" sub-tree by clicking on the down arrow next to it and select "Code style".

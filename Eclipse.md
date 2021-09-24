@@ -30,12 +30,14 @@ If you will want to use subversion or some other version control system for the 
 # General Eclipse settings
 
 The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
-`-Xms256m`
-`-Xmx2048m`
+* `-Xms256m`
+* `-Xmx2048m`
+
+The numbers indicate heap size in megabytes.
 
 If you do not like the built-in dark theme of Eclipse, you can try installing plugins for a better experience: https://marketplace.eclipse.org/category/free-tagging/theme
-Darkest Dark Theme: https://marketplace.eclipse.org/content/darkest-dark-theme-devstyle
-Spectrum theme: https://marketplace.eclipse.org/content/eclipse-spectrum-dark-theme
+- Darkest Dark Theme: https://marketplace.eclipse.org/content/darkest-dark-theme-devstyle
+- Spectrum theme: https://marketplace.eclipse.org/content/eclipse-spectrum-dark-theme
 
 After installing the plugin go to `Window`->`Preferences` and search for `Appearance`.
 
@@ -495,12 +497,12 @@ Set up you project in the same way as for standard deal.II programs. If you have
 Go to Run->Run Configurations. Select Parallel Application and click on "New lauch configuration"(PICTURE). Specify your MPI version from drop-down list and select Local in connection type. You will be asked to confirm connection to local system, click Yes.(PICTURE) Now there will be some other option available: (PICTURE)
 Go to applications and specify executable in "Application program". Click "Apply". Now you can test your configuration by pressing "Run", or just click "Close".  New run configuration will appear in drop-down menu near Run button at the top of a screen.
 
-If you run configuration is working, you can set up debugger. Go to Run->Debug Configurations. In Parallel Applications will be your run configuration. Now you only have to set SDM executable path - go to Debugger tab.(PICTURE) If you have installed SDM with custom prefix, specify path to SDM. Number of MPI processes can be increased in Resources tab.
+If you run configuration is working, you can set up debugger. Go to Run->Debug Configurations. In Parallel Applications will be your run configuration. Now you only have to set SDM executable path - go to Debugger tab.(PICTURE) If you have installed SDM with custom prefix, specify path to SDM. The number of MPI processes can be increased in the Resources tab.
 
-## Debugging parallel program
+## Debugging a parallel program
 
-From drop-down list near bug icon select your debug configuration. You will be asked to confirm opening Parallel Debug perspective, click yes. The following view will appear: (PICTURE)
+From the drop-down list near bug, icon selects your debug configuration. You will be asked to confirm opening Parallel Debug perspective, click yes. The following view will appear: (PICTURE)
 
-The main difference between default Eclipse debugger is "Parallel Debug" tab. The diamonds represents processes, green means that process is running, yellow - suspended, red -terminated. You can select one process by double click. Black square indicates if process is selected, only selected processes are displayed in "Debug" tab. From Debug tab you can debug each process like serial one, you can also suspend group of processes in "Parallel Debug" tab. 
+The main difference between the default Eclipse debugger is "Parallel Debug" tab. The diamonds represent processes, green means that the process is running, yellow - suspended, red -terminated. You can select one process by double click. The black square indicates if process is selected, only selected processes are displayed in "Debug" tab. From Debug tab you can debug each process like serial one, you can also suspend a group of processes in "Parallel Debug" tab. 
 
 More informations can be found in PTP help and tutorials.

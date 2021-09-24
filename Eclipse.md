@@ -33,6 +33,12 @@ The settings file `eclipse.ini` is located right next to Eclipse executable. You
 `-Xms256m`
 `-Xmx2048m`
 
+If you do not like the built-in dark theme of Eclipse, you can try installing plugins for a better experience: https://marketplace.eclipse.org/category/free-tagging/theme
+Darkest Dark Theme: https://marketplace.eclipse.org/content/darkest-dark-theme-devstyle
+Spectrum theme: https://marketplace.eclipse.org/content/eclipse-spectrum-dark-theme
+
+After installing the plugin go to `Window`->`Preferences` and search for `Appearance`.
+
 
 # Setting up a workspace in Eclipse using cmake4eclipse
 

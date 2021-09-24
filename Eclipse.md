@@ -41,7 +41,7 @@ The following instructions are based on this answer: https://stackoverflow.com/q
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
 First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library.  Go to `File`->`New`->`C/C++ Project`. Choose `Empty or Existing CMake Project`. Click `Next`, then uncheck `Use default location`, click `Browse` and navigate to the deal.II source directory (or just type the patch to deal.II source dir). Fill `Project name` and click `Finish`. After deal.II is added as a project indexer starts working, it may take a long time for it to finish. Fortunately, it is done only on newly added projects.
 
-Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference.
+Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference. If references are not resolved automatically, go to `Project`->`C/C++ index`->`Rebuild`.
 
 If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
 

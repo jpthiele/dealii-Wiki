@@ -10,7 +10,7 @@ language, as well as many many modeling tools (for example, to name just one,
 for UML diagrams). For the purpose of deal.II, the C++ plugin (the
 [Eclipse CDT](http://www.eclipse.org/CDT)) is the basis for the steps described below. The advantages of using a modern IDE described at the top of the page on [are equally valid for Eclipse, or course.
 
-Eclipse with the C++ plug in included can be downloaded from the download page
+Eclipse with the C++ plugin included can be downloaded from the download page
 available via http://www.eclipse.org/ by choosing "Eclipse IDE for C/C++
 Developers". You will have to specify the operating system from the "download links"
 list to get the proper binaries for your operating system.
@@ -23,20 +23,33 @@ learn by just reading something about it. It's best learned by <i>doing</i> or
 watching someone else do it. To this end, take a look at training videos 7, 8,
 8.01, and 25 at https://www.math.colostate.edu/~bangerth/videos.html .
 
-# A note up front on using Subversion and Eclipse
+# A note upfront on using Subversion and Eclipse
 
 If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below about how to install the subversion plugin.
 
-# Setting up workspace in Eclipse using cmake4eclipse
+# General Eclipse settings
+
+The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
+`-Xms256m`
+`-Xmx2048m`
+
+
+# Setting up a workspace in Eclipse using cmake4eclipse
 
 The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
-First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library.  Go to `File`->`New`->`C/C++ Project`. Choose `Empty or Existing CMake Project`. Click `Next`, then uncheck `Use default location`, click `Browse` and navigate to the deal.II source directory (or just type the patch to deal.II source dir). Fill `Project name` and click `Finish`. After deal.II is added as a project indexer starts working, it may take long time for it to finish. Fortunately, it is done only on newly added projects.
+First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library.  Go to `File`->`New`->`C/C++ Project`. Choose `Empty or Existing CMake Project`. Click `Next`, then uncheck `Use default location`, click `Browse` and navigate to the deal.II source directory (or just type the patch to deal.II source dir). Fill `Project name` and click `Finish`. After deal.II is added as a project indexer starts working, it may take a long time for it to finish. Fortunately, it is done only on newly added projects.
 
 Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference.
 
-If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing indexer. 
+If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
+
+## Alternative way
+
+After installing cmake4eclipse go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are following instructions from this thread: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files
+
+Do the same thing with your deal.II-based project and add deal.II in `Project references`.
 
 # Setting up a project depending on deal.II using CMake built-in generators
 

@@ -62,7 +62,7 @@ First, add deal.II itself as a project. This will force the Eclipse indexer to g
 
 Go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`.  After deal.II is added as a project indexer starts working, it may take some time for it to finish. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are by executing 
 ``` 
-`gcc -print-prog-name=cc1plus\` -v
+`gcc -print-prog-name=cc1plus` -v
 ```
 in the terminal.  (source: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files). Be sure to add all directories to all configurations and languages (remember to check those boxes every time you add a directory!). You can export your patches and read them in another project. Resolving inclusion requires rerunning the indexer.
 

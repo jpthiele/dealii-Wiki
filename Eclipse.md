@@ -34,7 +34,7 @@ If you will want to use subversion or some other version control system for the 
 The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
 * `-Xms256m`
 * `-Xmx2048m`
-The numbers indicate heap size in megabytes.
+The numbers indicate heap size in megabytes. You can control heap status `Window` > `Preferences` > `General` and enable `Show heap status` and clicking OK.
 
 ## Completely cleaning up the source directory
 
@@ -55,21 +55,18 @@ After installing the plugin go to `Window`->`Preferences` and search for `Appear
 
 # Setting up a workspace in Eclipse using cmake4eclipse
 
-The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337
+The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337 and cmake4eclipse help (https://github.com/15knots/cmake4eclipse#readme)
+
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
-First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library.  Go to `File`->`New`->`C/C++ Project`. Choose `Empty or Existing CMake Project`. Click `Next`, then uncheck `Use default location`, click `Browse` and navigate to the deal.II source directory (or just type the patch to deal.II source dir). Fill `Project name` and click `Finish`. After deal.II is added as a project indexer starts working, it may take a long time for it to finish. Fortunately, it is done only on newly added projects.
+First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library. 
 
-Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference. If references are not resolved automatically, go to `Project`->`C/C++ index`->`Rebuild`.
+Go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`.  After deal.II is added as a project indexer starts working, it may take some time for it to finish. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are following instructions from this thread: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files . Resolving inclusion requires rerunning the indexer.
+
+Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference. You may also need to add the location of STD headers in `Patch and Symbols`.  If references are not resolved automatically, go to `Project`->`C/C++ index`->`Rebuild`.
+
 
 If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
-
-## Alternative way
-
-After installing cmake4eclipse go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are following instructions from this thread: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files
-
-Do the same thing with your deal.II-based project and add deal.II in `Project references`.
-
 
 
 # Setting up a project depending on deal.II using CMake built-in generators

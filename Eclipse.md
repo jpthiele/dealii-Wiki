@@ -16,7 +16,7 @@ Developers". You will have to specify the operating system from the "download li
 list to get the proper binaries for your operating system.
 Alternatively, a generic Eclipse can be used, but the Eclipse CDT (C/C++
 Development Tools, the C++ plugin for Eclipse) has then to be installed
-separately.
+separately.c Eclipse offers automatic `git` integration: just clone a git repository and add it as a project.
 
 Using an integrated development environment such as Eclipse is difficult to
 learn by just reading something about it. It's best learned by <i>doing</i> or

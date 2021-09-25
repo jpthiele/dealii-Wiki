@@ -16,7 +16,7 @@ Developers". You will have to specify the operating system from the "download li
 list to get the proper binaries for your operating system.
 Alternatively, a generic Eclipse can be used, but the Eclipse CDT (C/C++
 Development Tools, the C++ plugin for Eclipse) has then to be installed
-separately.c Eclipse offers automatic `git` integration: just clone a git repository and add it as a project.
+separately. Eclipse offers automatic `git` integration: just clone a git repository and add it as a project.
 
 Using an integrated development environment such as Eclipse is difficult to
 learn by just reading something about it. It's best learned by <i>doing</i> or
@@ -25,23 +25,26 @@ watching someone else do it. To this end, take a look at training videos 7, 8,
 
 # A note upfront on using Subversion and Eclipse
 
-If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below about how to install the subversion plugin.
+If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below for how to install the subversion plugin.
 
 # Useful tricks
+
+## Changing heap size 
 
 The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
 * `-Xms256m`
 * `-Xmx2048m`
 The numbers indicate heap size in megabytes.
 
-## Cleaning up source directory
+## Completely cleaning up the source directory
 
-Eclipse creates two files in the source directory: `.cproject` and  `.project`. If you want to completely clean up the project settings completely, be sure to remove those files after the project is removed for the workspace.
+Eclipse creates two files in the source directory: `.cproject` and  `.project`. If you want to completely clean up the project settings completely, be sure to remove those files after the project is removed from the workspace.
 
 ## Removing Eclipse workspace lock
 
 Eclipse 'locks' workspace directory to ensure only one instance is using it at the time. If Eclipse crashes sometimes the lock is not removed, and the workspace cannot be used. To resolve that issue delete `.lock` file located in `YOUR WORKSPACE DIR/.metadata`
 
+## Alternative dark themes
 
 If you do not like the built-in dark theme of Eclipse, you can try installing plugins for a better experience: https://marketplace.eclipse.org/category/free-tagging/theme
 - Darkest Dark Theme: https://marketplace.eclipse.org/content/darkest-dark-theme-devstyle

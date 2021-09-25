@@ -27,13 +27,21 @@ watching someone else do it. To this end, take a look at training videos 7, 8,
 
 If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below about how to install the subversion plugin.
 
-# General Eclipse settings
+# Useful tricks
 
 The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
 * `-Xms256m`
 * `-Xmx2048m`
-
 The numbers indicate heap size in megabytes.
+
+## Cleaning up source directory
+
+Eclipse creates two files in the source directory: `.cproject` and  `.project`. If you want to completely clean up the project settings completely, be sure to remove those files after the project is removed for the workspace.
+
+## Removing Eclipse workspace lock
+
+Eclipse 'locks' workspace directory to ensure only one instance is using it at the time. If Eclipse crashes sometimes the lock is not removed, and the workspace cannot be used. To resolve that issue delete `.lock` file located in `YOUR WORKSPACE DIR/.metadata`
+
 
 If you do not like the built-in dark theme of Eclipse, you can try installing plugins for a better experience: https://marketplace.eclipse.org/category/free-tagging/theme
 - Darkest Dark Theme: https://marketplace.eclipse.org/content/darkest-dark-theme-devstyle
@@ -58,6 +66,8 @@ If you set up your project this way, DO NOT use CMake built-in generators, as it
 After installing cmake4eclipse go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are following instructions from this thread: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files
 
 Do the same thing with your deal.II-based project and add deal.II in `Project references`.
+
+
 
 # Setting up a project depending on deal.II using CMake built-in generators
 

@@ -55,18 +55,21 @@ After installing the plugin go to `Window`->`Preferences` and search for `Appear
 
 # Setting up a workspace in Eclipse using cmake4eclipse
 
-The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337 and cmake4eclipse help (https://github.com/15knots/cmake4eclipse#readme)
-
+The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337 and cmake4eclipse help (https://github.com/15knots/cmake4eclipse#readme). The following instructions have been tested on Eclipse 2021-06 (4.20.0).
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
 First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library. 
 
-Go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`.  After deal.II is added as a project indexer starts working, it may take some time for it to finish. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are following instructions from this thread: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files . Resolving inclusion requires rerunning the indexer.
+Go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`.  After deal.II is added as a project indexer starts working, it may take some time for it to finish. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are by executing 
+``` 
+`gcc -print-prog-name=cc1plus\` -v
+```
+in the terminal.  (source: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files). Be sure to add all directories to all configurations and languages (remember to check those boxes every time you add a directory!). You can export your patches and read them in another project. Resolving inclusion requires rerunning the indexer.
 
 Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference. You may also need to add the location of STD headers in `Patch and Symbols`.  If references are not resolved automatically, go to `Project`->`C/C++ index`->`Rebuild`.
 
 
-If you set up your project this way, DO NOT use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
+**WARNING**: If you set up your project this way, **DO NOT** use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
 
 
 # Setting up a project depending on deal.II using CMake built-in generators

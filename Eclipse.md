@@ -12,7 +12,7 @@ for UML diagrams). For the purpose of deal.II, the C++ plugin (the
 
 Eclipse with the C++ plugin included can be downloaded from the download page
 available via http://www.eclipse.org/ by choosing "Eclipse IDE for C/C++
-Developers". You will have to specify the operating system from the "download links"
+Developers"(`Download`->`Download Packages`, direct link: https://www.eclipse.org/downloads/packages/). You will have to specify the operating system from the "download links"
 list to get the proper binaries for your operating system.
 Alternatively, a generic Eclipse can be used, but the Eclipse CDT (C/C++
 Development Tools, the C++ plugin for Eclipse) has then to be installed
@@ -55,22 +55,36 @@ After installing the plugin go to `Window`->`Preferences` and search for `Appear
 
 # Setting up a workspace in Eclipse using cmake4eclipse
 
-The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337 and cmake4eclipse help (https://github.com/15knots/cmake4eclipse#readme). The following instructions have been tested on Eclipse 2021-06 (4.20.0).
+The following instructions are based on this answer: https://stackoverflow.com/questions/9453851/how-to-configure-eclipse-cdt-for-cmake/38716337#38716337 , cmake4eclipse help (https://github.com/15knots/cmake4eclipse#readme) and this thread: https://groups.google.com/g/cmake4eclipse-users/c/r5YfWUMd2iM. The following instructions have been tested on Eclipse 2021-06 (4.20.0).
+
+**WARNING**: If you set up your project this way, **DO NOT** use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer.
+
+## Setting deal.II itself as a project
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
 First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library. 
 
-Go to  `File`->`New`->`Makefile project with existing code`, enter the deal.II source location and select `CMake driven` from `Toolchain for indexer Settings`.  After deal.II is added as a project indexer starts working, it may take some time for it to finish. After setting up the deal.II as a project you may want to add the location of STD headers at `Project`-> `Properties`-> `C/C++ General`->`Patch and Symbols` and click `Add`. You can figure out where the headers are by executing 
-``` 
-`gcc -print-prog-name=cc1plus` -v
-```
-in the terminal.  (source: https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files). Be sure to add all directories to all configurations and languages (remember to check those boxes every time you add a directory!). You can export your patches and read them in another project. Resolving inclusion requires rerunning the indexer.
+**WARNING**: Do not create a C/C++ project, since that takes you down the core-build road!
+1. Go to `File`-> `New` -> `Project...` 
+2. From `C/C++` section choose `C++ project`, click Next.
+3. Set a meaningful project name, uncheck `Use default location`  and specify the location of deal.II source directory. In `Project type` select `CMake driven` ->`Empty project` and in `Toolchain` menu select  `CMake Driven`. Click `Next`.
 
-Next, add your project in the same way. After that, right-click on the new project, go to `Properties`, `Project references` and add deal.II as a reference. You may also need to add the location of STD headers in `Patch and Symbols`.  If references are not resolved automatically, go to `Project`->`C/C++ index`->`Rebuild`.
+4. Eclipse sometimes is not aware of what is your compiler. To fix/check that:
+   1. Click `Advanced Settings`, agree to override existing project settings.
+   2. Go to  `C/C++ Build`-> `Settings`, check if the `Command` field is filled correctly, in case if it is `<unnamed>` change it to `g++` (or whatever your compiler is).
+   3. In  `C/C++ General`-> `Preprocessor Inlclude` go to providers and uncheck `Use global provider shared between projects`.
+
+5. After finishing setting up the project the Eclipse Indexer will start working. Since CMake have not been invoked yet there is no point in doing that.  On the right-bottom corner of the window, there will be a green square bouncing horizontally indicating. Click on it, it will open the `Progress` window. Terminate ongoing Indexer process.
+6. Build deal.II. This will invoke CMake to generate `compile_commands.json` file inside the build directory that is later parsed by cmake4eclipse and used to provide paths and symbols for the Eclipse Indexer.
+7.  You can check the paths and symbols provided by cmake4eclipse in `Project`->`Properties`->`C/C++ General`-> `Preprocessor Inlclude`.  Both `CMAKE_EXPORT_COMPILE_COMMANDS Compiler Built-ins` and `CMAKE_EXPORT_COMPILE_COMMANDS Parser` should be now drop-down list.
+
+### Advanced CMake settings
+In  `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse` you can tweak your CMake settings. In the `Symbols` tab you can specify cmake variables. For example, you can add click add, put `DEAL_II_WITH_MPI` in `Variable name`, set type to `Bool` and put `ON` in `Value` field to enable deal.II with MPI. 
 
 
-**WARNING**: If you set up your project this way, **DO NOT** use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer. 
-
+## Setting up a project depending on deal.II
+Repeat the steps above for your project.
+ You may want to go to `Project`->`Properties`->`Project References` and check deal.II (if you set it up as a project before).  We recommend that even if you do not intend to change the deal.II code (Eclipse will be able to provide you documentation and browsing the library code will be much easier).
 
 # Setting up a project depending on deal.II using CMake built-in generators
 
@@ -84,7 +98,6 @@ This generates not only a Unix Makefile, but also an Eclipse project file. You c
 To build the executable, go to the "Make target" tab (usually located in the right sub-window) and double-click on "all". In the "Console" tab (usually located in the bottom sub-window) you can view the commands being executed to build your program.
 
 You may still have to set up, run and debug launches if you want to run or debug the executable so built, however.
-
 
 
 # Setting up a project using deal.II by hand

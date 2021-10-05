@@ -59,7 +59,7 @@ The following instructions are based on this answer: https://stackoverflow.com/q
 
 **WARNING**: If you set up your project this way, **DO NOT** use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer.
 
-## Setting deal.II itself as a project
+## Setting deal.II itself as a project 
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
 First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library. 
@@ -71,8 +71,8 @@ First, add deal.II itself as a project. This will force the Eclipse indexer to g
 
 4. Eclipse sometimes is not aware of what is your compiler. To fix/check that:
    1. Click `Advanced Settings`, agree to override existing project settings.
-   2. Go to  `C/C++ Build`-> `Settings`, check if the `Command` field is filled correctly, in case if it is `<unnamed>` change it to `g++` (or whatever your compiler is).
-   3. In  `C/C++ General`-> `Preprocessor Inlclude` go to providers and **uncheck** `Use global provider shared between projects`.
+   2. Go to  `C/C++ Build`-> `Settings`, check if the `Command` field is filled correctly, in case if it is `<unnamed>` change it to `g++` or `mpicc` (or whatever your compiler is).
+   3. In  `C/C++ General`-> `Preprocessor Inlclude` go to providers and **uncheck** `Use global provider shared between projects` (because global provider means compiler command will be `<unnamed>`, and thus Eclipse will fail to find compiler configuration)
 
 5. After finishing setting up the project the Eclipse Indexer will start working. Since CMake have not been invoked yet there is no point in doing that.  On the right-bottom corner of the window, there will be a green square bouncing horizontally indicating. Click on it, it will open the `Progress` window. Terminate ongoing Indexer process.
 6. Build deal.II. This will invoke CMake to generate `compile_commands.json` file inside the build directory that is later parsed by cmake4eclipse and used to provide paths and symbols for the Eclipse Indexer.
@@ -81,6 +81,23 @@ First, add deal.II itself as a project. This will force the Eclipse indexer to g
 ### Advanced CMake settings
 In  `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse` you can tweak your CMake settings. In the `Symbols` tab you can specify cmake variables. For example, you can add click add, put `DEAL_II_WITH_MPI` in `Variable name`, set type to `Bool` and put `ON` in `Value` field to enable deal.II with MPI. 
 
+## Setting preconfigured deal.II as a project 
+
+If you have already set up deal.II inside, say,  `build` directory (that is a subdirectory of deal.II source dir) you may use those settings. 
+
+1. Go to the `build` directory and execute the command:
+```
+cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+This will force CMake to generate the `compile_commands.json` file.
+
+2. Repeat steps 1 - 4 from above.
+
+3. In `Advanced Settings`  from step 4 go to  `C/C++ Build`-> `cmake4eclipse`, set the configuration you want to modify. Inside `Build Output Location` frame, set `Folder` to "build/" (or whenever you built deal.II). In frame `Pre-populate CMake cache entries from file`  set "build/CMakeCache.txt". Click `Apply` before going to other tabs (somehow the changes there are not saved otherwise)
+
+4. Continue the process as described above.
+
+Unfortunately, you will have to rebuild deal.II (but fortunately not reconfigure) since Eclipse during the first build invokes `make clean`. It only happens once. The author of this section is not aware how to disable this behaviour. 
 
 ## Setting up a project depending on deal.II
 
@@ -88,7 +105,7 @@ Repeat the steps above for your project.
 
  You may want to go to `Project`->`Properties`->`Project References` and check deal.II (if you set it up as a project before).  We recommend that even if you do not intend to change the deal.II code (Eclipse will be able to provide you documentation and browsing the library code will be much easier).
 
-If deal.II is not detected (message will appear in the Console window), go to `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse`, in `Symbols` tab, click `Add...` inside `CMake cache entries to create`. Set variable name to `deal.II_DIR`, type to `PATH` and specify wherever your deal.II installation is.
+If you set up your project directly in Eclipse, deal.II might not detected (message will appear in the Console window). In that case, go to `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse`, in `Symbols` tab, click `Add...` inside `CMake cache entries to create`. Set variable name to `deal.II_DIR`, type to `PATH` and specify wherever your deal.II installation is.
 
 # Setting up a project depending on deal.II using CMake built-in generators
 

@@ -72,7 +72,7 @@ First, add deal.II itself as a project. This will force the Eclipse indexer to g
 4. Eclipse sometimes is not aware of what is your compiler. To fix/check that:
    1. Click `Advanced Settings`, agree to override existing project settings.
    2. Go to  `C/C++ Build`-> `Settings`, check if the `Command` field is filled correctly, in case if it is `<unnamed>` change it to `g++` (or whatever your compiler is).
-   3. In  `C/C++ General`-> `Preprocessor Inlclude` go to providers and uncheck `Use global provider shared between projects`.
+   3. In  `C/C++ General`-> `Preprocessor Inlclude` go to providers and **uncheck** `Use global provider shared between projects`.
 
 5. After finishing setting up the project the Eclipse Indexer will start working. Since CMake have not been invoked yet there is no point in doing that.  On the right-bottom corner of the window, there will be a green square bouncing horizontally indicating. Click on it, it will open the `Progress` window. Terminate ongoing Indexer process.
 6. Build deal.II. This will invoke CMake to generate `compile_commands.json` file inside the build directory that is later parsed by cmake4eclipse and used to provide paths and symbols for the Eclipse Indexer.
@@ -83,15 +83,19 @@ In  `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse` you can tweak your
 
 
 ## Setting up a project depending on deal.II
+
 Repeat the steps above for your project.
+
  You may want to go to `Project`->`Properties`->`Project References` and check deal.II (if you set it up as a project before).  We recommend that even if you do not intend to change the deal.II code (Eclipse will be able to provide you documentation and browsing the library code will be much easier).
+
+If deal.II is not detected (message will appear in the Console window), go to `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse`, in `Symbols` tab, click `Add...` inside `CMake cache entries to create`. Set variable name to `deal.II_DIR`, type to `PATH` and specify wherever your deal.II installation is.
 
 # Setting up a project depending on deal.II using CMake built-in generators
 
 
 The easiest way to get Eclipse to understand your project is to let CMake generate an Eclipse project for you, assuming you are using CMake. To this end, go to the source directory (using the `step-22` example again) and say
 ```
-  cmake -G"Eclipse CDT4 - Unix Makefiles" -DDEAL_II_DIR=/path/to/deal.II .
+  cmake -G "Eclipse CDT4 - Unix Makefiles" -DDEAL_II_DIR=/path/to/deal.II .
 ```
 This generates not only a Unix Makefile, but also an Eclipse project file. You can get Eclipse to use it by selecting from the menu "File > Import...", then choosing "General > Existing Projects into Workspace". Click on "Next", and in the next dialog window select as the root directory the directory where you ran CMake above. After selecting this directory, Eclipse should show you the name of the project under "Projects". Simply click on "Finish" to let Eclipse choose it. It will then automatically know where to find header files, about build targets, etc.
 

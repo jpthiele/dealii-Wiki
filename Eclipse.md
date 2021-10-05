@@ -38,7 +38,7 @@ The numbers indicate heap size in megabytes. You can control heap status `Window
 
 ## Completely cleaning up the source directory
 
-Eclipse creates two files in the source directory: `.cproject` and  `.project`. If you want to completely clean up the project settings completely, be sure to remove those files after the project is removed from the workspace.
+Eclipse creates two files in the source directory: `.cproject`, `.project` and `.settings`. If you want to completely clean up the project settings completely, be sure to remove those files after the project is removed from the workspace.
 
 ## Removing Eclipse workspace lock
 

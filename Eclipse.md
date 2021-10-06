@@ -59,7 +59,7 @@ The following instructions are based on this answer: https://stackoverflow.com/q
 
 **WARNING**: If you set up your project this way, **DO NOT** use CMake built-in generators, as it will modify the Eclipse project files in the source directory, likely resulting in conflicts and confusing the indexer.
 
-## Setting deal.II itself as a project 
+## Setting deal.II itself as a project from scratch
 
 From the Eclipse menu choose `Help`->`Eclipse Market place...` and search for `cmake4eclipse`, install it.
 First, add deal.II itself as a project. This will force the Eclipse indexer to go through the entire library. 
@@ -76,7 +76,8 @@ First, add deal.II itself as a project. This will force the Eclipse indexer to g
 
 5. After finishing setting up the project the Eclipse Indexer will start working. Since CMake have not been invoked yet there is no point in doing that.  On the right-bottom corner of the window, there will be a green square bouncing horizontally indicating. Click on it, it will open the `Progress` window. Terminate ongoing Indexer process.
 6. Build deal.II. This will invoke CMake to generate `compile_commands.json` file inside the build directory that is later parsed by cmake4eclipse and used to provide paths and symbols for the Eclipse Indexer.
-7.  You can check the paths and symbols provided by cmake4eclipse in `Project`->`Properties`->`C/C++ General`-> `Preprocessor Inlclude`.  Both `CMAKE_EXPORT_COMPILE_COMMANDS Compiler Built-ins` and `CMAKE_EXPORT_COMPILE_COMMANDS Parser` should be now drop-down list.
+7.  You can check the paths and symbols provided by cmake4eclipse in `Project`->`Properties`->`C/C++ General`-> `Preprocessor Inlclude`.  Both `CMAKE_EXPORT_COMPILE_COMMANDS Compiler Built-ins` and `CMAKE_EXPORT_COMPILE_COMMANDS Parser` should be now drop-down list as in the picture below.
+![Notice the triangles near CMAKE_EXPORT_COMPILE_COMMANDS*]( https://www.dealii.org/images/wiki/Eclipse-cmake-export.png)
 
 ### Advanced CMake settings
 In  `Project`->`Properties`->`C/C++ Build` -> `Cmake4Eclipse` you can tweak your CMake settings. In the `Symbols` tab you can specify cmake variables. For example, you can add click add, put `DEAL_II_WITH_MPI` in `Variable name`, set type to `Bool` and put `ON` in `Value` field to enable deal.II with MPI. 

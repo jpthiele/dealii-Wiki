@@ -28,7 +28,7 @@ watching someone else do it. To this end, take a look at training videos 7, 8,
 If you will want to use subversion or some other version control system for the project you are about to set up, you first need to install the Eclipse plugin that can handle this -- installing the plugin later will not convert the project into one that uses subversion, even if the directories in which it is located have previously been created by subversion. See below for how to install the subversion plugin.
 
 # Useful tricks
-
+Eclipse is a powerful piece of software offers a lot of customization option, but you have to know what you are looking for. Below we present a few suggestions that might make it more friendly.
 ## Changing heap size 
 
 The settings file `eclipse.ini` is located right next to Eclipse executable. You might want to increase heap size by changing the following options:
@@ -51,6 +51,10 @@ If you do not like the built-in dark theme of Eclipse, you can try installing pl
 - Spectrum theme: https://marketplace.eclipse.org/content/eclipse-spectrum-dark-theme
 
 After installing the plugin go to `Window`->`Preferences` and search for `Appearance`.
+
+## Filtering Problems/Tasks by active project
+
+In the lower frame, there are `Problems` and `Tasks` tabs. By default all issues from the current workspace are showed that might not be optimal. To change that, locate buttons on the upper-right side of the tab, click on `Filters`, disable `Show all items` and enable whatever you want.
 
 
 # Setting up a workspace in Eclipse using cmake4eclipse

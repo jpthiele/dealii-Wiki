@@ -109,8 +109,10 @@ apt-get install build-essential cmake ninja-build gdb git-core
 ```
 export REPO=ppa:ginggs/deal.ii-9.3.0-backports
 
-apt-get update && apt-get install -y software-properties-common && add-apt-repository $REPO \
-&& apt-get update && apt-get install -y libdeal.ii-dev
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository $REPO
+sudo apt-get install -y libdeal.ii-dev
 ```
 
 # Candi

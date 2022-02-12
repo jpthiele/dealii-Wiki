@@ -96,6 +96,8 @@ apt-get install build-essential cmake ninja-build gdb git-core
   https://github.com/dealii/dealii/releases and download and install it.
   For more details see https://github.com/dealii/dealii/wiki/MacOSX
 
+  Note: If you are running one of the newer ARM M1 chips, please see https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX instead. The binary packages will not work.
+
   Otherwise, the .dmg is also a convenient way to acquire common dependencies
   and installing from source is easy, see "Installation from source".
 

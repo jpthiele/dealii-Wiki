@@ -53,7 +53,7 @@ are called `libdeal.ii-dev` and `libdeal.ii-doc`:
 
 1. As root user (see above) run:
    ```console
-    export REPO=ppa:ginggs/deal.ii-9.2.0-backports
+    export REPO=ppa:ginggs/deal.ii-9.3.0-backports
     apt-get update && apt-get install -y software-properties-common
     add-apt-repository $REPO
     apt-get update

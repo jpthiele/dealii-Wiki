@@ -6,7 +6,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 ## Overview of main topics spanned by the deal.II wiki:
 
-### Installation
+### Installation:
 
 * [Download](https://www.dealii.org/download.html)
 * [README and installation instructions](https://www.dealii.org/developer/readme.html)
@@ -53,7 +53,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 [Cubit](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [High-order visualization with Paraview](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Matlab](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Intel Trace Analyzer and Collector](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Function Plotting Tool](https://github.com/dealii/dealii/wiki/Function-Plotting-Tool)
 
-### Miscellaneous
+### Miscellaneous:
 
 [DoF Handler](https://github.com/dealii/dealii/wiki/DoF-Handler), [Electromagnetic problem](https://github.com/dealii/dealii/wiki/Electromagnetic-problem), [Tensor product structures for polynomials and quadrature](https://github.com/dealii/dealii/wiki/Tensor-product-structures-for-polynomials-and-quadrature), [White papers](https://github.com/dealii/dealii/wiki/White-papers)
 

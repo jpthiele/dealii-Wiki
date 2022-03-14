@@ -1,9 +1,14 @@
 Welcome to the deal.II wiki! This wiki collects explanations and advice for many topics, in particular installation support, guidelines for contributions, FAQs, etc.
 
+At several places, the wiki refers to pages on https://www.dealii.org/.
+
+In case you have questions, contact  the [deal.II mailing list](https://www.dealii.org/mail.html).
+
 ## Overview of main topics spanned by the deal.II wiki:
 
 ### Installation
 
+* [Download](https://www.dealii.org/download.html)
 * [README and installation instructions](https://www.dealii.org/developer/readme.html)
 * [Getting deal.II](https://github.com/dealii/dealii/wiki/Getting-deal.II)
 * Apple/MacOS: see wiki pages [MacOSX](https://github.com/dealii/dealii/wiki/MacOSX) and [Apple ARM M1 OSX](https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX)
@@ -13,9 +18,18 @@ Welcome to the deal.II wiki! This wiki collects explanations and advice for many
 * Docker: see [Docker Images](https://github.com/dealii/dealii/wiki/Docker-Images)
 * [Power architecture](https://github.com/dealii/dealii/wiki/Power-architecture)
 
+### Getting used to deal.II
+
+* [deal.II manual](https://www.dealii.org/developer/doxygen/deal.II/index.html)
+* [deal.II tutorials](https://www.dealii.org/developer/doxygen/deal.II/Tutorial.html)
+
+### FAQs:
+
+* [Frequently Asked Questions](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions)
+
 ### Developing/contributing:
 
-* [Contributing](https://github.com/dealii/dealii/wiki/Contributing) main page
+* [Contributing](https://github.com/dealii/dealii/wiki/Contributing)
 * [Coding conventions](https://www.dealii.org/developer/doxygen/deal.II/CodingConventions.html)
 * [Indentation](https://github.com/dealii/dealii/wiki/Indentation)
 * [Commit Authorship](https://github.com/dealii/dealii/wiki/Commit-authorship)
@@ -23,10 +37,6 @@ Welcome to the deal.II wiki! This wiki collects explanations and advice for many
 * [Testing infrastructure (Continuous Integration)](https://github.com/dealii/dealii/wiki/Testing-Infrastructure)
 * [The deal.II Testsuite (ctest)](https://www.dealii.org/developer/developers/testsuite.html)
 * Working with Integrated Development Environments: [Eclipse](https://github.com/dealii/dealii/wiki/Eclipse), [KDevelop](https://github.com/dealii/dealii/wiki/KDevelop), [QtCreator](https://github.com/dealii/dealii/wiki/QtCreator), and for the nostalgics: [Emacs](https://github.com/dealii/dealii/wiki/Emacs)
-
-### FAQs:
-
-* [Frequently Asked Questions](https://github.com/dealii/dealii/wiki/Frequently-Asked-Questions)
 
 ### Publishing and literature:
 

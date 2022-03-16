@@ -20,8 +20,8 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 ### Getting used to deal.II
 
-* [deal.II manual](https://www.dealii.org/developer/doxygen/deal.II/index.html)
-* [deal.II tutorials](https://www.dealii.org/developer/doxygen/deal.II/Tutorial.html)
+* [deal.II Manual](https://www.dealii.org/developer/doxygen/deal.II/index.html)
+* [deal.II Tutorials](https://www.dealii.org/developer/doxygen/deal.II/Tutorial.html)
 
 ### FAQs:
 

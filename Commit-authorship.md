@@ -1,4 +1,4 @@
-We require that all the commits are made with a valid name ("Firstname Lastname") and a valid email address. This is mainly to be able to attribute contributions to you for each release and to be able to track the number of contributors over time.
+We require that all the commits are made with a valid name ("Firstname Lastname") and a valid email address. This is mainly so we can attribute contributions to you for each release and to be able to track the number of contributors over time.
 You can check your setting using:
 ```
 $ git config --global -l

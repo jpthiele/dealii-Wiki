@@ -57,9 +57,9 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 [DoF Handler](https://github.com/dealii/dealii/wiki/DoF-Handler), [Electromagnetic problem](https://github.com/dealii/dealii/wiki/Electromagnetic-problem), [Tensor product structures for polynomials and quadrature](https://github.com/dealii/dealii/wiki/Tensor-product-structures-for-polynomials-and-quadrature), [White papers](https://github.com/dealii/dealii/wiki/White-papers)
 
-## A word of caution for contributors: 
+## On generating and editing pages for this wiki 
 
-due to limitations with Github's wiki implementation, the table of contents for each individual page is manually generated. In particular, the shell script at
+Due to limitations with Github's wiki implementation, the table of contents for each individual page is manually generated. In particular, the shell script at
 
 https://github.com/ekalinin/github-markdown-toc
 

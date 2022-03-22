@@ -18,7 +18,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 * Docker: see [Docker Images](https://github.com/dealii/dealii/wiki/Docker-Images)
 * [Power architecture](https://github.com/dealii/dealii/wiki/Power-architecture)
 
-### Getting used to deal.II
+### Getting used to deal.II:
 
 * [deal.II Manual](https://www.dealii.org/developer/doxygen/deal.II/index.html)
 * [deal.II Tutorials](https://www.dealii.org/developer/doxygen/deal.II/Tutorial.html)

@@ -9,15 +9,15 @@ ${SOURCE_DIR}/.clang-format
 
 #### clang-format -i
 
-Before a commit, you should run
+Before a commit, you could manually run
 ```bash
 clang-format -i <file>
 ```
-on each of your files. This will make sure indentation is conforming to the style guidelines outlined in this page.
+on each of the files you have edited or changed in other ways. This will make sure indentation is conforming to the style guidelines outlined in this page.
 
 #### make indent
 
-This is cumbersome. Consequently, and more easily, you can just run
+The manual process described above is cumbersome. Consequently, and more easily, you can just run
 ```bash
 make indent
 ```
@@ -30,11 +30,11 @@ to point to the correct executable.
 
 #### contrib/utilities/indent
 
-You can check locally by running
+Alternatively, for example if you don't have a build directory (maybe because you just wanted to change a few lines of the documentation, rather than build a complete version of deal.II), you can also just run the following command in the source directory:
 ```
 ./contrib/utilities/indent
 ```
-in your main deal.ii directory.
+This is equivalent to running `make indent` in the build directory.
 
 This script will apply formatting automatically and report other potential problems in your contribution. It is recommended to run this locally before you create a pull request (see https://github.com/dealii/dealii/wiki/Contributing for details about that). Otherwise, the continuous integration tester, that also runs the same script, will flag your pull request.
 

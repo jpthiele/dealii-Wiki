@@ -12,7 +12,7 @@ Running clang-format (see below) will apply formatting automatically to source f
 Specifically, the indent script does the following things:
 1. Format all header, source, and .inst.in files using clang-format.
 2. Fix permissions and line endings (for example remove executable bits for source files, and remove whitespace at the end of source files).
-3. Check for valid authorship of your commits (see below).
+3. Check for valid authorship of your commits.
 
 #### clang-format -i
 

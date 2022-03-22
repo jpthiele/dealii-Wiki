@@ -2,10 +2,17 @@ We enforce certain code formatting and prevent other stylistic issues automatica
 
 ## Overview
 
-deal.II uses clang-format 11.1 to normalize indentation. A style file is provided at
+deal.II uses clang-format 11.1 to normalize indentation across all source files. clang-format is a program that, like a compiler, reads the lines of code in a file, but then simply prints it out again in a way that uses a common style; for example, it uses a common maximal line length, knows whether or not there should be a space between an `if` and the opening parenthesis, and so on. The behavior of clang-format s controlled by a style file that is provided at
 ```bash
 ${SOURCE_DIR}/.clang-format
 ```
+
+Running clang-format (see below) will apply formatting automatically to source files, but there are other tasks one often wants to perform around the idea of uniform indentation. As a consequence, the `make indent` and `./contrib/utilities/indent` steps mentioned below also report other potential problems in modified files. As a consequence, you should run one of the other of these steps locally before you create a pull request (see https://github.com/dealii/dealii/wiki/Contributing for details about that): if you don't, and if there is a problem in the files you are submitting in the pull request, the continuous integration tester (which also runs these same scripts) will flag your pull request and it can't be merged.
+
+Specifically, the indent script does the following things:
+1. Format all header, source, and .inst.in files using clang-format.
+2. Fix permissions and line endings (for example remove executable bits for source files, and remove whitespace at the end of source files).
+3. Check for valid authorship of your commits (see below).
 
 #### clang-format -i
 
@@ -36,12 +43,6 @@ Alternatively, for example if you don't have a build directory (maybe because yo
 ```
 This is equivalent to running `make indent` in the build directory.
 
-This script will apply formatting automatically and report other potential problems in your contribution. It is recommended to run this locally before you create a pull request (see https://github.com/dealii/dealii/wiki/Contributing for details about that). Otherwise, the continuous integration tester, that also runs the same script, will flag your pull request.
-
-Currently, the indent script does the following things:
-1. Format all header, source, and .inst.in files using clang-format.
-2. Fix permissions and line endings (for example remove executable bits for source files).
-3. Check for valid authorship of your commits (see below).
 
 #### pre-commit hook
 

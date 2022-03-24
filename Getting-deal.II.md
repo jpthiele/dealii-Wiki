@@ -109,7 +109,7 @@ apt-get install build-essential cmake ninja-build gdb git-core
   For example, if you are running Ubuntu 18.04 or 20.04 you can use the deal.II package using
 
 ```
-export REPO=ppa:ginggs/deal.ii-9.3.0-backports
+export REPO=ppa:ginggs/deal.ii-9.3.2-backports
 
 sudo apt-get update
 sudo apt-get install -y software-properties-common

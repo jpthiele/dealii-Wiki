@@ -80,7 +80,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 ```
 sudo -i
 
-export REPO=ppa:ginggs/deal.ii-9.3.0-backports
+export REPO=ppa:ginggs/deal.ii-9.3.2-backports
 
 apt-get update && apt-get install -y software-properties-common
 add-apt-repository $REPO

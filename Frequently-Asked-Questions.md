@@ -1639,7 +1639,7 @@ attached to cells and edges that leads to non-straight edges. For example,
 step-1 and step-2 already use this for the annular mesh. This is how the
 SVG output for this mesh looks like:
 
-<img width="400px" src="http://www.dealii.org/images/wiki/gap-in-q2-2.png" align="center" />
+<img width="400px" src="http://www.dealii.org/images/wiki/gap-in-mesh.png" align="center" />
 
 Here, internally, the edges are all curved and describe circle segments,
 but the output visualizes them as straight edges. As a consequence,

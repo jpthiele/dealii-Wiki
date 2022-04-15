@@ -1637,7 +1637,8 @@ see again the documentation of `DataOut::build_patches`.
 There is a related problem if you have a mesh that has a manifold
 attached to cells and edges that leads to non-straight edges. For example,
 step-1 and step-2 already use this for the annular mesh. This is how the
-SVG output for this mesh looks like:
+SVG output for this mesh looks like (take a close look at the second ring
+of edges from the outside, or just zoom into the picture):
 
 <img width="400px" src="http://www.dealii.org/images/wiki/gap-in-mesh.png" align="center" />
 

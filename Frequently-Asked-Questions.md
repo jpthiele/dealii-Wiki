@@ -1595,11 +1595,16 @@ same.
 
 ### In my graphical output, the solution appears discontinuous at hanging nodes
 
-Let me guess -- you are using higher order elements? If that's the
+Let me guess -- you are using higher order elements or a manifold that describes
+curved geometries? If that's the
 case, then the solution only looks discontinuous but isn't
-really. What's happening is that the solution is, in fact, a higher
+really -- it's just that we can't describe exactly to visualization
+programs what deal.II is doing internally. 
+
+Let's consider the "higher order element" case first.
+What's happening is that the solution is, in fact, a higher
 order polynomial (e.g., a quadratic polynomial) along each edge of a
-cell but because all visualization file formats only support writing
+cell but because most visualization file formats only support writing
 data as bilinear elements we need to write data in a way that shows
 only a linear interpolation of this higher order polynomial along each
 edge. This is no problem if the two neighboring elements share the
@@ -1624,13 +1629,30 @@ lessen the problem by not plotting just a linear interpolation on each
 cell but outputting the solution as a linear interpolation on a larger
 number of "patches" per cell (e.g., plotting 5x5 patches per
 cell). This can be done by using the `DataOut::build_patches` function
-with an argument larger than one -- see its documentation.
+with an argument larger than one -- see its documentation. At least
+using sufficiently new visualization tools, you can also output
+information that shows the solution as a higher-order polynomial --
+see again the documentation of `DataOut::build_patches`.
 
-This all said, if you are in fact using a Q1 element and you see such
-gaps in the solution, then something is genuinely wrong. One
+There is a related problem if you have a mesh that has a manifold
+attached to cells and edges that leads to non-straight edges. For example,
+step-1 and step-2 already use this for the annular mesh. This is how the
+SVG output for this mesh looks like:
+
+<img width="400px" src="http://www.dealii.org/images/wiki/gap-in-q2-2.png" align="center" />
+
+Here, internally, the edges are all curved and describe circle segments,
+but the output visualizes them as straight edges. As a consequence,
+_internally_ the mesh is continuous, but when visualized, it looks like
+the two small edges do not actually cover the one large edge at a
+hanging node.
+
+This all said, there are cases where there really is a bug in your code.
+For example, if you are in fact using a Q1 element and you see
+gaps in the solution in the first set of pictures above, then something is genuinely wrong. One
 possibility is that you forget to call `AffineConstraints::distribute()`
 after solving the linear system, or you do not set up these
-constraints correctly. In either case, it's a bug if this happens with
+constraints correctly to begin with. In either case, it's a bug if this happens with
 Q1 elements.
 
 ### When I run the tutorial programs, I get slightly different results

@@ -10,7 +10,7 @@ The application is only a launcher for the `Terminal.app` application, which set
 
 The examples are in the folder
 
-	/Applications/deal.II.app/Contents/Resources/examples/
+	/Applications/deal.II.app/Contents/Resources/Libraries/share/deal.II/examples/
 
 This application is always built with the latest version of the MacOS X operating system, and with the latest version of XCode. See instructions below to make sure your system is compatible with the binary application.
 

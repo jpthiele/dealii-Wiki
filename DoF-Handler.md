@@ -92,7 +92,7 @@ As far as I can see, the regular dofs can only be accessed on active cells, so w
 
 ## Closely entangled Trangulation and DoFHandler objects
 
-The structures in DoFHandler, namely DoFLevel and DoFFaces currently mirror the same structures in the Triangulation. This is a questionable practice, since none of the DoFHandler objects has the same hierarchical structure. DoFHandler and hp::DoFHandler only live on the finest level. MGDoFHandler has degrees of freedom on each level and thus duplicates them in vertices.
+The structures in DoFHandler, namely DoFLevel and DoFFaces currently mirror the same structures in the Triangulation. This is a questionable practice, since none of the DoFHandler objects has the same hierarchical structure. DoFHandler only lives on the finest level. MGDoFHandler has degrees of freedom on each level and thus duplicates them in vertices.
 On the other hand, the Triangulation structures are complicated and require a lot of specializations, which makes maintaining DoFHandler objects difficult.
 
 ## Features which may not be beneficial

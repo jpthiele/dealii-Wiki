@@ -2,6 +2,9 @@
 
 <!-- No auto-Table of Contents support! -->
 
+If you are running one of the newer ARM devices (M1, M2, etc.), please see https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX instead. If you are using
+an Intel laptop, please read on.
+
 ## Installing the prepacked image file
 
 The easiest way to install dealII on Mac OS X is by downloading the prepackaged `.dmg` file from the download page. Simply download and drag the `deal.II.app` to the `/Applications/` folder.

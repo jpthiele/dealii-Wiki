@@ -51,7 +51,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 ### Scripts and Tips & Tricks:
 
-[Cubit](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [High-order visualization with Paraview](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Matlab](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Intel Trace Analyzer and Collector](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [Function Plotting Tool](https://github.com/dealii/dealii/wiki/Function-Plotting-Tool)
+[Cubit](https://github.com/dealii/dealii/wiki/Mesh-Input-And-Output), [High-order visualization with Paraview](https://github.com/dealii/dealii/wiki/Notes-on-visualizing-high-order-output), [Matlab](https://github.com/dealii/dealii/wiki/Interfacing-With-Matlab), [Intel Trace Analyzer and Collector](https://github.com/dealii/dealii/wiki/Intel-Trace-Analyzer-and-Collector), [Function Plotting Tool](https://github.com/dealii/dealii/wiki/Function-Plotting-Tool)
 
 ### Miscellaneous:
 

@@ -8,7 +8,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 
 ### Installation:
 
-* [Download](http://goo-gl.me/FR0T3)
+* [Download](https://www.dealii.org/download.html)
 * [README and installation instructions](https://www.dealii.org/developer/readme.html)
 * [Getting deal.II](https://github.com/dealii/dealii/wiki/Getting-deal.II)
 * Apple/MacOS: see wiki pages [MacOSX](https://github.com/dealii/dealii/wiki/MacOSX) and [Apple ARM M1 OSX](https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX)

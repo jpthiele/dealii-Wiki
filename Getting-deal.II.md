@@ -106,7 +106,7 @@ apt-get install build-essential cmake ninja-build gdb git-core
   We provide packages to several linux distributions as shown under 
   "Linux distributions" at https://www.dealii.org/download.html
 
-  For example, if you are running Ubuntu 18.04 or 20.04 you can use the deal.II package using
+  For example, if you are running Ubuntu 20.04 or 22.04 you can use the deal.II package using
 
 ```
 export REPO=ppa:ginggs/deal.ii-9.4.0-backports
@@ -116,6 +116,9 @@ sudo apt-get install -y software-properties-common
 sudo add-apt-repository $REPO
 sudo apt-get install -y libdeal.ii-dev
 ```
+
+For a complete list of backports see https://github.com/dealii/dealii/wiki/Debian-and-Ubuntu
+
 
 # Candi
   Candi is a tool maintained by the deal.II community to install deal.II and

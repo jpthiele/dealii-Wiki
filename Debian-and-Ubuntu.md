@@ -5,7 +5,8 @@ Based on your version of Ubuntu and Debian, the default packaged version of deal
 - Ubuntu 18.04: default: 8.5.1, supported backports: 9.2.0
 - Ubuntu 20.04: default: 9.1.1, supported backports: 9.4.0, 9.3.2, 9.2.0
 - Ubuntu 22.04: default: 9.3.2, supported backports: 9.4.0
-- Debian (TODO)
+- Debian 12 (bookworm, testing): 9.4.0
+- Debian 11 (bullseye, stable): 9.2.0
 
 ## installing the default version packaged with your system:
 ```

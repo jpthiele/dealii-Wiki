@@ -1,5 +1,8 @@
 This document describes installation instructions for deal.II for Apple ARM devices (M1 and similar, including the mac mini and macbook pro).
 
+**Please note:**
+While deal.II was found to be working using the instructions below, please keep in mind that it is not a commonly used platform by the core deal.II team and not everything is guaranteed to work. Future updates to macOS might also break what was once working. Additionally, some parts of deal.II are not optimized on ARM and are likely more performant on x64 machines.
+
 ## 1. Set up system
 
 Open a native terminal and check that typing ``machine`` returns ``arm64e``, if not, you are running under Rosetta emulation. 
@@ -19,7 +22,7 @@ You now have the following compilers:
 2. gcc / g++ (in /usr/bin): these are symlinks to clang
 3. gcc-11 / g++-11 (/opt/homebrew/bin): installed by homebrew (version 11 when I wrote this)
 
-You can compile with gcc 11 but this is not recommended (see the bottom of this document for more info). By default, mpicxx will use ``gcc``, which is actually ``clang``.
+You can compile with gcc 11 but this is not recommended (see the bottom of this document for more information). By default, mpicxx will use ``gcc``, which is actually ``clang``. You can check that this is the case on your machine by checking the last line printed by ``mpicxx -v``.
 
 ## 3. Install deal.II and dependencies
 

@@ -99,7 +99,11 @@ apt-get install build-essential cmake ninja-build gdb git-core
   Note: If you are running one of the newer ARM M1 chips, please see https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX instead. The binary packages will not work.
 
   Otherwise, the .dmg is also a convenient way to acquire common dependencies
-  and installing from source is easy, see "Installation from source".
+  and installing from source is then easy, see "Installation from source".
+  
+  If the .dmg does not work for you (different MacOS version or you encounter other problems),
+  you can always [Install from source](https://github.com/dealii/dealii/wiki/Getting-deal.II#installation-from-source)
+  (if you don't need other dependencies), or using [candi](https://github.com/dealii/dealii/wiki/Getting-deal.II#candi) (if you do).
 
 # Linux packages
 

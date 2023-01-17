@@ -8,13 +8,13 @@ Based on your version of Ubuntu and Debian, the default packaged version of deal
 - Debian 12 (bookworm, testing): 9.4.0
 - Debian 11 (bullseye, stable): 9.2.0
 
-## installing the default version packaged with your system:
+## Installing the default version packaged with your system:
 ```
 apt-get install libdeal.ii-dev
 ```
 
 
-## installing a backport (replace XXX with the version listed above):
+## Installing a backport (replace XXX with the version listed above):
 
 ```
 sudo -i

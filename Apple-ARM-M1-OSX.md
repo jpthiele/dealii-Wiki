@@ -18,9 +18,9 @@ Then install homebrew as detailed on https://brew.sh/
 ## A Note about compilers choice
 
 You now have the following compilers:
-1. clang / clang++ (in /usr/bin): this is the system clang compiler
+1. clang / clang++ (in /usr/bin): this is the system Apple clang compiler
 2. gcc / g++ (in /usr/bin): these are symlinks to clang
-3. gcc-11 / g++-11 (/opt/homebrew/bin): installed by homebrew (version 11 when I wrote this)
+3. gcc-11 / g++-11 (/opt/homebrew/bin): GCC installed by homebrew (version 11 when I wrote this)
 
 You can compile with gcc 11 but this is not recommended (see the bottom of this document for more information). By default, mpicxx will use ``gcc``, which is actually ``clang``. You can check that this is the case on your machine by checking the last line printed by ``mpicxx -v``.
 

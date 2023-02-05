@@ -13,7 +13,7 @@ Then install homebrew as detailed on https://brew.sh/
 
 ## 2. Install compiler and MPI
 
-``brew install cmake open-mpi gcc@11``
+``brew install --cc=clang cmake open-mpi gcc@11``
 
 ## A Note about compilers choice
 

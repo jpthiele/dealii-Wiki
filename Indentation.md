@@ -46,6 +46,6 @@ This is equivalent to running `make indent` in the build directory.
 
 #### pre-commit hook
 
-If you want to make sure that the indenting is correct for all your commits, you might want to set up a pre-commit hook. One way to do so, is to copy ${SOURCE_DIR}/contrib/git-hooks/pre-commit to ${SOURCE_DIR}/.git/hooks/pre-commit and make sure it is executable.
+If you want to make sure that the indenting is correct for all your commits, you might want to set up a pre-commit hook. One way to do so, is to copy `${SOURCE_DIR}/contrib/git-hooks/pre-commit` to `${SOURCE_DIR}/.git/hooks/pre-commit` and make sure it is executable.
 
 

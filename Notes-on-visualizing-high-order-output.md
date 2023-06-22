@@ -12,7 +12,7 @@ Finally, we write the mesh along with the finite-element representation of the f
 
 ### Visualization
 
-The produced _vtu_ files were loaded in the ParaView v5.7. Even though the mesh is high-order, ParaView uses (bi-/tri-)linear interpolation between the Lagrange points by default. To enable the high-order interpolation, you need to locate the property "Nonlinear Subdivision Level" in the object properties (the easiest way to do this is to search for this field by its name) and set the value to a number larger than one, according to your needs:
+The produced _vtu_ files were loaded in ParaView v5.7. (As of 2023, Visit 3.3.3 is still not able to read these files correctly, and so ParaView is your only choice in visualizing this kind of data for the moment.) Even though the mesh is high-order, ParaView uses (bi-/tri-)linear interpolation between the Lagrange points by default. To enable the high-order interpolation, you need to locate the property "Nonlinear Subdivision Level" in the object properties (the easiest way to do this is to search for this field by its name) and set the value to a number larger than one, according to your needs:
 
 ![Nonlinear Subdivision Level](https://github.com/agrayver/dealii_wiki_imgs/blob/master/subdivision_option.png)
 

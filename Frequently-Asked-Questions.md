@@ -1324,7 +1324,7 @@ in an attempt to find a function with the name `f`.
 The answer to this question depends on the version of deal.II that you are
 interested in using.
 
-#### deal.II versions after 9.2
+#### deal.II versions after 9.5
 
 While deal.II version 9.5 only requires C++14 support, versions after 9.5 actually
 require C++17 support from compilers. 

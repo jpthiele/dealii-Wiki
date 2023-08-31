@@ -44,6 +44,7 @@ This page collects a few answers to questions that have frequently been asked ab
       * [Why do I need to use typename in all these templates?](#why-do-i-need-to-use-typename-in-all-these-templates)
       * [Why do I need to use this-&gt; in all these templates?](#why-do-i-need-to-use-this--in-all-these-templates)
       * [Does deal.II require C++11/C++14/C++17 support?](#does-dealii-require-c11c14c17-support)
+        * [deal.II versions after 9.5](#dealii-versions-after-95)
         * [deal.II versions after 9.2](#dealii-versions-after-92)
         * [deal.II version 9.0 and later](#dealii-version-90-and-later)
         * [deal.II version 8.5.0 and older](#dealii-version-850-and-older)
@@ -1325,12 +1326,16 @@ interested in using.
 
 #### deal.II versions after 9.2
 
-While deal.II version 9.2 only requires C++11 support, versions after 9.2 actually
-require C++14 support from compilers. 
+While deal.II version 9.5 only requires C++14 support, versions after 9.5 actually
+require C++17 support from compilers. 
+
+#### deal.II versions after 9.2
+
+deal.II versions 9.3, 9.4, and 9.5 require C++14 support from compilers. 
 
 #### deal.II version 9.0 and later
 As of version 9.0.0, deal.II requires C++11 support equivalent to that provided
-by GCC 4.8.0, which is, essentially, all of the features that are new C++11.
+by GCC 4.8.0, which is, essentially, all of the features that are new in C++11.
 
 #### deal.II version 8.5.0 and older
 deal.II up to version 8.5.0 is compatible with the C++98 and C++03

@@ -31,8 +31,7 @@ git clone https://github.com/dealii/candi
 cd candi
 ./candi.sh -j 8 --packages="hdf5 p4est trilinos dealii"
 ```
-Note: If you need additional dependencies, try them at your own risk. You might need to switch to the ``master`` candi branch (at least at the time this guide was written).
-
+Note: If you need additional dependencies, try them at your own risk. Not all of them are working at this time.
 
 ## Why not gcc?
 

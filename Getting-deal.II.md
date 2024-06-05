@@ -110,8 +110,12 @@ apt-get install build-essential cmake ninja-build gdb git-core
   We provide packages to several linux distributions as shown under 
   "Linux distributions" at https://www.dealii.org/download.html
 
-  For example, if you are running Ubuntu 20.04 or 22.04 you can use the deal.II package using
+  If you are using Ubuntu 24.04 you can use the deal.II package to install 9.5.1 using:
+```
+sudo apt-get install -y libdeal.ii-dev
+```
 
+  If you are running Ubuntu 20.04 or 22.04 you can use deal.II version 9.5.1 using:
 ```
 export REPO=ppa:ginggs/deal.ii-9.5.1-backports
 

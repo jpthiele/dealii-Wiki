@@ -72,9 +72,9 @@ Please follow the following guidelines:
   WSL installation steps:
   1. Enable WSL in an Admin Power Shell (see [WSL Guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for more details):
 ```
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+wsl --install
 ```
-  2. Open the Microsoft store and install "Ubuntu 20.04"
+  2. Open the Microsoft store and install "Ubuntu 22.04"
   3. Reboot your computer, open "Ubuntu", a terminal appears and you are asked to create an account.
   4. Install deal.II:
 ```

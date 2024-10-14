@@ -74,13 +74,13 @@ Please follow the following guidelines:
 ```
 wsl --install
 ```
-  2. Open the Microsoft store and install "Ubuntu 22.04"
+  2. Open the Microsoft store and install "Ubuntu 22.04" or "Ubuntu 24.04"
   3. Reboot your computer, open "Ubuntu", a terminal appears and you are asked to create an account.
   4. Install deal.II:
 ```
 sudo -i
 
-export REPO=ppa:ginggs/deal.ii-9.5.1-backports
+export REPO=ppa:ginggs/deal.ii-9.6.0-backports
 
 apt-get update && apt-get install -y software-properties-common
 add-apt-repository $REPO

@@ -110,14 +110,9 @@ apt-get install build-essential cmake ninja-build gdb git-core
   We provide packages to several linux distributions as shown under 
   "Linux distributions" at https://www.dealii.org/download.html
 
-  If you are using Ubuntu 24.04 you can use the deal.II package to install 9.5.1 using:
+  If you are running Ubuntu 22.04 or 24.04 you can use deal.II version 9.6.0 using:
 ```
-sudo apt-get install -y libdeal.ii-dev
-```
-
-  If you are running Ubuntu 20.04 or 22.04 you can use deal.II version 9.5.1 using:
-```
-export REPO=ppa:ginggs/deal.ii-9.5.1-backports
+export REPO=ppa:ginggs/deal.ii-9.6.0-backports
 
 sudo apt-get update
 sudo apt-get install -y software-properties-common
@@ -125,8 +120,7 @@ sudo add-apt-repository $REPO
 sudo apt-get install -y libdeal.ii-dev
 ```
 
-For a complete list of backports see https://github.com/dealii/dealii/wiki/Debian-and-Ubuntu
-
+For a complete list of packaged versions and backports see https://github.com/dealii/dealii/wiki/Debian-and-Ubuntu
 
 # Candi
   Candi is a tool maintained by the deal.II community to install deal.II and

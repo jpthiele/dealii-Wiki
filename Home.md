@@ -32,6 +32,7 @@ In case you have questions, contact  the [deal.II mailing list](https://www.deal
 * [Contributing](https://github.com/dealii/dealii/wiki/Contributing)
 * [Coding conventions](https://www.dealii.org/developer/doxygen/deal.II/CodingConventions.html)
 * [Indentation](https://github.com/dealii/dealii/wiki/Indentation)
+* [Pre-commit checks (local & CI)](https://github.com/dealii/dealii/wiki/Pre-commit)
 * [Commit Authorship](https://github.com/dealii/dealii/wiki/Commit-authorship)
 * [Debugging with GDB](https://github.com/dealii/dealii/wiki/Debugging-with-GDB)
 * [Testing infrastructure (Continuous Integration)](https://github.com/dealii/dealii/wiki/Testing-Infrastructure)
